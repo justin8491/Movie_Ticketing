@@ -9,10 +9,13 @@ import java.util.List;
 
 import javax.sql.DataSource;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.box.small.dto.Movie;
 
-public class MovieDAOimpl implements movieDAO{	//	연결이 되어야 쓸수있긴한데 일단 연결 되었다고 생각하고 명령문만 정리해놓자
+public class movieDAOImpl implements movieDAO{	//	연결이 되어야 쓸수있긴한데 일단 연결 되었다고 생각하고 명령문만 정리해놓자
 	
+	@Autowired
 	DataSource ds;
 	
 	@Override
@@ -54,6 +57,7 @@ public class MovieDAOimpl implements movieDAO{	//	연결이 되어야 쓸수있긴한데 일�
 	@Override
 	public void sellectAlltheater() throws SQLException {	//	theater테이블에서 모든 정보를 가져오는 메소드
 		Connection conn = ds.getConnection();
+		
 		String sql = "select * from theater";
 	}
 
