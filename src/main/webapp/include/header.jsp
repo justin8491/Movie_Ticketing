@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath }" />
-<link rel="stylesheet" href="${contextPath}/resources/css/NewFile.css" />
+<link rel="stylesheet" href="${contextPath}/resources/css/header.css" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,8 +20,8 @@
 </head>
 
 <div class="logo">
-	
-		
+
+
 </div>
 
 <body>
@@ -33,9 +33,9 @@
 				<li><a href="${contextPath}/user/movie/detailMovie">영화</a></li>
 				<li><a href="#">예매</a></li>
 				<li><a href="#">영화관</a></li>
-				<li><a href="#">로그인</a></li>
+				<li><a href="#">로그인</a></li>	
 				<li><a href="#">마이페이지(임시)</a></li>
-				<li><a href="#">고객센터</a></li>
+				<li><a href="${contextPath}/user/support/support">고객센터</a></li>
 			</ul>			
 		</nav>
 	</div>

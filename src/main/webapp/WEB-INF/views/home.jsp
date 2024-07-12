@@ -4,14 +4,11 @@
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <html>
 <head>
-<jsp:include page="${contextPath}/include/header.jsp" />
+<%@ include file = "../../include/header.jsp" %>
 	<title>Home</title>
+	<title>smallBox</title>
 </head>
 <body>
-<h1>
-	Hello world!  
-</h1>
 
-<P>  The time on the server is ${serverTime}. </P>
 </body>
 </html>
