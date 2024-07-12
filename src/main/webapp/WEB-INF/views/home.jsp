@@ -3,6 +3,7 @@
 <%@ page session="false" %>
 <html>
 <head>
+<%@ include file = "user/test/include/header.jsp" %>
 	<title>Home</title>
 </head>
 <body>
