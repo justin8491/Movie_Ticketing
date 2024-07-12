@@ -18,12 +18,11 @@ public class MovieController {
 
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
-	/**
-	 * Simply selects the home view to render by returning its name.
-	 */
 	@RequestMapping(value = "/user/movie/detailMovie", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 
+		
+		
 		return "user/movie/detailMovie";
 	
 }

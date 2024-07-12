@@ -2,9 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath }" />
-
 <link rel="stylesheet" href="${contextPath}/resources/css/NewFile.css" />
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,6 +11,8 @@
 	content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'
 	name='viewport'>
 <title>main</title>
+
+<link rel="stylesheet" href="${contextPath}/resources/css/NewFile.css" />
 <link href="${contextPath}/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 <!-- jQuery 3.4.1 -->
 <script src="${contextPath}/resources/jQuery/jquery-3.4.1.min.js"></script>
