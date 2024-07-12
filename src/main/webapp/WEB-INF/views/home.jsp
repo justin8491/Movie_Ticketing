@@ -3,7 +3,12 @@
 <%@ page session="false" %>
 <html>
 <head>
+
+<%@ include file = "../../include/header.jsp" %>
+
+
 	<title>Home</title>
+	
 </head>
 <body>
 <h1>
@@ -12,4 +17,7 @@
 
 <P>  The time on the server is ${serverTime}. </P>
 </body>
+<footer>
+<%@ include file = "../../include/footer.jsp" %>
+</footer>
 </html>
