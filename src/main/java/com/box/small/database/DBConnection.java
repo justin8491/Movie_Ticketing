@@ -8,14 +8,14 @@ package com.box.small.database;
 
 	public class DBConnection {
 	    public static void main(String[] args) throws Exception {
-	        // µ¥ÀÌÅÍ Á¤º¸°¡ °è¼Ó ¹Ù²ğ ¶§ ¸¶´Ù ÀÌ°Å¸¦ °è¼Ó °íÄ¡°í ÄÄÆÄÀÏÇÏ°í ¹İº¹ÀÌµÊ
+	        // ë°ì´í„° ì •ë³´ê°€ ê³„ì† ë°”ë€” ë•Œ ë§ˆë‹¤ ì´ê±°ë¥¼ ê³„ì† ê³ ì¹˜ê³  ì»´íŒŒì¼í•˜ê³  ë°˜ë³µì´ë¨
 	        String DB_URL = "jdbc:mysql://localhost:3306/movie?useSSL=false&useUnicode=true&characterEncoding=utf8";
 	//						"jdbc:mysql://localhost/movie"
 //	        String DB_USER = "root";
 //	        String DB_PASSWORD = "12345";
 //	        String DB_DRIVER = "com.mysql.cj.jdbc.Driver";
 	//
-	          // setterÃ³¸®¸¦ ÇÁ·ÎÆÛÆ¼ÅÂ±×·Î Ã³¸® -> ºóÅÂ±×·Î ¹Ù²Ş -> root-context.xml¿¡ ³ÖÀ»²¨ÀÓ
+	          // setterì²˜ë¦¬ë¥¼ í”„ë¡œí¼í‹°íƒœê·¸ë¡œ ì²˜ë¦¬ -> ë¹ˆíƒœê·¸ë¡œ ë°”ê¿ˆ -> root-context.xmlì— ë„£ì„êº¼ì„
 //	        DriverManagerDataSource ds = new DriverManagerDataSource();
 //	        ds.setDriverClassName(DB_DRIVER);
 //	        ds.setUrl(DB_URL);
@@ -25,7 +25,7 @@ package com.box.small.database;
 	        ApplicationContext ac = new GenericXmlApplicationContext("file:src/main/webapp/WEB-INF/spring/**/root-context.xml");
 	        DataSource ds = ac.getBean(DataSource.class);
 
-	        Connection conn = ds.getConnection(); // µ¥ÀÌÅÍº£ÀÌ½ºÀÇ ¿¬°áÀ» ¾ò´Â´Ù.
+	        Connection conn = ds.getConnection(); // ë°ì´í„°ë² ì´ìŠ¤ì˜ ì—°ê²°ì„ ì–»ëŠ”ë‹¤.
 
 	        System.out.println("conn = " + conn);
 //	        assertTrue(conn!=null);
