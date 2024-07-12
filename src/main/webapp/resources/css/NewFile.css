@@ -1,23 +1,20 @@
-
-
-
  .center{
-	position: relative; width: 1150px; margin: 0 auto;
-	background: ; 	
+   position: relative; width: 1150px; margin: 0 auto;
+   background: ;    
 }
  
   .navbar{
  float: right;
  display: flex;
- justify-content: center; /* °¡·Î ¹æÇâ °¡¿îµ¥ Á¤·Ä */
- align-items: center;	/*¼¼·Î ¹æÇâ °¡¿îµ¥ Á¤·Ä */
+ justify-content: center; /* ê°€ë¡œ ë°©í–¥ ê°€ìš´ë° ì •ë ¬ */
+ align-items: center;   /*ì„¸ë¡œ ë°©í–¥ ê°€ìš´ë° ì •ë ¬ */
  height: 100px;
  }
 
 .navbar ul li {
-	display: inline;  	
+   display: inline;     
 }
 
 .navbar ul li a {
-	font-size: 20px; margin-right: 50px; color: #444; font-weight: 700;
+   font-size: 20px; margin-right: 50px; color: #444; font-weight: 700;
 }

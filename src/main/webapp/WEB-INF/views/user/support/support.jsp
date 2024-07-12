@@ -8,6 +8,8 @@
 </head>
 <body>
 	<h1>고객센터 메인페이지 입니다.</h1>
+	
+	<div><a href="./faq">눌러주세요</a></div>
 
 </body>
 </html>

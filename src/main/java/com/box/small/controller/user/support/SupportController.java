@@ -22,4 +22,16 @@ public class SupportController {
 
 		return mav;
 	}
+
+
+	@GetMapping(value = "user/support/faq")
+	public ModelAndView faq() {
+		ModelAndView mav = new ModelAndView();
+		logger.info("1대1 문의 사항 폼 이동");
+		
+		mav.setViewName("user/support/faq");
+		
+		return mav;		
+	}
+
 }
