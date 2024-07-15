@@ -11,7 +11,7 @@ import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-public class movieDAOImpl implements movieDAO{	//	������ �Ǿ�� �����ֱ��ѵ� �ϴ� ���� �Ǿ��ٰ� �����ϰ� ��ɹ��� �����س���
+public class MovieDAOimpl implements MovieDAO{	//	������ �Ǿ�� �����ֱ��ѵ� �ϴ� ���� �Ǿ��ٰ� �����ϰ� ��ɹ��� �����س���
 	
 	@Autowired
 	DataSource ds;

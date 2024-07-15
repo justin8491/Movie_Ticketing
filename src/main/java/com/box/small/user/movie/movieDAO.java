@@ -4,7 +4,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public interface movieDAO {
+public interface MovieDAO {
     
 	List<MovieDto> sellectAllMovie() throws SQLException;	//	movie ���̺��� ��� ������ �������� �޼ҵ�
 	

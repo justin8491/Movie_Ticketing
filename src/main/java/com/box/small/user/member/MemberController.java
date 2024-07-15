@@ -39,7 +39,7 @@ public class MemberController {
 	@GetMapping(value = "user/member/loginForm")
 	public ModelAndView loginForm(){
 		ModelAndView mav = new ModelAndView();
-		logger.info("로그인 폼 이동");
+		logger.info("로그인 폼 이동~");
 		mav.setViewName("user/member/loginForm");
 
 		return mav;
