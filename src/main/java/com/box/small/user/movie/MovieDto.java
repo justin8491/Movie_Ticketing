@@ -1,6 +1,6 @@
 package com.box.small.user.movie;
 
-public class Movie {
+public class MovieDto {
 	
 	private int mo_no;
 	private int cat_no;
@@ -21,7 +21,7 @@ public class Movie {
 				+ mo_plot + ", mo_status=" + mo_status + ", mo_director=" + mo_director + ", mo_mainActor="
 				+ mo_mainActor + ", mo_rating=" + mo_rating + ", mo_Photo=" + mo_Photo + "]";
 	}
-	public Movie(int mo_no, int cat_no, String mo_name, String mo_releaseDate, String mo_endDate, int mo_runningTime,
+	public MovieDto(int mo_no, int cat_no, String mo_name, String mo_releaseDate, String mo_endDate, int mo_runningTime,
 			String mo_plot, String mo_status, String mo_director, String mo_mainActor, String mo_rating,
 			String mo_Photo) {
 		super();
@@ -39,7 +39,7 @@ public class Movie {
 		this.mo_Photo = mo_Photo;
 	}
 	
-	public Movie(int mo_no, int cat_no, String mo_name, String mo_releaseDate, int mo_runningTime, String mo_status,
+	public MovieDto(int mo_no, int cat_no, String mo_name, String mo_releaseDate, int mo_runningTime, String mo_status,
 			String mo_director, String mo_mainActor, String mo_rating, String mo_Photo) {
 		super();
 		this.mo_no = mo_no;
@@ -53,7 +53,7 @@ public class Movie {
 		this.mo_rating = mo_rating;
 		this.mo_Photo = mo_Photo;
 	}
-	public Movie() {
+	public MovieDto() {
 		super();
 	}
 	public int getMo_no() {

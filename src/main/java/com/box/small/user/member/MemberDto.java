@@ -10,7 +10,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Member {
+public class MemberDto {
     private String mem_id;
     private String mem_password;
     private String mem_name;

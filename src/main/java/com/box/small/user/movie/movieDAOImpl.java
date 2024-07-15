@@ -17,14 +17,14 @@ public class movieDAOImpl implements movieDAO{	//	������ �Ǿ��
 	DataSource ds;
 	
 	@Override
-	public List<Movie> sellectAllMovie() throws SQLException {	//	movie ���̺��� ��� ������ �������� �޼ҵ�
+	public List<MovieDto> sellectAllMovie() throws SQLException {	//	movie ���̺��� ��� ������ �������� �޼ҵ�
 		Connection conn = ds.getConnection();
 		String sql = "select * from movie";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		ResultSet rs = pstmt.executeQuery();
-		List<Movie>list = new ArrayList<Movie>();
+		List<MovieDto>list = new ArrayList<MovieDto>();
 		while(rs.next()) {
-			list.add(new Movie(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getString(7),
+			list.add(new MovieDto(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getString(7),
 					rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11), rs.getString(12)));
 		}
 		rs.close();
@@ -34,15 +34,15 @@ public class movieDAOImpl implements movieDAO{	//	������ �Ǿ��
 	}
 
 	@Override
-	public Movie sellectMovie(int mo_id) throws SQLException {	//	movie ���̺��� mo_id �� ���� Ư�� ��ȭ�� ������ ��������� �޼ҵ�
+	public MovieDto sellectMovie(int mo_id) throws SQLException {	//	movie ���̺��� mo_id �� ���� Ư�� ��ȭ�� ������ ��������� �޼ҵ�
 		Connection conn = ds.getConnection();
-		Movie movie = null;
+		MovieDto movie = null;
 		String sql = "select * from movie where mo_id = ?";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		pstmt.setInt(1, mo_id);
 		ResultSet rs = pstmt.executeQuery();
 		if(rs.next()) {
-			movie = new Movie(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getString(7),
+			movie = new MovieDto(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getString(7),
 					rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11), rs.getString(12));
 		}
 		rs.close();
@@ -66,7 +66,7 @@ public class movieDAOImpl implements movieDAO{	//	������ �Ǿ��
 	}
 
 	@Override
-	public void addMovie(Movie movie) throws SQLException {	//	Movie���̺� ��ȭ�� �߰��ϴ� �޼ҵ�
+	public void addMovie(MovieDto movie) throws SQLException {	//	Movie���̺� ��ȭ�� �߰��ϴ� �޼ҵ�
 		Connection conn = ds.getConnection();
 		String sql = "INSERT INTO `movie`.`movie` (`mo_no`,`cat_no`,`mo_name`,`mo_releaseDate`,`mo_endDate`,`mo_runningTime`,";
 				sql += "`mo_plot`,`mo_status`,`mo_director`,`mo_mainActor`,`mo_rating`,`mo_Photo`)";
@@ -95,7 +95,7 @@ public class movieDAOImpl implements movieDAO{	//	������ �Ǿ��
 	}
 
 	@Override
-	public void updateMovie(int mo_id, Movie movie) throws SQLException {	//	mo_id�� �̿��ؼ� movie�� ������ �����ϴ� �޼ҵ�
+	public void updateMovie(int mo_id, MovieDto movie) throws SQLException {	//	mo_id�� �̿��ؼ� movie�� ������ �����ϴ� �޼ҵ�
 		Connection conn = ds.getConnection();
 		String sql = "update movie  set";
 		sql += "mo_name = ?";

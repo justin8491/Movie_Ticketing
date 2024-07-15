@@ -1,4 +1,4 @@
-package com.box.small;
+package com.box.small.user.payment;
 
 import javax.servlet.http.HttpServletRequest;
 
