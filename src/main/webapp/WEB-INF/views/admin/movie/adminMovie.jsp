@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<jsp:include page="../../../../include/header.jsp" />
 <title>adminMovie</title>
 </head>
 <body>
