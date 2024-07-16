@@ -15,5 +15,23 @@
 		<property name="url" value="jdbc:mysql://localhost:3306/movie?useUnicode=true&amp;characterEncoding=utf8"></property>
 		<property name="username" value="root"></property>
 		<property name="password" value="12345"></property>
-</bean>
+		<!--<property name="password" value="1234"></property> -->
+		</bean>
+
+	<bean id="sqlSessionFactory"
+		class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="configLocation"
+			value="classpath:/mybatis-config.xml" />
+		<property name="mapperLocations"
+			value="classpath:mappers/**/*.xml" />
+	</bean>
+	
+	<bean id="sqlSession"
+		class="org.mybatis.spring.SqlSessionTemplate"
+		destroy-method="clearCache">
+		<constructor-arg name="sqlSessionFactory"
+			ref="sqlSessionFactory" />
+	</bean>
+
 </beans>

@@ -1,9 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page session="false" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <html>
 <head>
-<%@ include file = "user/test/include/header.jsp" %>
+<%@ include file = "../../include/header.jsp" %>
+	<title>Home</title>
 	<title>smallBox</title>
 </head>
 <body>

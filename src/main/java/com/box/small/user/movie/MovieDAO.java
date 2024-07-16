@@ -1,0 +1,12 @@
+package com.box.small.user.movie;
+
+import java.sql.SQLException;
+import java.util.List;
+
+public interface MovieDAO {
+    
+	List<MovieDto> selectAllMovie() throws SQLException;	//	영화 전체조회
+	
+	MovieDto selectMovie(int mo_no) throws SQLException;	//	영화 선택 조회
+	
+}
