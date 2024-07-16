@@ -32,5 +32,25 @@ public class SupportController {
 		
 		return mav;		
 	}
+	
+	@GetMapping(value = "/user/support/notice")
+	public ModelAndView notice() {
+		ModelAndView mav = new ModelAndView();
+		logger.info("공지사항 폼 이동");
+		
+		mav.setViewName("/user/support/notice");
+		
+		return mav;
+	}
+	
+	@GetMapping(value = "/user/support/freeBoard")
+	public ModelAndView freeBoard() {
+		ModelAndView mav = new ModelAndView();
+		logger.info("자유게시판 폼 이동");
+		
+		mav.setViewName("/user/support/freeBoard");
+		
+		return mav;
+	}
 
 }

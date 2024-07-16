@@ -4,10 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>자주 묻는 질문 페이지</title>
+<title>공지사항</title>
 </head>
 <body>
-	<h1>자주 묻는 질문 페이지입니다.</h1>
-
+	<h1>공지사항 페이지입니다.</h1>
 </body>
 </html>
