@@ -20,4 +20,9 @@ public class Member {
     private int mem_status;
     private String mem_address;
 
+    public Member(String mem_id, String mem_password){
+        this.mem_id = mem_id;
+        this.mem_password = mem_password;
+    }
+
 }

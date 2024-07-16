@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.box.small.mapper.memberMapper">
+    <select id="listAll" resultType="com.box.small.dto.Member">
+        select * from member
+    </select>
+
+    <select id="login" parameterType="com.box.small.dto.Member" resultType="com.box.small.dto.Member">
+        select * from member
+        where mem_id = #{mem_id}
+        and mem_password = #{mem_password}
+    </select>
+
+    <insert id="createMember" parameterType="com.box.small.dto.Member">
+        insert into member
+        values (#{mem_id} ,#{mem_password} ,#{mem_name} ,#{mem_ssn} ,#{mem_phoneNumber} ,#{mem_accumulatedAmount} ,1 ,#{mem_address})
+    </insert>
+
+    <update id="updateMember" parameterType="com.box.small.dto.Member">
+        update member set
+        mem_password = #{mem_password} ,mem_name = #{mem_name} ,mem_ssn = #{mem_ssn} , mem_phoneNumber = #{mem_phoneNumber} , mem_accumulatedAmount = #{mem_accumulatedAmount} , mem_status = #{mem_status} , mem_address = #{mem_address}
+        where mem_id = #{mem_id}
+    </update>
+
+    <update id="deleteMember">
+        update member set
+        mem_status = 0
+        where mem_id = ${mem_id}
+    </update>
+</mapper>

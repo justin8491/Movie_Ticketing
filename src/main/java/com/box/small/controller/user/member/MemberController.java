@@ -1,49 +1,60 @@
 package com.box.small.controller.user.member;
 
-import com.mysql.cj.Session;
+import com.box.small.dto.Member;
+import com.box.small.service.user.member.MemberService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.text.DateFormat;
-import java.util.Date;
-import java.util.Locale;
+import javax.servlet.http.HttpSession;
 
-/**
- * Handles requests for the application home page.
- */
 @Controller
+@RequestMapping("/user/*")
 public class MemberController {
 
-	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
+    private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
 
-	/**
-	 * Simply selects the home view to render by returning its name.
-	 */
-//	@RequestMapping(value = "/", method = RequestMethod.GET)
-//	public ModelAndView mainPage() {
-//		logger.info("메인페이지");
-//		ModelAndView mav = new ModelAndView();
-//
-//		mav.setViewName("/");
-//
-//
-//		return mav;
-//	}
+    @Autowired
+    MemberService memberService;
 
-	@GetMapping(value = "user/loginForm")
-	public ModelAndView loginForm(){
-		ModelAndView mav = new ModelAndView();
-		logger.info("로그인 폼 이동");
-		mav.setViewName("user/member/loginForm");
+    @GetMapping(value = "main")
+    public ModelAndView main(){
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("main");
+        return mav;
+    }
 
-		return mav;
-	}
+    @GetMapping(value = "loginForm")
+    public ModelAndView loginForm() {
+        ModelAndView mav = new ModelAndView();
+        logger.info("로그인 폼 이동");
+        mav.setViewName("user/member/loginForm");
+
+        return mav;
+    }
+
+    @PostMapping(value = "login")
+    public ModelAndView login(Member member, HttpSession session) {
+        ModelAndView mav = new ModelAndView();
+        logger.info("로그인 프로세스");
+        logger.info("Member Id : " + member.getMem_id());
+        logger.info("Member Pwd : " + member.getMem_password());
+
+        member = memberService.login(member);
+        if(member == null){
+            mav.addObject("msg","로그인 실패");
+        } else if(member != null ) {
+            mav.addObject("msg", "로그인 성공");
+            session.setAttribute("user",member);
+            mav.setViewName("main");
+        }
+        return mav;
+    }
 
 }
 

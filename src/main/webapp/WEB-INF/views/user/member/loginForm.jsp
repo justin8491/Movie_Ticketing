@@ -7,14 +7,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>로그인 폼</title>
+<title>로그인</title>
 </head>
 <body>
-<h1>로그인 폼</h1>
-로그인 폼 : ${test}<br>
-<form action="${contextPath}/login/login3" method="post">
-아이디 : <input type="text" name="userID" id="userID">
-이름 : <input type="text" name="name" id="name">
+<h1>로그인</h1>
+
+<form action="${contextPath}/user/login" method="post">
+ID : <input type="text" name="mem_id" id="mem_id">
+PW : <input type="text" name="mem_password" id="mem_password">
 <input type="submit" value="로그인">
 </form>
 
