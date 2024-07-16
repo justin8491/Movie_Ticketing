@@ -14,5 +14,18 @@
 		where bo_no=#{bo_no}
 	</select>
    	
+   	<select id="notice" resultType="com.box.small.user.support.SupportDto">
+   		select * from board
+   		where cat_no = 1
+   	</select>
    	
+   	<select id="selectNotice" parameterType="int" resultType="com.box.small.user.support.SupportDto">
+   		select * from board
+   		where bo_no=#{bo_no}
+   	</select>
+   	
+   	<select id="inquiryWrite" parameterType="com.box.small.user.support.SupportDto">
+   		insert into board(cat_no, bo_writelrd, bo_title, bo_content, bo_creatAt, bo_status)
+   		value(4, #{bo_writelrd}, #{bo_title}, #{bo_content}, now() , 1)
+   	</select>
 </mapper>
