@@ -36,7 +36,7 @@
         <c:forEach var = "movie" items="${movielist}">
             <div class="movie">
                 <img src="${contextPath}${movie.mo_photoURL}" alt="${movie.mo_name}">
-                <div class="movie-name"><a href = "detailMovie?mo_no=${movie.mo_no }">${movie.mo_name}</a></div>
+                <div class="movie-name"><a href = "${contextPath}/user/movie/detailMovie?mo_no=${movie.mo_no }">${movie.mo_name}</a></div>
             </div>
         </c:forEach>
     </div>

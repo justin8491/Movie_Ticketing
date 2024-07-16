@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 
@@ -16,7 +17,7 @@ public class MovieController {
 	private MovieService service;
 	
 	@GetMapping(value = "/user/movie/movieList")
-	public ModelAndView movieList() throws SQLException {
+	public ModelAndView selectAllmovie() throws SQLException {
 		
 		ModelAndView mav = new ModelAndView();
 		
@@ -29,5 +30,17 @@ public class MovieController {
 		return mav;
 	}
 	
+	@GetMapping(value = "/user/movie/detailMovie")
+	public ModelAndView selectMovie(@RequestParam("mo_no")int mo_no) throws SQLException {
+		
+		ModelAndView mav = new ModelAndView();
+		
+		MovieDto movie = service.selectMovie(mo_no);
+		
+		mav.addObject("movie", movie);
+		mav.setViewName("/user/movie/detailMovie");
+		
+		return mav;
+	}
 	
 }

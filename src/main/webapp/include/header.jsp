@@ -26,7 +26,7 @@
 <body>
 	
 	<div class="center">
-		<img src="${contextPath}/resources/images/test.png" alt="logo">
+		<a href = "/"><img src="${contextPath}/resources/images/test.png" alt="logo"></a>
 		<nav class ="navbar">
 			<ul >
 				<li><a href="${contextPath}/user/movie/movieList">영화</a></li>

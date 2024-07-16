@@ -11,10 +11,8 @@
 	
 	<!-- 영화 선택 조회 -->
 	<select id="selectMovie" resultType = "com.box.small.user.movie.MovieDto">
-		select * from movie where mo_id = #{mo_id}
+		select * from movie where mo_no = #{mo_no}
 	</select>
-	
-	
 	
 	
 	

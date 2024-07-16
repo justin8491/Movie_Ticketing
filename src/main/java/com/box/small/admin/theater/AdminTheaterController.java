@@ -17,13 +17,5 @@ import com.box.small.HomeController;
 public class AdminTheaterController {
 
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
-	
-	@RequestMapping(value = "/user/movie/detailMovie", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
 
-		
-		
-		return "user/movie/detailMovie";
-	
-}
 }

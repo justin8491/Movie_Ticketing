@@ -18,8 +18,8 @@ public class MovieServiceImpl implements MovieService{
 	}
 
 	@Override
-	public MovieDto selectMovie(int mo_id) throws SQLException {
-		return dao.selectMovie(mo_id);
+	public MovieDto selectMovie(int mo_no) throws SQLException {
+		return dao.selectMovie(mo_no);
 	}
 
 }

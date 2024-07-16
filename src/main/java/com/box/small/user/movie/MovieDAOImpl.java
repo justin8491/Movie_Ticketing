@@ -21,8 +21,8 @@ public class MovieDAOImpl implements MovieDAO{
 	}
 
 	@Override	
-	public MovieDto selectMovie(int mo_id) throws SQLException {
-		return sqlSession.selectOne(namespace+".selectMovie",mo_id);
+	public MovieDto selectMovie(int mo_no) throws SQLException {
+		return sqlSession.selectOne(namespace+".selectMovie",mo_no);
 	}
 
 }
