@@ -165,8 +165,8 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
-            <version>6.0.3</version>
-            <scope>compile</scope>
+            <version>${org.springframework-version}</version>
+            <scope>test</scope>
         </dependency>
 
 

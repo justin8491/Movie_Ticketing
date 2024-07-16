@@ -1,28 +1,33 @@
 package com.box.small.user.movie;
 
-import java.text.DateFormat;
-import java.util.Date;
-import java.util.Locale;
+import java.sql.SQLException;
+import java.util.List;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.servlet.ModelAndView;
 
-import com.box.small.HomeController;
 
 @Controller
 public class MovieController {
 
-	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+	@Autowired
+	private MovieService service;
 	
-	@GetMapping(value = "/user/movie/detailMovie")
-	public String home(Locale locale, Model model) {
-
+	@GetMapping(value = "/user/movie/movieList")
+	public ModelAndView movieList() throws SQLException {
 		
+		ModelAndView mav = new ModelAndView();
 		
-		return "user/movie/detailMovie";
+		List<MovieDto>movielist = service.selectAllMovie();
+		
+		mav.addObject("movielist", movielist);
+		
+		mav.setViewName("/user/movie/movieList");
+		
+		return mav;
+	}
 	
-}
+	
 }

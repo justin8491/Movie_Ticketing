@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.box.small.scheduleMapper">
+
+	<!-- 영화일정전체 조회 -->
+	<select id="selectAllSchedule" resultType = "com.box.small.user.schedule.ScheduleDto">
+		select * from schedule
+	</select>
+	
+	<!-- 영화별 영화일정 -->
+	<select id="selectScheduleMovie" resultType = "com.box.small.user.schedule.ScheduleDto">
+		select * from schedule where mo_no = #{mo_no}
+	</select>
+	
+	<!-- 날짜별 영화일정 -->
+	<select id="selectScheduleDay" resultType = "com.box.small.user.schedule.ScheduleDto">
+		select * from schedule where sch_date = #{sch_date}
+	</select>
+</mapper>

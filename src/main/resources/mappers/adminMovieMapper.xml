@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.box.small.adminMovieMapper">
+
+	<!-- 영화 전체 조회 -->
+	<select id="sellectAllMovie"	resultType = "com.box.small.user.movie.MovieDto">	
+		select * from movie
+	</select>
+	
+	<!-- 영화 추가 -->
+	<insert id="addMovie">
+		INSERT INTO movie
+		(mo_no,cat_no,mo_name,mo_releaseDate,mo_endDate,mo_runningTime,mo_plot,mo_status,mo_director,mo_mainActor,mo_rating,mo_Photo)
+		VALUES
+		(#{mo_no},#{cat_no},#{mo_name},#{mo_releaseDate},#{mo_endDate},#{mo_runningTime},#{mo_plot},#{mo_status},#{mo_director},#{mo_mainActor},#{mo_rating},#{mo_Photo})
+	</insert>
+	<!-- 영화 삭제 -->
+	<update id="deleteMovie">
+		update movie
+		set mo_status = 0
+		where mo_no = #{mo_no}
+	</update>
+	<!-- 영화 수정 value로 그 영화의 기존 값들을 다 넣어놓고 진행!-->
+	<update id="updateMovie">
+		update movie
+		set cat_no = #{cat_no}, mo_name = #{mo_name}, mo_releaseDate = #{mo_releaseDate}, mo_endDate = #{mo_endDate}, mo_runningTime = #{mo_runningTime},
+		mo_plot = #{mo_plot}, mo_status = #{mo_status}, mo_director = #{mo_director}, mo_mainActor = #{mo_mainActor}, mo_rating = #{mo_rating}, mo_Photo = #{mo_Photo}
+		where mo_no = #{mo_no}
+	</update>	
+</mapper>

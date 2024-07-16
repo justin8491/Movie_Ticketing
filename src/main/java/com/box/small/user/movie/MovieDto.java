@@ -13,17 +13,17 @@ public class MovieDto {
 	private String mo_director;
 	private String mo_mainActor;
 	private String mo_rating;
-	private String mo_Photo;
+	private String mo_photoURL;
 	@Override
 	public String toString() {
 		return "Movie [mo_no=" + mo_no + ", cat_no=" + cat_no + ", mo_name=" + mo_name + ", mo_releaseDate="
 				+ mo_releaseDate + ", mo_endDate=" + mo_endDate + ", mo_runningTime=" + mo_runningTime + ", mo_plot="
 				+ mo_plot + ", mo_status=" + mo_status + ", mo_director=" + mo_director + ", mo_mainActor="
-				+ mo_mainActor + ", mo_rating=" + mo_rating + ", mo_Photo=" + mo_Photo + "]";
+				+ mo_mainActor + ", mo_rating=" + mo_rating + ", mo_Photo=" + mo_photoURL + "]";
 	}
 	public MovieDto(int mo_no, int cat_no, String mo_name, String mo_releaseDate, String mo_endDate, int mo_runningTime,
 			String mo_plot, String mo_status, String mo_director, String mo_mainActor, String mo_rating,
-			String mo_Photo) {
+			String mo_photoURL) {
 		super();
 		this.mo_no = mo_no;
 		this.cat_no = cat_no;
@@ -36,11 +36,11 @@ public class MovieDto {
 		this.mo_director = mo_director;
 		this.mo_mainActor = mo_mainActor;
 		this.mo_rating = mo_rating;
-		this.mo_Photo = mo_Photo;
+		this.mo_photoURL = mo_photoURL;
 	}
 	
 	public MovieDto(int mo_no, int cat_no, String mo_name, String mo_releaseDate, int mo_runningTime, String mo_status,
-			String mo_director, String mo_mainActor, String mo_rating, String mo_Photo) {
+			String mo_director, String mo_mainActor, String mo_rating, String mo_photoURL) {
 		super();
 		this.mo_no = mo_no;
 		this.cat_no = cat_no;
@@ -51,7 +51,7 @@ public class MovieDto {
 		this.mo_director = mo_director;
 		this.mo_mainActor = mo_mainActor;
 		this.mo_rating = mo_rating;
-		this.mo_Photo = mo_Photo;
+		this.mo_photoURL = mo_photoURL;
 	}
 	public MovieDto() {
 		super();
@@ -122,11 +122,11 @@ public class MovieDto {
 	public void setMo_rating(String mo_rating) {
 		this.mo_rating = mo_rating;
 	}
-	public String getMo_Photo() {
-		return mo_Photo;
+	public String getMo_photoURL() {
+		return mo_photoURL;
 	}
-	public void setMo_Photo(String mo_Photo) {
-		this.mo_Photo = mo_Photo;
+	public void setMo_photoURL(String mo_photoURL) {
+		this.mo_photoURL = mo_photoURL;
 	}
 	
 }

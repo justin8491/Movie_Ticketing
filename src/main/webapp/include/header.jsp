@@ -21,16 +21,15 @@
 
 <div class="logo">
 
-
 </div>
 
 <body>
-			
+	
 	<div class="center">
 		<img src="${contextPath}/resources/images/test.png" alt="logo">
 		<nav class ="navbar">
 			<ul >
-				<li><a href="${contextPath}/user/movie/detailMovie">영화</a></li>
+				<li><a href="${contextPath}/user/movie/movieList">영화</a></li>
 				<li><a href="#">예매</a></li>
 				<li><a href="#">영화관</a></li>
 				<li><a href="#">로그인</a></li>	
