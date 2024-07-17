@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<jsp:include page="../../../../include/header.jsp" />
+    <%@ include file = "/resources/include/header.jsp"%>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>

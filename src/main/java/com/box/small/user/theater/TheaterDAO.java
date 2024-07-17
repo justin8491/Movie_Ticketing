@@ -7,7 +7,7 @@ public interface TheaterDAO {
 
 	List<TheaterDto> sellectAlltheater() throws SQLException;	//	영화관 전체 조회
 	
-	TheaterDto sellectTheater(int th_id) throws SQLException;	//	영화관 선택조회
+	TheaterDto sellectTheater(int th_no) throws SQLException;	//	영화관 선택조회
 
 	
 }

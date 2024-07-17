@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<jsp:include page="../../../../include/header.jsp" />
+    <%@ include file = "/resources/include/header.jsp"%>
 <title>scheduleList</title>
 </head>
 <body>

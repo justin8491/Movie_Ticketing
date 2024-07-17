@@ -1,4 +1,4 @@
- .center{
+/* .center{
    position: relative; width: 1150px; margin: 0 auto;
    background: ;    
 }
@@ -6,8 +6,8 @@
   .navbar{
  float: right;
  display: flex;
- justify-content: center; /* 가로 방향 가운데 정렬 */
- align-items: center;   /*세로 방향 가운데 정렬 */
+ justify-content: center; // 가운데 정렬
+ align-items: center;		// 세로 정렬
  height: 100px;
  }
 
@@ -18,3 +18,5 @@
 .navbar ul li a {
    font-size: 20px; margin-right: 50px; color: #444; font-weight: 700;
 }
+*/
+

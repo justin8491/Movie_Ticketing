@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<jsp:include page="../../../../include/header.jsp" />
+    <%@ include file = "/resources/include/header.jsp"%>
 <meta charset="UTF-8">
 <title>movie</title>
 </head>
@@ -13,7 +13,7 @@
 	<h1>상세영화 페이지 입니다.</h1>
 	<div class="movie-container">
             <div class="movie">
-                <img src="${contextPath}${movie.mo_photoURL}" alt="${movie.mo_name}">
+                <img src="${contextPath}/resources/images/${movie.mo_photo}" alt="${movie.mo_name}" class="img-fluid">
 				<p>영화이름 : "${movie.mo_name}"</p>
 				<p>상영일 : "${movie.mo_releaseDate}"</p>
 				<p>러닝타임 : "${movie.mo_runningTime}"</p>
