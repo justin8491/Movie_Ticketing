@@ -20,9 +20,12 @@ public class MemberDAOImpl implements MemberDAO {
 
     @Override
     public Member login(Member member) {
-        logger.info(member.getMem_id());
-        logger.info(member.getMem_password());
         return sqlSession.selectOne(SQL_NAME_SAPCE + "login", member);
+    }
+
+    @Override
+    public Member detailMember(Member member) {
+        return sqlSession.selectOne(SQL_NAME_SAPCE + "detailMember", member);
     }
 
     @Override
@@ -46,8 +49,8 @@ public class MemberDAOImpl implements MemberDAO {
     }
 
     @Override
-    public int updateMember(String mem_id) {
-        return sqlSession.update(SQL_NAME_SAPCE+"updateMember",mem_id);
+    public int updateMember(Member member) {
+        return sqlSession.update(SQL_NAME_SAPCE+"updateMember",member);
     }
 
 

@@ -13,6 +13,11 @@
         and mem_password = #{mem_password}
     </select>
 
+    <select id="detailMember" parameterType="com.box.small.dto.Member" resultType="com.box.small.dto.Member">
+        select * from member
+        where mem_id = #{mem_id}
+    </select>
+
     <insert id="createMember" parameterType="com.box.small.dto.Member">
         insert into member
         values (#{mem_id} ,#{mem_password} ,#{mem_name} ,#{mem_ssn} ,#{mem_phoneNumber} ,#{mem_accumulatedAmount} ,1 ,#{mem_address})
@@ -20,7 +25,7 @@
 
     <update id="updateMember" parameterType="com.box.small.dto.Member">
         update member set
-        mem_password = #{mem_password} ,mem_name = #{mem_name} ,mem_ssn = #{mem_ssn} , mem_phoneNumber = #{mem_phoneNumber} , mem_accumulatedAmount = #{mem_accumulatedAmount} , mem_status = #{mem_status} , mem_address = #{mem_address}
+        mem_password = #{mem_password} ,mem_name = #{mem_name} ,mem_ssn = #{mem_ssn} , mem_phoneNumber = #{mem_phoneNumber} , mem_accumulatedAmount = #{mem_accumulatedAmount} , mem_address = #{mem_address}
         where mem_id = #{mem_id}
     </update>
 

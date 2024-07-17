@@ -15,7 +15,7 @@ public class Member {
     private String mem_password;
     private String mem_name;
     private String mem_ssn;
-    private String mem_poneNumber;
+    private String mem_phoneNumber;
     private int mem_accumulatedAmount;
     private int mem_status;
     private String mem_address;

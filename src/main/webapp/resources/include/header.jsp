@@ -11,7 +11,7 @@
 	content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'
 	name='viewport'>
 <title>main</title>
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <link href="${contextPath}/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 <!-- jQuery 3.4.1 -->
 <script src="${contextPath}/resources/jQuery/jquery-3.4.1.min.js"></script>

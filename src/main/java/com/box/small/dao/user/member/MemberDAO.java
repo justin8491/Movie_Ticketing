@@ -8,6 +8,8 @@ import java.util.List;
 
 public interface MemberDAO {
     Member login(Member member);
+    //   회원상세
+    Member detailMember(Member member);
     //   회원가입
     int createMember(Member member);
     //    아이디 찾기
@@ -17,8 +19,9 @@ public interface MemberDAO {
     //    유저 전체 검색
     List<Member> selectAllMember();
     //    유저 정보 변경
-    int updateMember(String mem_id);
+    int updateMember(Member member);
     //    유저 정보 삭제
     int deleteMember(String mem_id);
+
 
 }

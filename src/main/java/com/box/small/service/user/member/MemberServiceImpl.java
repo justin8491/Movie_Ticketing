@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class MemberServiceImpl implements MemberService{
+public class MemberServiceImpl implements MemberService {
 
     private static final Logger logger = LoggerFactory.getLogger(MemberServiceImpl.class);
     @Autowired
@@ -22,10 +22,15 @@ public class MemberServiceImpl implements MemberService{
 
         if(member.getMem_id().equals(compareMember.getMem_id())
         && member.getMem_password().equals(compareMember.getMem_password())){
-            logger.info("로그인 성공");
+            logger.info("User ID : "+ compareMember.getMem_id() +" User Name : " + compareMember.getMem_name() + " 로그인");
             return compareMember;
         }
         return null;
+    }
+
+    @Override
+    public Member detailMember(Member member) {
+        return dao.detailMember(member);
     }
 
     @Override
@@ -49,8 +54,8 @@ public class MemberServiceImpl implements MemberService{
     }
 
     @Override
-    public int updateMember(String mem_id) {
-        return dao.updateMember(mem_id);
+    public int updateMember(Member member) {
+        return dao.updateMember(member);
     }
 
     @Override
