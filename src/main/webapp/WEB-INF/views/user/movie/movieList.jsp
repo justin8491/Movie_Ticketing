@@ -1,47 +1,42 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<c:set var="contextPath" value="${pageContext.request.contextPath}" />
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:set var="path" value="${pageContext.request.contextPath }/resources" />
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
-<style type="text/css">
-	.center{
-	background-color: yellow;	
-	}
-</style>
-<meta charset="UTF-8">
-<meta
-	content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'
-	name='viewport'>
-<title>main</title>
-<link rel="stylesheet" href="${contextPath}/resources/css/header.css" />
-<link href="${contextPath}/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-<!-- jQuery 3.4.1 -->
-<script src="${contextPath}/resources/jQuery/jquery-3.4.1.min.js"></script>
-<script src="${contextPath}/resources/bootstrap/js/bootstrap.min.js"></script>
-
-
+    <%@ include file = "/resources/include/header.jsp"%>
 </head>
 <body>
-	<section>	
-	<div class="center">
-		<nav class ="navbar">
-		<a href = "/"><img src="${contextPath}/resources/images/test.png" alt="logo"></a>
-			<ul >
-				<li><a href="${contextPath}/user/movie/movieList">영화</a></li>
-				<li><a href="#">예매</a></li>
-				<li><a href="${contextPath}/user/theater/theaterList">영화관</a></li>
-				<li><a href="#">로그인</a></li>	
-				<li><a href="#">마이페이지(임시)</a></li>
-				<li><a href="${contextPath}/user/support/support">고객센터</a></li>
-			</ul>			
-		</nav>
-		</div>
-	</section>
-
+    
+    <header id="header">
+        <div class="container">
+            <div class="row">
+                <div class="header clearfix">
+                    <h1>
+                        <a href="/">
+                            <em><img src="${path}/images/logo.png" alt="MEGABOX"></em>
+                        </a>    
+                    </h1>
+                    <nav id="mNav">
+                        <h2 class="ir_so">메가박스 전체메뉴</h2>
+                        <a href="#" class="ham"><span></span></a>
+                    </nav>
+                    <nav class="nav">
+                        <ul class="clearfix">
+                            <li><a href="${contextPath}/user/movie/movieList">영화</a></li>
+							<li><a href="${contextPath}/user/theater/theaterList">영화관</a></li>
+							<li><a href="#">예매하기</a></li>
+							<li><a href="${contextPath}/user/support/support">고객센터</a></li>
+							<li><a href="#">로그인</a></li>	
+                        </ul>
+                    </nav>    
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- //header -->
+    
     <div id="banner">
         <h2>최신 영화</h2>
         <p>최신 영화 목록을 확인하세요!</p>
@@ -61,21 +56,112 @@
                 </div>
             </c:forEach>
         </div>
-
-        <!-- Pagination -->
-        <nav aria-label="Page navigation">
-            <ul class="pagination justify-content-center">
-                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item"><a class="page-link" href="#">Next</a></li>
-            </ul>
-        </nav>
     </div>
 
-    <!-- Bootstrap JS and dependencies (optional but recommended) -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+   
+    
+    <footer id="footer">
+        <%@ include file = "/resources/include/footer.jsp"%>
+    </footer>
+    <!-- //footer -->
+    
+
+    <!-- 트레일러 -->
+    <aside role="complementary" id="blackout" class="overlay">
+        <div id="trailerModal" class="modal">
+            <div id="trailer"></div><!-- YouTube 플레이어로 대체되는 부분 -->
+        </div>
+        <button id="hideTrailer" class="modal_close">닫기</button>
+    </aside>
+    
+    
+    <!-- 자바스크립트 라이브러리 -->
+    <script src="${path}/assets/js/jquery.min_1.12.4.js"></script>
+    <script src="${path}/assets/js/modernizr-custom.js"></script>
+    <script src="${path}/assets/js/ie-checker.js"></script>
+    <script src="${path}/assets/js/swiper.min.js"></script>
+    <script src="${path}/assets/js/iframe_api.js"></script>
+    <script src="${path}/assets/js/movie.js"></script>
+    <script>
+        //배너 이미지 슬라이드
+        var swiper = new Swiper('.swiper-container',{
+            pagination: {
+                el: '.swiper-pagination',
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            autoplay: {
+                delay: 5000,
+            },
+        });
+        
+        //영화차트 이미지 슬라이드
+        var swiper = new Swiper('.swiper-container2',{
+            slidesPerView: 4,
+            spaceBetween: 24,
+//            mousewheel: {
+//                invert: true,
+//            },
+            keyboard: {
+                enabled: true,
+                onlyInViewport: false,
+            },
+            autoplay: {
+                delay: 6000,
+            },
+            breakpoints: {
+                600: {
+                    slidesPerView: 1.4,
+                    spaceBetween: 24
+                },
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 24
+                },
+                960: {
+                    slidesPerView: 3,
+                    spaceBetween: 24
+                }
+            }
+        });
+        
+        //영화차트 탭 메뉴
+        var movBtn = $(".movie_title > ul > li");    
+        var movCont = $(".movie_chart > div");  
+
+        movCont.hide().eq(0).show();
+
+        movBtn.click(function(e){
+            e.preventDefault();
+            var target = $(this);         
+            var index = target.index();  
+            movBtn.removeClass("active");   
+            target.addClass("active");    
+            movCont.css("display","none");
+            movCont.eq(index).css("display","block");
+        });
+        
+        //공지사항 탭 메뉴
+        var tabMenu = $(".notice");
+
+        //컨텐츠 내용을 숨겨주세요!
+        tabMenu.find("ul > li > ul").hide();
+        tabMenu.find("li.active > ul").show();
+
+        function tabList(e){
+            e.preventDefault();       //#의 기능을 차단
+            var target = $(this);
+            target.next().show().parent("li").addClass("active").siblings("li").removeClass("active").find("ul").hide();
+            //버튼을 클릭하면 ~ div를 보여주고
+            //부모의 li 태그에 클래스 추가하고
+            //형제의 li 태그에 클래스 제거하고
+            //제거한 자식의 div 태그를 숨겨줌 
+        }
+
+        tabMenu.find("ul > li > a").click(tabList).focus(tabList);
+        
+    </script>
 </body>
+</html>
