@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+   <%@ include file = "/resources/include/header.jsp"%>
 <title>공지사항</title>
 </head>
 <body>

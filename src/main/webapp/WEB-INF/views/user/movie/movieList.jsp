@@ -6,7 +6,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <jsp:include page="../../../../include/header.jsp" />
+   <%@ include file = "/resources/include/header.jsp"%>
     <title>Movie List</title>
     <style>
         .movie-container {

@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+   <%@ include file = "/resources/include/header.jsp"%>
 <title>자주 묻는 질문 페이지</title>
 </head>
 <body>
