@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.box.small.adminTheaterMapper">
+
+	<!-- 영화관 추가 -->
+	<insert id="insertTheater">
+		insert into theater
+		(th_no,th_location,th_name,th_photo)
+		values
+		(#{th_no},#{th_location'},#{th_name},#{th_photo})
+	</insert>
+
+	<!-- 영화관 삭제 -->
+	<update id="">
+		update theater
+		set th_status = 0
+		where th_no = #{th_no}
+	</update>
+
+	<!-- 영화관 정보 수정 -->
+	<update id="updateTheater">
+		update theater
+		set th_location = #{th_location}, th_name = #{th_name}, th_photo = #{th_photo}
+		where th_no = #{th_no}
+	</update>
+
+</mapper>
