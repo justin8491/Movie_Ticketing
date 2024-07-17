@@ -32,7 +32,7 @@ public class SupportController {
 	@GetMapping(value = "/user/support/faq")
 	public ModelAndView faq() {
 		ModelAndView mav = new ModelAndView();
-		logger.info("1대1 문의 사항 폼 이동");
+		logger.info("자주 묻는 질문 페이지 이동");
 		
 		List<SupportDto> faqlist = service.faq();
 		
@@ -46,6 +46,9 @@ public class SupportController {
 		ModelAndView mav = new ModelAndView();
 		logger.info("공지사항 폼 이동");
 		
+		List<SupportDto> noticelist = service.notice();
+		
+		mav.addObject("noticelist", noticelist);
 		mav.setViewName("/user/support/notice");
 		
 		return mav;
@@ -62,16 +65,48 @@ public class SupportController {
 		
 		return mav;
 	}
-	
+	@GetMapping(value = "/user/support/inquiry")
+	public ModelAndView inquiry() {
+		logger.info("1대1 문의 페이지 이동");
+		
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("/user/support/inquiry");
+		
+		return mav;
+	}
 	@GetMapping(value = "/user/support/selectFreeBoard")
 	public ModelAndView selectFreeBoard(@RequestParam("bo_no") int bo_no) {
-		logger.info("상세페이지 이동");
+		logger.info("자유게시판 상세페이지 이동");
 		
 		SupportDto freeBoard = service.selectFreeBoardWrite(bo_no);
 		ModelAndView mav = new ModelAndView();
 		
 		mav.setViewName("/user/support/selectFreeBoard");
 		mav.addObject("freeBoard", freeBoard);
+		
+		return mav;
+	}
+	@GetMapping(value = "/user/support/selectNotice")
+	public ModelAndView selectNotice(@RequestParam("bo_no") int bo_no) {
+		logger.info("공지사항 상세페이지 이동");
+		
+		SupportDto noticelist = service.selectNotice(bo_no);
+		ModelAndView mav = new ModelAndView();
+		
+		mav.setViewName("/user/support/selectNotice");
+		mav.addObject("noticelist", noticelist);
+		
+		return mav;
+	}
+	@GetMapping(value = "/user/support/selectFaq")
+	public ModelAndView selectFaq(@RequestParam("bo_no") int bo_no) {
+		logger.info("자주 묻는 질문 상세페이지 이동");
+		
+		SupportDto faqlist = service.selectFaq(bo_no);
+		ModelAndView mav = new ModelAndView();
+		
+		mav.setViewName("/user/support/selectFaq");
+		mav.addObject("faqlist", faqlist);
 		
 		return mav;
 	}
