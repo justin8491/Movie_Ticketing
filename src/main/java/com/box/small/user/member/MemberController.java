@@ -83,7 +83,7 @@ public class MemberController {
         return mav;
     }
 
-    @GetMapping(value = "updateMemberForm")
+    @GetMapping(value = "updateMemberForm/{id}")
     public ModelAndView updateMemberForm(MemberDto member) {
         ModelAndView mav = new ModelAndView();
         logger.info("회원수정 이동");

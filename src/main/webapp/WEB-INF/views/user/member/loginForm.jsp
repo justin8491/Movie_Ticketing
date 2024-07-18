@@ -28,7 +28,14 @@
                             <li><a href="#">영화관</a></li>
                             <li><a href="#">예매하기</a></li>
                             <li><a href="#">고객센터</a></li>
-                            <li><a href="#">로그인</a></li>
+                            <c:if test="${member != null && isLogin == true}">
+                                <li><a href="${contextPath}/user/detailMember/${member.mem_id}">${member.mem_name}</a></li>
+                                <li><a href="${contextPath}/user/logout">로그아웃</a></li>
+                            </c:if>
+                            <c:if test="${member == null}">
+                                <li><a href="${contextPath}/user/loginForm">로그인</a></li>
+                            </c:if>
+                            <!-- <li><a href="${contextPath}/user/loginForm">로그인</a></li> -->
                         </ul>
                     </nav>    
                 </div>

@@ -140,7 +140,7 @@
                             <div class="form-group row">
                                 <div class="col-sm-10 offset-sm-2">
                                     <a class="btn btn-success" href="${contextPath}/user/main">메인</a>
-                                    <a class="btn btn-warning" href="${contextPath}/user/updateMember/${member.mem_id}">개인정보 변경</a>
+                                    <a class="btn btn-warning" href="${contextPath}/user/updateMemberForm/${member.mem_id}">개인정보 변경</a>
                                 </div>
                             </div>
                         </form>
