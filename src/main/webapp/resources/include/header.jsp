@@ -1,6 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <meta charset="UTF-8">
+    <!-- Modal CDN -->
+    <link href="${contextPath}/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!-- jQuery 3.4.1 -->
+    <script src="${contextPath}/resources/jQuery/jquery-3.4.1.min.js"></script>
+    <script src="${contextPath}/resources/bootstrap/js/bootstrap.min.js"></script>
+
     <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="format-detection" content="telephone=no">
