@@ -22,12 +22,12 @@ public class MemberController {
     @Autowired
     MemberService memberService;
 
-    @GetMapping(value = "main")
-    public ModelAndView main() {
-        ModelAndView mav = new ModelAndView();
-        mav.setViewName("main");
-        return mav;
-    }
+//    @GetMapping(value = "home")
+//    public ModelAndView main() {
+//        ModelAndView mav = new ModelAndView();
+//        mav.setViewName("home");
+//        return mav;
+//    }
 
     @GetMapping(value = "loginForm")
     public ModelAndView loginForm() {
@@ -48,7 +48,7 @@ public class MemberController {
                 redirectAttributes.addFlashAttribute("loginMessage", "로그인 성공");
                 session.setAttribute("member", member);
                 session.setAttribute("isLogin", true);
-                mav.setViewName("redirect:main");
+                mav.setViewName("redirect:/");
             }
         } catch (NullPointerException e) {
             redirectAttributes.addFlashAttribute("loginMessage", "로그인 실패");
@@ -61,7 +61,7 @@ public class MemberController {
     public ModelAndView logout(HttpSession session) {
         ModelAndView mav = new ModelAndView();
         session.invalidate();
-        mav.setViewName("redirect:main");
+        mav.setViewName("redirect:/");
         return mav;
     }
 
@@ -69,7 +69,7 @@ public class MemberController {
     public ModelAndView createMemeber(MemberDto member) {
         ModelAndView mav = new ModelAndView();
         memberService.createMember(member);
-        mav.setViewName("");
+        mav.setViewName("redirect:/");
         return mav;
     }
 

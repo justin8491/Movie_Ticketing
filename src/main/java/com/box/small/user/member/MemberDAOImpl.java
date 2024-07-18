@@ -15,7 +15,7 @@ public class MemberDAOImpl implements MemberDAO {
 
     @Autowired
     SqlSession sqlSession;
-    String SQL_NAME_SAPCE = "com.box.small.mapper.memberMapper.";
+    String SQL_NAME_SAPCE = "com.box.small.mappers.memberMapper.";
 
     @Override
     public MemberDto login(MemberDto member) {

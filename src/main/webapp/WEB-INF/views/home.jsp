@@ -2,24 +2,57 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:set var="path" value="${pageContext.request.contextPath }/resources" />
+<c:set var="contextPath" value="${pageContext.request.contextPath }" />
 <!DOCTYPE html>
 <html lang="ko">
 <head>
     <%@ include file = "/resources/include/header.jsp"%>
 </head>
 <body>
-    
+    <!-- Modal -->
+    <!-- 로그인 성공 모달 -->
+                <div class="modal" id="loginSuccessModal" tabindex="-1" aria-labelledby="loginSuccessModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="loginSuccessModalLabel">알림</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                ${loginMessage}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <!-- 로그인 성공 모달 End -->
+    <script>
+       document.addEventListener('DOMContentLoaded', function () {
+                   var loginMessage = "${loginMessage}";
+                   if (loginMessage) {
+                       var myModal = new bootstrap.Modal(document.getElementById('loginSuccessModal'), {
+                           keyboard: false
+                       });
+                       myModal.show();
+
+                       setTimeout(function () {
+                           myModal.hide();
+                       }, 1000); // 3초 후 모달 숨기기
+                   }
+               });
+    </script>
+    <!-- Modal End -->
+
     <header id="header">
         <div class="container">
             <div class="row">
                 <div class="header clearfix">
                     <h1>
                         <a href="#">
-                            <em><img src="${path}/images/logo.png" alt="MEGABOX"></em>
+                            <em><img src="${path}/images/logo.png" alt="SmallBox"></em>
                         </a>    
                     </h1>
                     <nav id="mNav">
-                        <h2 class="ir_so">메가박스 전체메뉴</h2>
+                        <h2 class="ir_so">스몰박스 전체메뉴</h2>
                         <a href="#" class="ham"><span></span></a>
                     </nav>
                     <nav class="nav">
@@ -28,7 +61,16 @@
                             <li><a href="#">영화관</a></li>
                             <li><a href="#">예매하기</a></li>
                             <li><a href="#">고객센터</a></li>
-                            <li><a href="#">로그인</a></li>
+
+                            <c:if test="${member != null && isLogin == true}">
+                                <li><a href="${contextPath}/user/detailMember/${member.mem_id}">${member.mem_name}</a></li>
+                                <li><a href="${contextPath}/user/logout">로그아웃</a></li>
+                            </c:if>
+                            <c:if test="${member == null}">
+                                <li><a href="${contextPath}/user/loginForm">로그인</a></li>
+                            </c:if>
+                            <!-- <li><a href="${contextPath}/user/loginForm">로그인</a></li> -->
+
                         </ul>
                     </nav>    
                 </div>
