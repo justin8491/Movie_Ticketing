@@ -34,7 +34,7 @@ public class HomeController {
         model.addAttribute("serverTime", formattedDate);
 
 //        return "home_backup";
-        return "home2";
+        return "home";
     }
 
 }
