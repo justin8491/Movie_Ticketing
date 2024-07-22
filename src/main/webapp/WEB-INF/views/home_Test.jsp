@@ -9,39 +9,6 @@
     <%@ include file = "/resources/include/header.jsp"%>
 </head>
 <body>
-    <!-- Modal -->
-    <!-- 로그인 성공 모달 -->
-                <div class="modal" id="loginSuccessModal" tabindex="-1" aria-labelledby="loginSuccessModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="loginSuccessModalLabel">알림</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                ${loginMessage}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            <!-- 로그인 성공 모달 End -->
-    <script>
-       document.addEventListener('DOMContentLoaded', function () {
-                   var loginMessage = "${loginMessage}";
-                   if (loginMessage) {
-                       var myModal = new bootstrap.Modal(document.getElementById('loginSuccessModal'), {
-                           keyboard: false
-                       });
-                       myModal.show();
-
-                       setTimeout(function () {
-                           myModal.hide();
-                       }, 1000); // 3초 후 모달 숨기기
-                   }
-               });
-    </script>
-    <!-- Modal End -->
-
     <header id="header">
         <div class="container">
             <div class="row">
@@ -63,7 +30,7 @@
                             <li><a href="#">고객센터</a></li>
 
                             <c:if test="${member != null && isLogin == true}">
-                                <li><a href="${contextPath}/user/detailMember">${member.mem_name}</a></li>
+                                <li><a href="${contextPath}/user/detailMember/${member.mem_id}">${member.mem_name}</a></li>
                                 <li><a href="${contextPath}/user/logout">로그아웃</a></li>
                             </c:if>
                             <c:if test="${member == null}">
@@ -78,46 +45,6 @@
         </div>
     </header>
     <!-- //header -->
-    
-    
-    <section id="banner">
-        <div class="slider">
-           <div class="swiper-container">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide ss1">
-                        <div class="container">
-                            <div class="row">
-                                <h3>어벤져스 : 앤드게임</h3>
-                                <p>역대 최단 기간 1000만 관객 돌파 기록 </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide ss2">
-                        <div class="container">
-                            <div class="row">
-                                <h3>어벤져스 : 앤드게임</h3>
-                                <p>역대 최단 기간 1000만 관객 돌파 기록 </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide ss3">
-                        <div class="container">
-                            <div class="row">
-                                <h3>어벤져스 : 앤드게임</h3>
-                                <p>역대 최단 기간 1000만 관객 돌파 기록 </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-pagination"></div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-            </div>
-        </div>
-    </section>
-    <!-- //banner -->
-    
-    
     <section id="movie">
         <div class="container">
             <div class="row">

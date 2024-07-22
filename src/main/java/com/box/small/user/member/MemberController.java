@@ -73,19 +73,20 @@ public class MemberController {
         return mav;
     }
 
-    @GetMapping(value = "detailMember/{id}")
-    public ModelAndView detailMember(MemberDto member) {
+    @GetMapping(value = "detailMember")
+    public ModelAndView detailMember(MemberDto member, HttpSession session) {
         ModelAndView mav = new ModelAndView();
+        member = (MemberDto) session.getAttribute("member");
         logger.info("회원상세 폼");
         mav.addObject("member", memberService.detailMember(member));
         mav.setViewName("user/member/detailMember");
-
         return mav;
     }
 
-    @GetMapping(value = "updateMemberForm/{id}")
-    public ModelAndView updateMemberForm(MemberDto member) {
+    @GetMapping(value = "updateMemberForm")
+    public ModelAndView updateMemberForm(MemberDto member, HttpSession session) {
         ModelAndView mav = new ModelAndView();
+        member = (MemberDto) session.getAttribute("member");
         logger.info("회원수정 이동");
         mav.addObject("member", memberService.detailMember(member));
         mav.setViewName("user/member/updateMember");
@@ -93,13 +94,21 @@ public class MemberController {
     }
 
     @PostMapping(value = "updateMember")
-    public ModelAndView updateMember(MemberDto member){
+    public ModelAndView updateMember(MemberDto member) {
+        ModelAndView mav = new ModelAndView();
+        memberService.updateMember(member);
+        mav.setViewName("redirect:detailMember");
+        return mav;
+    }
+
+    @PostMapping(value = "deleteMember")
+    public ModelAndView deleteMember(MemberDto member, HttpSession session){
             ModelAndView mav = new ModelAndView();
-            memberService.updateMember(member);
-            mav.setViewName("user/member/detailMember/"+member.getMem_id());
+            memberService.deleteMember(member.getMem_id());
+            session.invalidate();
+            mav.setViewName("redirect:/");
             return mav;
         }
-
 }
 
 

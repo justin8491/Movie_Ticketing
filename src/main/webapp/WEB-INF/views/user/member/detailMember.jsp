@@ -6,6 +6,12 @@
 <html lang="ko">
 <head>
     <%@ include file = "/resources/include/header.jsp"%>
+    <style>
+    input[readonly] {
+        background-color: #fff !important;
+
+    }
+    </style>
 </head>
 <body>
     
@@ -29,7 +35,7 @@
                             <li><a href="#">예매하기</a></li>
                             <li><a href="#">고객센터</a></li>
                             <c:if test="${member != null && isLogin == true}">
-                                <li><a href="${contextPath}/user/detailMember/${member.mem_id}">${member.mem_name}</a></li>
+                                <li><a href="${contextPath}/user/detailMember">${member.mem_name}</a></li>
                                 <li><a href="${contextPath}/user/logout">로그아웃</a></li>
                             </c:if>
                             <c:if test="${member == null}">
@@ -140,7 +146,7 @@
                             <div class="form-group row">
                                 <div class="col-sm-10 offset-sm-2">
                                     <a class="btn btn-success" href="${contextPath}/user/main">메인</a>
-                                    <a class="btn btn-warning" href="${contextPath}/user/updateMemberForm/${member.mem_id}">개인정보 변경</a>
+                                    <a class="btn btn-warning" href="${contextPath}/user/updateMemberForm">개인정보 변경</a>
                                 </div>
                             </div>
                         </form>
