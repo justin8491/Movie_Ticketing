@@ -87,4 +87,6 @@ public class SupportDAOImpl implements SupportDAO{
 		return sqlSession.delete(nameSpace+".freeBoardDelete", sp);
 	}
 
+	
+
 }
