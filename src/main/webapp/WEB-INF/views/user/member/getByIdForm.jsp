@@ -16,14 +16,19 @@
     <section class="content">
       <div class="container">
         <div class="row">
-           <h1>로그인</h1>
-           <form action="${contextPath}/user/login" method="post">
-                ID : <input type="text" name="mem_id" id="mem_id"><br>
-                PW : <input type="text" name="mem_password" id="mem_password">
-                <input type="submit" value="로그인">
+           <h1>아이디 찾기</h1>
+           <form action="${contextPath}/user/getById" method="post">
+                ID : <input type="text" name="mem_name" id="mem_name"><br>
+                PW : <input type="text" name="mem_phoneNumber" id="mem_phoneNumber">
+                <input type="submit" value="아이디 찾기">
            </form>
-           <a href="${contextPath}/user/createMemberForm">회원가입</a>
-           <a href="${contextPath}/user/getByIdOrPwd">아이디/비밀번호 찾기</a>
+            <br>
+           <h1>비밀번호 찾기 찾기</h1>
+                <form action="${contextPath}/user/getByPwd" method="post">
+                ID : <input type="text" name="mem_id" id="mem_id"><br>
+                PW : <input type="text" name="mem_email" id="mem_password">
+              <input type="submit" value="비밀번호 찾기">
+           </form>
         </div>
       </div>
     </section>

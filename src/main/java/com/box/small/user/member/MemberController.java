@@ -58,15 +58,15 @@ public class MemberController {
         mav.setViewName("redirect:/");
         return mav;
     }
-    
-    
+
+
     @GetMapping(value = "createMemberForm")
-    public ModelAndView createMemberForm(){
-            ModelAndView mav = new ModelAndView();
-            mav.setViewName("user/member/createMember");
-            return mav;
-        }
-    
+    public ModelAndView createMemberForm() {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("user/member/createMember");
+        return mav;
+    }
+
     @PostMapping(value = "createMember")
     public ModelAndView createMemeber(MemberDto member) {
         ModelAndView mav = new ModelAndView();
@@ -112,6 +112,22 @@ public class MemberController {
         mav.setViewName("redirect:/");
         return mav;
     }
+
+    @GetMapping(value = "getByIdOrPwd")
+    public ModelAndView getByIdOrPwd() {
+        ModelAndView mav = new ModelAndView();
+
+        mav.setViewName("user/member/getByIdForm");
+        return mav;
+    }
+    
+    @PostMapping(value = "getById")
+    public ModelAndView getById(MemberDto member){
+            ModelAndView mav = new ModelAndView();
+            
+            mav.setViewName("");
+            return mav;
+        }
 }
 
 
