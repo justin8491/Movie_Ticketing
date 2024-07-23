@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <%@ include file = "/resources/include/header.jsp"%>
+
 </head>
 <body>
     

@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-    <%@ include file = "/resources/include/header.jsp"%>
+<%@include file="/resources/include/head_beta.jsp" %>
 <title>관리자 영화일정 수정페이지입니다.</title>
 </head>
 <body>

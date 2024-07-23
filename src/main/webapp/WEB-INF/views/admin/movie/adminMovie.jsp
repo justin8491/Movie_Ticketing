@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-    <%@ include file = "/resources/include/header.jsp"%>
+<%@include file="/resources/include/head_beta.jsp" %>
 <title>adminMovie</title>
 </head>
 <body>

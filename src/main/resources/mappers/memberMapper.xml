@@ -2,16 +2,36 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.box.small.memberMapper">
+<mapper namespace="com.box.small.mappers.memberMapper">
     <select id="listAll" resultType="com.box.small.user.member.MemberDto">
         select * from member
     </select>
 
-    <select id="cnt">
-        select count(*) from member
-    </select>
-    <select id="selectOne" parameterType="String" resultType="com.box.small.user.member.MemberDto">
+    <select id="login" parameterType="com.box.small.user.member.MemberDto" resultType="com.box.small.user.member.MemberDto">
         select * from member
-        where mem_name = #{mem_name}
+        where mem_id = #{mem_id}
+        and mem_password = #{mem_password}
     </select>
+
+    <select id="detailMember" parameterType="com.box.small.user.member.MemberDto" resultType="com.box.small.user.member.MemberDto">
+        select * from member
+        where mem_id = #{mem_id}
+    </select>
+
+    <insert id="createMember" parameterType="com.box.small.user.member.MemberDto">
+        insert into member
+        values (#{mem_id} ,#{mem_password} ,#{mem_name} ,#{mem_ssn} ,#{mem_phoneNumber} ,#{mem_accumulatedAmount} ,1 ,#{mem_address})
+    </insert>
+
+    <update id="updateMember" parameterType="com.box.small.user.member.MemberDto">
+        update member set
+        mem_password = #{mem_password} ,mem_name = #{mem_name} ,mem_ssn = #{mem_ssn} , mem_phoneNumber = #{mem_phoneNumber} , mem_accumulatedAmount = #{mem_accumulatedAmount} , mem_address = #{mem_address}
+        where mem_id = #{mem_id}
+    </update>
+
+    <update id="deleteMember" parameterType="com.box.small.user.member.MemberDto">ß
+        update member set
+        mem_status = 0
+        where mem_id = #{mem_id}
+    </update>
 </mapper>
