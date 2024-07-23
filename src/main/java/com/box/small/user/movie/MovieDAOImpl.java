@@ -25,4 +25,9 @@ public class MovieDAOImpl implements MovieDAO{
 		return sqlSession.selectOne(namespace+".selectMovie",mo_no);
 	}
 
+	@Override
+	public String category(int cat_no) {
+		return sqlSession.selectOne(namespace+".selectCategory", cat_no);
+	}
+
 }

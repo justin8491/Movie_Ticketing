@@ -37,8 +37,12 @@ public class MovieController {
 		
 		MovieDto movie = service.selectMovie(mo_no);
 		
+		String cat_name = service.category(movie.getCat_no());
+		
 		mav.addObject("movie", movie);
-		mav.setViewName("/user/movie/detailMovie");
+		mav.addObject("cat_name", cat_name);
+//		mav.setViewName("/user/movie/detailMovie");
+		mav.setViewName("/user/movie/movieDetail");
 		
 		return mav;
 	}

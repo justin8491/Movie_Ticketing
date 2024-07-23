@@ -10,7 +10,7 @@
 	<h1>자유게시판 페이지입니다.</h1>
 	
 		<div><a href="freeBoardWrite">작성</a></div>
-	<table class="table table-hover">
+			<table class="table table-hover">
 				<tr>
 					<th>번호</th><th>제목</th><th>작성자ID</th><th>생성일</th>
 				</tr>

@@ -14,6 +14,9 @@
 		select * from movie where mo_no = #{mo_no}
 	</select>
 	
-	
+	<!-- 영화 선택 조회해서 나온 카테고리 넘버로 카테고리 조회 -->
+	<select id="selectCategory" resultType="String">
+		select * from category where cat_no = #{cat_no}
+	</select>
 	
 </mapper>

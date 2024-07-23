@@ -9,4 +9,5 @@ public interface MovieDAO {
 	
 	MovieDto selectMovie(int mo_no) throws SQLException;	//	영화 선택 조회
 	
+	String category(int cat_no);
 }

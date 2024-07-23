@@ -22,4 +22,8 @@ public class MovieServiceImpl implements MovieService{
 		return dao.selectMovie(mo_no);
 	}
 
+	@Override
+	public String category(int cat_no) {
+		return dao.category(cat_no);
+	}
 }
