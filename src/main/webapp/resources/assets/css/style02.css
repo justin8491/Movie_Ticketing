@@ -67,6 +67,70 @@
   color: #d8c8bd;
 }
 
+
+input[readonly] {
+   background-color: #fff !important;
+}
+
+.content {
+    margin-top: 150px;
+    margin-bottom: 150px;
+}
+
+.container h2 {
+/* text-align: center; */
+font-size: 2rem;
+}
+
+.border {
+border: 1px solid black;
+}
+
+.box {
+display: flex;
+padding: 20px;
+}
+
+.box label {
+margin-right: 10px;
+width: 50px;
+}
+
+.float {
+float: left;
+width: 25%;
+padding: 10px;
+box-sizing: border-box;
+}
+
+.float_form:after {
+content: "";
+display: block;
+clear: both;
+}
+
+.block {
+float: left;
+display: block;
+}
+
+.heihgt {
+height: 200px;
+}
+
+.diviContainer {
+display: flex;
+}
+
+.rem_1 {
+margin-top: 3rem;
+padding-left: 0;
+}
+
+.rem_2 {
+margin-top: 3rem;
+padding-right: 0;
+}
 /* content */
 
 /* footer */

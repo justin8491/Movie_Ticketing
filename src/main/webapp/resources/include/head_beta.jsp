@@ -58,12 +58,3 @@
       rel="stylesheet"
     />
 
-    <!-- HTLM5shiv ie6~8 -->
-    <!--[if lt IE 9]>
-      <script src="${path}/assets/js/html5shiv.min.js"></script>
-      <script type="text/javascript">
-        alert(
-          "현재 브라우저는 지원하지 않습니다. 크롬 브라우저를 추천합니다.!"
-        );
-      </script>
-    <![endif]-->
