@@ -4,28 +4,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
     <%@ include file = "/resources/include/head_beta.jsp"%>
-    <title>극장 목록</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-    .theater img {
-	width: 100%;
-	height: auto;
-	}
-	.theater-name {
-	font-size: 1.2rem;
-	font-weight: bold;
-	}
-    .page-title {
-	font-size: 2.5rem; /* 제목 크기 조정 */
-	font-weight: bold;
-	margin-top: 20px; /* 위쪽 여백 추가 */
-     }
-    </style>
 </head>
 <body>
+<header id="header">
+<%@ include file = "/resources/include/header_beta.jsp"%>
+</header>
+
+
     <div class="container">
         <h1 class="text-center page-title">극장 목록</h1> <!-- 제목 클래스 변경 -->
         <div class="row theaterlist">
@@ -52,10 +38,11 @@
             </ul>
         </nav>
     </div>
-
-    <!-- Bootstrap JS and dependencies (optional but recommended) -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+   <footer>
+        <%@ include file = "/resources/include/footer_beta.jsp"%>
+    </footer>
+    <!-- 플러그인 -->
+        <%@ include file = "/resources/include/plugin_cdn.jsp"%>
+    <!-- //footer -->
 </body>
 </html>

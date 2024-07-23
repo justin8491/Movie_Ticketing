@@ -3,8 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>자주 묻는 질문 페이지</title>
+<%@ include file = "/resources/include/head_beta.jsp"%>
 </head>
 <body>
 	<h1>자주 묻는 질문 페이지 입니다.</h1>
