@@ -24,17 +24,11 @@
                     </nav>
                     <nav class="nav">
                         <ul class="clearfix">
-<<<<<<< HEAD:src/main/webapp/WEB-INF/views/home2.jsp
                         	<li><a href="${contextPath}/user/movie/movieList">영화</a></li>
 							<li><a href="${contextPath}/user/theater/theaterList">영화관</a></li>
 							<li><a href="#">예매하기</a></li>
 							<li><a href="${contextPath}/user/support/support">고객센터</a></li>
 							<li><a href="#">로그인</a></li>	
-=======
-                            <li><a href="#">영화</a></li>
-                            <li><a href="#">영화관</a></li>
-                            <li><a href="#">예매하기</a></li>
-                            <li><a href="#">고객센터</a></li>
 
                             <c:if test="${member != null && isLogin == true}">
                                 <li><a href="${contextPath}/user/detailMember/${member.mem_id}">${member.mem_name}</a></li>
@@ -44,8 +38,6 @@
                                 <li><a href="${contextPath}/user/loginForm">로그인</a></li>
                             </c:if>
                             <!-- <li><a href="${contextPath}/user/loginForm">로그인</a></li> -->
-
->>>>>>> fb75d6ec9580df9f5da0af7ac2b4f5d62d1213e9:src/main/webapp/WEB-INF/views/home_Test.jsp
                         </ul>
                     </nav>    
                 </div>
