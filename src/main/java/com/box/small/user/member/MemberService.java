@@ -29,7 +29,7 @@ public interface MemberService {
     int updateMember(MemberDto member);
 
     //    유저 정보 삭제
-    int deleteMember(String mem_id);
+    int deleteMember(MemberDto member);
 
 
 }

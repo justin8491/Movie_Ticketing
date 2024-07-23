@@ -88,13 +88,12 @@
             <div class="row">
                 <!-- login code -->
                     <h1>로그인</h1>
-
                     <form action="${contextPath}/user/login" method="post">
                     ID : <input type="text" name="mem_id" id="mem_id"><br>
                     PW : <input type="text" name="mem_password" id="mem_password">
                     <input type="submit" value="로그인">
                     </form>
-                    <a href="${contextPath}/user/createMember">회원가입</a>
+                    <a href="${contextPath}/user/createMemberForm">회원가입</a>
                 <!-- login end -->
             </div>
         </div>

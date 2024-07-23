@@ -64,7 +64,15 @@ public class MemberController {
         mav.setViewName("redirect:/");
         return mav;
     }
-
+    
+    
+    @GetMapping(value = "createMemberForm")
+    public ModelAndView createMemberForm(){
+            ModelAndView mav = new ModelAndView();
+            mav.setViewName("user/member/createMember");
+            return mav;
+        }
+    
     @PostMapping(value = "createMember")
     public ModelAndView createMemeber(MemberDto member) {
         ModelAndView mav = new ModelAndView();
@@ -94,21 +102,22 @@ public class MemberController {
     }
 
     @PostMapping(value = "updateMember")
-    public ModelAndView updateMember(MemberDto member) {
+    public ModelAndView updateMember(MemberDto member, HttpSession session) {
         ModelAndView mav = new ModelAndView();
+        session.getAttribute("member");
         memberService.updateMember(member);
         mav.setViewName("redirect:detailMember");
         return mav;
     }
 
-    @PostMapping(value = "deleteMember")
-    public ModelAndView deleteMember(MemberDto member, HttpSession session){
-            ModelAndView mav = new ModelAndView();
-            memberService.deleteMember(member.getMem_id());
-            session.invalidate();
-            mav.setViewName("redirect:/");
-            return mav;
-        }
+    @GetMapping(value = "deleteMember")
+    public ModelAndView deleteMember(MemberDto member, HttpSession session) {
+        ModelAndView mav = new ModelAndView();
+        memberService.deleteMember(member);
+        session.invalidate();
+        mav.setViewName("redirect:/");
+        return mav;
+    }
 }
 
 

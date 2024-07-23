@@ -32,7 +32,7 @@
 
                             <c:if test="${member != null && isLogin == true}">
                                 <li><a href="${contextPath}/user/detailMember/${member.mem_id}">${member.mem_name}</a></li>
-                                <li><a href="${contextPath}/user/logout">로그아웃</a></li>
+                                <li><a href="${contextPath}/user/logout">로그아웃</a></li`>
                             </c:if>
                             <c:if test="${member == null}">
                                 <li><a href="${contextPath}/user/loginForm">로그인</a></li>
