@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page session="true" %>
-<%@include file="/resources/include/header.jsp" %>
+<%@include file="/resources/include/head_beta.jsp" %>
 	<!-- Content Wrapper. Contains page content -->
 	<div class="content-wrapper">
 

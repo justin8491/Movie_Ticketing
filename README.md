@@ -9,7 +9,6 @@
 - 팀원 : 유종현
 - 팀원 : 김도현
 - 팀원 : 장현세
-- 팀원 : 윤채영
 
 ### 개발 환경
 <img src="https://img.shields.io/badge/Java-2C2255?style=for-the-badge&logo=eclipseide&logoColor=white">

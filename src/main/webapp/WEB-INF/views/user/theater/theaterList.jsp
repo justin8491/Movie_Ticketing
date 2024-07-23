@@ -5,7 +5,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <%@ include file = "/resources/include/header.jsp"%>
+    <%@ include file = "/resources/include/head_beta.jsp"%>
     <title>극장 목록</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">

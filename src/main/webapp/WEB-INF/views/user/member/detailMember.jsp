@@ -5,11 +5,71 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <%@ include file = "/resources/include/header.jsp"%>
+    <%@ include file = "/resources/include/head_beta.jsp"%>
     <style>
-    input[readonly] {
+      input[readonly] {
         background-color: #fff !important;
-    }
+      }
+
+      .content {
+        margin-top: 150px;
+        margin-bottom: 150px;
+      }
+
+      .container h2 {
+        /* text-align: center; */
+        font-size: 2rem;
+      }
+
+      .border {
+        border: 1px solid black;
+      }
+
+      .box {
+        display: flex;
+        padding: 20px;
+      }
+
+      .box label {
+        margin-right: 10px;
+        width: 50px;
+      }
+
+      .float {
+        float: left;
+        width: 25%;
+        padding: 10px;
+        box-sizing: border-box;
+      }
+
+      .float_form:after {
+        content: "";
+        display: block;
+        clear: both;
+      }
+
+      .block {
+        float: left;
+        display: block;
+      }
+
+      .heihgt {
+        height: 200px;
+      }
+
+      .diviContainer {
+        display: flex;
+      }
+
+      .rem_1 {
+        margin-top: 3rem;
+        padding-left: 0;
+      }
+
+      .rem_2 {
+        margin-top: 3rem;
+        padding-right: 0;
+      }
     </style>
 </head>
 <body>
@@ -84,69 +144,166 @@
         </div>
     </section>
     <!-- //banner -->
-    <div class="content-wrapper">
-    		<section class="content">
-    			<div class="container mt-5">
-                        <h2>회원정보 상세보기</h2>
-                        <form>
-                            <div class="form-group row">
-                                <label for="mem_id" class="col-sm-2 col-form-label">아이디</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="mem_id" value="${member.mem_id}" readonly>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="mem_password" class="col-sm-2 col-form-label">비밀번호</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="mem_password" value="${member.mem_password}" placeholder="비밀번호" readonly>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="mem_name" class="col-sm-2 col-form-label">이름</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="mem_name" value="${member.mem_name}" placeholder="이름" readonly>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="mem_ssn" class="col-sm-2 col-form-label">주민등록번호</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="mem_ssn" value="${member.mem_ssn}" placeholder="주민등록번호" readonly>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="mem_phoneNumber" class="col-sm-2 col-form-label">전화번호</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="mem_phoneNumber" value="${member.mem_phoneNumber}" placeholder="전화번호" readonly>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="mem_accumulatedAmount" class="col-sm-2 col-form-label">누적금액</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="mem_accumulatedAmount" value="${member.mem_accumulatedAmount}" placeholder="누적금액" readonly>
-                                </div>
-                            </div>
-                            <!--<div class="form-group row">
-                                <label for="mem_status" class="col-sm-2 col-form-label">상태</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="mem_status" placeholder="상태">
-                                </div>
-                            </div> -->
-                            <div class="form-group row">
-                                <label for="mem_address" class="col-sm-2 col-form-label">주소</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="mem_address" value="${member.mem_address}" placeholder="주소" readonly>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <div class="col-sm-10 offset-sm-2">
-                                    <a class="btn btn-success" href="${contextPath}/user/main">메인</a>
-                                    <a class="btn btn-warning" href="${contextPath}/user/updateMemberForm">개인정보 변경</a>
-                                    <a class="btn btn-danger" href="${contextPath}/user/deleteMember">회원 탈퇴</a>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
+<div class="content-wrapper">
+      <section class="content">
+        <div class="container mt-5">
+          <h2>회원정보 상세보기</h2>
+          <div class="memberInfo border">
+            <form class="float_form row">
+              <div class="form-group row float">
+                <div class="box">
+                  <label for="mem_id" class="col-sm-2 col-form-label"
+                    >아이디</label
+                  >
+                  <div class="col-sm-10">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="mem_id"
+                      value="${member.mem_id}"
+                      readonly
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row float">
+                <div class="box">
+                  <label for="mem_password" class="col-sm-2 col-form-label"
+                    >비밀번호</label
+                  >
+                  <div class="col-sm-10">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="mem_password"
+                      value="${member.mem_password}"
+                      placeholder="비밀번호"
+                      readonly
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row float">
+                <div class="box">
+                  <label for="mem_name" class="col-sm-2 col-form-label"
+                    >이름</label
+                  >
+                  <div class="col-sm-10">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="mem_name"
+                      value="${member.mem_name}"
+                      placeholder="이름"
+                      readonly
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row float">
+                <div class="box">
+                  <label for="mem_ssn" class="col-sm-2 col-form-label"
+                    >주민번호</label
+                  >
+                  <div class="col-sm-10">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="mem_ssn"
+                      value="${member.mem_ssn}"
+                      placeholder="주민등록번호"
+                      readonly
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row float">
+                <div class="box">
+                  <label for="mem_phoneNumber" class="col-sm-2 col-form-label"
+                    >전화번호</label
+                  >
+                  <div class="col-sm-10">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="mem_phoneNumber"
+                      value="${member.mem_phoneNumber}"
+                      placeholder="전화번호"
+                      readonly
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row float">
+                <div class="box">
+                  <label
+                    for="mem_accumulatedAmount"
+                    class="col-sm-2 col-form-label"
+                    >누적금액</label
+                  >
+                  <div class="col-sm-10">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="mem_accumulatedAmount"
+                      value="${member.mem_accumulatedAmount}"
+                      placeholder="누적금액"
+                      readonly
+                    />
+                  </div>
+                </div>
+              </div>
 
+              <div class="form-group row float">
+                <div class="box">
+                  <label for="mem_address" class="col-sm-2 col-form-label"
+                    >주소</label
+                  >
+                  <div class="col-sm-10">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="mem_address"
+                      value="${member.mem_address}"
+                      placeholder="주소"
+                      readonly
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row float">
+                <div class="box">
+                  <div class="offset-sm-2">
+                    <!-- <a class="btn btn-success" href="${contextPath}/user/main"
+                          >메인</a
+                        > -->
+                    <a
+                      class="btn btn-warning"
+                      href="${contextPath}/user/updateMemberForm"
+                      >개인정보 변경</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="container mt-5">
+          <h2>예약 내역</h2>
+          <div class="reservationInfo border heihgt"></div>
+        </div>
+        <div class="container diviContainer">
+          <div class="container rem_1">
+            <h2>나의 리뷰</h2>
+            <div class="reviewInfo border heihgt"></div>
+          </div>
+          <div class="container rem_2">
+            <h2>나의 글</h2>
+            <div class="boardInfo border heihgt"></div>
+          </div>
+        </div>
+      </section>
+    </div>
     		</section>
     	</div>
     <!-- //movie -->
