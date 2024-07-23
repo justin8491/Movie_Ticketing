@@ -26,5 +26,10 @@
 				</tr>
 			
 			</table>
+			<div>
+			<a href = "freeBoardUpdate?bo_no=${freeBoard.bo_no}">수정</a>
+			<a href = "freeBoardDelete?bo_no=${freeBoard.bo_no}">삭제</a>
+			</div>
+			
 </body>
 </html>

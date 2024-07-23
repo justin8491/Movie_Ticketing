@@ -1,26 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<<<<<<< HEAD
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath }" />
-<link rel="stylesheet" href="${contextPath}/resources/css/header.css" />
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<meta
-	content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'
-	name='viewport'>
-<title>main</title>
-
-<link rel="stylesheet" href="${contextPath}/resources/css/header.css" />
-<link href="${contextPath}/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-<!-- jQuery 3.4.1 -->
-<script src="${contextPath}/resources/jQuery/jquery-3.4.1.min.js"></script>
-<script src="${contextPath}/resources/bootstrap/js/bootstrap.min.js"></script>
-</head>
-=======
 <meta charset="UTF-8">
     <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -65,4 +46,4 @@
          alert("현재 브라우저는 지원하지 않습니다. 크롬 브라우저를 추천합니다.!");
       </script>
    <![endif]-->
->>>>>>> 50a944869c0f117d65190c548a3dc8793b97b1ba
+

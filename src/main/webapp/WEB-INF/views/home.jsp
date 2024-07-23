@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page session="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -9,11 +9,6 @@
 	<title>Home</title>
 	<title>smallBox</title>
 </head>
-=======
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ include file = "/resources/include/header.jsp"%>
->>>>>>> 50a944869c0f117d65190c548a3dc8793b97b1ba
 <body>
 	<section>	
 	<div class="center">

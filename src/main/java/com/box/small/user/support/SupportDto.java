@@ -9,6 +9,23 @@ public class SupportDto {
 	private String bo_createAt;
 	private int bo_status;
 	
+	public SupportDto() {}
+	
+	
+	
+	public SupportDto(int cat_no, String bo_writerId, String bo_title, String bo_content, String bo_createAt,
+			int bo_status) {
+		super();
+		this.cat_no = cat_no;
+		this.bo_writerId = bo_writerId;
+		this.bo_title = bo_title;
+		this.bo_content = bo_content;
+		this.bo_createAt = bo_createAt;
+		this.bo_status = bo_status;
+	}
+
+
+
 	public SupportDto(int bo_no, int cat_no, String bo_writerId, String bo_title, String bo_content, String bo_createAt,
 			int bo_status) {
 		super();

@@ -14,7 +14,8 @@
 				 고객의 언어폭력(비하, 욕설, 협박, 성희롱 등)으로부터 직원을 보호하기 위해<br>
 				 관련 법에 따라 수사기관에 필요한 조치를 요구할 수 있으며, 형법에 의해 처벌 대상이 될 수 있습니다.</div><br>
 			<div>∴문의하시기 전 FAQ를 확인하시면 궁금증을 더욱 빠르게 해결하실 수 있습니다.</div>
-			<form action= "insert" method = "post" >
+			<form action= "inquiry" method = "post" >
+		<p>작성자 : <input type = "text" name = "bo_writerId"><br></p>
 		<p>제목 : <input type = "text" name = "bo_title"><br></p>
 		<p>내용 : <input type = "text" name = "bo_content"><br></p>
 	

@@ -34,5 +34,9 @@ public interface SupportDAO {
 //	자유게시판 리스트 보여주기
 	List<SupportDto> freeBoard();
 	
+//	자유게시판 수정
+	int freeBoardUpdate(SupportDto sp);
 	
+//	자유게시판 삭제
+	int freeBoardDelete(SupportDto sp);
 }

@@ -3,9 +3,9 @@ package com.box.small.user.support;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
-@Repository
+@Service
 public class SupportServiceImpl implements SupportService{
 
 	@Autowired
@@ -60,7 +60,7 @@ public class SupportServiceImpl implements SupportService{
 	}
 
 	@Override
-	public SupportDto selectFreeBoardWrite(int bo_no) {
+	public SupportDto selectFreeBoardWrite(int bo_no) {	
 		// TODO Auto-generated method stub
 		return dao.selectFreeBoardWrite(bo_no);
 	}
@@ -69,6 +69,18 @@ public class SupportServiceImpl implements SupportService{
 	public List<SupportDto> freeBoard() {
 		// TODO Auto-generated method stub
 		return dao.freeBoard();
+	}
+
+	@Override
+	public int freeBoardUpdate(SupportDto sp) {
+		// TODO Auto-generated method stub
+		return dao.freeBoardUpdate(sp);
+	}
+
+	@Override
+	public int freeBoardDelete(SupportDto sp) {
+		// TODO Auto-generated method stub
+		return dao.freeBoardDelete(sp);
 	}
 	
 	

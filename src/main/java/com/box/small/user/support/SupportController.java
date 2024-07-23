@@ -7,13 +7,15 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestAttribute;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.box.small.HomeController;
 
 @Controller
+
 public class SupportController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
@@ -66,7 +68,7 @@ public class SupportController {
 		return mav;
 	}
 	@GetMapping(value = "/user/support/inquiry")
-	public ModelAndView inquiry() {
+	public ModelAndView inquiryForm() {
 		logger.info("1대1 문의 페이지 이동");
 		
 		ModelAndView mav = new ModelAndView();
@@ -74,6 +76,18 @@ public class SupportController {
 		
 		return mav;
 	}
+	@PostMapping(value = "/user/support/inquiry")
+	public ModelAndView inquiry(@ModelAttribute("sp") SupportDto sp) {
+		logger.info("1대1 문의 작성");
+		ModelAndView mav = new ModelAndView();
+		
+		service.inquiryWrite(sp);
+		
+		mav.setViewName("redirect:/user/support/support");
+		
+		return mav;
+	}
+	
 	@GetMapping(value = "/user/support/selectFreeBoard")
 	public ModelAndView selectFreeBoard(@RequestParam("bo_no") int bo_no) {
 		logger.info("자유게시판 상세페이지 이동");
@@ -111,6 +125,80 @@ public class SupportController {
 		return mav;
 	}
 	
+	@GetMapping(value = "/user/support/freeBoardWrite")
+	public ModelAndView freeBoardWriteForm() {
+		logger.info("게시판 작성 폼");
+		ModelAndView mav = new ModelAndView();
+		
+		mav.setViewName("/user/support/freeBoardWrite");
+		
+		return mav;
+	}
+	
+	@PostMapping(value = "/user/support/freeBoardWrite")
+	public ModelAndView freeBoardWrite(@ModelAttribute("sp") SupportDto sp) {
+		logger.info("게시판 작성 페이지");
+		ModelAndView mav = new ModelAndView();
+		
+		service.freeBoardWrite(sp);
+		
+		mav.setViewName("redirect:/user/support/freeBoard");
+		
+		return mav;
+	}
+	@GetMapping(value = "/user/support/freeBoardDelete")
+	public ModelAndView freeBoardDeleteForm(@RequestParam("bo_no") int bo_no) {
+		logger.info("게시판 삭제 폼");
+		ModelAndView mav = new ModelAndView();
+		
+		SupportDto sp = service.selectFreeBoardWrite(bo_no);
+		
+		mav.addObject("sp", sp);
+		mav.setViewName("/user/support/freeBoardDelete");
+		
+		return mav;
+	}
+	
+	@PostMapping(value = "/user/support/freeBoardDelete")
+	public ModelAndView freeBoardDelete(@RequestParam("bo_no")int bo_no) {
+		logger.info("게시판 삭제");
+		ModelAndView mav = new ModelAndView();
+		
+		SupportDto sp = service.selectFreeBoardWrite(bo_no);
+		
+		service.freeBoardDelete(sp);
+		
+		mav.setViewName("redirect:/user/support/freeBoard");
+		
+		return mav;
+	}
+	
+	@GetMapping(value = "/user/support/freeBoardUpdate")
+	public ModelAndView freeBoardUpdateForm(@RequestParam("bo_no")int bo_no) {
+		logger.info("게시판 수정 폼");
+		ModelAndView mav = new ModelAndView();
+		
+		SupportDto sp = service.selectFreeBoardWrite(bo_no);
+		
+		mav.addObject("sp", sp);
+		mav.setViewName("/user/support/freeBoardUpdate");
+		
+		return mav;
+	}
+	@PostMapping(value = "/user/support/freeBoardUpdate")
+	public ModelAndView freeBoardUpdate(@ModelAttribute SupportDto sp) {
+		logger.info("게시판 수정");
+		ModelAndView mav = new ModelAndView();
+		
+		System.out.println(sp.getBo_no());
+		System.out.println(sp.getBo_content());
+		
+		service.freeBoardUpdate(sp);
+		
+		mav.setViewName("redirect:/user/support/freeBoard");
+		
+		return mav;
+	}
 	
 	
 	
