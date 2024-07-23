@@ -22,13 +22,6 @@ public class MemberController {
     @Autowired
     MemberService memberService;
 
-//    @GetMapping(value = "home")
-//    public ModelAndView main() {
-//        ModelAndView mav = new ModelAndView();
-//        mav.setViewName("home");
-//        return mav;
-//    }
-
     @GetMapping(value = "loginForm")
     public ModelAndView loginForm() {
         ModelAndView mav = new ModelAndView();
@@ -48,6 +41,7 @@ public class MemberController {
                 redirectAttributes.addFlashAttribute("loginMessage", "로그인 성공");
                 session.setAttribute("member", member);
                 session.setAttribute("isLogin", true);
+                session.setAttribute("type", "user");
                 mav.setViewName("redirect:/");
             }
         } catch (NullPointerException e) {
