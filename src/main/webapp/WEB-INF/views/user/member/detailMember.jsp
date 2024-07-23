@@ -9,7 +9,6 @@
     <style>
     input[readonly] {
         background-color: #fff !important;
-
     }
     </style>
 </head>
@@ -49,8 +48,6 @@
         </div>
     </header>
     <!-- //header -->
-
-
     <section id="banner">
         <div class="slider">
            <div class="swiper-container">
@@ -87,10 +84,7 @@
         </div>
     </section>
     <!-- //banner -->
-
-
     <div class="content-wrapper">
-
     		<section class="content">
     			<div class="container mt-5">
                         <h2>회원정보 상세보기</h2>
@@ -147,6 +141,7 @@
                                 <div class="col-sm-10 offset-sm-2">
                                     <a class="btn btn-success" href="${contextPath}/user/main">메인</a>
                                     <a class="btn btn-warning" href="${contextPath}/user/updateMemberForm">개인정보 변경</a>
+                                    <a class="btn btn-danger" href="${contextPath}/user/deleteMember">회원 탈퇴</a>
                                 </div>
                             </div>
                         </form>

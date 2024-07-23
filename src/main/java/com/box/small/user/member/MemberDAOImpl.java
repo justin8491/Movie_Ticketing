@@ -49,12 +49,12 @@ public class MemberDAOImpl implements MemberDAO {
 
     @Override
     public int updateMember(MemberDto member) {
-        return sqlSession.update(SQL_NAME_SAPCE+"updateMember",member);
+        return sqlSession.update(SQL_NAME_SAPCE + "updateMember", member);
     }
 
 
     @Override
-    public int deleteMember(String mem_id) {
-        return sqlSession.delete(SQL_NAME_SAPCE+"deleteMember",mem_id);
+    public int deleteMember(MemberDto member) {
+        return sqlSession.delete(SQL_NAME_SAPCE + "deleteMember", member);
     }
 }

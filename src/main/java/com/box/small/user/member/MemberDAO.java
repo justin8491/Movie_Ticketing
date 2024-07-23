@@ -1,7 +1,5 @@
 package com.box.small.user.member;
 
-import org.springframework.stereotype.Repository;
-
 import java.util.List;
 
 
@@ -20,7 +18,7 @@ public interface MemberDAO {
     //    유저 정보 변경
     int updateMember(MemberDto member);
     //    유저 정보 삭제
-    int deleteMember(String mem_id);
+    int deleteMember(MemberDto mem_id);
 
 
 }
