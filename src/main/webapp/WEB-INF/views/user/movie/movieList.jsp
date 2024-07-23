@@ -6,6 +6,29 @@
 <html lang="ko">
 <head>
     <%@ include file = "/resources/include/head_beta.jsp"%>
+    <style>
+        .movie-container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .movie {
+            border: 1px solid #ccc;
+            margin: 10px;
+            padding: 10px;
+            width: 200px;
+            text-align: center;
+        }
+        .movie img {
+            width: 100%;
+            height: auto;
+        }
+        .movie-name {
+            font-weight: bold;
+        }
+	.center{
+	background-color: yellow;	
+	}
+    </style>
 </head>
 <body>
     
