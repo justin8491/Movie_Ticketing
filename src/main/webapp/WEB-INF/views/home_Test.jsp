@@ -2,33 +2,50 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:set var="path" value="${pageContext.request.contextPath }/resources" />
+<c:set var="contextPath" value="${pageContext.request.contextPath }" />
 <!DOCTYPE html>
 <html lang="ko">
 <head>
     <%@ include file = "/resources/include/header.jsp"%>
 </head>
 <body>
-    
     <header id="header">
         <div class="container">
             <div class="row">
                 <div class="header clearfix">
                     <h1>
                         <a href="#">
-                            <em><img src="${path}/images/logo.png" alt="MEGABOX"></em>
+                            <em><img src="${path}/images/logo.png" alt="SmallBox"></em>
                         </a>    
                     </h1>
                     <nav id="mNav">
-                        <h2 class="ir_so">메가박스 전체메뉴</h2>
+                        <h2 class="ir_so">스몰박스 전체메뉴</h2>
                         <a href="#" class="ham"><span></span></a>
                     </nav>
                     <nav class="nav">
                         <ul class="clearfix">
+<<<<<<< HEAD:src/main/webapp/WEB-INF/views/home2.jsp
                         	<li><a href="${contextPath}/user/movie/movieList">영화</a></li>
 							<li><a href="${contextPath}/user/theater/theaterList">영화관</a></li>
 							<li><a href="#">예매하기</a></li>
 							<li><a href="${contextPath}/user/support/support">고객센터</a></li>
 							<li><a href="#">로그인</a></li>	
+=======
+                            <li><a href="#">영화</a></li>
+                            <li><a href="#">영화관</a></li>
+                            <li><a href="#">예매하기</a></li>
+                            <li><a href="#">고객센터</a></li>
+
+                            <c:if test="${member != null && isLogin == true}">
+                                <li><a href="${contextPath}/user/detailMember/${member.mem_id}">${member.mem_name}</a></li>
+                                <li><a href="${contextPath}/user/logout">로그아웃</a></li>
+                            </c:if>
+                            <c:if test="${member == null}">
+                                <li><a href="${contextPath}/user/loginForm">로그인</a></li>
+                            </c:if>
+                            <!-- <li><a href="${contextPath}/user/loginForm">로그인</a></li> -->
+
+>>>>>>> fb75d6ec9580df9f5da0af7ac2b4f5d62d1213e9:src/main/webapp/WEB-INF/views/home_Test.jsp
                         </ul>
                     </nav>    
                 </div>
@@ -36,46 +53,6 @@
         </div>
     </header>
     <!-- //header -->
-    
-    
-    <section id="banner">
-        <div class="slider">
-           <div class="swiper-container">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide ss1">
-                        <div class="container">
-                            <div class="row">
-                                <h3>어벤져스 : 앤드게임</h3>
-                                <p>역대 최단 기간 1000만 관객 돌파 기록 </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide ss2">
-                        <div class="container">
-                            <div class="row">
-                                <h3>어벤져스 : 앤드게임</h3>
-                                <p>역대 최단 기간 1000만 관객 돌파 기록 </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide ss3">
-                        <div class="container">
-                            <div class="row">
-                                <h3>어벤져스 : 앤드게임</h3>
-                                <p>역대 최단 기간 1000만 관객 돌파 기록 </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-pagination"></div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-            </div>
-        </div>
-    </section>
-    <!-- //banner -->
-    
-    
     <section id="movie">
         <div class="container">
             <div class="row">
