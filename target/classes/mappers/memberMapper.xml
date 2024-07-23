@@ -29,7 +29,7 @@
         where mem_id = #{mem_id}
     </update>
 
-    <update id="deleteMember" parameterType="com.box.small.user.member.MemberDto">
+    <update id="deleteMember" parameterType="com.box.small.user.member.MemberDto">ß
         update member set
         mem_status = 0
         where mem_id = #{mem_id}
