@@ -29,7 +29,7 @@ public class HomeController {
         model.addAttribute("serverTime", formattedDate);
 //        return "home_backup";
 //        return "home";
-        return "home_beta";
+        return "home";
     }
 
 }
