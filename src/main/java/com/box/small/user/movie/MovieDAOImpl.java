@@ -2,6 +2,7 @@ package com.box.small.user.movie;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,11 @@ public class MovieDAOImpl implements MovieDAO{
 	@Override
 	public String category(int cat_no) {
 		return sqlSession.selectOne(namespace+".selectCategory", cat_no);
+	}
+
+	@Override
+	public List<CategoryDto> allCategory() {
+		return sqlSession.selectList(namespace+".selectAllCategory");
 	}
 
 }

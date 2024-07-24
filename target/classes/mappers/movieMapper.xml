@@ -4,19 +4,23 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 	<mapper namespace="com.box.small.movieMapper">
 	
-	<!-- 영화 전체 조회 -->
+	<!-- 상영중인 영화 전체 조회 -->
 	<select id="selectAllMovie"	resultType = "com.box.small.user.movie.MovieDto">	
-		select * from movie
+		select * from movie where mo_status=1
 	</select>
 	
 	<!-- 영화 선택 조회 -->
 	<select id="selectMovie" resultType = "com.box.small.user.movie.MovieDto">
-		select * from movie where mo_no = #{mo_no}
+		select * from movie where mo_no = #{mo_no} 
 	</select>
 	
 	<!-- 영화 선택 조회해서 나온 카테고리 넘버로 카테고리 조회 -->
 	<select id="selectCategory" resultType="String">
-		select * from category where cat_no = #{cat_no}
+		select cat_name from category where cat_no = #{cat_no}
+	</select>
+	
+	<select id="selectAllCategory" resultType = "com.box.small.user.movie.CategoryDto">
+		select * from category where cat_no>4;
 	</select>
 	
 </mapper>

@@ -8,7 +8,7 @@ public interface AdminMovieDAO {
 	
 	void addMovie(MovieDto movie) throws SQLException;	//	영화추가
 	
-	void deleteMovie(MovieDto movie) throws SQLException;	//	영화삭제
+	void deleteMovie(int mo_no) throws SQLException;	//	영화삭제
 	
 	void updateMovie(MovieDto movie) throws SQLException;	//	영화수정
 }

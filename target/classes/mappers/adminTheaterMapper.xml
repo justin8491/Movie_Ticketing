@@ -13,7 +13,7 @@
 	</insert>
 
 	<!-- 영화관 삭제 -->
-	<update id="">
+	<update id="deleteTheater">
 		update theater
 		set th_status = 0
 		where th_no = #{th_no}
