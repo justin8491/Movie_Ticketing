@@ -46,11 +46,12 @@
                                         </div>
                                     </li>
                                     
-                                    <li><strong>Length:</strong> ${movie.mo_runningTime}분</li>
-                                    <li><strong>Premiere:</strong> ${movie.mo_releaseDate}</li>
-                                    <li><strong>Category:</strong> ${cat_name}</li>
-                                    <li><strong>Directors:</strong> ${movie.mo_director}</li>
-                                    <li><strong>Main Actors:</strong> ${movie.mo_mainActor}</li>
+                                    <li><strong>러닝타임 : </strong> ${movie.mo_runningTime}분</li>
+                                    <li><strong>상영일 : </strong> ${movie.mo_releaseDate}</li>
+                                    <li><strong>연령제한 : </strong> ${movie.mo_rating}</li>
+                                    <li><strong>카테고리 : </strong> ${cat_name}</li>
+                                    <li><strong>감독 : </strong> ${movie.mo_director}</li>
+                                    <li><strong>주연배우 : </strong> ${movie.mo_mainActor}</li>
                                 </ul>
                             </div>
                     </div> <!-- row -->

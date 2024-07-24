@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<c:set var="path" value="${pageContext.request.contextPath}/resources" />
+<c:set var="path" value="${pageContext.request.contextPath }/resources" />
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html lang="ko">
@@ -19,20 +19,20 @@
             <div class="page">
                 <div class="breadcrumbs">
                     <a href="/">Home</a>
-                    <a href="${contextPath}/user/movie/movieList">영화 전체리스트</a>
-                    <span>"${movie.mo_name}"</span>
+                    <a href="${contextPath}/user/movie/movieList">영화 추가</a>
+                    <span>"???"</span>
                 </div>
 
                 <div class="content">
                     <div class="row">
                         <div class="col-md-6">
                             <figure class="movie-poster">
-                                <img src="${contextPath}/resources/images/${movie.mo_photo}" alt="${movie.mo_name}">
+                                <img src="${contextPath}/resources/images/no_image.jpg" alt="사진을 넣어주세요">
                             </figure>
                         </div>
                         <div class="col-md-6">
                             <form action="/admin/movie/updateMovie" method="post" enctype="multipart/form-data">
-                                <input type="hidden" name="mo_no" value="${movie.mo_no}" required>
+                                <input type="hidden" name="mo_no" value="${movie.mo_no}">
                                 <div class="mb-3">
                                     <label for="cat_no" class="form-label">카테고리</label>
                                     <input type="text" id="cat_no" name="cat_no" class="form-control" value="${movie.cat_no}" required>
@@ -55,7 +55,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="mo_plot" class="form-label">줄거리</label>
-                                    <textarea id="mo_plot" name="mo_plot" class="form-control custom-textarea" rows="10" required>${movie.mo_plot}</textarea>
+                                    <textarea id="mo_plot" name="mo_plot" class="form-control" rows="4" required>${movie.mo_plot}</textarea>
                                 </div>
                                 <div class="mb-3">
                                     <label for="mo_status" class="form-label">상태</label>
@@ -81,6 +81,8 @@
                             </form>
                         </div>
                     </div> <!-- row -->
+                    <div class="entry-content">
+                    </div>
                 </div>
             </div>
         </div> <!-- .container -->
