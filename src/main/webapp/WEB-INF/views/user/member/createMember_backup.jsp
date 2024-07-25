@@ -97,7 +97,7 @@
                 // 예시 코드:
                 $.ajax({
                     type: 'POST',
-                    url: 'signup', // 회원가입 처리 URL
+                    url: 'createMember', // 회원가입 처리 URL
                     data: $('#signupForm').serialize(),
                     success: function(response) {
                         alert('회원가입이 완료되었습니다!');

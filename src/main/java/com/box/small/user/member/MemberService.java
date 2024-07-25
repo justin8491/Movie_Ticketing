@@ -24,6 +24,5 @@ public interface MemberService {
     //    유저 정보 삭제
     int deleteMember(MemberDto mem_id);
 
-
     MemberDto findId(MemberDto member);
 }

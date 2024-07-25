@@ -3,4 +3,28 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.box.small.reviewMapper">
+
+    <!-- 모든 리뷰 조회 -->
+    <select id="selectAllReview" resultType="com.box.small.user.review.ReviewDto">
+        SELECT * FROM review
+    </select>
+
+    <!-- 리뷰 추가 -->
+    <insert id="addReview" parameterType="com.box.small.user.review.ReviewDto">
+        INSERT INTO review (rev_content, rev_createdAt, rev_rating, rev_status, mo_id, mem_id)
+        VALUES (#{revContent}, #{revCreatedAt}, #{revRating}, #{revStatus}, #{moId}, #{memId})
+    </insert>
+
+    <!-- 리뷰 수정 -->
+    <update id="updateReview" parameterType="com.box.small.user.review.ReviewDto">
+        UPDATE review
+        SET rev_content = #{revContent}, rev_createdAt = #{revCreatedAt}, rev_rating = #{revRating}, rev_status = #{revStatus}, mo_id = #{moId}, mem_id = #{memId}
+        WHERE rev_id = #{revId}
+    </update>
+
+    <!-- 리뷰 삭제 -->
+    <delete id="deleteReview" parameterType="int">
+        DELETE FROM review
+        WHERE rev_id = #{revId}
+    </delete>
 </mapper>

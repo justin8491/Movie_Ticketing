@@ -18,9 +18,11 @@
                           <form id="signupForm" action="${contextPath}/user/createMember" method="post">
                               <div>
                                   <label for="mem_id">아이디<span class="red">*</span></label>
+
                                   <input type="text" name="mem_id" id="mem_id" value="" placeholder="아이디">
                                   <button id="checkIdBtn">아이디 중복 확인</button>
                                   <div id="idCheckResult"></div>
+
                               </div>
                               <div>
                                   <label for="mem_password">비밀번호<span class="red">*</span></label>
@@ -97,11 +99,12 @@
                 // 예시 코드:
                 $.ajax({
                     type: 'POST',
-                    url: 'signup', // 회원가입 처리 URL
+                    url: 'createMember', // 회원가입 처리 URL
                     data: $('#signupForm').serialize(),
                     success: function(response) {
                         alert('회원가입이 완료되었습니다!');
                         // 필요 시 페이지를 리다이렉트하거나 다른 작업을 수행할 수 있습니다.
+                        location.href = "/";
                     },
                     error: function(xhr, status, error) {
                         console.error('AJAX Error: ' + error);
