@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -67,6 +68,17 @@ public class MemberController {
         return mav;
     }
 
+    @PostMapping(value = "findId")
+    public @ResponseBody String findId(MemberDto member) {
+        member = memberService.findId(member);
+        if (member != null && !member.getMem_id().isEmpty()) {
+            return "1"; // 중복된 아이디
+        } else {
+            return "0"; // 사용 가능한 아이디
+        }
+    }
+
+
     @PostMapping(value = "createMember")
     public ModelAndView createMemeber(MemberDto member) {
         ModelAndView mav = new ModelAndView();
@@ -116,18 +128,44 @@ public class MemberController {
     @GetMapping(value = "getByIdOrPwd")
     public ModelAndView getByIdOrPwd() {
         ModelAndView mav = new ModelAndView();
-
         mav.setViewName("user/member/getByIdForm");
         return mav;
     }
-    
-    @PostMapping(value = "getById")
-    public ModelAndView getById(MemberDto member){
-            ModelAndView mav = new ModelAndView();
-            
-            mav.setViewName("");
-            return mav;
+
+    @PostMapping(value = "selectById")
+    public ModelAndView selectById(MemberDto member) {
+        ModelAndView mav = new ModelAndView();
+        logger.info(member.getMem_name());
+        logger.info(member.getMem_phoneNumber());
+        try {
+            member = memberService.selectById(member);
+            logger.info("Member ID : " + member.getMem_id());
+            mav.addObject("msg_title", "아이디찾기");
+            mav.addObject("req", member.getMem_id());
+        } catch (NullPointerException e) {
+            logger.error("검색 아이디가 존재하지 않습니다.");
+            mav.addObject("msg_title", "아이디찾기");
+            mav.addObject("req", "검색 아이디가 존재하지 않습니다.");
         }
+        mav.setViewName("user/member/loginForm");
+        return mav;
+    }
+
+    @PostMapping(value = "selectByPwd")
+    public ModelAndView selectByPwd(MemberDto member) {
+        ModelAndView mav = new ModelAndView();
+        try {
+            member = memberService.selectByPwd(member);
+            logger.info("Member PWD : " + member.getMem_password());
+            mav.addObject("req", member.getMem_password());
+            mav.addObject("msg_title", "비밀번호찾기");
+        } catch (NullPointerException e) {
+            mav.addObject("msg_title", "비밀번호찾기");
+            mav.addObject("req", "아이디 전화번호의 비밀번호가 존재하지 않습니다.");
+        }
+        mav.setViewName("user/member/loginForm");
+        return mav;
+    }
 }
 
 

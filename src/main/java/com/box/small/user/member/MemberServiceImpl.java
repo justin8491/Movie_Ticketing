@@ -27,7 +27,7 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
-    public Object detailMember(MemberDto member) {
+    public MemberDto detailMember(MemberDto member) {
         return dao.detailMember(member);
     }
 
@@ -59,5 +59,10 @@ public class MemberServiceImpl implements MemberService {
     @Override
     public int deleteMember(MemberDto member) {
         return dao.deleteMember(member);
+    }
+
+    @Override
+    public MemberDto findId(MemberDto member) {
+        return dao.findId(member);
     }
 }

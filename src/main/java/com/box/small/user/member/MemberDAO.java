@@ -21,4 +21,5 @@ public interface MemberDAO {
     int deleteMember(MemberDto mem_id);
 
 
+    MemberDto findId(MemberDto member);
 }
