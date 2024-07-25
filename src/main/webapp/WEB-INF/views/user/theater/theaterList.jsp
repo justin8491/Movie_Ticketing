@@ -4,13 +4,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<<<<<<< HEAD
-<meta charset="UTF-8">
-   <%@ include file = "/resources/include/header.jsp"%>
-<title>theaterList</title>
-=======
     <meta charset="UTF-8">
-    <%@ include file = "/resources/include/header.jsp"%>
+    <%@ include file = "/resources/include/head_beta.jsp"%>
     <title>극장 목록</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
@@ -29,7 +24,7 @@
 	margin-top: 20px; /* 위쪽 여백 추가 */
      }
     </style>
->>>>>>> 50a944869c0f117d65190c548a3dc8793b97b1ba
+
 </head>
 <body>
     <div class="container">

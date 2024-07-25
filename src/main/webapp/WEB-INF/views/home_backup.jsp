@@ -2,79 +2,42 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:set var="path" value="${pageContext.request.contextPath }/resources" />
+<c:set var="contextPath" value="${pageContext.request.contextPath }" />
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="author" content="webstoryboy">
-    <meta name="description" content="메가박스 사이트 따라하면서 배우는 튜토리얼입니다.">
-    <meta name="keywords" content="메가박스, 유투브, 영화, 최신영화, 영화관, CGV, 롯데시네마, 웹스토리보이, 웹스, 사이트 만들기, 따라하기, 이미지 슬라이드">
-    <title>메가박스 사이트 코딩하기 : 푸터 영역</title>
-
-    <!-- css -->
-    <link rel="stylesheet" href="${path}/assets/css/reset19.css">
-    <link rel="stylesheet" href="${path}/assets/css/style19.css">
-    <link rel="stylesheet" href="${path}/assets/css/swiper.css">
-    
-    <!-- 파비콘 -->
-    <link rel="shortcut icon" href="${path}/assets/icons/favicon.ico">
-    <link rel="apple-touch-icon-precomposed" href="${path}/assets/icons/favicon_72.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="96x96" href="${path}/assets/icons/favicon_96.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="${path}/assets/icons/favicon_144.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="192x192" href="${path}/assets/icons/favicon_192.png" />
-    
-    <!-- 페이스북 메타 태그 -->
-    <meta property="og:title" content="메가박스 사이트 만들기" />
-    <meta property="og:url" content="https://github.com/webstoryboy/megabox2019" />
-    <meta property="og:image" content="https://webstoryboy.github.io/megabox2019/mega.jpg" />
-    <meta property="og:description" content="메가박스 사이트 따라하면서 배우는 튜토리얼입니다." />
-   
-    <!-- 트위터 메타 태그 -->
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="메가박스 사이트 만들기">
-    <meta name="twitter:url" content="https://github.com/webstoryboy/megabox2019/">
-    <meta name="twitter:image" content="https://webstoryboy.github.io/megabox2019/mega.jpg">
-    <meta name="twitter:description" content="메가박스 사이트 따라하면서 배우는 튜토리얼입니다.">
-    
-    <!-- 웹 폰트 -->
-    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700,900&amp;subset=korean" rel="stylesheet">
-    
-    <!-- HTLM5shiv ie6~8 -->
-    <!--[if lt IE 9]> 
-      <script src="${path}/assets/js/html5shiv.min.js"></script>
-      <script type="text/javascript">
-         alert("현재 브라우저는 지원하지 않습니다. 크롬 브라우저를 추천합니다.!");
-      </script>
-   <![endif]-->
+    <%@ include file = "/resources/include/head_beta.jsp"%>
 </head>
 <body>
-    
     <header id="header">
         <div class="container">
             <div class="row">
                 <div class="header clearfix">
                     <h1>
                         <a href="#">
-                            <em><img src="${path}/assets/img/logo.png" alt="MEGABOX"></em>
-                            <strong><img src="${path}/assets/img/logo-sub.png" alt="LIFE THEATER"></strong>
+                            <em><img src="${path}/images/logo.png" alt="SmallBox"></em>
                         </a>    
                     </h1>
                     <nav id="mNav">
-                        <h2 class="ir_so">메가박스 전체메뉴</h2>
+                        <h2 class="ir_so">스몰박스 전체메뉴</h2>
                         <a href="#" class="ham"><span></span></a>
                     </nav>
                     <nav class="nav">
                         <ul class="clearfix">
-                            <li><a href="#">영화</a></li>
-                            <li><a href="#">큐레이션</a></li>
-                            <li><a href="#">영화관</a></li>
-                            <li><a href="#">특별관</a></li>
-                            <li><a href="#">스토어</a></li>
-                            <li><a href="#">이벤트</a></li>
-                            <li><a href="#">로그인</a></li>
+                        	<li><a href="${contextPath}/user/movie/movieList">영화</a></li>
+							<li><a href="${contextPath}/user/theater/theaterList">영화관</a></li>
+							<li><a href="#">예매하기</a></li>
+							<li><a href="${contextPath}/user/support/support">고객센터</a></li>
+							<li><a href="#">로그인</a></li>	
+
+                            <c:if test="${member != null && isLogin == true}">
+                                <li><a href="${contextPath}/user/detailMember/${member.mem_id}">${member.mem_name}</a></li>
+                                <li><a href="${contextPath}/user/logout">로그아웃</a></li`>
+                            </c:if>
+                            <c:if test="${member == null}">
+                                <li><a href="${contextPath}/user/loginForm">로그인</a></li>
+                            </c:if>
+                            <!-- <li><a href="${contextPath}/user/loginForm">로그인</a></li> -->
                         </ul>
                     </nav>    
                 </div>
@@ -82,71 +45,6 @@
         </div>
     </header>
     <!-- //header -->
-    
-    
-    <section id="banner">
-        <div class="banner_menu">
-            <h2 class="ir_so">배너 영역</h2>
-            <div class="container">
-                <div class="row">
-                    <div class="bm_left">
-                        <ul>
-                            <li class="total"><a href="#">전체메뉴</a></li>
-                            <li class="line"><a href="#">필름 소사이어티</a></li>
-                            <li><a href="#">클래식 소사이어티</a></li>
-                        </ul>
-                    </div>
-                    <div class="bm_right">
-                        <ul>
-                            <li class="line"><a href="custom/faq.html">고객센터</a></li>
-                            <li class="line"><a href="#">멤버쉽</a></li>
-                            <li><a href="#">VIP</a></li>
-                        </ul>
-                        <ul>
-                            <li class="white"><a href="#">상영시간표</a></li>
-                            <li class="purple"><a href="#">빠른예매</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="slider">
-           <div class="swiper-container">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide ss1">
-                        <div class="container">
-                            <div class="row">
-                                <h3>어벤져스 : 앤드게임</h3>
-                                <p>역대 최단 기간 1000만 관객 돌파 기록 </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide ss2">
-                        <div class="container">
-                            <div class="row">
-                                <h3>어벤져스 : 앤드게임</h3>
-                                <p>역대 최단 기간 1000만 관객 돌파 기록 </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide ss3">
-                        <div class="container">
-                            <div class="row">
-                                <h3>어벤져스 : 앤드게임</h3>
-                                <p>역대 최단 기간 1000만 관객 돌파 기록 </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-pagination"></div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-            </div>
-        </div>
-    </section>
-    <!-- //banner -->
-    
-    
     <section id="movie">
         <div class="container">
             <div class="row">
@@ -157,7 +55,6 @@
                             <li class="active"><a href="#">박스오피스</a></li>
                             <li><a href="#">최신개봉작</a></li>
                             <li><a href="#">상영예정작</a></li>
-                            <li><a href="#">큐레이션</a></li>
                         </ul>
                     </div>
                     <div class="movie_chart">
@@ -664,143 +561,9 @@
     <!-- //movie -->
     
     
-    <section id="event">
-        <div class="container">
-            <div class="row">
-                <div class="event">
-                    <h2><em>새로운 이벤트</em></h2>
-                    <div class="event_left">
-                        <div class="event_slider">
-                            <img src="${path}/assets/img/event01.jpg" srcset="${path}/assets/img/event01@2.jpg 2x" alt="시티 패키지">
-                        </div>
-                        <figure class="event_box1">
-                            <img src="${path}/assets/img/event02.jpg" srcset="${path}/assets/img/event02@2.jpg 2x" alt="남포항점 2019 시즌할인권">
-                        </figure>
-                        <figure class="event_box2">
-                            <img src="${path}/assets/img/event03.jpg" srcset="${path}/assets/img/event03@2.jpg 2x" alt="설 선물 이수점 전용 관람권 런칭">
-                        </figure>
-                    </div>
-                    <figure class="event_right">
-                        <img src="${path}/assets/img/event04.jpg" srcset="${path}/assets/img/event04@2.jpg 2x" alt="사표 대신 영화표">
-                    </figure>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- //event -->
     
-    
-    <section id="opening">
-        <div class="container">
-            <div class="row">
-                <div class="opening">
-                    <h2><span class="icon grand ir_pm">Grand Opening</span></h2>
-                    <strong class="icon date ir_pm">2019.01 ~ 2019.03</strong>
-                    <p class="desc">LIFE THEATER로 새롭게 시작하는 메가박스를 만나보세요!</p>
-                    <div class="open_box">
-                        <div>
-                            <h3>리뉴얼 오픈</h3>
-                            <p><em>경기도</em><strong>안양</strong>12월 8일</p>
-                        </div>
-                        <div>
-                            <h3>리뉴얼 오픈</h3>
-                            <p><em>경기도</em><strong>인덕원 사거리</strong>12월 8일</p>
-                        </div>
-                        <div>
-                            <h3>리뉴얼 오픈</h3>
-                            <p><em>경기도</em><strong>용인테크노밸리</strong>12월 8일</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- //opening -->
-    
-    
-    <section id="new">
-        <div class="container">
-            <div class="row">
-                <div class="new">
-                    <h2><em>새로운 영화</em></h2>
-                    <div class="new_left">
-                        <div class="play" id="showTrailer" data-youtube="F1239ZePXfM">
-                            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                            viewBox="0 0 120 120" style="enable-background:new 0 0 120 120;" xml:space="preserve">
-                                <circle class="st0" cx="60" cy="60.4" r="56"/>
-                                <path class="st1" d="M81,65.4c4.8-2.8,4.8-7.2,0-10L53.5,39.6c-4.8-2.8-8.7-0.5-8.7,5v31.7c0,5.5,3.9,7.8,8.7,5L81,65.4z"/>
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="new_right">
-                        <h3 class="title">로그 원: 스타워즈 스토리</h3>
-                        <span class="release">2016년 10월 28일 개봉</span>
-                        <div class="star">
-                            <span class="icon star1"></span>
-                            <span class="icon star1"></span>
-                            <span class="icon star1"></span>
-                            <span class="icon star2"></span>
-                            <span class="icon star0"></span>
-                            <strong>7.5/10</strong>
-                        </div>
-                        <ul class="summary">
-                            <li class="genre"><span class="bar">액션</span><span>미국, 오스트레일리아</span></li>
-                            <li class="age"><span class="bar">142분</span><span>12세 이상 관람가</span></li>
-                            <li class="desc">단숨에 행성 하나를 파괴할 위력을 지닌 데스 스타가 완성되기 전에 설계도를 훔쳐내야 하는 이번 작전의 성공 확률은 고작 2.4%. 생사도 모르는 아버지에 얽힌 비밀을 밝히려는 진을 ...비롯해 유능한 정보 요원 ‘카시안’(디에고 루나), 두 눈이 멀었지만 탁월한 무술 실력을 지닌 ‘치루트’(견자단), 전투 베테랑 ‘베이즈’, 파일럿 ‘보디’, 시니컬한 드로이드 ‘K-2SO’까지 합류, 거대한 전쟁을 끝낼 ‘로그 원’이 이끄는 가장 비밀스런 작전이 시작되는데…</li>
-                        </ul>
-                        <div class="select">
-                            <div class="s1">
-                                <label for="udate" class="ir_so">날짜</label>
-                                <input type="text" id="udate" name="udate" value="2019년 1월 25일" class="ui_select2">
-                            </div>
-                            <div class="s2">
-                                <label for="utime" class="ir_so">시간</label>
-                                <select id="utime" name="utime" class="ui_select2">
-                                    <option value="오전 0:00">오전 0:00</option>
-                                    <option value="오전 1:00">오전 1:00</option>
-                                    <option value="오전 2:00">오전 2:00</option>
-                                    <option value="오전 3:00">오전 3:00</option>
-                                    <option value="오전 4:00">오전 4:00</option>
-                                    <option value="오전 5:00">오전 5:00</option>
-                                    <option value="오전 6:00">오전 6:00</option>
-                                    <option value="오전 7:00">오전 7:00</option>
-                                    <option value="오전 8:00">오전 8:00</option>
-                                    <option value="오전 9:00">오전 9:00</option>
-                                    <option value="오전 10:00">오전 10:00</option>
-                                    <option value="오전 11:00">오전 11:00</option>
-                                    <option value="오전 12:00">오전 12:00</option>
-                                    <option value="오후 1:00">오후 1:00</option>
-                                    <option value="오후 2:00">오후 2:00</option>
-                                    <option value="오후 3:00">오후 3:00</option>
-                                    <option value="오후 4:00">오후 4:00</option>
-                                    <option value="오후 5:00">오후 5:00</option>
-                                    <option value="오후 6:00">오후 6:00</option>
-                                    <option value="오후 7:00">오후 7:00</option>
-                                    <option value="오후 8:00">오후 8:00</option>
-                                    <option value="오후 9:00">오후 9:00</option>
-                                    <option value="오후 10:00">오후 10:00</option>
-                                    <option value="오후 11:00">오후 11:00</option>
-                                    <option value="오후 12:00">오후 12:00</option>
-                                </select>
-                            </div>
-                            <div class="s3">
-                                <label for="utext" class="ir_so">주소 또는 도로명을 입력해주세요.</label>
-                                <input type="text" id="utext" name="utext" class="ui_input3" placeholder="주소 또는 도로명을 입력해주세요.">
-                            </div>
-                        </div>
-                        <div class="btn">
-                            <a href="#" class="white">좌석확인</a>
-                            <a href="#" class="purple">예매하기</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- //new -->
-    
-    
-    <section id="help">
+    <!-- //help -->
+      <section id="help">
         <div class="container">
             <div class="row">
                 <div class="help clearfix">
@@ -863,34 +626,6 @@
                                             </dl>
                                         </li>
                                     </ul>
-                                </li>
-                            </ul>
-                        </div>
-                    </article>
-                    <article class="help_box2">
-                        <h3><em>메가박스 할인카드</em></h3>
-                        <div class="card">
-                            <ul>
-                                <li>
-                                    <a href="#">
-                                        <span><img src="${path}/assets/img/card01.jpg" srcset="${path}/assets/img/card01@2.jpg 2x" alt="card01"></span>
-                                        <strong>T멤버십 일반</strong>
-                                        <em>영화 2,000원 현장 즉시 할인(1일 5매)</em>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <span><img src="${path}/assets/img/card02.jpg" srcset="${path}/assets/img/card02@2.jpg 2x" alt="card02"></span>
-                                        <strong>LG U+</strong>
-                                        <em>영화 2,000원 현장 즉시 할인(1일 5매)</em>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <span><img src="${path}/assets/img/card03.jpg" srcset="${path}/assets/img/card03@2.jpg 2x" alt="card03 "></span>
-                                        <strong>SK멤버십 일반</strong>
-                                        <em>영화 2,000원 현장 즉시 할인(1일 5매)</em>
-                                    </a>
                                 </li>
                             </ul>
                         </div>
@@ -1325,48 +1060,10 @@
             </div>
         </div>
     </section>
-    <!-- //help -->
-    
+    <!-- help end -->
     
     <footer id="footer">
-        <div id="footer_sns">
-            <div class="container">
-                <div class="footer_sns">
-                    <ul>
-                        <li class="icon s1"><a href="#"><span class="ir_pm">트위터</span></a></li>
-                        <li class="icon s2"><a href="#"><span class="ir_pm">페이스북</span></a></li>
-                        <li class="icon s3"><a href="#"><span class="ir_pm">인스타그램</span></a></li>
-                        <li class="icon s4"><a href="#"><span class="ir_pm">구글 플레이</span></a></li>
-                        <li class="icon s5"><a href="#"><span class="ir_pm">아이폰 앱스토어</span></a></li>
-                    </ul>    
-                    <div class="tel">
-                        <a href="#">ARS <em>1544-0070</em></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div id="footer_infor">
-            <div class="container">
-                <div class="row">
-                    <div class="footer_infor">
-                        <h2><img src="${path}/assets/img/logo_footer.png" alt="megabox"></h2>
-                        <ul>
-                            <li><a href="#">회사소개</a></li>
-                            <li><a href="#">채용정보</a></li>
-                            <li><a href="#">제휴/광고/부대사업 문의</a></li>
-                            <li><a href="#">이용약관</a></li>
-                            <li><a href="#">개인정보처리방침</a></li>
-                            <li><a href="#">고객센터</a></li>
-                            <li><a href="#">윤리경영</a></li>
-                        </ul>
-                        <address>
-                            <p>서울특별시 강남구 도산대로 156, 2층 메가박스중앙(주) (논현동, 중앙엠앤비사옥)<br><span class="bar2">대표자명 김진선</span> 개인정보보호 책임자 경영지원실 실장 박영진<br><span class="bar2">사업자등록번호 211-86-59478</span> 통신판매업신고번호 제 833호</p>
-                            <p>Copyright 2014 by MegaboxJoongAng Inc. All right reserved</p>
-                        </address>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <%@ include file = "/resources/include/footer.jsp"%>
     </footer>
     <!-- //footer -->
     

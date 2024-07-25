@@ -82,6 +82,12 @@ public class SupportServiceImpl implements SupportService{
 		// TODO Auto-generated method stub
 		return dao.freeBoardDelete(sp);
 	}
+
+	@Override
+	public List<SupportDto> myBoard() {
+		// TODO Auto-generated method stub
+		return dao.myBoard();
+	}
 	
 	
 

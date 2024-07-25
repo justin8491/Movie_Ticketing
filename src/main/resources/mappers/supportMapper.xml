@@ -6,7 +6,7 @@
 	<!-- 자주 묻는 질문 리스트 보여주기 -->
 	<select id="faq" resultType="com.box.small.user.support.SupportDto">
 		select * from board
-		where cat_no = 2
+		where cat_no = 2 and bo_status=1
 	</select>
 	<!-- 자주 묻는 질문 상세 페이지 -->
 	<select id="selectFaq" parameterType="int" resultType="com.box.small.user.support.SupportDto">
@@ -16,7 +16,7 @@
    	<!-- 공지사항 리스트 보여주기 -->
    	<select id="notice" resultType="com.box.small.user.support.SupportDto">
    		select * from board
-   		where cat_no = 1
+   		where cat_no = 1 and bo_status=1
    	</select>
    	<!-- 공지사항 상세 페이지 -->
    	<select id="selectNotice" parameterType="int" resultType="com.box.small.user.support.SupportDto">
@@ -31,7 +31,7 @@
    	<!-- 1대1 문의 리스트 보여주기 -->
    	<select id="inquiryView" resultType="com.box.small.user.support.SupportDto">
    		select * from board
-   		where cat_no= 4
+   		where cat_no= 4 and bo_status=1
    	</select>
    	<!-- 1대1 문의 삭제 -->
    	<select id="inquiryDelete" parameterType="int">
@@ -65,6 +65,11 @@
    		update board
    		set bo_writerId = #{bo_writerId}, bo_title = #{bo_title}, bo_content = #{bo_content}
    		where bo_no=#{bo_no}
+    </select>
+    <!-- 자신이 쓴 글 조회 -->
+    <select id="myBoard">
+    	select * from board 
+    	where bo_writerId = #{bo_writerId} and bo_status=1
     </select>
    	
    	

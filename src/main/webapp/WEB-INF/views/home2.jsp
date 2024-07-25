@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <%@ include file = "/resources/include/header.jsp"%>
+<%@ include file = "/resources/include/head_beta.jsp"%>
 </head>
 <body>
     
@@ -27,7 +27,7 @@
                             <li><a href="#">영화</a></li>
                             <li><a href="#">영화관</a></li>
                             <li><a href="#">예매하기</a></li>
-                            <li><a href="/user/support/support">고객센터</a></li>
+                            <li><a href="#">고객센터</a></li>
                             <li><a href="#">로그인</a></li>
                         </ul>
                     </nav>    

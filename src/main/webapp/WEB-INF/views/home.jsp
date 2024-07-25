@@ -5,7 +5,7 @@
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <html>
 <head>
-   <%@ include file = "/resources/include/header.jsp"%>
+<%@ include file = "/resources/include/head_beta.jsp"%>
 	<title>Home</title>
 	<title>smallBox</title>
 </head>

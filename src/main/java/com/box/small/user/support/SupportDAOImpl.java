@@ -87,6 +87,12 @@ public class SupportDAOImpl implements SupportDAO{
 		return sqlSession.delete(nameSpace+".freeBoardDelete", sp);
 	}
 
+	@Override
+	public List<SupportDto> myBoard() {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList(nameSpace+".myBoard");
+	}
+
 	
 
 }
