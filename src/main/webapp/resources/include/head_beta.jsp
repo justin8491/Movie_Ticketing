@@ -19,7 +19,10 @@
       content="메가박스, 유투브, 영화, 최신영화, 영화관, CGV, 롯데시네마, 웹스토리보이, 웹스, 사이트 만들기, 따라하기"
     />
     <title>SmallBox</title>
-
+    
+	<!-- Bootstrap CSS -->
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+	
     <!-- css -->
     <link rel="stylesheet" href="${path}/assets/css/reset02.css" />
     <link rel="stylesheet" href="${path}/assets/css/style02.css" />

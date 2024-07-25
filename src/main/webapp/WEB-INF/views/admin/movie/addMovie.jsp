@@ -10,7 +10,7 @@
 </head>
 <body>
 <header id="header">
-    <%@ include file="/resources/include/header_beta.jsp"%>
+    <%@ include file="/resources/include/headerAdmin_beta.jsp"%>
 </header>
 
 <div id="site-content">
@@ -18,9 +18,8 @@
         <div class="container">
             <div class="page">
                 <div class="breadcrumbs">
-                    <a href="/">Home</a>
-                    <a href="${contextPath}/user/movie/movieList">영화 추가</a>
-                    <span>"???"</span>
+                    <a href="/admin">관리자홈</a>
+                    <span>"영화추가하기"</span>
                 </div>
 
                 <div class="content">
@@ -55,7 +54,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="mo_plot" class="form-label">줄거리</label>
-                                    <textarea id="mo_plot" name="mo_plot" class="form-control" rows="4" required>${movie.mo_plot}</textarea>
+                                    <textarea id="mo_plot" name="mo_plot" class="form-control" rows="5" required>${movie.mo_plot}</textarea>
                                 </div>
                                 <div class="mb-3">
                                     <label for="mo_status" class="form-label">상태</label>

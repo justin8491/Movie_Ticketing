@@ -10,7 +10,7 @@
   </head>
   <body>
    <header id="header">
-            <%@ include file="/resources/include/headerAdmin_beta.jsp"%>
+        <%@ include file = "/resources/include/header_beta.jsp"%>
    </header>
     <!-- //메인 콘텐츠-->
     <section class="content">

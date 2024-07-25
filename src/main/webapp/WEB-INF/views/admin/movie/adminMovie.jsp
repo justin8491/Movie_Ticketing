@@ -100,7 +100,7 @@ table.admMovieDetail button.deleteBtn{
   </head>
   <body>
    <header id="header">
-        <%@ include file = "/resources/include/header_beta.jsp"%>
+            <%@ include file="/resources/include/headerAdmin_beta.jsp"%>
    </header>
     <!-- //메인 콘텐츠-->
     <section class="content">
@@ -134,7 +134,7 @@ table.admMovieDetail button.deleteBtn{
                                 <th scope="col" width = 100%;>이름</th>
                                 <th scope="col">영화상태</th>
                                 <th scope="col">감독</th>
-                                <th scope="col" style="width: 200px;">Action</th>
+                                <th scope="col" style="width: 200px;">수정/삭제</th>
                             </tr>
                         </thead>
                       <tbody>

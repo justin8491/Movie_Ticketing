@@ -18,24 +18,4 @@ public class AdminScheduleController {
 
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
-	@RequestMapping(value = "/admin/theater/addTheater", method = RequestMethod.GET)
-	public String addTheater(Locale locale, Model model) {
-
-		return "admin/theater/adminTheater";
-
-	}
-	
-	@RequestMapping(value = "/admin/theater/deleteTheater", method = RequestMethod.GET)
-	public String deleteTheater(Locale locale, Model model) {
-		
-		return "admin/theater/adminTheater";
-		
-	}
-	
-	@RequestMapping(value = "/user/movie/updateTheater", method = RequestMethod.GET)
-	public String updateTheater(Locale locale, Model model) {
-		
-		return "admin/theater/adminTheater";
-		
-	}
 }

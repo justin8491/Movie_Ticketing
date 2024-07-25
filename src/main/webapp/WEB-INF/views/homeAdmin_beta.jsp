@@ -10,14 +10,14 @@
   </head>
   <body>
    <header id="header">
-            <%@ include file="/resources/include/headerAdmin_beta.jsp"%>
+        <%@ include file = "/resources/include/headerAdmin_beta.jsp"%>
    </header>
     <!-- //메인 콘텐츠-->
     <section class="content">
       <div class="container">
         <div class="row">
-          <h2 style="text-align: center; font-size: 20rem">콘텐츠</h2>
-          <h2 style="text-align: center; font-size: 20rem">콘텐츠</h2>
+          <h2 style="text-align: center; font-size: 20rem">관리자</h2>
+          <h2 style="text-align: center; font-size: 20rem">페이지</h2>
         </div>
       </div>
     </section>

@@ -19,18 +19,18 @@
             <div class="page">
                 <div class="breadcrumbs">
                     <a href="/admin">관리자홈</a>
-                    <span>"${theater.th_name} 영화관정보 수정하기"</span>
+                    <span>"영화관추가하기"</span>
                 </div>
 
                 <div class="content">
                     <div class="row">
                         <div class="col-md-6">
                             <figure class="theater-poster">
-                                <img src="${contextPath}/resources/images/${theater.th_photo}" alt="사진을 넣어주세요">
+                                <img src="${contextPath}/resources/images/no_image.jpg" alt="사진을 넣어주세요">
                             </figure>
                         </div>
                         <div class="col-md-6">
-                            <form action="/admin/theater/updateTheater" method="post" enctype="multipart/form-data">
+                            <form action="/admin/theater/addTheater" method="post" enctype="multipart/form-data">
                                 <input type="hidden" name="th_no" value="${theater.th_no}">
                                 <div class="mb-3">
                                     <label for="cat_no" class="form-label">영화관 이름</label>
