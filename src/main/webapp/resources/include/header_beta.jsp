@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
       <div class="container">
         <div class="row">
-          <div class="header clearfix">
+          <div class="header">
             <h1>
               <a href="/">
                 <em

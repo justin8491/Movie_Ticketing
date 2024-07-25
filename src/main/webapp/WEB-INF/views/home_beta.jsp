@@ -9,7 +9,7 @@
         <%@ include file = "/resources/include/head_beta.jsp"%>
   </head>
   <body>
-   <header id="header">
+   <header id="header"  class="clearfix">
         <%@ include file = "/resources/include/header_beta.jsp"%>
    </header>
     <!-- //메인 콘텐츠-->

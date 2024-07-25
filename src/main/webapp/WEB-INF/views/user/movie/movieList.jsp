@@ -24,6 +24,7 @@
 
 						<div class="filters">
 							<select name="#" id="#" placeholder="Choose Category">
+									<option value="#">전체영화</option>
 								<c:forEach var = "category" items = "${category}">
 									<option value="#">${category.cat_name}</option>
 								</c:forEach>
