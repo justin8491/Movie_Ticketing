@@ -55,9 +55,26 @@
                                 </ul>
                             </div>
                     </div> <!-- row -->
+                    <!-- 이쪽에 줄거리 써놓으면 좋을것 같음 -->
+
                     <div class="entry-content">
-                        <!-- 여기에다가 별점 리뷰 댓글 놓으면 될거같음! -->
-                        
+                        <!-- 리뷰 작성 -->
+
+                        <h1>리뷰</h1>
+                        <hr>
+                        <form>
+                            <h2>${member.mem_id}</h2>
+                            <textarea/>
+                            <!-- 별점 추가 할 예정 -->
+                        </form>
+
+                        <!-- 리뷰 확인 -->
+                        <c:forEach var="item" items="${reviewList}">
+                           <span>${item.mem_id}</span>
+                           <span>${item.rev_content}</span>
+                           <span>${item.rev_rating}</span>
+                           <span>${item.rev_createdAt}</span>
+                        </c:forEach>
                     </div>
                 </div>
             </div>

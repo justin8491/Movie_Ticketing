@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpSession;
+
 
 @Controller
 public class MovieController {
@@ -38,7 +40,7 @@ public class MovieController {
 	}
 	
 	@GetMapping(value = "/user/movie/detailMovie")
-	public ModelAndView selectMovie(@RequestParam("mo_no")int mo_no) throws SQLException {
+	public ModelAndView selectMovie(@RequestParam("mo_no")int mo_no, HttpSession session) throws SQLException {
 		
 		ModelAndView mav = new ModelAndView();
 		
