@@ -9,8 +9,7 @@
 
 <head>
 <meta charset="UTF-8">
-  <%@ include file = "/resources/include/header.jsp"%>
-
+   <%@ include file = "/resources/include/header_beta.jsp"%>
 <!-- 확인후 삭제 css -->
 <link rel="stylesheet" href="resources/모음.css"
 	media="all">
