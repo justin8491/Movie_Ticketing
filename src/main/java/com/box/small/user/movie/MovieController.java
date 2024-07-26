@@ -18,7 +18,10 @@ public class MovieController {
 
 	@Autowired
 	private MovieService service;
-	
+
+	@Autowired
+	private ReviewService reviewService;
+
 	@GetMapping(value = "/user/movie/movieList")
 	public ModelAndView selectAllmovie() throws SQLException {
 		

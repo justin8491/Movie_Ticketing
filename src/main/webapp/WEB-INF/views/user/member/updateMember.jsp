@@ -127,7 +127,7 @@ prefix="c" %>
           <div class="form-group row">
             <div class="col-sm-5 offset-sm-2">
               <button type="submit" class="btn btn-primary">수정</button>
-              <a class="btn btn-success" href="${contextPath}/user/home">홈</a>
+              <a class="btn btn-success" href="${contextPath}/">홈</a>
             </div>
           </div>
         </form>
