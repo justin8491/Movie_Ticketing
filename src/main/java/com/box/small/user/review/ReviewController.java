@@ -26,5 +26,13 @@ public class ReviewController {
         return mav;
     }
 
+    @PostMapping(value = "createReview")
+    public ModelAndView createReview(ReviewDto review){
+            ModelAndView mav = new ModelAndView();
+            reviewService.createReview(review);
+            mav.setViewName("");
+            return mav;
+        }
+
 
 }
