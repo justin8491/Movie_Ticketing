@@ -18,13 +18,20 @@
     <!-- 리뷰 수정 -->
     <update id="updateReview" parameterType="com.box.small.user.review.ReviewDto">
         UPDATE review
-        SET rev_content = #{revContent}, rev_createdAt = #{revCreatedAt}, rev_rating = #{revRating}, rev_status = #{revStatus}, mo_id = #{moId}, mem_id = #{memId}
-        WHERE rev_id = #{revId}
+        SET rev_content = #{rev_content},
+        rev_createdat = #{rev_createdAt},
+        rev_rating = #{rev_rating},
+        rev_status = #{rev_status},
+        mo_id = #{mo_id},
+        mem_id = #{mem_id}
+        WHERE _rev_id = #{rev_id}
+
     </update>
 
     <!-- 리뷰 삭제 -->
     <delete id="deleteReview" parameterType="int">
-        DELETE FROM review
-        WHERE rev_id = #{revId}
+        UPDATE review
+        SET rev_status = 0
+        WHERE rev_id = #{rev_Id}
     </delete>
 </mapper>
