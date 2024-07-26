@@ -21,6 +21,13 @@
 				<p>주연배우 : "${movie.mo_mainActor}"</p>
 				<p>줄거리 : "${movie.mo_plot}"</p>
             </div>
+
+            <c:forEach var="item" items="${reviewList}">
+                <span>${item.mem_id}</span>
+                <span>${item.rev_content}</span>
+                <span>${item.rev_rating}</span>
+                <span>${item.rev_createdAt}</span>
+            </c:forEach>
     </div>
 </body>
 </html>

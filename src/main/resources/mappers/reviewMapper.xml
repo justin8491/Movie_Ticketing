@@ -5,8 +5,8 @@
 <mapper namespace="com.box.small.mappers.reviewMapper">
 
     <!-- 모든 리뷰 조회 -->
-    <select id="reviewAll" resultType="com.box.small.user.review.ReviewDto">
-        SELECT * FROM review
+    <select id="reviewAll" resultType="com.box.small.user.review.ReviewDto" parameterType="com.box.small.user.movie.MovieDto">
+        SELECT * FROM review where mo_no = ${mo_no}
     </select>
 
     <!-- 리뷰 추가 -->
