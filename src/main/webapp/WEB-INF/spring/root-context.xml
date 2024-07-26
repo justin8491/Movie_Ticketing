@@ -17,7 +17,6 @@
 		<property name="url" value="${spring.datasource.url}"></property>
 		<property name="username" value="${spring.datasource.username}"></property>
 		<property name="password" value="${spring.datasource.password}"></property>
-		<!--<property name="password" value="1234"></property> -->
 		</bean>
 	
 	<bean id="sqlSessionFactory"

@@ -4,61 +4,13 @@
 <c:set var="path" value="${pageContext.request.contextPath }/resources" />
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <%@ include file = "/resources/include/head_beta.jsp"%>
-    <style>
-        .movie-container {
-            display: flex;
-            flex-wrap: wrap;
-        }
-        .movie {
-            border: 1px solid #ccc;
-            margin: 10px;
-            padding: 10px;
-            width: 200px;
-            text-align: center;
-        }
-        .movie img {
-            width: 100%;
-            height: auto;
-        }
-        .movie-name {
-            font-weight: bold;
-        }
-	.center{
-	background-color: yellow;	
-	}
-    </style>
-</head>
-<body>
-    
-    <header id="header">
-        <div class="container">
-            <div class="row">
-                <div class="header clearfix">
-                    <h1>
-                        <a href="/">
-                            <em><img src="${path}/images/logo.png" alt="MEGABOX"></em>
-                        </a>    
-                    </h1>
-                    <nav id="mNav">
-                        <h2 class="ir_so">메가박스 전체메뉴</h2>
-                        <a href="#" class="ham"><span></span></a>
-                    </nav>
-                    <nav class="nav">
-                        <ul class="clearfix">
-                            <li><a href="${contextPath}/user/movie/movieList">영화</a></li>
-							<li><a href="${contextPath}/user/theater/theaterList">영화관</a></li>
-							<li><a href="#">예매하기</a></li>
-							<li><a href="${contextPath}/user/support/support">고객센터</a></li>
-							<li><a href="#">로그인</a></li>	
-                        </ul>
-                    </nav>    
-                </div>
-            </div>
-        </div>
-    </header>
-    <!-- //header -->
+  <head>
+        <%@ include file = "/resources/include/head_beta.jsp"%>
+  </head>
+  <body>
+   <header id="header">
+        <%@ include file = "/resources/include/header_beta.jsp"%>
+   </header>
     
     <div id="banner">
         <h2>최신 영화</h2>

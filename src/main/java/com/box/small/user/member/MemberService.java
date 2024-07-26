@@ -9,27 +9,20 @@ public interface MemberService {
 
     //   로그인
     MemberDto login(MemberDto member);
-
     //   회원상세
-    Object detailMember(MemberDto member);
-
+    MemberDto detailMember(MemberDto member);
     //   회원가입
     int createMember(MemberDto member);
-
     //    아이디 찾기
     MemberDto selectById(MemberDto member);
-
     //    비밀번호 찾기
     MemberDto selectByPwd(MemberDto member);
-
     //    유저 전체 검색
     List<MemberDto> selectAllMember();
-
     //    유저 정보 변경
     int updateMember(MemberDto member);
-
     //    유저 정보 삭제
-    int deleteMember(MemberDto member);
+    int deleteMember(MemberDto mem_id);
 
-
+    MemberDto findId(MemberDto member);
 }

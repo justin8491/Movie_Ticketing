@@ -57,4 +57,9 @@ public class MemberDAOImpl implements MemberDAO {
     public int deleteMember(MemberDto member) {
         return sqlSession.delete(SQL_NAME_SAPCE + "deleteMember", member);
     }
+
+    @Override
+    public MemberDto findId(MemberDto member) {
+        return sqlSession.selectOne(SQL_NAME_SAPCE + "findId", member);
+    }
 }

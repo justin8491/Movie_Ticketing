@@ -13,6 +13,16 @@
         and mem_password = #{mem_password}
     </select>
 
+    <select id="selectById" parameterType="com.box.small.user.member.MemberDto" resultType="com.box.small.user.member.MemberDto">
+        select * from member
+        where mem_name = #{mem_name} and mem_phoneNumber = #{mem_phoneNumber}
+    </select>
+
+    <select id="selectByPwd" parameterType="com.box.small.user.member.MemberDto" resultType="com.box.small.user.member.MemberDto">
+        select * from member
+        where mem_id = #{mem_id} and mem_phoneNumber = #{mem_phoneNumber}
+    </select>
+
     <select id="detailMember" parameterType="com.box.small.user.member.MemberDto" resultType="com.box.small.user.member.MemberDto">
         select * from member
         where mem_id = #{mem_id}
@@ -34,4 +44,9 @@
         mem_status = 0
         where mem_id = #{mem_id}
     </update>
+
+    <select id="findId" parameterType="com.box.small.user.member.MemberDto" resultType="com.box.small.user.member.MemberDto">
+        select * from member
+        where mem_id = #{mem_id}
+    </select>
 </mapper>

@@ -23,6 +23,7 @@
 
 /* 헤더 영역 */
 .header {
+    width: 100%;
 }
 .header h1 {
   float: left;
@@ -67,6 +68,70 @@
   color: #d8c8bd;
 }
 
+
+input[readonly] {
+   background-color: #fff !important;
+}
+
+.content {
+    margin-top: 150px;
+    margin-bottom: 150px;
+}
+
+.container h2 {
+/* text-align: center; */
+font-size: 2rem;
+}
+
+.border {
+border: 1px solid black;
+}
+
+.box {
+display: flex;
+padding: 20px;
+}
+
+.box label {
+margin-right: 10px;
+width: 50px;
+}
+
+.float {
+float: left;
+width: 25%;
+padding: 10px;
+box-sizing: border-box;
+}
+
+.float_form:after {
+content: "";
+display: block;
+clear: both;
+}
+
+.block {
+float: left;
+display: block;
+}
+
+.heihgt {
+height: 200px;
+}
+
+.diviContainer {
+display: flex;
+}
+
+.rem_1 {
+margin-top: 3rem;
+padding-left: 0;
+}
+
+.rem_2 {
+margin-top: 3rem;
+padding-right: 0;
+}
 /* content */
 
 /* footer */
@@ -170,4 +235,84 @@ footer {
 }
 .footer_sns li.s5:hover {
   background-position: -144px -411px;
+}
+
+/*  로그인, 회원가입 */
+.user-form{
+    width: 420px;
+    padding: 40px 0 100px;
+}
+.user-form h2{
+    margin-bottom: 40px;
+    text-align: center;
+}
+.user-form form{
+    width: 100%;
+}
+.user-form form input{
+    width: 100%;
+    padding: 13px 20px;
+    margin-bottom: 10px;
+    border: 1px solid #e9e9e9;
+}
+.login-form input[type="submit"]{
+    font-size: 16px;
+    background: #d8c8bd;
+}
+.login-btn:after{
+    content: "";
+    display: block;
+    clear: both;
+}
+.login-btn a:first-child{
+    float: left;
+}
+.login-btn a:last-child{
+    float: right;
+}
+.join-form .red{
+    color: #e47e3e;
+}
+.join-btn button{
+    width: 100%;
+    padding: 13px 20px;
+    margin-top: 10px;
+    font-size: 16px;
+    background: #d8c8bd;
+}
+
+/* 영화 리뷰 리스트 */
+.move-review{
+    padding: 40px 0 60px;
+}
+.move-review h1{
+    display: block;
+    margin-bottom: 20px;
+    font-size: 30px;
+}
+.move-review table{
+    width: 100%;
+    font-size: 14px;
+    text-align: center;
+}
+.move-review table th{
+    padding: 10px 0;
+    background: #d8c8bd;
+}
+.move-review table td{
+    padding: 10px 5px;
+}
+
+/* 아이디 찾기 */
+.getBy-form{
+    display: flex;
+    width: 100%;
+    margin: 60px -15px;
+}
+.getBy-form > div{
+    flex: 0 0 50%;
+    padding: 0 15px;
+}
+.getBy-form input{
+    width: 100%;
 }
