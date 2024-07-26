@@ -10,7 +10,7 @@
 	</select>
 	
 	<!-- 영화일정 추가 -->
-	<insert id="insertSchedule">
+	<insert id="addSchedule">
 		insert into schedule
 		(sch_no,mo_no,sc_no,sch_status,sch_date,sch_startTime,sch_endTime)
 		values

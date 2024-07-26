@@ -4,15 +4,29 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.box.small.scheduleMapper">
 	
-	<!-- 영화관번호로 상영관조회 -->
-	<select id="selectScreen" resultType = "com.box.small.user.schedule.ScreenDto">
+	<!-- 영화관 번호로 상영관조회 -->
+	<select id="selectScreenTh_no" resultType = "com.box.small.user.schedule.ScreenDto">
 		select * from screen where th_no = #{th_no}
 	</select>
 	
+	<!-- 상영관번호로 상영관 조회 -->
+	<select id="selectScreen" resultType = "com.box.small.user.schedule.ScreenDto">
+		select * from screen where sc_no = #{sc_no}
+	</select>
 	
-	<!-- 상영관별 영화조회 -->
-	<select id="selectScreenSchedule" resultType = "com.box.small.user.schedule.BookingDto">
-		select * from schedule where sc_no = #{sc_no} and sch_date = #{sch_date} and mo_no = #{mo_no}
+	<!-- 영화관조회 -->
+	<select id="selectTheater" resultType = "com.box.small.user.theater.TheaterDto">
+		select*from theater where th_no = #{th_no}
+	</select>
+	
+	<!-- 상영관 전체 조회 -->
+	<select id="selectAllScreen" resultType = "com.box.small.user.schedule.ScreenDto">
+		select * from screen
+	</select>
+	
+	<!-- 영화관조회 -->
+	<select id="selectAllTheater" resultType = "com.box.small.user.theater.TheaterDto">
+		select*from theater
 	</select>
 	
 	<!-- 영화, 상영관, 날짜로 일정조회 -->

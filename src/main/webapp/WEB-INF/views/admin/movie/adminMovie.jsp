@@ -95,7 +95,6 @@ table.admMovieDetail button.deleteBtn{
 	border:none;
 	box-shadow: none
 	}
-
  </style>
   </head>
   <body>

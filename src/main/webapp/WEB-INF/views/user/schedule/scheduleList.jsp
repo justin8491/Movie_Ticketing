@@ -99,7 +99,7 @@ table.admMovieDetail button.deleteBtn{
   </head>
   <body>
    <header id="header">
-            <%@ include file="/resources/include/headerAdmin_beta.jsp"%>
+            <%@ include file="/resources/include/header_beta.jsp"%>
    </header>
     <!-- //메인 콘텐츠-->
     <section class="content">
@@ -111,13 +111,6 @@ table.admMovieDetail button.deleteBtn{
                 <div class="col-md-6">
                     <div class="mb-3">
                         <h5 class="card-title">전체 시간표<span class="text-muted fw-normal ms-2"></span></h5>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="d-flex flex-wrap align-items-center justify-content-end gap-2 mb-3">
-                        <div style="text-align: right">
-                            <a href="/admin/schedule/addSchedule" data-bs-toggle="modal" data-bs-target=".add-new" class="btn btn-primary"><i class="bx bx-plus me-1"></i>추가하기</a>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -135,7 +128,6 @@ table.admMovieDetail button.deleteBtn{
                                         <th scope="col">날짜</th>
                                         <th scope="col">시작시간</th>
                                         <th scope="col">종료시간</th>
-                                        <th scope="col" style="width: 200px;">수정/삭제</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -163,22 +155,6 @@ table.admMovieDetail button.deleteBtn{
                                             <td>${schedule.sch_date}</td>
                                             <td>${schedule.sch_startTime}</td>
                                             <td>${schedule.sch_endTime}</td>
-                                            <td>
-                                                <ul class="list-inline mb-0">
-                                                    <li class="list-inline-item">
-                                                        <a href="/admin/schedule/updateSchedule?sch_no=${schedule.sch_no}" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit" class="px-2 text-primary"><i class="bx bx-pencil font-size-18"></i></a>
-                                                    </li>
-                                                    <li class="list-inline-item">
-                                                        <!-- Form for delete -->
-                                                        <form action="/admin/schedule/deleteSchedule" method="post" style="display: inline;">
-                                                            <input type="hidden" name="sch_no" value="${schedule.sch_no}" />
-                                                            <button type="submit" class="px-2 text-primary deleteBtn" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete">
-                                                                <i class="bx bx-trash-alt font-size-18 "></i>
-                                                            </button>
-                                                        </form>
-                                                    </li>
-                                                </ul>
-                                            </td>
                                         </tr>
                                     </c:forEach>
                                 </tbody>

@@ -10,21 +10,19 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class ScheduleDAOImpl implements ScheduleDAO{
-	private final static String namespace = "com.box.small.theaterMapper";
+	private final static String namespace = "com.box.small.scheduleMapper";
 	
 	@Autowired
 	private SqlSession sqlSession;
 
 	@Override
 	public List<ScheduleDto> sellectAllSchedule() throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
+		return sqlSession.selectList(namespace+".selectAllSchedule");
 	}
 
 	@Override
 	public ScheduleDto sellectSchedule(int sch_no) throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
+		return sqlSession.selectOne(namespace+".selectSchedule", sch_no);
 	}
 
 	@Override
@@ -34,9 +32,18 @@ public class ScheduleDAOImpl implements ScheduleDAO{
 	}
 
 	@Override
-	public List<ScheduleDto> selectScreen(int th_no) {
-		// TODO Auto-generated method stub
-		return sqlSession .selectList(namespace+".selectScreen", th_no);
+	public ScreenDto selectScreen(int sc_no) {
+		return sqlSession .selectOne(namespace+".selectScreen", sc_no);
+	}
+
+	@Override
+	public List<ScreenDto> sellectAllScreen() {
+		return sqlSession .selectList(namespace+".selectAllScreen");
+	}
+
+	@Override
+	public ScreenDto selectScreenTh_no(int th_no) {
+		return sqlSession .selectOne(namespace+".selectScreenTh_no", th_no);
 	}
 
 

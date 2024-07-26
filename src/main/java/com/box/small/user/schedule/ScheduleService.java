@@ -11,7 +11,11 @@ public interface ScheduleService {
 	
 	ScheduleDto sellectSchedule(int sch_no) throws SQLException;	//	스케줄 선택조회
 
-	public ScheduleDto selectScreenSchedule(Map<String, Object> map);
+	ScheduleDto selectScreenSchedule(Map<String, Object> map);
 	
-	public List<ScheduleDto> selectScreen(int th_no); // 영화관으로 상영관 조회
+	ScreenDto selectScreen(int sc_no); // 영화관으로 상영관 조회
+	
+	List<ScreenDto> sellectAllScreen();//상영관 전체조회
+	
+	ScreenDto selectScreenTh_no(int th_no);//영화관 번호로 상영관 조회
 }

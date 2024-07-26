@@ -22,7 +22,7 @@
       </div>
     </section>
     <!-- //footer -->
-    <footer>
+z    <footer>
         <%@ include file = "/resources/include/footer_beta.jsp"%>
     </footer>
     <!-- 플러그인 -->

@@ -31,9 +31,19 @@ public class ScheduleServiceImpl implements ScheduleService{
 	}
 
 	@Override
-	public List<ScheduleDto> selectScreen(int th_no) {
+	public ScreenDto selectScreen(int sc_no) {
 		
-		return dao.selectScreen(th_no);
+		return dao.selectScreen(sc_no);
+	}
+
+	@Override
+	public List<ScreenDto> sellectAllScreen() {
+		return dao.sellectAllScreen();
+	}
+
+	@Override
+	public ScreenDto selectScreenTh_no(int th_no) {
+		return dao.selectScreenTh_no(th_no);
 	}
 
 }

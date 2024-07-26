@@ -1,46 +1,27 @@
 package com.box.small.user.schedule;
 
 public class ScreenDto {
-	private int sch_no;
-	private int mo_no;
-	private int sc_no ;
-	private int sch_status;
-	private String sch_date;
-	private String sch_startTime;
-	private String sch_endTime;
+	private int sc_no;
+	private int th_no;
+	private int sc_status;
+	private String sc_name;
+	
 	
 	
 	@Override
 	public String toString() {
-		return "ScreenDto [sch_no=" + sch_no + ", mo_no=" + mo_no + ", sc_no=" + sc_no + ", sch_status=" + sch_status
-				+ ", sch_date=" + sch_date + ", sch_startTime=" + sch_startTime + ", sch_endTime=" + sch_endTime + "]";
+		return "ScreenDto [sc_no=" + sc_no + ", th_no=" + th_no + ", sc_status=" + sc_status + ", sc_name=" + sc_name
+				+ "]";
 	}
-	
 	public ScreenDto() {
 		super();
 	}
-	public ScreenDto(int sch_no, int mo_no, int sc_no, int sch_status, String sch_date, String sch_startTime,
-			String sch_endTime) {
+	public ScreenDto(int sc_no, int th_no, int sc_status, String sc_name) {
 		super();
-		this.sch_no = sch_no;
-		this.mo_no = mo_no;
 		this.sc_no = sc_no;
-		this.sch_status = sch_status;
-		this.sch_date = sch_date;
-		this.sch_startTime = sch_startTime;
-		this.sch_endTime = sch_endTime;
-	}
-	public int getSch_no() {
-		return sch_no;
-	}
-	public void setSch_no(int sch_no) {
-		this.sch_no = sch_no;
-	}
-	public int getMo_no() {
-		return mo_no;
-	}
-	public void setMo_no(int mo_no) {
-		this.mo_no = mo_no;
+		this.th_no = th_no;
+		this.sc_status = sc_status;
+		this.sc_name = sc_name;
 	}
 	public int getSc_no() {
 		return sc_no;
@@ -48,29 +29,23 @@ public class ScreenDto {
 	public void setSc_no(int sc_no) {
 		this.sc_no = sc_no;
 	}
-	public int getSch_status() {
-		return sch_status;
+	public int getTh_no() {
+		return th_no;
 	}
-	public void setSch_status(int sch_status) {
-		this.sch_status = sch_status;
+	public void setTh_no(int th_no) {
+		this.th_no = th_no;
 	}
-	public String getSch_date() {
-		return sch_date;
+	public int getSc_status() {
+		return sc_status;
 	}
-	public void setSch_date(String sch_date) {
-		this.sch_date = sch_date;
+	public void setSc_status(int sc_status) {
+		this.sc_status = sc_status;
 	}
-	public String getSch_startTime() {
-		return sch_startTime;
+	public String getSc_name() {
+		return sc_name;
 	}
-	public void setSch_startTime(String sch_startTime) {
-		this.sch_startTime = sch_startTime;
-	}
-	public String getSch_endTime() {
-		return sch_endTime;
-	}
-	public void setSch_endTime(String sch_endTime) {
-		this.sch_endTime = sch_endTime;
+	public void setSc_name(String sc_name) {
+		this.sc_name = sc_name;
 	}
 	
 	

@@ -21,7 +21,7 @@
 							<a href="/">Home</a>
 							<span>영화 전체리스트</span>
 						</div>
-
+						
 						<div class="filters">
 							<select name="#" id="#" placeholder="Choose Category">
 									<option value="#">전체영화</option>
