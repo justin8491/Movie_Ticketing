@@ -1,10 +1,12 @@
 package com.box.small.user.review;
 
+import com.box.small.user.movie.MovieDto;
+
 import java.util.List;
 
 public interface ReviewService {
     //    리뷰 전체 보기
-    List<ReviewDto> reviewAll();
+    List<ReviewDto> reviewAll(int mo_no);
 
     //    리뷰 추가
     int createReview(ReviewDto review);

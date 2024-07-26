@@ -4,6 +4,8 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 
+import com.box.small.user.review.ReviewDto;
+import com.box.small.user.review.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -40,8 +42,9 @@ public class MovieController {
 		MovieDto movie = service.selectMovie(mo_no);
 		
 		String cat_name = service.category(movie.getCat_no());
-		
-		mav.addObject("movie", movie);
+        // 리뷰리스트
+        List<ReviewDto> reviewList = reviewService.reviewAll(mo_no);
+        mav.addObject("reviewList", reviewList);
 		mav.addObject("cat_name", cat_name);
 		mav.setViewName("/user/movie/detailMovie");
 		return mav;
