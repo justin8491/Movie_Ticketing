@@ -12,7 +12,7 @@ public class ReviewDAOImpl implements ReviewDAO {
 
     @Autowired
     SqlSession sqlSession;
-    String SQL_NAME_SAPCE = "com.box.small.reviewMapper.";
+    String SQL_NAME_SAPCE = "com.box.small.mappers.reviewMapper.";
 
     @Override
     public List<ReviewDto> reviewAll() {
@@ -21,16 +21,16 @@ public class ReviewDAOImpl implements ReviewDAO {
 
     @Override
     public int createReview(ReviewDto review) {
-        return sqlSession.insert(SQL_NAME_SAPCE + "createReview",review);
+        return sqlSession.insert(SQL_NAME_SAPCE + "createReview", review);
     }
 
     @Override
     public int updateReview(ReviewDto review) {
-        return 0;
+        return sqlSession.update(SQL_NAME_SAPCE + "updateReview", review);
     }
 
     @Override
     public int deleteReview(ReviewDto review) {
-        return 0;
+        return sqlSession.delete(SQL_NAME_SAPCE + "deleteReview", review);
     }
 }

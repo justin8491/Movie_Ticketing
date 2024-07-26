@@ -13,26 +13,28 @@
         <%@ include file = "/resources/include/header_beta.jsp"%>
    </header>
     <!-- //메인 콘텐츠-->
-<section class="content">
+<section class="container">
+    <div class="row">
+        <div class="getBy-form">
+           <div>
+              <h2>아이디 찾기</h2> <br>
+              <form action="${contextPath}/user/selectById" method="post">
+                <input type="text" name="mem_name" id="mem_name" placeholder="이름"/><br/>
+                <input type="text" name="mem_phoneNumber" id="mem_phoneNumber" placeholder="전화번호"/><br/>
+                <input type="submit" value="아이디 찾기" />
+              </form>
+          </div>
 
-      <h1>아이디 찾기</h1> <br>
-      <form action="${contextPath}/user/selectById" method="post">
-        이름 : <input type="text" name="mem_name" id="mem_name" /><br />
-        전화번호 :
-        <input type="text" name="mem_phoneNumber" id="mem_phoneNumber" />
-        <input type="submit" value="아이디 찾기" />
-      </form>
-      <br />
-      <br />
-
-      <h1>비밀번호 찾기</h1> <br>
-      <form action="${contextPath}/user/selectByPwd" method="post">
-        아이디 : <input type="text" name="mem_id" id="mem_id" /><br />
-        전화번호 : <input type="text" name="mem_phoneNumber" id="mem_phoneNumber" />
-        <input type="submit" value="비밀번호 찾기" />
-      </form>
-
-
+          <div>
+              <h2>비밀번호 찾기</h2> <br>
+              <form action="${contextPath}/user/selectByPwd" method="post">
+                <input type="text" name="mem_id" id="mem_id" placeholder="이름"/><br/>
+                <input type="text" name="mem_phoneNumber" id="mem_phoneNumber" placeholder="전화번호"/><br/>
+                <input type="submit" value="비밀번호 찾기" />
+              </form>
+          </div>
+      </div>
+    </div>
 </section>
     <!-- //footer -->
     <footer>
