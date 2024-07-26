@@ -12,82 +12,84 @@ public class AdminSupportServiceImpl implements AdminSupportService{
 	private AdminSupportDAO dao;
 
 	@Override
-	public List<AdminSupportDto> faq() {
+	public List<AdminSupportDto> adminFaq() {
 		// TODO Auto-generated method stub
-		return dao.faq();
+		return dao.adminFaq();
 	}
 
 	@Override
-	public AdminSupportDto selectFaq(int bo_no) {
+	public AdminSupportDto adminSelectFaq(int bo_no) {
 		// TODO Auto-generated method stub
-		return dao.selectFaq(bo_no);
+		return dao.adminSelectFaq(bo_no);
 	}
 
 	@Override
-	public List<AdminSupportDto> notice() {
+	public List<AdminSupportDto> adminNotice() {
 		// TODO Auto-generated method stub
-		return dao.notice();
+		return dao.adminNotice();
 	}
 
 	@Override
-	public AdminSupportDto selectNotice(int bo_no) {
+	public AdminSupportDto adminSelectNotice(int bo_no) {
 		// TODO Auto-generated method stub
-		return dao.selectNotice(bo_no);
+		return dao.adminSelectNotice(bo_no);
 	}
 
 	@Override
-	public int inquiryWrite(AdminSupportDto sp) {
+	public int adminInquiryWrite(AdminSupportDto sp) {
 		// TODO Auto-generated method stub
-		return dao.inquiryWrite(sp);
+		return dao.adminInquiryWrite(sp);
 	}
 
 	@Override
-	public List<AdminSupportDto> inquiryView() {
+	public List<AdminSupportDto> adminInquiry() {
 		// TODO Auto-generated method stub
-		return dao.inquiryView();
+		return dao.adminInquiry();
 	}
 
 	@Override
-	public int inquiryDelete(int bo_no) {
+	public int adminInquiryDelete(int bo_no) {
 		// TODO Auto-generated method stub
-		return dao.inquiryDelete(bo_no);
+		return dao.adminInquiryDelete(bo_no);
 	}
 
 	@Override
-	public int freeBoardWrite(AdminSupportDto sp) {
+	public int adminBoardAdd(AdminSupportDto sp) {
 		// TODO Auto-generated method stub
-		return dao.freeBoardWrite(sp);
+		return dao.adminBoardAdd(sp);
 	}
 
 	@Override
-	public AdminSupportDto selectFreeBoardWrite(int bo_no) {	
+	public AdminSupportDto adminSelectFreeBoardWrite(int bo_no) {
 		// TODO Auto-generated method stub
-		return dao.selectFreeBoardWrite(bo_no);
+		return dao.adminSelectFreeBoardWrite(bo_no);
 	}
 
 	@Override
-	public List<AdminSupportDto> freeBoard() {
+	public List<AdminSupportDto> adminFreeBoard() {
 		// TODO Auto-generated method stub
-		return dao.freeBoard();
+		return dao.adminFreeBoard();
 	}
 
 	@Override
-	public int freeBoardUpdate(AdminSupportDto sp) {
+	public int adminFreeBoardUpdate(AdminSupportDto sp) {
 		// TODO Auto-generated method stub
-		return dao.freeBoardUpdate(sp);
+		return dao.adminFreeBoardUpdate(sp);
 	}
 
 	@Override
-	public int freeBoardDelete(AdminSupportDto sp) {
+	public int adminFreeBoardDelete(AdminSupportDto sp) {
 		// TODO Auto-generated method stub
-		return dao.freeBoardDelete(sp);
+		return dao.adminFreeBoardDelete(sp);
 	}
 
 	@Override
-	public List<AdminSupportDto> myBoard() {
+	public List<AdminSupportDto> adminMyBoard() {
 		// TODO Auto-generated method stub
-		return dao.myBoard();
+		return dao.adminMyBoard();
 	}
+
+	
 	
 	
 

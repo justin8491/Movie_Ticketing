@@ -31,10 +31,28 @@
 						<tr>	
 							<th>내용:</th>
 								<td colspan = "4">${inquiry.bo_content}</td>
-						        <td><a href = "freeBoardDelete?bo_no=${inquiry.bo_no}">삭제</a></td>
+						        <td><a href = "freeBoardDelete?bo_no=${inquiry.bo_no}">문의글 삭제</a></td>
 						</tr>
 					</c:if>
-				</c:forEach>		
+				</c:forEach>
+				<c:forEach var="freeBoard" items="${freeBoard}">
+					<c:if test="${member.mem_id == freeBoard.bo_writerId}">
+						<tr>
+							<th>번호</th><th>제목</th><th>작성자ID</th><th>생성일</th>
+						</tr>
+   						<tr>
+							<td>${freeBoard.bo_no}</td>
+							<td>${freeBoard.bo_title}</td>
+							<td>${freeBoard.bo_writerId}</td>
+							<td>${freeBoard.bo_createAt}</td>
+						</tr>
+						<tr>	
+							<th>내용:</th>
+								<td colspan = "4">${freeBoard.bo_content}</td>
+						        <td><a href = "freeBoardDelete?bo_no=${freeBoard.bo_no}">자유게시판 삭제</a></td>
+						</tr>
+					</c:if>
+				</c:forEach>	
 			</table>
 			</section>
     <!-- //footer -->

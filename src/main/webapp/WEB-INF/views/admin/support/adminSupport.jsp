@@ -16,14 +16,11 @@
 	 <section class="content">
       <div class="container">
         <div class="row">
-	<div><a href="${contextPath}/user/support/notice">공지사항 페이지</a></div>
-	<div><a href="${contextPath}/user/support/faq">자주 묻는 질문 페이지</a></div>
-	<div><a href="${contextPath}/user/support/inquiry">1대1 문의 페이지</a></div>
-	<div><a href="${contextPath}/user/support/freeBoard">자유게시판 페이지</a></div>
-	<div><a href="${contextPath}/user/support/myBoard">작성한 글 보기</a></div>
+	<div><a href="${contextPath}/admin/support/adminNotice">공지사항 페이지</a></div>
+	<div><a href="${contextPath}/admin/support/adminFaq">자주 묻는 질문 페이지</a></div>
+	<div><a href="${contextPath}/admin/support/adminInquiry">1대1 문의 페이지</a></div>
+	<div><a href="${contextPath}/admin/support/adminFreeBoard">자유게시판 페이지</a></div>
 	</section>
-	<div><a href="${contextPath}/admin/support/adminSupport">관리자 페이지</a></div>
-	
 	
     <!-- //footer -->
     <footer>

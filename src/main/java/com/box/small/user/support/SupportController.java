@@ -208,9 +208,6 @@ public class SupportController {
 		logger.info("게시판 수정");
 		ModelAndView mav = new ModelAndView();
 		
-		System.out.println(sp.getBo_no());
-		System.out.println(sp.getBo_content());
-		
 		service.freeBoardUpdate(sp);
 		
 		mav.setViewName("redirect:/user/support/freeBoard");
