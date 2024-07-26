@@ -2,6 +2,7 @@ package com.box.small.user.movie;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,4 +23,13 @@ public class MovieServiceImpl implements MovieService{
 		return dao.selectMovie(mo_no);
 	}
 
+	@Override
+	public String category(int cat_no) {
+		return dao.category(cat_no);
+	}
+
+	@Override
+	public List<CategoryDto> allCategory() {
+		return dao.allCategory();
+	}
 }

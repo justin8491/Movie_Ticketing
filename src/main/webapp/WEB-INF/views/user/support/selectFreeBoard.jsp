@@ -3,9 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<%@ include file = "/resources/include/header.jsp"%>
-<title>Insert title here</title>
+<%@ include file = "/resources/include/head_beta.jsp"%>
 </head>
 <body>
 
@@ -26,10 +24,5 @@
 				</tr>
 			
 			</table>
-			<div>
-			<a href = "freeBoardUpdate?bo_no=${freeBoard.bo_no}">수정</a>
-			<a href = "freeBoardDelete?bo_no=${freeBoard.bo_no}">삭제</a>
-			</div>
-			
 </body>
 </html>

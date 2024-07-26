@@ -3,9 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<%@ include file = "/resources/include/header.jsp"%>
-<title>Insert title here</title>
+<%@ include file = "/resources/include/head_beta.jsp"%>
 </head>
 <body>
 

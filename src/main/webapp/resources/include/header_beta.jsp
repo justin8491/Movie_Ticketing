@@ -4,7 +4,7 @@
 <c:set var="contextPath" value="${pageContext.request.contextPath }" />
       <div class="container">
         <div class="row">
-          <div class="header clearfix">
+          <div class="header">
             <h1>
               <a href="/">
                 <em
@@ -19,6 +19,7 @@
               <ul class="clearfix">
                 <li><a href="${contextPath}/user/movie/movieList">영화</a></li>
                 <li><a href="${contextPath}/user/theater/theaterList">영화관</a></li>
+                <li><a href="${contextPath}/user/schedule/scheduleList">상영스케줄</a></li>
                 <li><a href="#">예매하기</a></li>
                 <li><a href="${contextPath}/user/support/support">고객센터</a></li>
                 <c:if test="${member != null && isLogin == true}">

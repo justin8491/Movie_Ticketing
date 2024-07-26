@@ -133,7 +133,10 @@ margin-top: 3rem;
 padding-right: 0;
 }
 /* content */
-
+.content {
+    margin-top: 150px;
+    margin-bottom: 150px;
+}
 /* footer */
 footer {
   background-color: #a78c7b;

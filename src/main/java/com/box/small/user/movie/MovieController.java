@@ -2,6 +2,7 @@ package com.box.small.user.movie;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,10 +24,11 @@ public class MovieController {
 		
 		List<MovieDto>movielist = service.selectAllMovie();
 		
+		List<CategoryDto>category = service.allCategory();
 		mav.addObject("movielist", movielist);
+		mav.addObject("category",category);
 		
 		mav.setViewName("/user/movie/movieList");
-		
 		return mav;
 	}
 	
@@ -37,9 +39,11 @@ public class MovieController {
 		
 		MovieDto movie = service.selectMovie(mo_no);
 		
-		mav.addObject("movie", movie);
-		mav.setViewName("/user/movie/detailMovie");
+		String cat_name = service.category(movie.getCat_no());
 		
+		mav.addObject("movie", movie);
+		mav.addObject("cat_name", cat_name);
+		mav.setViewName("/user/movie/detailMovie");
 		return mav;
 	}
 	

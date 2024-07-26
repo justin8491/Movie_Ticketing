@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <c:set var="path" value="${pageContext.request.contextPath }/resources" />
-<c:set var="contextPath" value="${pageContext.request.contextPath }" />
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+ <c:set var="contextPath" value="${pageContext.request.contextPath }" />
+ <c:set var="path" value="${pageContext.request.contextPath }/resources" />
 <meta charset="UTF-8" />
     <meta
       name="viewport"
@@ -18,8 +19,10 @@
       content="메가박스, 유투브, 영화, 최신영화, 영화관, CGV, 롯데시네마, 웹스토리보이, 웹스, 사이트 만들기, 따라하기"
     />
     <title>SmallBox</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-
+    
+	<!-- Bootstrap CSS -->
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+	
     <!-- css -->
     <link rel="stylesheet" href="${path}/assets/css/reset02.css" />
     <link rel="stylesheet" href="${path}/assets/css/style02.css" />
@@ -61,4 +64,24 @@
       rel="stylesheet"
     />
 
-
+    <!-- HTLM5shiv ie6~8 -->
+    <!--[if lt IE 9]>
+      <script src="${path}/assets/js/html5shiv.min.js"></script>
+      <script type="text/javascript">
+        alert(
+          "현재 브라우저는 지원하지 않습니다. 크롬 브라우저를 추천합니다.!"
+        );
+      </script>
+    <![endif]-->
+    
+    <!-- 영화 템플릿 -->
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
+		<!-- Loading third party fonts -->
+		<link href="http://fonts.googleapis.com/css?family=Roboto:300,400,700|" rel="stylesheet" type="text/css">
+		<link href="${path}/detailMovie/fonts/font-awesome.min.css" rel="stylesheet" type="text/css">
+		<!-- Loading main css file -->
+		<link rel="stylesheet" href="${path}/detailMovie/style.css">
+		<!--[if lt IE 9]>
+		<script src="js/ie-support/html5.js"></script>
+		<script src="js/ie-support/respond.js"></script>
+		<![endif]-->

@@ -18,7 +18,7 @@ public class TheaterController {
 	private TheaterService service;
 	
 	@GetMapping(value = "/user/theater/theaterList")
-	public ModelAndView selectAllmovie() throws SQLException {
+	public ModelAndView selectAllTheater() throws SQLException {
 		
 		ModelAndView mav = new ModelAndView();
 		
@@ -32,7 +32,7 @@ public class TheaterController {
 	}
 	
 	@GetMapping(value = "/user/theater/theater")
-	public ModelAndView selectMovie(@RequestParam("th_no")int th_no) throws SQLException {
+	public ModelAndView selectTheater(@RequestParam("th_no")int th_no) throws SQLException {
 		
 		ModelAndView mav = new ModelAndView();
 		

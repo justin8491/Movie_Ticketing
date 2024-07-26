@@ -28,8 +28,12 @@ public class HomeController {
         String formattedDate = dateFormat.format(date);
         model.addAttribute("serverTime", formattedDate);
         return "home_beta";
-
-
     }
+    
+    @RequestMapping(value = "/admin", method = RequestMethod.GET)
+    public String adminhome() {
+        return "homeAdmin_beta";
+    }
+    
 
 }
