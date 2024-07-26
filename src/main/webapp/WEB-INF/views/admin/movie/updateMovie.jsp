@@ -70,7 +70,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="mo_rating" class="form-label">연령제한 (전체관람가 / 12세이상관람가 / 15세이상관람가 )</label>
-                                    <input type="number" id="mo_rating" name="mo_rating" class="form-control" value="${movie.mo_rating}" required>
+                                    <input type="text" id="mo_rating" name="mo_rating" class="form-control" value="${movie.mo_rating}" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="mo_photo" class="form-label">영화포스터이름 (포스터사진이 준비되지 않았으면 no_image.jpg 입력)</label>
