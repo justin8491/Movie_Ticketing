@@ -11,13 +11,16 @@ import com.box.small.user.theater.TheaterDto;
 
 @Repository
 public class AdminTheaterImpl implements AdminTheaterDAO{
+	
 	@Autowired
-	private final static String namespace="com.box.small.adminMovieMapper";
+	private final static String namespace="com.box.small.adminTheaterMapper";
+	
 	@Autowired
 	private SqlSession sqlSession;
+	
 	@Override
 	public void addTheater(TheaterDto theater) throws SQLException {
-		sqlSession.insert(namespace+".addtheater", theater);		
+		sqlSession.insert(namespace+".addTheater", theater);		
 	}
 	@Override
 	public void deleteTheater(int th_no) throws SQLException {

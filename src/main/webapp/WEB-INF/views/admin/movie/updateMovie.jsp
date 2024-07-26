@@ -30,7 +30,7 @@
                             </figure>
                         </div>
                         <div class="col-md-6">
-                            <form action="/admin/movie/updateMovie" method="post" enctype="multipart/form-data">
+                            <form action="/admin/movie/updateMovie" method="post">
                                 <input type="hidden" name="mo_no" value="${movie.mo_no}" required>
                                 <div class="mb-3">
                                     <label for="cat_no" class="form-label">카테고리</label>
@@ -69,12 +69,12 @@
                                     <input type="text" id="mo_mainActor" name="mo_mainActor" class="form-control" value="${movie.mo_mainActor}" required>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="mo_rating" class="form-label">연령제한</label>
-                                    <input type="number" id="mo_rating" name="mo_rating" class="form-control" value="${movie.mo_rating}">
+                                    <label for="mo_rating" class="form-label">연령제한 (전체관람가 / 12세이상관람가 / 15세이상관람가 )</label>
+                                    <input type="number" id="mo_rating" name="mo_rating" class="form-control" value="${movie.mo_rating}" required>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="mo_photo" class="form-label">사진</label>
-                                    <input type="file" id="mo_photo" name="mo_photo" class="form-control" required>
+                                    <label for="mo_photo" class="form-label">영화포스터이름 (포스터사진이 준비되지 않았으면 no_image.jpg 입력)</label>
+                                    <input type="text" id="mo_photo" name="mo_photo" class="form-control" value ="${movie.mo_photo}" required>
                                 </div>
                                 <button type="submit" class="btn btn-primary">저장하기</button>
                             </form>

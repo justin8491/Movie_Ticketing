@@ -53,6 +53,8 @@ public class AdminMovieController {
 		
 		ModelAndView mav = new ModelAndView();
 		
+		System.out.println(movie + "삽입예정");
+		
 		service.addMovie(movie);
 		
 		mav.setViewName("redirect:/admin/movie/adminMovie");

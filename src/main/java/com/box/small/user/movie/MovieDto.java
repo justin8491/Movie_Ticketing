@@ -84,7 +84,7 @@ public class MovieDto {
 		return mo_endDate;
 	}
 	public void setMo_endDate(String mo_endDate) {
-		this.mo_endDate = mo_endDate;
+		  this.mo_endDate = (mo_endDate != null && mo_endDate.isEmpty()) ? null : mo_endDate;
 	}
 	public int getMo_runningTime() {
 		return mo_runningTime;

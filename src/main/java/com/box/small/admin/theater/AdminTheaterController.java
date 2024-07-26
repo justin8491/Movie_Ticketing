@@ -53,7 +53,9 @@ public class AdminTheaterController {
 	
 	@PostMapping(value = "/admin/theater/addTheater")
 	public ModelAndView addTheater(@ModelAttribute("theater")TheaterDto theater) throws SQLException{
-		
+		System.out.println("극장이름 : "+theater.getTh_name());
+		System.out.println("극장상태 : "+theater.getTh_status());
+		System.out.println("극장위치 : "+theater.getTh_location());
 		ModelAndView mav = new ModelAndView();
 		
 		service.addTheater(theater);
@@ -76,6 +78,7 @@ public class AdminTheaterController {
 	@GetMapping(value = "/admin/theater/updateTheater")
 	public ModelAndView updateTheaterPage(@RequestParam("th_no")int th_no) throws SQLException{
 		
+		
 		ModelAndView mav = new ModelAndView();
 		
 		TheaterDto theater = mService.sellectTheater(th_no);
@@ -88,10 +91,13 @@ public class AdminTheaterController {
 	
 	@PostMapping(value = "/admin/theater/updateTheater")
 	public ModelAndView updateTheater(@ModelAttribute("theater")TheaterDto theater) throws SQLException{
+		System.out.println("극장이름 : "+theater.getTh_name());
+		System.out.println("극장상태 : "+theater.getTh_status());
+		System.out.println("극장위치 : "+theater.getTh_location());
 		
 		ModelAndView mav = new ModelAndView();
-		
 		service.updateTheater(theater);
+		
 		mav.setViewName("redirect:/admin/theater/adminTheater");
 		return mav;
 	}
