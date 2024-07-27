@@ -11,8 +11,8 @@
 
     <!-- 리뷰 추가 -->
     <insert id="createReview" parameterType="com.box.small.user.review.ReviewDto">
-        INSERT INTO review (rev_content, rev_createdAt, rev_rating, rev_status, mo_id, mem_id)
-        VALUES (#{revContent}, #{revCreatedAt}, #{revRating}, #{revStatus}, #{moId}, #{memId})
+        INSERT INTO review (rev_content, rev_rating, rev_status, mo_no, mem_id)
+        VALUES (#{rev_content}, #{rev_rating}, 1, #{mo_no}, #{mem_id})
     </insert>
 
     <!-- 리뷰 수정 -->

@@ -18,6 +18,6 @@ public class ReviewDto {
     private Timestamp rev_createdAt;
     private int rev_rating;
     private int rev_status;
-    private int mo_id;
+    private int mo_no;
     private String mem_id;
 }

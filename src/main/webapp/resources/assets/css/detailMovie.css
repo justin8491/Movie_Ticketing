@@ -1,0 +1,16 @@
+#star-rating {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.star {
+    color: gray; /* 기본 색상 */
+}
+
+.star.selected {
+    color: gold; /* 선택된 별 색상 */
+}
+
+#reviewForm {
+    display : flex;
+}

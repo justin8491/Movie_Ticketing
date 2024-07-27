@@ -7,6 +7,7 @@
 <html lang="en">
 <head>
     <%@ include file="/resources/include/head_beta.jsp"%>
+    <link rel="stylesheet" href="/resources/assets/css/detailMovie.css" />
 </head>
 <body>
 <header id="header">
@@ -60,19 +61,36 @@
                     <div class="entry-content">
                         <!-- 리뷰 작성 -->
 
-                        <h1>리뷰</h1>
+                        <h2 style="font-size : 2rem;">리뷰</h1>
                         <hr>
-                        <form>
-                            <h2>${member.mem_id}</h2>
-                            <textarea/>
+                        <form id="reviewForm">
+                            <h3>${member.mem_id}</h2>
+                            <input type="hidden" id="mem_id" name="mem_id" value="${member.mem_id}" />
+                            <input type="hidden" id="mo_no" name="mo_no" value="${movie.mo_no}" />
+                            <textarea id="rev_content" name="rev_content"></textarea>
                             <!-- 별점 추가 할 예정 -->
-                        </form>
+                            <div id="star-rating">
+                                <span class="star" data-value="1">&#9733;</span>
+                                <span class="star" data-value="2">&#9733;</span>
+                                <span class="star" data-value="3">&#9733;</span>
+                                <span class="star" data-value="4">&#9733;</span>
+                                <span class="star" data-value="5">&#9733;</span>
+                            </div>
+                            <input type="hidden" id="reviewRating" name="rev_rating" value="0" />
+                            <input type="submit" value="작성">
 
+                        </form>
+                        <hr>
                         <!-- 리뷰 확인 -->
                         <c:forEach var="item" items="${reviewList}">
                            <span>${item.mem_id}</span>
                            <span>${item.rev_content}</span>
-                           <span>${item.rev_rating}</span>
+                           <div class="star-rating" title="Rated 4.00 out of 5">
+                                <span style="width:80%">
+                                    <strong class="rating">${item.rev_rating}</strong> out of 5
+                                </span>
+                           </div>
+
                            <span>${item.rev_createdAt}</span>
                         </c:forEach>
                     </div>
@@ -87,6 +105,9 @@
 </footer>
 <!-- 플러그인 -->
 <%@ include file="/resources/include/plugin_cdn.jsp"%>
+
+<script src="${path}/detailMovie/js/detailMovie_review.js"></script>
+
 
 </body>
 </html>

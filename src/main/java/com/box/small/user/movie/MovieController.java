@@ -51,6 +51,7 @@ public class MovieController {
         List<ReviewDto> reviewList = reviewService.reviewAll(mo_no);
         mav.addObject("reviewList", reviewList);
 		mav.addObject("cat_name", cat_name);
+		mav.addObject("movie", movie);
 		mav.setViewName("/user/movie/detailMovie");
 		return mav;
 	}
