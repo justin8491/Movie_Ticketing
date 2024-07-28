@@ -13,7 +13,7 @@ import java.sql.Timestamp;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ReviewDto {
-    private int rev_id;
+    private int rev_no;
     private String rev_content;
     private Timestamp rev_createdAt;
     private int rev_rating;

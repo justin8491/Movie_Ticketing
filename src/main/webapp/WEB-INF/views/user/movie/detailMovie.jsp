@@ -60,15 +60,14 @@
 
                     <div class="entry-content">
                         <!-- 리뷰 작성 -->
-
-                        <h2 style="font-size : 2rem;">리뷰</h1>
+                        <h2 style="font-size: 2rem;">리뷰</h2>
                         <hr>
                         <form id="reviewForm">
-                            <h3>${member.mem_id}</h2>
+                            <h3>${member.mem_id}</h3>
                             <input type="hidden" id="mem_id" name="mem_id" value="${member.mem_id}" />
                             <input type="hidden" id="mo_no" name="mo_no" value="${movie.mo_no}" />
                             <textarea id="rev_content" name="rev_content"></textarea>
-                            <!-- 별점 추가 할 예정 -->
+                            <!-- 별점 추가 -->
                             <div id="star-rating">
                                 <span class="star" data-value="1">&#9733;</span>
                                 <span class="star" data-value="2">&#9733;</span>
@@ -78,22 +77,44 @@
                             </div>
                             <input type="hidden" id="reviewRating" name="rev_rating" value="0" />
                             <input type="submit" value="작성">
-
                         </form>
                         <hr>
                         <!-- 리뷰 확인 -->
+                        <div>${item.rev_no}</div>
                         <c:forEach var="item" items="${reviewList}">
-                           <span>${item.mem_id}</span>
-                           <span>${item.rev_content}</span>
-                           <div class="star-rating" title="Rated 4.00 out of 5">
-                                <span style="width:80%">
-                                    <strong class="rating">${item.rev_rating}.00</strong> out of 5
-                                </span>
-                           </div>
-                           <span>${item.rev_createdAt}</span>
-                           <br>
+                            <div class="review-item" id="review-${item.rev_no}">
+                                <span>${item.mem_id}</span>
+                                <span class="review-content" id="review-content-${review.rev_no}">${item.rev_content}</span>
+                                <div class="star-rating" id="review-rating-${review.rev_no}" title="Rated ${item.rev_rating}.00 out of 5">
+                                    <span style="width:${item.rev_rating * 20}%">
+                                        <strong class="rating">${item.rev_rating}.00</strong> out of 5
+                                    </span>
+                                </div>
+                                <span>${item.rev_createdAt}</span>
+                                <c:if test="${member.mem_id == item.mem_id}">
+                                    <button onclick="showEditForm(${item.rev_no})">수정</button>
+                                    <button onclick="deleteReview(${item.rev_no},${movie.mo_no})">삭제</button>
+                                </c:if>
+                                    <form class="edit-form" id="edit-form-${item.rev_no}" style="display:none;" onsubmit="return false;">
+                                    <input type="hidden" id="mem_id" name="mem_id" value="${member.mem_id}" />
+                                    <textarea id="edit-content-${item.rev_no}">${item.rev_content}</textarea>
+                                    <div id="star-ratingUpdate">
+                                        <span class="starUpdate" data-value="1">&#9733;</span>
+                                        <span class="starUpdate" data-value="2">&#9733;</span>
+                                        <span class="starUpdate" data-value="3">&#9733;</span>
+                                        <span class="starUpdate" data-value="4">&#9733;</span>
+                                        <span class="starUpdate" data-value="5">&#9733;</span>
+                                    </div>
+                                    <input type="hidden" id="reviewRatingUpdate" name="rev_rating" value="0" />
+                                    <button type="submit" onclick="updateReview(${item.rev_no});">저장</button>
+                                    <button type="button" onclick="hideEditForm(${item.rev_no});">취소</button>
+                                </form>
+                                </div>
+                                <br>
+                            </div>
                         </c:forEach>
                     </div>
+
                 </div>
             </div>
         </div> <!-- .container -->

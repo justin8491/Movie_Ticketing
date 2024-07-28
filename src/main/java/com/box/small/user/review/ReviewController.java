@@ -43,42 +43,27 @@ public class ReviewController {
 //        mav.setViewName("user/review/reviewList");
 //        return mav;
 //    }
-//
-//
-//    @GetMapping(value = "createReview")
-//    public ModelAndView createReviewForm() {
-//        ModelAndView mav = new ModelAndView();
-//
-//        mav.setViewName("user/review/createReview");
-//        return mav;
-//    }
-//
-//    @PostMapping(value = "createReview")
-//    public ModelAndView createReview(ReviewDto review) {
-//        ModelAndView mav = new ModelAndView();
-//        reviewService.createReview(review);
-//        mav.setViewName("user/movie/detail");
-//        return mav;
-//    }
-//
+
+
     @PostMapping(value = "updateReview")
     public @ResponseBody Map<String, Object> updateReview(ReviewDto review) {
-        ModelAndView mav = new ModelAndView();
-        reviewService.createReview(review);
+        reviewService.updateReview(review);
         Map<String, Object> map = new HashMap<>();
         map.put("review", review);
         map.put("location", "/user/movie/detailMovie?mo_no=" + review.getMo_no());
         logger.info("Movie No : " + review.getMo_no());
         return map;
     }
-//
-//    @PostMapping(value = "deleteReview")
-//    public ModelAndView deleteReview(ReviewDto review) {
-//        ModelAndView mav = new ModelAndView();
-//
-//        mav.setViewName("");
-//        return mav;
-//    }
+
+    @PostMapping(value = "deleteReview")
+    public @ResponseBody Map<String, Object> deleteReview(ReviewDto review) {
+        reviewService.deleteReview(review);
+        Map<String, Object> map = new HashMap<>();
+        map.put("review", review);
+        map.put("location", "/user/movie/detailMovie?mo_no=" + review.getMo_no());
+        logger.info("Movie No : " + review.getMo_no());
+        return map;
+    }
 
 
 }
