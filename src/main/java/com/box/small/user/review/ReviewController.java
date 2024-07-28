@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.net.http.HttpResponse;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/user/movie/*")
@@ -23,19 +25,17 @@ public class ReviewController {
     ReviewService reviewService;
 
     @PostMapping(value = "createReview")
-    public @ResponseBody ModelAndView createReview(ReviewDto review, HttpResponse res) {
+    public @ResponseBody Map<String, Object> createReview(ReviewDto review) {
         ModelAndView mav = new ModelAndView();
         reviewService.createReview(review);
-        mav.addObject("mo_no", review.getMo_no());
-        mav.addObject("response", review);
+        Map<String, Object> map = new HashMap<>();
+        map.put("review", review);
+        map.put("location", "/user/movie/detailMovie?mo_no=" + review.getMo_no());
         logger.info("Movie No : " + review.getMo_no());
-        mav.setViewName("/user/movie/detailMovie");
-
-
-        return mav;
+        return map;
     }
 
-//    @GetMapping(value = "reviewAll")
+    //    @GetMapping(value = "reviewAll")
 //    public ModelAndView reviewAll(MovieDto movie) {
 //        ModelAndView mav = new ModelAndView();
 //        List<ReviewDto> reviewList = reviewService.reviewAll(movie);
@@ -61,13 +61,16 @@ public class ReviewController {
 //        return mav;
 //    }
 //
-//    @PostMapping(value = "updateReview")
-//    public ModelAndView updateReview(ReviewDto review) {
-//        ModelAndView mav = new ModelAndView();
-//        reviewService.updateReview(review);
-//        mav.setViewName("redirect:user/movie/detailMovie");
-//        return mav;
-//    }
+    @PostMapping(value = "updateReview")
+    public @ResponseBody Map<String, Object> updateReview(ReviewDto review) {
+        ModelAndView mav = new ModelAndView();
+        reviewService.createReview(review);
+        Map<String, Object> map = new HashMap<>();
+        map.put("review", review);
+        map.put("location", "/user/movie/detailMovie?mo_no=" + review.getMo_no());
+        logger.info("Movie No : " + review.getMo_no());
+        return map;
+    }
 //
 //    @PostMapping(value = "deleteReview")
 //    public ModelAndView deleteReview(ReviewDto review) {

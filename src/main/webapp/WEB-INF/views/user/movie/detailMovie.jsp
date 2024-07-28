@@ -87,11 +87,11 @@
                            <span>${item.rev_content}</span>
                            <div class="star-rating" title="Rated 4.00 out of 5">
                                 <span style="width:80%">
-                                    <strong class="rating">${item.rev_rating}</strong> out of 5
+                                    <strong class="rating">${item.rev_rating}.00</strong> out of 5
                                 </span>
                            </div>
-
                            <span>${item.rev_createdAt}</span>
+                           <br>
                         </c:forEach>
                     </div>
                 </div>
