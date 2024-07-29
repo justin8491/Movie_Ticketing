@@ -2,5 +2,9 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.box.small.adminMapper">
+<mapper namespace="com.box.small.mappers.adminMapper">
+    <select id="login" parameterType="com.box.small.admin.admin.AdminDto">
+        select * from admin
+        where a_id = #{a_id} and a_password = #{a_password}
+    </select>
 </mapper>
