@@ -6,8 +6,12 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -24,12 +28,31 @@ public class AdminController {
 
 
 
-    @GetMapping(value ="login")
-    public Map<String, Object> adminLogin(AdminDto admin){
-        Map<String, Object> map = new HashMap<String, Object>();
-        adminService.login(admin);
+    @GetMapping(value = "loginForm")
+    public ModelAndView adminLoginForm(){
+        ModelAndView mav = new ModelAndView();
 
-        map.put("location", "/admin/admin/login");
+        mav.setViewName("admin/admin/login");
+        return mav;
+    }
+
+    @PostMapping(value ="login")
+    public @ Map<String, Object> adminLogin(AdminDto admin, HttpSession session, RedirectAttributes redirectAttributes){
+        Map<String, Object> map = new HashMap<String, Object>();
+
+        try {
+            admin = adminService.login(admin);
+            if(admin != null){
+                redirectAttributes.addFlashAttribute("loginMessage", "관리자 로그인 성공");
+                session.setAttribute("admin", admin);
+                session.setAttribute("isLogin", true);
+                session.setAttribute("type", "admin");
+                map.put("location", "redirect:/");
+            }
+        } catch (NullPointerException e){
+            redirectAttributes.addFlashAttribute("loginMessage", "관리자 로그인 실패");
+            map.put("location", "user/member/loginForm");
+        }
         return map;
     }
 
