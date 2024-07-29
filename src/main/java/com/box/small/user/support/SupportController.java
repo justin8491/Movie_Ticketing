@@ -2,6 +2,8 @@ package com.box.small.user.support;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.box.small.HomeController;
+import com.box.small.user.member.MemberDto;
 
 @Controller
 
@@ -87,6 +90,20 @@ public class SupportController {
 		
 		return mav;
 	}
+	@GetMapping(value="/user/support/myBoard")
+	public ModelAndView myBoard() {
+		logger.info("문의글 보기");
+		
+		List<SupportDto> inquiryView = service.inquiryView();
+		List<SupportDto> freeBoard = service.freeBoard();
+		
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("inquiryView", inquiryView);
+		mav.addObject("freeBoard", freeBoard);
+		mav.setViewName("/user/support/myBoard");
+		
+		return mav;
+	}
 	
 	@GetMapping(value = "/user/support/selectFreeBoard")
 	public ModelAndView selectFreeBoard(@RequestParam("bo_no") int bo_no) {
@@ -136,16 +153,17 @@ public class SupportController {
 	}
 	
 	@PostMapping(value = "/user/support/freeBoardWrite")
-	public ModelAndView freeBoardWrite(@ModelAttribute("sp") SupportDto sp) {
+	public ModelAndView freeBoardWrite(@ModelAttribute("sp") SupportDto sp
+			,@ModelAttribute("mb") MemberDto mb) {
 		logger.info("게시판 작성 페이지");
 		ModelAndView mav = new ModelAndView();
 		
 		service.freeBoardWrite(sp);
 		
-		mav.setViewName("redirect:/user/support/freeBoard");
-		
-		return mav;
-	}
+			mav.setViewName("redirect:/user/support/freeBoard");
+			return mav;
+		}
+	
 	@GetMapping(value = "/user/support/freeBoardDelete")
 	public ModelAndView freeBoardDeleteForm(@RequestParam("bo_no") int bo_no) {
 		logger.info("게시판 삭제 폼");
@@ -189,9 +207,6 @@ public class SupportController {
 	public ModelAndView freeBoardUpdate(@ModelAttribute SupportDto sp) {
 		logger.info("게시판 수정");
 		ModelAndView mav = new ModelAndView();
-		
-		System.out.println(sp.getBo_no());
-		System.out.println(sp.getBo_content());
 		
 		service.freeBoardUpdate(sp);
 		

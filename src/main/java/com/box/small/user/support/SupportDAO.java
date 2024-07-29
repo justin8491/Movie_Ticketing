@@ -39,4 +39,7 @@ public interface SupportDAO {
 	
 //	자유게시판 삭제
 	int freeBoardDelete(SupportDto sp);
+	
+//	내가 쓴 글 조회
+	List<SupportDto> myBoard();
 }

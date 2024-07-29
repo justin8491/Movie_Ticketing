@@ -14,7 +14,6 @@
 <link rel="stylesheet" href="resources/모음.css"
 	media="all">
 
-<title>예매사이트</title>
 
 <script>
 
