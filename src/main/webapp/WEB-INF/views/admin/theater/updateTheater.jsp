@@ -30,7 +30,7 @@
                             </figure>
                         </div>
                         <div class="col-md-6">
-                            <form action="/admin/theater/updateTheater" method="post">
+                            <form action="/admin/theater/updateTheater" method="post" enctype="multipart/form-data">
                                 <input type="hidden" name="th_no" value="${theater.th_no}">
                                 <div class="mb-3">
                                     <label for="cat_no" class="form-label">영화관 이름</label>
@@ -45,8 +45,8 @@
                                     <input type="number" id="th_status" name="th_status" class="form-control" value="${theater.th_status}" required>
                                 </div>
      							<div class="mb-3">
-                                    <label for="th_photo" class="form-label">영화관 사진이름 (사진이 준비되지 않았을때는 no_image.jpg 를 입력하세요)</label>
-                                    <input type="text" id="th_photo" name="th_photo" class="form-control" value = "${theater.th_photo}" required>
+                                    <label for="th_photo" class="form-label">영화관 사진이름 (사진이 준비되지 않았을때는 no_image.jpg 를 선택하세요)</label>
+                                     <input type="file" id="th_image" name="th_image" class="form-control" value="${theater.th_photo}">
                                 </div>
                                 <button type="submit" class="btn btn-primary">수정하기</button>
                             </form>

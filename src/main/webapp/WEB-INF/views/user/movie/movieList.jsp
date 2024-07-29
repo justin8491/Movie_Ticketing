@@ -23,15 +23,51 @@
 						</div>
 						
 						<div class="filters">
-							<select name="#" id="#" placeholder="Choose Category">
-									<option value="#">전체영화</option>
+							<select name="movieCategoryBox" id="movieCategoryBox" onchange = "selectBoxChange()" placeholder="Choose Category">
+									<option value= "0">전체영화</option>
 								<c:forEach var = "category" items = "${category}">
-									<option value="#">${category.cat_name}</option>
+									<option value="${category.cat_no}">${category.cat_name}</option>
 								</c:forEach>
+								
+								<script>
+								    	function selectBoxChange() {
+								    		
+								    		var langSelect = document.getElementById("movieCategoryBox");
+								    		var selectValue = langSelect.options[langSelect.selectedIndex].value;
+								    		
+								    		console.log("값들어오나 체크 selectValue : " + selectValue);
+								    		
+								    		var cat_no = selectValue;
+								    		
+								    		var category = "cat_no="+cat_no;
+								    		
+								    		console.log("cat_no = " + cat_no);
+								    		
+								    		
+								    		$.ajax({	
+								    			url : "${contextPath}/user/movie/selectCategory",
+								    			type : "POST",
+								    			data : {"cat_no":selectValue},
+								    			dataType : "json",
+								    			success: function(data){
+								 					alert('ajax 통신 성공');
+								 					
+								 					var movieList = data;
+								 					
+								 				},
+								 				error: function(){
+								 					alert('ajax 통신 실패');		
+								 				}
+								    		});
+
+								    		
+								    	}
+								</script>
 							</select>
 						</div>
+						
 						<div class="movie-list">
-								<c:forEach var="movie" items="${movielist}">
+								<c:forEach var="movie" items="${movieList}">
 									<div class="movie">
 									<figure class="movie-poster"><a href="${contextPath}/user/movie/detailMovie?mo_no=${movie.mo_no}">
 									<img src="${contextPath}/resources/images/${movie.mo_photo}" alt="${movie.mo_name}">
@@ -61,6 +97,7 @@
 </footer>
 <!-- 플러그인 -->
 <%@ include file="/resources/include/plugin_cdn.jsp"%>
+
 
 </body>
 </html>

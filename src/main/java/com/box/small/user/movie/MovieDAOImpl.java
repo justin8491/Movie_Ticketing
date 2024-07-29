@@ -41,4 +41,10 @@ public class MovieDAOImpl implements MovieDAO{
 		return sqlSession.selectList(namespace+".selectAllMovie");
 	}
 
+	@Override
+	public List<MovieDto> selectMovieCategory(int cat_no) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList(namespace+".selectMovieCategory");
+	}
+
 }

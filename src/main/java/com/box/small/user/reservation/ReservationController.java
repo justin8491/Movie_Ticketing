@@ -24,7 +24,7 @@ public class ReservationController {
 	@GetMapping(value="reservation")
 	public ModelAndView  reservateion() throws SQLException {
 		List<MovieDto> movieServiceList =  movieService.selectAllMovie();
-		List<TheaterDto> theaterList =  theaterService.sellectAlltheater();
+		List<TheaterDto> theaterList =  theaterService.selectAllTheater();
 		
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("movieServiceList", movieServiceList);
@@ -36,7 +36,7 @@ public class ReservationController {
 	@GetMapping(value="reservation2")
 	public ModelAndView  reservateion2() throws SQLException {
 		List<MovieDto> movieServiceList =  movieService.selectAllMovie();
-		List<TheaterDto> theaterList =  theaterService.sellectAlltheater();
+		List<TheaterDto> theaterList =  theaterService.selectAllTheater();
 		
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("movieServiceList", movieServiceList);

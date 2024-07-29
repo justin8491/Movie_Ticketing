@@ -28,13 +28,19 @@
                             <figure class="movie-poster">
                                 <img src="${contextPath}/resources/images/${movie.mo_photo}" alt="${movie.mo_name}">
                             </figure>
+                            <figure>
+                            	<p>카테고리종류</p>
+                            	<c:forEach var = "category" items = "${categoryList}">
+									"${category.cat_name} = ${category.cat_no}
+								</c:forEach>
+                            </figure>
                         </div>
                         <div class="col-md-6">
-                            <form action="/admin/movie/updateMovie" method="post">
+                            <form action="/admin/movie/updateMovie" method="post" enctype="multipart/form-data">
                                 <input type="hidden" name="mo_no" value="${movie.mo_no}" required>
                                 <div class="mb-3">
                                     <label for="cat_no" class="form-label">카테고리</label>
-                                    <input type="text" id="cat_no" name="cat_no" class="form-control" value="${movie.cat_no}" required>
+                                    <input type="number" id="cat_no" name="cat_no" class="form-control" value="${movie.cat_no}" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="mo_name" class="form-label">이름</label>
@@ -42,23 +48,23 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="mo_releaseDate" class="form-label">상영일</label>
-                                    <input type="text" id="mo_releaseDate" name="mo_releaseDate" class="form-control" value="${movie.mo_releaseDate}" required>
+                                    <input type="date" id="mo_releaseDate" name="mo_releaseDate" class="form-control" value="${movie.mo_releaseDate}" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="mo_endDate" class="form-label">종영일</label>
-                                    <input type="text" id="mo_endDate" name="mo_endDate" class="form-control" value="${movie.mo_endDate}">
+                                    <input type="date" id="mo_endDate" name="mo_endDate" class="form-control" value="${movie.mo_endDate}">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="mo_runningTime" class="form-label">러닝타임</label>
-                                    <input type="number" id="mo_runningTime" name="mo_runningTime" class="form-control" value="${movie.mo_runningTime}" required> (분)
+                                    <label for="mo_runningTime" class="form-label">러닝타임 (분)</label>
+                                    <input type="number" id="mo_runningTime" name="mo_runningTime" class="form-control" value="${movie.mo_runningTime}" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="mo_plot" class="form-label">줄거리</label>
                                     <textarea id="mo_plot" name="mo_plot" class="form-control custom-textarea" rows="5" required>${movie.mo_plot}</textarea>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="mo_status" class="form-label">상태</label>
-                                    <input type="number" id="mo_status" name="mo_status" class="form-control" value="${movie.mo_status}" required> [상영중 : 1 / 종영 : 0]
+                                    <label for="mo_status" class="form-label">상태  [상영중 : 1 / 종영 : 0]</label>
+                                    <input type="number" id="mo_status" name="mo_status" class="form-control" value="${movie.mo_status}" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="mo_director" class="form-label">감독</label>
@@ -73,8 +79,8 @@
                                     <input type="text" id="mo_rating" name="mo_rating" class="form-control" value="${movie.mo_rating}" required>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="mo_photo" class="form-label">영화포스터이름 (포스터사진이 준비되지 않았으면 no_image.jpg 입력)</label>
-                                    <input type="text" id="mo_photo" name="mo_photo" class="form-control" value ="${movie.mo_photo}" required>
+                                    <label for="mo_photo" class="form-label">영화포스터(포스터사진이 준비되지 않았으면 no_image.jpg 선택)</label>
+                                     <input type="file" id="mo_image" name="mo_image" class="form-control" value="${movie.mo_photo}">
                                 </div>
                                 <button type="submit" class="btn btn-primary">저장하기</button>
                             </form>

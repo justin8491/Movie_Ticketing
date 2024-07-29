@@ -15,4 +15,6 @@ public interface MovieDAO {
 	String category(int cat_no);
 	
 	List<CategoryDto> allCategory();
+	
+	List<MovieDto> selectMovieCategory(int cat_no);
 }

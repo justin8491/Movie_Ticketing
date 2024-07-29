@@ -24,8 +24,14 @@
 		select cat_name from category where cat_no = #{cat_no}
 	</select>
 	
+	<!-- 영화 카테고리 전체조회 -->
 	<select id="selectAllCategory" resultType = "com.box.small.user.movie.CategoryDto">
 		select * from category where cat_no>4;
+	</select>
+	
+	<!-- 카테고리로 영화조회 -->
+	<select id="selectMovieCategory" resultType = "com.box.small.user.movie.CategoryDto">
+		select * from movie where cat_no = #{cat_no}
 	</select>
 	
 </mapper>

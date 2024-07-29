@@ -37,4 +37,9 @@ public class MovieServiceImpl implements MovieService{
 	public List<MovieDto> selectAllMovie() throws SQLException {
 		return dao.selectAllMovie();
 	}
+
+	@Override
+	public List<MovieDto> selectMovieCategory(int cat_no) {
+		return dao.selectMovieCategory(cat_no);
+	}
 }

@@ -17,6 +17,9 @@ public class AdminMovieImpl implements AdminMovieDAO{
 	
 	@Override
 	public void addMovie(MovieDto movie) throws SQLException {	//	영화 추가
+		System.out.println("addMovie서비스실행");
+		
+		
 		
 		sqlSession.insert(namespace+".addMovie", movie);
 	}
