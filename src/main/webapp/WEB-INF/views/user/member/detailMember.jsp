@@ -163,7 +163,29 @@
               <div class="container diviContainer">
                 <div class="container rem_1">
                   <h2>나의 리뷰</h2>
-                  <div class="reviewInfo border heihgt"></div>
+                  <div class="reviewInfo border heihgt">
+                  <c:forEach var="item" items="${reviewList}">
+                    <div class="review-item" id="review-${item.rev_no}">
+                      <!-- 사용자 아이디 주석 -->
+                      <!-- <span>${item.mem_id}</span> -->
+                      <!-- 영화 제목 표시 할 방법 찾기 -->
+                      <span>${item.mo_name}</span>
+                      <span class="review-content" id="review-content-${review.rev_no}"
+                        >${item.rev_content}</span
+                      >
+                      <div
+                        class="star-rating"
+                        id="review-rating-${review.rev_no}"
+                        title="Rated ${item.rev_rating}.00 out of 5"
+                      >
+                        <span style="width:${item.rev_rating * 20}%">
+                          <strong class="rating">${item.rev_rating}.00</strong> out of 5
+                        </span>
+                      </div>
+                      <span>${item.rev_createdAt}</span>
+                    </div>
+                  </c:forEach>
+                  </div>
                 </div>
                 <div class="container rem_2">
                   <h2>나의 글</h2>
