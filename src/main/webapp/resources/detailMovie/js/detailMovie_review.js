@@ -103,6 +103,8 @@ $(document).ready(function() {
                 // 필요 시 추가적인 UI 업데이트
                 // 예: 수정한 리뷰가 있는 영역을 강조
                 $('#review-item-' + reviewId).addClass('updated'); // 'updated' 클래스 추가 (스타일링 가능)
+
+                hideEditForm(reviewId);
                 },
                 error: function(xhr, status, error) {
                     console.error('AJAX Error: ' + error);

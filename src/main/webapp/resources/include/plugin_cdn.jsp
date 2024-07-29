@@ -14,6 +14,8 @@
     <script src="${path}/assets/js/ie-checker.js"></script>
     
     <!-- 추가한거 -->
+    <!--
     <script src="${path}/assets/js/jquery-1.11.1.min.js"></script>
 	<script src="${path}/assetsjs/plugins.js"></script>
 	<script src="${path}/assetsjs/app.js"></script>
+	-->

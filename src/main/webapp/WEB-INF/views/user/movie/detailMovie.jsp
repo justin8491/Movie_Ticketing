@@ -79,8 +79,8 @@
                             <input type="submit" value="작성">
                         </form>
                         <hr>
+
                         <!-- 리뷰 확인 -->
-                        <div>${item.rev_no}</div>
                         <c:forEach var="item" items="${reviewList}">
                             <div class="review-item" id="review-${item.rev_no}">
                                 <span>${item.mem_id}</span>
@@ -96,7 +96,7 @@
                                     <button onclick="deleteReview(${item.rev_no},${movie.mo_no})">삭제</button>
                                 </c:if>
                                     <form class="edit-form" id="edit-form-${item.rev_no}" style="display:none;" onsubmit="return false;">
-                                    <input type="hidden" id="mem_id" name="mem_id" value="${member.mem_id}" />
+                                    <input id="mem_id" name="mem_id" value="${member.mem_id}" readOnly/>
                                     <textarea id="edit-content-${item.rev_no}">${item.rev_content}</textarea>
                                     <div id="star-ratingUpdate">
                                         <span class="starUpdate" data-value="1">&#9733;</span>
