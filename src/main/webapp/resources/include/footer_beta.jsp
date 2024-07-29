@@ -21,7 +21,7 @@
                        <span class="bar2">사업자등록번호 211-86-59478</span>
                        통신판매업신고번호 제 833호
                      </p>
-                     <p>Copyright 2024 by SmallBox Inc. All right <a href = "/admin">reserved</a></p>
+                     <p>Copyright 2024 by SmallBox Inc. All right <a href = "${contextPath}/admin/loginForm">reserved</a></p>
                    </address>
                  </div>
 

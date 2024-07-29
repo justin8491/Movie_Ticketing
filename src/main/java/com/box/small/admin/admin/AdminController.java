@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -37,7 +38,7 @@ public class AdminController {
     }
 
     @PostMapping(value ="login")
-    public @ Map<String, Object> adminLogin(AdminDto admin, HttpSession session, RedirectAttributes redirectAttributes){
+    public @ResponseBody Map<String,Object> adminLogin(AdminDto admin, HttpSession session, RedirectAttributes redirectAttributes){
         Map<String, Object> map = new HashMap<String, Object>();
 
         try {
@@ -47,13 +48,21 @@ public class AdminController {
                 session.setAttribute("admin", admin);
                 session.setAttribute("isLogin", true);
                 session.setAttribute("type", "admin");
-                map.put("location", "redirect:/");
+                map.put("location", "/admin");
             }
         } catch (NullPointerException e){
             redirectAttributes.addFlashAttribute("loginMessage", "관리자 로그인 실패");
-            map.put("location", "user/member/loginForm");
+            map.put("location", "/admin/loginForm");
         }
         return map;
+    }
+
+    @GetMapping(value = "logout")
+    public ModelAndView logout(HttpSession session) {
+        ModelAndView mav = new ModelAndView();
+        session.invalidate();
+        mav.setViewName("redirect:/");
+        return mav;
     }
 
 
