@@ -6,25 +6,21 @@
 
     <!-- 모든 리뷰 조회 -->
     <select id="reviewAll" resultType="com.box.small.user.review.ReviewDto" parameterType="com.box.small.user.movie.MovieDto">
-        SELECT * FROM review where mo_no = ${mo_no}
+        SELECT * FROM review where mo_no = ${mo_no} and rev_status = 1
     </select>
 
     <!-- 리뷰 추가 -->
     <insert id="createReview" parameterType="com.box.small.user.review.ReviewDto">
-        INSERT INTO review (rev_content, rev_createdAt, rev_rating, rev_status, mo_id, mem_id)
-        VALUES (#{revContent}, #{revCreatedAt}, #{revRating}, #{revStatus}, #{moId}, #{memId})
+        INSERT INTO review (rev_content, rev_rating, rev_status, mo_no, mem_id)
+        VALUES (#{rev_content}, #{rev_rating}, 1, #{mo_no}, #{mem_id})
     </insert>
 
     <!-- 리뷰 수정 -->
     <update id="updateReview" parameterType="com.box.small.user.review.ReviewDto">
         UPDATE review
         SET rev_content = #{rev_content},
-        rev_createdat = #{rev_createdAt},
-        rev_rating = #{rev_rating},
-        rev_status = #{rev_status},
-        mo_id = #{mo_id},
-        mem_id = #{mem_id}
-        WHERE _rev_id = #{rev_id}
+        rev_rating = #{rev_rating}
+        WHERE rev_no = #{rev_no}
 
     </update>
 
@@ -32,6 +28,6 @@
     <delete id="deleteReview" parameterType="int">
         UPDATE review
         SET rev_status = 0
-        WHERE rev_id = #{rev_Id}
+        WHERE rev_no = #{rev_no}
     </delete>
 </mapper>
