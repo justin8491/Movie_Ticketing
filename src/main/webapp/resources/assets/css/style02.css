@@ -18,6 +18,7 @@
 
 /* 로우 영역 */
 .row {
+  display : block;
   padding: 0 24px;
 }
 
