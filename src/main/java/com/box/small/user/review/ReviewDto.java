@@ -10,8 +10,7 @@ import java.sql.Timestamp;
 
 @Getter
 @Setter
-@AllArgsConstructor
-@NoArgsConstructor
+
 public class ReviewDto {
     private int rev_no;
     private String rev_content;
