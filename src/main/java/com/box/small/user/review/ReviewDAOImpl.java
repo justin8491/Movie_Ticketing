@@ -1,6 +1,7 @@
 package com.box.small.user.review;
 
 
+import com.box.small.user.member.MemberDto;
 import com.box.small.user.movie.MovieDto;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,5 +34,10 @@ public class ReviewDAOImpl implements ReviewDAO {
     @Override
     public int deleteReview(ReviewDto review) {
         return sqlSession.delete(SQL_NAME_SAPCE + "deleteReview", review);
+    }
+
+    @Override
+    public List<ReviewMNDto> findReview(MemberDto member) {
+        return sqlSession.selectList(SQL_NAME_SAPCE + "findReview", member);
     }
 }

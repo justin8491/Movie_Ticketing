@@ -33,6 +33,8 @@ public class ReviewDto {
 		this.mo_no = mo_no;
 		this.mem_id = mem_id;
 	}
+
+
 	public int getRev_no() {
 		return rev_no;
 	}

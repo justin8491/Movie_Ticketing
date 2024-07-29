@@ -1,6 +1,7 @@
 package com.box.small.user.review;
 
 
+import com.box.small.user.member.MemberDto;
 import com.box.small.user.movie.MovieDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,5 +31,10 @@ public class ReviewServiceImpl implements  ReviewService{
     @Override
     public int deleteReview(ReviewDto review) {
         return dao.deleteReview(review);
+    }
+
+    @Override
+    public List<ReviewMNDto> findReview(MemberDto member) {
+        return dao.findReview(member);
     }
 }
