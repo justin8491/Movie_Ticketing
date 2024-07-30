@@ -36,7 +36,7 @@ public class ScheduleController {
 		List<ScheduleDto>scheduleList = service.sellectAllSchedule();
 		List<MovieDto>movieList = mService.selectAllMovie();
 		List<ScreenDto>screenList = service.sellectAllScreen();
-		List<TheaterDto>theaterList = tService.selectAllTheater();
+		List<TheaterDto>theaterList = tService.sellectAlltheater();
 		
 		List<ScheduleDataListDto> scheduleDataList = new ArrayList<>();
 
@@ -56,7 +56,7 @@ public class ScheduleController {
 		ScheduleDto schedule = service.sellectSchedule(sch_no);
 		MovieDto movie = mService.selectMovie(schedule.getMo_no());
 		ScreenDto screen = service.selectScreen(schedule.getSc_no());
-		TheaterDto theater = tService.selectTheater(screen.getTh_no());
+		TheaterDto theater = tService.sellectTheater(screen.getTh_no());
 		
 		ScheduleDataDto scheduleData = new ScheduleDataDto(schedule, movie, screen, theater);
 		    

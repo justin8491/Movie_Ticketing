@@ -8,7 +8,11 @@ public class TheaterDto {
 	private int th_status;
 	private String th_photo;
 	
-	
+	@Override
+	public String toString() {
+		return "TheaterDto [th_no=" + th_no + ", th_location=" + th_location + ", th_name=" + th_name + ", th_status="
+				+ th_status + ", th_photo=" + th_photo + "]";
+	}
 
 	public TheaterDto(int th_no, String th_location, String th_name, int th_status, String th_photo) {
 		super();
@@ -63,10 +67,6 @@ public class TheaterDto {
 		this.th_photo = th_photo;
 	}
 	
-	@Override
-	public String toString() {
-		return "TheaterDto [th_no=" + th_no + ", th_location=" + th_location + ", th_name=" + th_name + ", th_status="
-				+ th_status + ", th_photo=" + th_photo + "]";
-	}
+	
 	
 }

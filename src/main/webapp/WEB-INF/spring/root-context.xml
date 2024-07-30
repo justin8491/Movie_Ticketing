@@ -9,36 +9,30 @@
 		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 		
-		<!-- config파일 자동 로드 location="classpath:database.properties"  /!-->
-   		 <context:property-placeholder location="/config/*.properties" /> 
-   		 
-		<!-- Root Context: defines shared resources visible to all other web components -->
+	<!-- config파일 자동 로드 location="classpath:database.properties"  /!-->
+    <context:property-placeholder location="/config/*.properties" /> 
+	<!-- Root Context: defines shared resources visible to all other web components -->
 		<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="${spring.datasource.driverClassName}"></property>
 		<property name="url" value="${spring.datasource.url}"></property>
 		<property name="username" value="${spring.datasource.username}"></property>
 		<property name="password" value="${spring.datasource.password}"></property>
 		</bean>
-		
-		
 	
-		<bean id="sqlSessionFactory"
-			class="org.mybatis.spring.SqlSessionFactoryBean">
-			<property name="dataSource" ref="dataSource" />
-			<property name="configLocation"
-				value="classpath:/mybatis-config.xml" />
-			<property name="mapperLocations"
-				value="classpath:mappers/**/*.xml" />
-		</bean>
-		
-		<bean id="sqlSession"
-			class="org.mybatis.spring.SqlSessionTemplate"
-			destroy-method="clearCache">
-			<constructor-arg name="sqlSessionFactory"
-				ref="sqlSessionFactory" />
-		</bean>
-		
-		<bean id="multipartResolver" class="org.springframework.web.multipart.support.StandardServletMultipartResolver"/>
-		
+	<bean id="sqlSessionFactory"
+		class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="configLocation"
+			value="classpath:/mybatis-config.xml" />
+		<property name="mapperLocations"
+			value="classpath:mappers/**/*.xml" />
+	</bean>
+	
+	<bean id="sqlSession"
+		class="org.mybatis.spring.SqlSessionTemplate"
+		destroy-method="clearCache">
+		<constructor-arg name="sqlSessionFactory"
+			ref="sqlSessionFactory" />
+	</bean>
 
 </beans>

@@ -14,9 +14,4 @@
 		select * from theater where th_no = #{th_no}
 	</select>
 	
-	<!-- 상영중인 영화관 전체 조회 -->
-	<select id="selectAllTheaterLive" resultType = "com.box.small.user.theater.TheaterDto">
-		select * from theater where th_status = 1
-	</select>
-	
 </mapper>

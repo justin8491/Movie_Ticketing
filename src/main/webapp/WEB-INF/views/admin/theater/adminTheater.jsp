@@ -117,7 +117,7 @@ table.admtheaterDetail button.deleteBtn{
         <div class="col-md-6">
             <div class="d-flex flex-wrap align-items-center justify-content-end gap-2 mb-3">
                 <div style = "text-align: right">
-  					<a href="/admin/theater/addTheater" data-bs-toggle="modal" data-bs-target=".add-new" class="btn btn-primary"><i class="bx bx-plus me-1"></i>추가하기</a>
+  					<a href="/admin/theater/addtheater" data-bs-toggle="modal" data-bs-target=".add-new" class="btn btn-primary"><i class="bx bx-plus me-1"></i>추가하기</a>
 				</div>
             </div>
         </div>
