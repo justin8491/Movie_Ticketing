@@ -57,5 +57,21 @@ public class MovieController {
 		mav.setViewName("/user/movie/detailMovie");
 		return mav;
 	}
+	@ResponseBody
+	@RequestMapping(value = "/user/movie/selectCategory", method = RequestMethod.POST)
+	public List<MovieDto> selectCategory(@RequestParam("cat_no") int cat_no) throws SQLException {
+		List<MovieDto> data;
+	    if (cat_no == 0) {
+	    	System.out.println("전체영화를 선택하셨습니다");
+	    	data = service.selectAllMovie();
+	    	System.out.println(data);
+	    } else {
+	    	System.out.println("cat_no 가 "  + cat_no +"인 영화를 선택하셨습니다.");
+	    	data = service.selectMovieCategory(cat_no);
+	    	System.out.println(data);
+	    }
+	    return data;
+	}
 	
+}
 }
