@@ -8,10 +8,15 @@ import javax.servlet.http.HttpServletRequest;
 
 import com.box.small.user.review.ReviewDto;
 import com.box.small.user.review.ReviewService;
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
@@ -29,20 +34,23 @@ public class MovieController {
 	@GetMapping(value = "/user/movie/movieList")
 	public ModelAndView selectAllmovie() throws SQLException {
 		
+		System.out.println("영화 페이지로 이동");
+		
 		ModelAndView mav = new ModelAndView();
 		
-		List<MovieDto>movielist = service.selectAllMovie();
+		List<MovieDto>movieList = service.selectAllMovieLive();
 		
 		List<CategoryDto>category = service.allCategory();
-		mav.addObject("movielist", movielist);
+		mav.addObject("movieList", movieList);
 		mav.addObject("category",category);
-		
 		mav.setViewName("/user/movie/movieList");
 		return mav;
 	}
 	
 	@GetMapping(value = "/user/movie/detailMovie")
 	public ModelAndView selectMovie(@RequestParam("mo_no")int mo_no, HttpSession session) throws SQLException {
+		
+		System.out.println("상세영화페이지로이동");
 		
 		ModelAndView mav = new ModelAndView();
 		
@@ -57,6 +65,22 @@ public class MovieController {
 		mav.setViewName("/user/movie/detailMovie");
 		return mav;
 	}
+	@ResponseBody
+	@RequestMapping(value = "/user/movie/selectCategory", method = RequestMethod.POST)
+	public List<MovieDto> selectCategory(@RequestParam("cat_no") int cat_no) throws SQLException {
+		List<MovieDto> data;
+	    if (cat_no == 0) {
+	    	System.out.println("전체영화를 선택하셨습니다");
+	    	data = service.selectAllMovie();
+	    	System.out.println(data);
+	    } else {
+	    	System.out.println("cat_no 가 "  + cat_no +"인 영화를 선택하셨습니다.");
+	    	data = service.selectMovieCategory(cat_no);
+	    	System.out.println(data);
+	    }
+	    return data;
+	}
+	
 	@ResponseBody
 	@RequestMapping(value = "/user/movie/selectCategory", method = RequestMethod.POST)
 	public List<MovieDto> selectCategory(@RequestParam("cat_no") int cat_no) throws SQLException {

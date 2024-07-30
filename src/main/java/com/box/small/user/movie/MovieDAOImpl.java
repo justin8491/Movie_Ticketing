@@ -17,8 +17,8 @@ public class MovieDAOImpl implements MovieDAO{
 	private SqlSession sqlSession;
 	
 	@Override
-	public List<MovieDto> selectAllMovie() throws SQLException {
-		return sqlSession.selectList(namespace+".selectAllMovie");
+	public List<MovieDto> selectAllMovieLive() throws SQLException {
+		return sqlSession.selectList(namespace+".selectAllMovieLive");
 	}
 
 	@Override	
@@ -34,6 +34,17 @@ public class MovieDAOImpl implements MovieDAO{
 	@Override
 	public List<CategoryDto> allCategory() {
 		return sqlSession.selectList(namespace+".selectAllCategory");
+	}
+
+	@Override
+	public List<MovieDto> selectAllMovie() throws SQLException {
+		return sqlSession.selectList(namespace+".selectAllMovie");
+	}
+
+	@Override
+	public List<MovieDto> selectMovieCategory(int cat_no) {
+		System.out.println("DAO selectMovieCategory 실행");
+		return sqlSession.selectList(namespace+".selectMovieCategory", cat_no);
 	}
 
 }
