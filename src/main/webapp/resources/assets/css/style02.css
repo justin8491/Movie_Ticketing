@@ -22,10 +22,16 @@
 
       /* 헤더 영역 */
       .header {
+
       }
       .header h1 {
         float: left;
       }
+
+      .width {
+        width:250px;
+      }
+
       .header h1 em {
         padding: 10px 8px 5px 0;
         display: inline-block;
@@ -113,6 +119,18 @@
       }
 
       .heihgt {
+        height: 200px;
+      }
+
+      .heihgt-2 {
+        height: 200px;
+      }
+
+      .heihgt-3 {
+        height: 200px;
+      }
+
+      .heihgt-4 {
         height: 200px;
       }
 

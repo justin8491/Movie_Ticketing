@@ -13,4 +13,6 @@ public interface MovieService {
 	String category(int cat_no);
 	
 	List<CategoryDto> allCategory();
+
+	MovieLikeDto insertOrUpdateMovieLike(MovieLikeDto ml);
 }

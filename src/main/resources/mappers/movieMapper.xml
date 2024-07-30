@@ -22,5 +22,12 @@
 	<select id="selectAllCategory" resultType = "com.box.small.user.movie.CategoryDto">
 		select * from category where cat_no>4;
 	</select>
+
+	<!-- 영화 좋아요 기능 -->
+	<insert id="insertOrUpdateMovieLike" parameterType="com.box.small.user.movie.MovieLikeDto">
+		INSERT INTO MovieLike (mem_id, mo_no, ml_status)
+		VALUES (#{mem_id}, #{mo_no}, #{ml_status})
+		ON DUPLICATE KEY UPDATE ml_status = #{ml_status}
+	</insert>
 	
 </mapper>

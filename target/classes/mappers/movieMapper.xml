@@ -22,5 +22,10 @@
 	<select id="selectAllCategory" resultType = "com.box.small.user.movie.CategoryDto">
 		select * from category where cat_no>4;
 	</select>
+
+	<!-- 영화 좋아요 기능 -->
+	<select id="selectOneMovieLike" parameterType="com.box.small.user.movie.MovieLikeDto"  resultType = "com.box.small.user.movie.MovieLikeDto">
+		select ml_status from MovieLike where mem_id = ${mem_id} and mo_no = ${mo_no}
+	</select>
 	
 </mapper>

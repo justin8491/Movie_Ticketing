@@ -32,4 +32,9 @@ public class MovieServiceImpl implements MovieService{
 	public List<CategoryDto> allCategory() {
 		return dao.allCategory();
 	}
+
+	@Override
+	public MovieLikeDto insertOrUpdateMovieLike(MovieLikeDto ml) {
+		return dao.insertOrUpdateMovieLike(ml);
+	}
 }
