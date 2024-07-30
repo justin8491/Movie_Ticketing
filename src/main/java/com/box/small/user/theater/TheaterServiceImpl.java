@@ -13,13 +13,18 @@ public class TheaterServiceImpl implements TheaterService{
 	TheaterDAO dao;
 	
 	@Override
-	public List<TheaterDto> sellectAlltheater() throws SQLException {
-		return dao.sellectAlltheater();
+	public List<TheaterDto> selectAllTheater() throws SQLException {
+		return dao.selectAllTheater();
 	}
 
 	@Override
-	public TheaterDto sellectTheater(int th_no) throws SQLException {
-		return dao.sellectTheater(th_no);
+	public TheaterDto selectTheater(int th_no) throws SQLException {
+		return dao.selectTheater(th_no);
+	}
+
+	@Override
+	public List<TheaterDto> selectAllTheaterLive() {
+		return dao.selectAllTheaterLive();
 	}
 
 }

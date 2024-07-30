@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.box.small.user.movie.MovieDto;
-import com.box.small.user.movie.MovieService;
 
 @Controller
 public class TheaterController {
@@ -22,7 +20,7 @@ public class TheaterController {
 		
 		ModelAndView mav = new ModelAndView();
 		
-		List<TheaterDto>theaterlist = service.sellectAlltheater();
+		List<TheaterDto>theaterlist = service.selectAllTheaterLive();
 		
 		mav.addObject("theaterlist", theaterlist);
 		
@@ -36,7 +34,7 @@ public class TheaterController {
 		
 		ModelAndView mav = new ModelAndView();
 		
-		TheaterDto theater = service.sellectTheater(th_no);
+		TheaterDto theater = service.selectTheater(th_no);
 		
 		mav.addObject("theater", theater);
 		mav.setViewName("/user/theater/theater");

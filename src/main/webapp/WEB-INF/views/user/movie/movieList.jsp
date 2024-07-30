@@ -9,9 +9,6 @@
         <%@ include file = "/resources/include/head_beta.jsp"%>
   </head>
   <body>
-   <header id="header">
-        <%@ include file = "/resources/include/header_beta.jsp"%>
-   </header>
     
  <header id="header">
         <%@ include file = "/resources/include/header_beta.jsp"%>
@@ -26,15 +23,65 @@
 						</div>
 						
 						<div class="filters">
-							<select name="#" id="#" placeholder="Choose Category">
-									<option value="#">전체영화</option>
+							<select name="movieCategoryBox" id="movieCategoryBox" onchange = "selectBoxChange()" placeholder="Choose Category">
+									<option value= "0">전체영화</option>
 								<c:forEach var = "category" items = "${category}">
-									<option value="#">${category.cat_name}</option>
+									<option value="${category.cat_no}">${category.cat_name}</option>
 								</c:forEach>
+								
+								<script>
+								    	function selectBoxChange() {
+								    		
+								    		var langSelect = document.getElementById("movieCategoryBox");
+								    		var selectValue = langSelect.options[langSelect.selectedIndex].value;
+								    		
+								    		console.log("값들어오나 체크 selectValue : " + selectValue);
+								    		
+								    		var cat_no = selectValue;
+								    		
+								    		var category = "cat_no="+cat_no;
+								    		
+								    		console.log("cat_no = " + cat_no);
+								    		
+								    		
+								    		$.ajax({	
+								    			url : "${contextPath}/user/movie/selectCategory",
+								    			type : "POST",
+								    			data : {"cat_no":selectValue},
+								    			dataType : "json",
+								    			success: function(data){
+								 					console.log('ajax 통신 성공');
+								 					var htmls = "";
+								 					if(data!=null){
+								 					 htmls = htmls + '<div class="movie-list">';
+													$(data).each(function(){
+														console.log(this.mo_no +"="+this.mo_name);
+										 	            htmls += '<div class="movie">';
+										 	            htmls += '<figure class="movie-poster"><a href="${contextPath}/user/movie/detailMovie?mo_no='+this.mo_no+'">';
+										 	            htmls += '<img src="${contextPath}/resources/images/'+this.mo_photo+'">';
+										 	            htmls += '</a></figure>';
+										 	            htmls += '<div class="movie-title"><a href="${contextPath}/user/movie/detailMovie?mo_no='+this.mo_no+'">'+this.mo_name+'</a></div>';
+										 	            htmls += '</div>';
+													})	// each End
+													htmls += '</div>';
+								 					}else{
+								 						htmls = htmls + "<h3>등록된 영화가 없습니다.</h3>";
+								 					}
+								 					document.getElementById("showMovie").style.display ='none';		
+													$("#replylist").html(htmls);
+								 				},
+								 				error: function(){
+								 					alert('ajax 통신 실패');		
+								 				}
+								    		});
+
+								    	}
+								</script>
 							</select>
 						</div>
+						<div id = "showMovie">
 						<div class="movie-list">
-								<c:forEach var="movie" items="${movielist}">
+								<c:forEach var="movie" items="${movieList}">
 									<div class="movie">
 									<figure class="movie-poster"><a href="${contextPath}/user/movie/detailMovie?mo_no=${movie.mo_no}">
 									<img src="${contextPath}/resources/images/${movie.mo_photo}" alt="${movie.mo_name}">
@@ -43,6 +90,8 @@
 									</div>
 								</c:forEach>
 						</div> <!-- .movie-list -->
+						</div>
+						<div id = "replylist"></div>
 
 						<div class="pagination">
 							<a href="#" class="page-number prev"><i class="fa fa-angle-left"></i></a>
@@ -64,6 +113,7 @@
 </footer>
 <!-- 플러그인 -->
 <%@ include file="/resources/include/plugin_cdn.jsp"%>
+
 
 </body>
 </html>
