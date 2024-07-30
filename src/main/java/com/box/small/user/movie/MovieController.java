@@ -71,7 +71,7 @@ public class MovieController {
 		List<MovieDto> data;
 	    if (cat_no == 0) {
 	    	System.out.println("전체영화를 선택하셨습니다");
-	    	data = service.selectAllMovie();
+	    	data = service.selectAllMovieLive();
 	    	System.out.println(data);
 	    } else {
 	    	System.out.println("cat_no 가 "  + cat_no +"인 영화를 선택하셨습니다.");
