@@ -31,9 +31,8 @@ public class MovieController {
 		List<MovieDto>movieList = service.selectAllMovieLive();
 		
 		List<CategoryDto>category = service.allCategory();
-//		mav.addObject("movieList", movieList);
+		mav.addObject("movieList", movieList);
 		mav.addObject("category",category);
-		
 		mav.setViewName("/user/movie/movieList");
 		return mav;
 	}
@@ -58,13 +57,17 @@ public class MovieController {
 	@ResponseBody
 	@RequestMapping(value = "/user/movie/selectCategory", method = RequestMethod.POST)
 	public List<MovieDto> selectCategory(@RequestParam("cat_no") int cat_no) throws SQLException {
+		List<MovieDto> data;
 	    if (cat_no == 0) {
 	    	System.out.println("전체영화를 선택하셨습니다");
-	        return service.selectAllMovieLive();
+	    	data = service.selectAllMovie();
+	    	System.out.println(data);
 	    } else {
 	    	System.out.println("cat_no 가 "  + cat_no +"인 영화를 선택하셨습니다.");
-	        return service.selectMovieCategory(cat_no);
+	    	data = service.selectMovieCategory(cat_no);
+	    	System.out.println(data);
 	    }
+	    return data;
 	}
 	
 }

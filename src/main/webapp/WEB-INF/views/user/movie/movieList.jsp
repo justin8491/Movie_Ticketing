@@ -50,22 +50,36 @@
 								    			data : {"cat_no":selectValue},
 								    			dataType : "json",
 								    			success: function(data){
-								 					alert('ajax 통신 성공');
-								 					
-								 					var movieList = data;
-								 					
+								 					console.log('ajax 통신 성공');
+								 					var htmls = "";
+								 					if(data!=null){
+								 					 htmls = htmls + '<div class="movie-list">';
+													$(data).each(function(){
+														console.log(this.mo_no +"="+this.mo_name);
+										 	            htmls += '<div class="movie">';
+										 	            htmls += '<figure class="movie-poster"><a href="${contextPath}/user/movie/detailMovie?mo_no='+this.mo_no+'">';
+										 	            htmls += '<img src="${contextPath}/resources/images/'+this.mo_photo+'">';
+										 	            htmls += '</a></figure>';
+										 	            htmls += '<div class="movie-title"><a href="${contextPath}/user/movie/detailMovie?mo_no='+this.mo_no+'">'+this.mo_name+'</a></div>';
+										 	            htmls += '</div>';
+													})	// each End
+													htmls += '</div>';
+								 					}else{
+								 						htmls = htmls + "<h3>등록된 영화가 없습니다.</h3>";
+								 					}
+								 					document.getElementById("showMovie").style.display ='none';		
+													$("#replylist").html(htmls);
 								 				},
 								 				error: function(){
 								 					alert('ajax 통신 실패');		
 								 				}
 								    		});
 
-								    		
 								    	}
 								</script>
 							</select>
 						</div>
-						
+						<div id = "showMovie">
 						<div class="movie-list">
 								<c:forEach var="movie" items="${movieList}">
 									<div class="movie">
@@ -76,6 +90,8 @@
 									</div>
 								</c:forEach>
 						</div> <!-- .movie-list -->
+						</div>
+						<div id = "replylist"></div>
 
 						<div class="pagination">
 							<a href="#" class="page-number prev"><i class="fa fa-angle-left"></i></a>

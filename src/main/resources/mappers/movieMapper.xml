@@ -30,8 +30,8 @@
 	</select>
 	
 	<!-- 카테고리로 영화조회 -->
-	<select id="selectMovieCategory" resultType = "com.box.small.user.movie.CategoryDto">
-		select * from movie where cat_no = #{cat_no}
+	<select id="selectMovieCategory" resultType = "com.box.small.user.movie.MovieDto">
+		select*from movie where cat_no = #{cat_no} and mo_status=1
 	</select>
 	
 </mapper>

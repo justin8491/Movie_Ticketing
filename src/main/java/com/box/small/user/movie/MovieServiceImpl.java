@@ -40,6 +40,7 @@ public class MovieServiceImpl implements MovieService{
 
 	@Override
 	public List<MovieDto> selectMovieCategory(int cat_no) {
+		System.out.println("서비스 selectMovieCategory 실행");
 		return dao.selectMovieCategory(cat_no);
 	}
 }
