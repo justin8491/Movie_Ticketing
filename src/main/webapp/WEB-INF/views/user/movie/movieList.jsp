@@ -9,9 +9,11 @@
         <%@ include file = "/resources/include/head_beta.jsp"%>
   </head>
   <body>
+    
    <header id="header">
         <%@ include file = "/resources/include/header_beta.jsp"%>
    </header>
+
 		<div id="site-content">
 			<main class="main-content">
 				<div class="container">
