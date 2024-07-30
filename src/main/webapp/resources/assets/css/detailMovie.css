@@ -1,0 +1,27 @@
+/* 리뷰 작성 폼 별점 */
+#star-rating {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.star {
+    color: gray; /* 기본 색상 */
+}
+
+.star.selected {
+    color: gold; /* 선택된 별 색상 */
+}
+
+/* 수정 폼 별점 */
+#star-ratingUpdate {
+    font-size: 24px; /* 별점 크기 */
+    cursor: pointer; /* 커서 포인터 설정 */
+}
+
+.starUpdate {
+    color: gray; /* 기본 색상 */
+}
+
+.starUpdate.selectedUpdate {
+    color: gold; /* 선택된 별 색상 */
+}

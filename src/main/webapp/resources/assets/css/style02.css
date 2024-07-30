@@ -1,137 +1,134 @@
-@charset "utf-8";
-
 /* 레이아웃 */
-#header {
-  width: 100%;
-  height: 63px;
-  border-bottom: 1px solid #c6c6c6;
-  background: rgba(0, 0, 0, 0);
-}
+      #header {
+        width: 100%;
+        height: 63px;
+        border-bottom: 1px solid #c6c6c6;
+        background: rgba(0, 0, 0, 0);
+      }
 
-/* 가운데 영역 */
-.container {
-  position: relative;
-  width: 1280px;
-  margin: 0 auto;
-  background: rgba(0, 0, 0, 0);
-}
+      /* 가운데 영역 */
+      .container {
+        position: relative;
+        width: 1280px;
+        margin: 0 auto;
+        background: rgba(0, 0, 0, 0);
+      }
 
-/* 로우 영역 */
-.row {
-  padding: 0 24px;
-}
+      /* 로우 영역 */
+      .row {
+        display: block;
+        padding: 0 24px;
+      }
 
-/* 헤더 영역 */
-.header {
-    width: 100%;
-}
-.header h1 {
-  float: left;
-}
-.header h1 em {
-  padding: 10px 8px 5px 0;
-  display: inline-block;
-}
-.header h1 em img {
-  width: 155px;
-}
-.header h1 strong {
-  display: block;
-  position: absolute;
-  left: 194px;
-  top: 23px;
-}
-.header h1 strong img {
-  width: 126px;
-}
-.header .nav {
-  float: right;
-}
-.header .nav ul {
-  border-left: 1px solid #c6c6c6;
-}
-.header .nav ul li {
-  float: left;
-  width: 103px;
-  text-align: center;
-  border-right: 1px solid #c6c6c6;
-}
-.header .nav ul li a {
-  display: block;
-  padding: 19px 10px;
-  font-size: 15px;
-  font-weight: 700;
-  color: #444;
-}
+      /* 헤더 영역 */
+      .header {
+      }
+      .header h1 {
+        float: left;
+      }
+      .header h1 em {
+        padding: 10px 8px 5px 0;
+        display: inline-block;
+      }
+      .header h1 em img {
+        width: 155px;
+      }
+      .header h1 strong {
+        display: block;
+        position: absolute;
+        left: 194px;
+        top: 23px;
+      }
+      .header h1 strong img {
+        width: 126px;
+      }
+      .header .nav {
+        float: right;
+      }
+      .header .nav ul {
+        border-left: 1px solid #c6c6c6;
+      }
+      .header .nav ul li {
+        float: left;
+        width: 103px;
+        text-align: center;
+        border-right: 1px solid #c6c6c6;
+      }
+      .header .nav ul li a {
+        display: block;
+        padding: 19px 10px;
+        font-size: 15px;
+        font-weight: 700;
+        color: #444;
+      }
 
-.header .nav ul li a:hover {
-  color: #d8c8bd;
-}
+      .header .nav ul li a:hover {
+        color: #d8c8bd;
+      }
 
+      input[readonly] {
+        background-color: #fff !important;
+      }
 
-input[readonly] {
-   background-color: #fff !important;
-}
+      .content {
+        margin-top: 150px;
+        margin-bottom: 150px;
+      }
 
-.content {
-    margin-top: 150px;
-    margin-bottom: 150px;
-}
+      .container h2 {
+        /* text-align: center; */
+        font-size: 2rem;
+      }
 
-.container h2 {
-/* text-align: center; */
-font-size: 2rem;
-}
+      .border {
+        border: 1px solid black;
+      }
 
-.border {
-border: 1px solid black;
-}
+      .box {
+        display: flex;
+        padding: 20px;
+      }
 
-.box {
-display: flex;
-padding: 20px;
-}
+      .box label {
+        margin-right: 10px;
+        width: 50px;
+      }
 
-.box label {
-margin-right: 10px;
-width: 50px;
-}
+      .float {
+        float: left;
+        width: 25%;
+        padding: 10px;
+        box-sizing: border-box;
+      }
 
-.float {
-float: left;
-width: 25%;
-padding: 10px;
-box-sizing: border-box;
-}
+      .float_form:after {
+        content: "";
+        display: block;
+        clear: both;
+      }
 
-.float_form:after {
-content: "";
-display: block;
-clear: both;
-}
+      .block {
+        float: left;
+        display: block;
+      }
 
-.block {
-float: left;
-display: block;
-}
+      .heihgt {
+        height: 200px;
+      }
 
-.heihgt {
-height: 200px;
-}
+      .diviContainer {
+        display: flex;
+      }
 
-.diviContainer {
-display: flex;
-}
+      .rem_1 {
+        margin-top: 3rem;
+        padding-left: 0;
+      }
 
-.rem_1 {
-margin-top: 3rem;
-padding-left: 0;
-}
-
-.rem_2 {
-margin-top: 3rem;
-padding-right: 0;
-}
+      .rem_2 {
+        margin-top: 3rem;
+        padding-right: 0;
+      }
 /* content */
 .content {
     margin-top: 150px;

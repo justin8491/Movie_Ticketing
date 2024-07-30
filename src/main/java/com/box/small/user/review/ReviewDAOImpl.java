@@ -1,6 +1,8 @@
 package com.box.small.user.review;
 
 
+import com.box.small.user.member.MemberDto;
+import com.box.small.user.movie.MovieDto;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -15,8 +17,8 @@ public class ReviewDAOImpl implements ReviewDAO {
     String SQL_NAME_SAPCE = "com.box.small.mappers.reviewMapper.";
 
     @Override
-    public List<ReviewDto> reviewAll() {
-        return sqlSession.selectList(SQL_NAME_SAPCE + "reviewAll");
+    public List<ReviewDto> reviewAll(int mo_no) {
+        return sqlSession.selectList(SQL_NAME_SAPCE + "reviewAll", mo_no);
     }
 
     @Override
@@ -32,5 +34,10 @@ public class ReviewDAOImpl implements ReviewDAO {
     @Override
     public int deleteReview(ReviewDto review) {
         return sqlSession.delete(SQL_NAME_SAPCE + "deleteReview", review);
+    }
+
+    @Override
+    public List<ReviewMNDto> findReview(MemberDto member) {
+        return sqlSession.selectList(SQL_NAME_SAPCE + "findReview", member);
     }
 }
