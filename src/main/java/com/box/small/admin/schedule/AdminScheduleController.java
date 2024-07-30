@@ -48,7 +48,7 @@ public class AdminScheduleController {
 		List<ScheduleDto>scheduleList = service.sellectAllSchedule();
 		List<MovieDto>movieList = mService.selectAllMovie();
 		List<ScreenDto>screenList = service.sellectAllScreen();
-		List<TheaterDto>theaterList = tService.sellectAlltheater();
+		List<TheaterDto>theaterList = tService.selectAllTheater();
 		
 		List<ScheduleDataListDto> scheduleDataList = new ArrayList<>();
 

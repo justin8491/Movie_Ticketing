@@ -7,9 +7,9 @@
 	<!-- 영화관 추가 -->
 	<insert id="addTheater">
 		insert into theater
-		(th_no,th_location,th_name,th_photo)
+		(th_no,th_location,th_status,th_name,th_photo)
 		values
-		(#{th_no},#{th_location'},#{th_name},#{th_photo})
+		(#{th_no},#{th_location},#{th_status},#{th_name},#{th_photo})
 	</insert>
 
 	<!-- 영화관 삭제 -->
@@ -22,7 +22,7 @@
 	<!-- 영화관 정보 수정 -->
 	<update id="updateTheater">
 		update theater
-		set th_location = #{th_location}, th_name = #{th_name}, th_photo = #{th_photo}
+		set th_location = #{th_location}, th_name = #{th_name}, th_status = #{th_status}, th_photo = #{th_photo}
 		where th_no = #{th_no}
 	</update>
 

@@ -8,9 +8,13 @@ public interface MovieDAO {
     
 	List<MovieDto> selectAllMovie() throws SQLException;	//	영화 전체조회
 	
+	List<MovieDto> selectAllMovieLive() throws SQLException;	//	상영중인영화 전체조회
+	
 	MovieDto selectMovie(int mo_no) throws SQLException;	//	영화 선택 조회
 	
 	String category(int cat_no);
 	
 	List<CategoryDto> allCategory();
+	
+	List<MovieDto> selectMovieCategory(int cat_no);
 }

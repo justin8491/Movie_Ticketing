@@ -14,8 +14,8 @@ public class MovieServiceImpl implements MovieService{
 	private MovieDAO dao;
 	
 	@Override
-	public List<MovieDto> selectAllMovie() throws SQLException {
-		return dao.selectAllMovie();
+	public List<MovieDto> selectAllMovieLive() throws SQLException {
+		return dao.selectAllMovieLive();
 	}
 
 	@Override
@@ -31,5 +31,16 @@ public class MovieServiceImpl implements MovieService{
 	@Override
 	public List<CategoryDto> allCategory() {
 		return dao.allCategory();
+	}
+
+	@Override
+	public List<MovieDto> selectAllMovie() throws SQLException {
+		return dao.selectAllMovie();
+	}
+
+	@Override
+	public List<MovieDto> selectMovieCategory(int cat_no) {
+		System.out.println("서비스 selectMovieCategory 실행");
+		return dao.selectMovieCategory(cat_no);
 	}
 }
