@@ -67,6 +67,12 @@
       rel="stylesheet"
     />
 
+    <!-- 영화 템플릿 -->
+         <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
+    <!-- Loading third party fonts -->
+    <link href="http://fonts.googleapis.com/css?family=Roboto:300,400,700|" rel="stylesheet" type="text/css">
+    <link href="${path}/detailMovie/fonts/font-awesome.min.css" rel="stylesheet" type="text/css">
+
     <!-- HTLM5shiv ie6~8 -->
     <!--[if lt IE 9]>
       <script src="${path}/assets/js/html5shiv.min.js"></script>
