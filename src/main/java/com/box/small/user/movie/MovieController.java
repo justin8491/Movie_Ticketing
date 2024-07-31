@@ -5,8 +5,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.box.small.user.member.MemberDto;
 import com.box.small.user.review.ReviewDto;
 import com.box.small.user.review.ReviewService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,6 +27,8 @@ public class MovieController {
 
     @Autowired
     private MovieService service;
+
+    
 
 	@GetMapping(value = "/user/movie/movieList")
 	public ModelAndView selectAllmovie() throws SQLException {
