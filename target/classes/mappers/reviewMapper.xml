@@ -29,7 +29,6 @@
         SET rev_content = #{rev_content},
         rev_rating = #{rev_rating}
         WHERE rev_no = #{rev_no}
-
     </update>
 
     <!-- 리뷰 삭제 -->

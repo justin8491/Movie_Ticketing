@@ -5,8 +5,6 @@ import lombok.*;
 
 @Getter
 @Setter
-@AllArgsConstructor
-@NoArgsConstructor
 @ToString
 public class MovieLikeDto {
     private int ml_no;

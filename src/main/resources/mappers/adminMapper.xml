@@ -7,4 +7,8 @@
         select * from admin
         where a_id = #{a_id} and a_password = #{a_password}
     </select>
+
+    <select id="selectAllMember" resultType="com.box.small.user.member.MemberDto">
+        select * from member
+    </select>
 </mapper>
