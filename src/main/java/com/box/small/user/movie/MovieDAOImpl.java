@@ -21,11 +21,6 @@ public class MovieDAOImpl implements MovieDAO{
 		return sqlSession.selectList(namespace+".selectAllMovieLive");
 	}
 
-    private final static String namespace = "com.box.small.movieMapper";
-
-    @Autowired
-    private SqlSession sqlSession;
-
     @Override
     public List<MovieDto> selectAllMovie() throws SQLException {
         return sqlSession.selectList(namespace + ".selectAllMovie");
@@ -47,6 +42,11 @@ public class MovieDAOImpl implements MovieDAO{
     }
 
     @Override
+    public List<MovieDto> selectMovieCategory(int cat_no) {
+        return sqlSession.selectOne(namespace + ".selectMovieCategory");
+    }
+
+    @Override
     public boolean checkMovieLike(MovieLikeDto ml) {
         return sqlSession.selectOne(namespace + ".checkMovieLike", ml);
     }
@@ -58,8 +58,6 @@ public class MovieDAOImpl implements MovieDAO{
 
     @Override
     public int updateMovieLike(MovieLikeDto ml) {
-        System.out.println("Update ML mem_id : " + ml.getMem_id());
-        System.out.println("Update ML mo_no : " + ml.getMo_no());
         return sqlSession.update(namespace + ".updateMovieLike", ml);
     }
 
