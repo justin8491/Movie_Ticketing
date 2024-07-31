@@ -17,7 +17,11 @@
       <div class="container">
         <div class="row">
 	<c:if test="${member.mem_id==null }">
- 				로그인 하셔야 합니다.
+		<script type="text/javascript">
+			alert("로그인 후 이용 가능합니다");
+			 history.back();
+		</script>
+ 				
  			</c:if>     
  			<c:if test="${member.mem_id!=null }">
 	<section class="content">
