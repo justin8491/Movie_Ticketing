@@ -6,7 +6,7 @@
 	<!-- 댓글 조회 -->
 	<select id="commentList" resultType="com.box.small.user.comment.CommentDto">
 		select * from comment
-		where bo_no=#{bo_no}
+		where bo_no=#{bo_no} and com_status=1
 	</select>
 	<!-- 댓글 추가 -->
 	<insert id="commentAdd" parameterType="com.box.small.user.comment.CommentDto">
@@ -14,9 +14,17 @@
 		value(#{mem_id},#{bo_no},#{com_content},now(),now(),1,#{com_reComid})
 	</insert>
 	<!-- 댓글 수정 -->
-	
-	
-	
+	<update id="commentUpdate" parameterType="com.box.small.user.comment.CommentDto">
+		update comment
+		set com_content=#{com_content}
+		where com_no=#{com_no}
+	</update>
+	<!-- 댓글 삭제 -->
+	<update id="commentDelete" parameterType="int">
+		update comment
+		set com_status=0
+		where com_no=#{com_no}
+	</update>
 	
 	
 	

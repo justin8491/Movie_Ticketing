@@ -105,6 +105,7 @@ $(document).ready(function() {
                 $('#review-item-' + reviewId).addClass('updated'); // 'updated' 클래스 추가 (스타일링 가능)
 
                 hideEditForm(reviewId);
+                
                 },
                 error: function(xhr, status, error) {
                     console.error('AJAX Error: ' + error);

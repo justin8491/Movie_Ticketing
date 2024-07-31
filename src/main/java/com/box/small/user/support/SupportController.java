@@ -2,6 +2,7 @@ package com.box.small.user.support;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -12,9 +13,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.box.small.HomeController;
+import com.box.small.user.comment.CommentDto;
+import com.box.small.user.comment.CommentService;
 import com.box.small.user.member.MemberDto;
 
 @Controller
@@ -25,6 +29,9 @@ public class SupportController {
 	
 	@Autowired
 	SupportService service;
+	
+	@Autowired
+	CommentService commentService;
 
 	@GetMapping(value = "user/support/support")
 	public ModelAndView support(){
@@ -106,14 +113,18 @@ public class SupportController {
 	}
 	
 	@GetMapping(value = "/user/support/selectFreeBoard")
-	public ModelAndView selectFreeBoard(@RequestParam("bo_no") int bo_no) {
+	public ModelAndView selectFreeBoard(@RequestParam("bo_no") int bo_no ,
+			HttpServletRequest request) {
 		logger.info("자유게시판 상세페이지 이동");
-		
-		SupportDto freeBoard = service.selectFreeBoardWrite(bo_no);
 		ModelAndView mav = new ModelAndView();
 		
-		mav.setViewName("/user/support/selectFreeBoard");
+		SupportDto freeBoard = service.selectFreeBoardWrite(bo_no);
+		List<CommentDto> commentList = commentService.commentList(bo_no);
+		
 		mav.addObject("freeBoard", freeBoard);
+		mav.addObject("commentList", commentList);
+//		logger.info("CommentList: " + commentList);
+		mav.setViewName("/user/support/selectFreeBoard");
 		
 		return mav;
 	}
@@ -121,8 +132,8 @@ public class SupportController {
 	public ModelAndView selectNotice(@RequestParam("bo_no") int bo_no) {
 		logger.info("공지사항 상세페이지 이동");
 		
-		SupportDto noticelist = service.selectNotice(bo_no);
 		ModelAndView mav = new ModelAndView();
+		SupportDto noticelist = service.selectNotice(bo_no);
 		
 		mav.setViewName("/user/support/selectNotice");
 		mav.addObject("noticelist", noticelist);

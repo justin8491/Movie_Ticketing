@@ -17,9 +17,9 @@ public class CommentServiceImpl implements CommentService{
 	}
 
 	@Override
-	public int commentUpdate(int com_no) {
+	public int commentUpdate(CommentDto cDto) {
 		// TODO Auto-generated method stub
-		return dao.commentUpdate(com_no);
+		return dao.commentUpdate(cDto);
 	}
 
 	@Override
@@ -29,9 +29,9 @@ public class CommentServiceImpl implements CommentService{
 	}
 
 	@Override
-	public List<CommentDto> commentList() {
+	public List<CommentDto> commentList(int bo_no) {
 		// TODO Auto-generated method stub
-		return dao.commentList();
+		return dao.commentList(bo_no);
 	}
 
 }

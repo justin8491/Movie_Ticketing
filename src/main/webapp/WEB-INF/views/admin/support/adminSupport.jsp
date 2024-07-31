@@ -18,7 +18,7 @@
         <div class="row">
 	<div><a href="${contextPath}/admin/support/adminNotice">공지사항 페이지</a></div>
 	<div><a href="${contextPath}/admin/support/adminFaq">자주 묻는 질문 페이지</a></div>
-	<div><a href="${contextPath}/admin/support/adminInquiry">1대1 문의 페이지</a></div>
+	<div><a href="${contextPath}/admin/support/adminInquiry">1대1 문의 페이지 리스트</a></div>
 	<div><a href="${contextPath}/admin/support/adminFreeBoard">자유게시판 페이지</a></div>
 	</section>
 	
