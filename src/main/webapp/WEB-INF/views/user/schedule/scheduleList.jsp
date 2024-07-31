@@ -131,7 +131,7 @@ table.admMovieDetail button.deleteBtn{
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <c:forEach var="schedule" items="${scheduleDataList[0].scheduleList}">
+                                    <c:forEach var="schedule" items="${scheduleDataList[0].scheduleList}" >
                                         <tr>
                                             <td>${schedule.sch_no}</td>
                                             <!-- 영화 이름을 찾는 부분 -->

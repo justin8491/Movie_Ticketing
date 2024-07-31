@@ -14,6 +14,11 @@
 		select * from movie where mo_status=1
 	</select>
 	
+	<!-- 상영예정인 영화 전체 조회 -->
+	<select id="selectAllMovieFuture"	resultType = "com.box.small.user.movie.MovieDto">	
+		select * from movie where mo_status=2
+	</select>
+	
 	<!-- 영화 선택 조회 -->
 	<select id="selectMovie" resultType = "com.box.small.user.movie.MovieDto">
 		select * from movie where mo_no = #{mo_no} 

@@ -7,6 +7,11 @@
 <html lang="ko">
   <head>
         <%@ include file = "/resources/include/head_beta.jsp"%>
+            <!-- 영화 템플릿 -->
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
+		<!-- Loading third party fonts -->
+		<link href="http://fonts.googleapis.com/css?family=Roboto:300,400,700|" rel="stylesheet" type="text/css">
+		<link href="${path}/detailMovie/fonts/font-awesome.min.css" rel="stylesheet" type="text/css">
   </head>
   <body>
     

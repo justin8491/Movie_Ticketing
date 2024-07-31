@@ -10,7 +10,7 @@
 
     <script src="${path}/assets/js/modernizr-custom.js"></script>
     <script src="${path}/assets/js/ie-checker.js"></script>
-    
+    <script src="${path}/assets/js/swiper.min.js"></script>
     <!-- 추가한거 -->
     <script src="${path}/assets/js/jquery-1.11.1.min.js"></script>
 	<script src="${path}/assets/js/plugins.js"></script>

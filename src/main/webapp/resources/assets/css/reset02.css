@@ -112,5 +112,5 @@ img {
 }
 
 .icon {
-  background-image: url(../img/icon.png);
+  background-image: url(/resources/assets/img/icon.png);
 }
