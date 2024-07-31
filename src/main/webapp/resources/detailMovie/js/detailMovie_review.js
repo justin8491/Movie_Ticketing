@@ -147,4 +147,45 @@ $(document).ready(function() {
 //            }
         };
 
+let isRequestInProgress = false; // 요청 진행 상태 변수
+
+$('.fa-heart').one('click', function() {
+    if (isRequestInProgress) return; // 요청이 진행 중이면 무시
+
+    var mem_id = $('#mem_id').val();
+    var mo_no = $('#mo_no').val();
+
+    isRequestInProgress = true; // 요청 시작
+    console.log('heart click');
+    $.ajax({
+        type: 'POST',
+        url: '/user/movie/updateMovieLike',
+        data: {
+            mem_id: mem_id,
+            mo_no: mo_no,
+        },
+        success: function(response) {
+            alert("좋아요 요청 처리 완료");
+
+            // ml_status에 따라 하트 아이콘 변경
+            if (response.ml_status === 1) {
+                $('.fa-heart').removeClass('fa-regular').addClass('fa-solid').css('color', '#ff0000');
+            } else {
+                $('.fa-heart').removeClass('fa-solid').addClass('fa-regular').css('color', '');
+            }
+            location.href = response.location;
+        },
+        error: function(xhr, status, error) {
+            console.error('AJAX Error: ' + error);
+            location.href = "/user/movie/detailMovie?mo_no="+mo_no;
+        },
+        complete: function() {
+            isRequestInProgress = false; // 요청 완료
+        }
+    });
+});
+
+
+
+
 });

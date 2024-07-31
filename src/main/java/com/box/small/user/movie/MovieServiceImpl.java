@@ -43,4 +43,26 @@ public class MovieServiceImpl implements MovieService {
 		System.out.println("서비스 selectMovieCategory 실행");
 		return dao.selectMovieCategory(cat_no);
 	}
+
+	@Override
+	public boolean checkMovieLike(MovieLikeDto ml) {
+		return dao.checkMovieLike(ml);
+	}
+
+	@Override
+	public int insertMovieLike(MovieLikeDto ml) {
+		return dao.insertMovieLike(ml);
+	}
+
+	@Override
+	public int updateMovieLike(MovieLikeDto ml) {
+		return dao.updateMovieLike(ml);
+	}
+
+	@Override
+	public MovieLikeDto MovieLikeStatus(MovieLikeDto ml) {
+		return dao.MovieLikeStatus(ml);
+	}
+
+
 }
