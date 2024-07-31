@@ -16,10 +16,9 @@
                    <address>
                      <p>
                        경기 수원시 팔달구 덕영대로895번길 9-1 SB빌딩 4층 (402호)<br />
-                       <span class="bar2">대표자명 윤가을</span> 개인정보보호 책임자
-                       경영지원실 팀장 유종현<br />
-                       <span class="bar2">사업자등록번호 211-86-59478</span>
-                       통신판매업신고번호 제 833호
+                       <span class="bar2">조장 윤가을</span> 부조장 유종현
+                       조원 김도현 조원 장현세<br />
+                       <span class="bar2">mbc아카데미 수원 풀스택과정</span>
                      </p>
                      <p>Copyright 2024 by SmallBox Inc. All right <a href = "${contextPath}/admin/loginForm">reserved</a></p>
                    </address>
@@ -44,7 +43,7 @@
                      </li>
                    </ul>
                    <div class="tel">
-                     <a href="#">ARS <em>1544-0070</em></a>
+                     <a href="#">ARS <em>031-253-5225</em></a>
                    </div>
                  </div>
                </div>

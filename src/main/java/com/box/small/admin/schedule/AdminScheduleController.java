@@ -75,7 +75,7 @@ public class AdminScheduleController {
 		ModelAndView mav = new ModelAndView();
 		
 		aService.addSchedule(schedule);
-
+		
 		mav.setViewName("redirect:/admin/schedule/adminSchedule");
 		return mav;
 	}	
