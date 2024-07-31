@@ -25,9 +25,9 @@
 				<tr>
 					<th>번호</th><th>제목</th><th>작성자ID</th><th>생성일</th>
 				</tr>
-			<c:forEach var="board" items="${faqlist }">
+			<c:forEach var="board" items="${faqlist }" varStatus = "status">
 				<tr>
-					<td>${board.bo_no}</td>
+					<td>${status.index+1}</td>
 					<td><a href="selectFaq?bo_no=${board.bo_no}">${board.bo_title}</a></td>
 					<td>${board.bo_writerId}</td>
 					<td>${board.bo_createAt}</td>

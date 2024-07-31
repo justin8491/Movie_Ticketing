@@ -7,7 +7,7 @@
 	<select id="faq" resultType="com.box.small.user.support.SupportDto">
 		select * from board
 		where cat_no = 2 and bo_status=1
-		order by bo_no desc;
+		order by bo_createAt desc;
 	</select>
 	<!-- 자주 묻는 질문 상세 페이지 -->
 	<select id="selectFaq" parameterType="int" resultType="com.box.small.user.support.SupportDto">
@@ -18,13 +18,13 @@
    	<select id="notice" resultType="com.box.small.user.support.SupportDto">
    		select * from board
    		where cat_no = 1 and bo_status=1
-   		order by bo_no desc;
+   		order by bo_createAt desc;
    	</select>
    	<!-- 공지사항 상위 4개 리스트 보여주기 -->
    	<select id="noticeTop4List" resultType="com.box.small.user.support.SupportDto">
    		select * from board
    		where cat_no = 1 and bo_status=1
-   		order by bo_no desc
+   		order by bo_createAt desc
         limit 4;
    	</select>
    	<!-- 공지사항 상세 페이지 -->
@@ -34,14 +34,14 @@
    	</select>
    	<!-- 1대1 문의 페이지 작성 -->
    	<select id="inquiryWrite" parameterType="com.box.small.user.support.SupportDto">
-   		insert into board(cat_no, bo_writerId, bo_title, bo_content, bo_createAt, bo_status)
+   		insert into board(cat_no, bo_writerId, bo_title, bo_content, bo_bo_createAt, bo_status)
    		value(4, #{bo_writerId}, #{bo_title}, #{bo_content}, now() , 1)
    	</select>
    	<!-- 1대1 문의 리스트 보여주기 -->
    	<select id="inquiryView" resultType="com.box.small.user.support.SupportDto">
    		select * from board
    		where cat_no= 4 and bo_status=1
-   		order by bo_no desc;
+   		order by bo_createAt desc;
    	</select>
    	<!-- 1대1 문의 삭제 -->
    	<select id="inquiryDelete" parameterType="int">
@@ -51,7 +51,7 @@
    	</select>
    	<!-- 자유게시판 작성 -->
    	<select id="freeBoardWrite" parameterType="com.box.small.user.support.SupportDto">
-   		insert into board(cat_no, bo_writerId, bo_title, bo_content, bo_createAt, bo_status)
+   		insert into board(cat_no, bo_writerId, bo_title, bo_content, bo_bo_createAt, bo_status)
    		value(3, #{bo_writerId}, #{bo_title}, #{bo_content}, now() , 1)
    	</select>
    	<!-- 자유게시판 상세 페이지 -->
@@ -63,7 +63,7 @@
    	<select id="freeBoard" resultType="com.box.small.user.support.SupportDto">
    		select * from board
    		where cat_no= 3 and bo_status=1
-   		order by bo_no desc;
+   		order by bo_createAt desc;
    	</select>
    	<!-- 자유게시판 삭제 -->
    	<select id="freeBoardDelete" parameterType="int">

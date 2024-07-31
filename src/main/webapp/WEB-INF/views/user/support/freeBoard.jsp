@@ -123,10 +123,10 @@ a {
                             </tr>
                         </thead>
                         <tbody>
-									<c:forEach var="board" items="${freeboardlist }">
+									<c:forEach var="board" items="${freeboardlist }" varStatus = "status">
                            		 <tr>
                                 <th scope="row" class="ps-4">
-                                			<div>${board.bo_no}</div>
+                                			<div>${status.index+1}</div>
                                 </th>
 		        							<td><a href="selectFreeBoard?bo_no=${board.bo_no}">${board.bo_title}</a></td>
 		        							<td>${board.bo_writerId}</td>
