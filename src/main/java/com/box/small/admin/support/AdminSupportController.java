@@ -2,6 +2,8 @@ package com.box.small.admin.support;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +15,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.box.small.HomeController;
+import com.box.small.admin.comment.AdminCommentDto;
+import com.box.small.admin.comment.AdminCommentService;
+import com.box.small.user.comment.CommentDto;
 import com.box.small.user.member.MemberDto;
+import com.box.small.user.support.SupportDto;
 
 @Controller
 
@@ -23,7 +29,9 @@ public class AdminSupportController {
 	
 	@Autowired
 	AdminSupportService service;
-
+	
+	@Autowired
+	AdminCommentService adminService;
 	
 	@GetMapping(value = "/admin/support/adminSupport")
 	public ModelAndView support(){
@@ -97,14 +105,18 @@ public class AdminSupportController {
 	}
 	
 	@GetMapping(value = "/admin/support/adminSelectFreeBoard")
-	public ModelAndView selectFreeBoard(@RequestParam("bo_no") int bo_no) {
+	public ModelAndView selectFreeBoard(@RequestParam("bo_no") int bo_no ,
+			HttpServletRequest request) {
 		logger.info("자유게시판 상세페이지 이동");
-		
-		AdminSupportDto freeBoard = service.adminSelectFreeBoardWrite(bo_no);
 		ModelAndView mav = new ModelAndView();
 		
-		mav.setViewName("/admin/support/adminSelectFreeBoard");
+		AdminSupportDto freeBoard = service.adminSelectFreeBoardWrite(bo_no);
+		List<AdminCommentDto> adminCommentList = adminService.adminCommentList(bo_no);
+		
 		mav.addObject("freeBoard", freeBoard);
+		mav.addObject("adminCommentList", adminCommentList);
+//		logger.info("CommentList: " + commentList);
+		mav.setViewName("/admin/support/adminSelectFreeBoard");
 		
 		return mav;
 	}

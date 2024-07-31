@@ -137,7 +137,7 @@ a {
 			</div>
 			</div>
 		</div>
-			
+			<%@ include file="../adminComment/adminComment.jsp" %>
 			</section>
     <!-- //footer -->
     <footer>

@@ -143,6 +143,7 @@ a {
 			</c:if>
 			</div>
 		</div>
+                    <%@ include file="../comment/comment.jsp" %>
 			
 			</section>
     <!-- //footer -->

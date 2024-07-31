@@ -1,6 +1,6 @@
-package com.box.small.user.comment;
+package com.box.small.admin.comment;
 
-public class CommentDto {
+public class AdminCommentDto {
 	private int com_no;
 	private String mem_id;
 	private int bo_no;
@@ -10,9 +10,9 @@ public class CommentDto {
 	private int com_status;
 	private String com_reComid;
 	
-	public CommentDto() {}
+	public AdminCommentDto() {}
 
-	public CommentDto(String mem_id, int bo_no, String com_content, String com_createdAt, String com_updatedAt,
+	public AdminCommentDto(String mem_id, int bo_no, String com_content, String com_createdAt, String com_updatedAt,
 			int com_status, String com_reComid) {
 		super();
 		this.mem_id = mem_id;
@@ -24,7 +24,7 @@ public class CommentDto {
 		this.com_reComid = com_reComid;
 	}
 
-	public CommentDto(int com_no, String mem_id, int bo_no, String com_content, String com_createdAt,
+	public AdminCommentDto(int com_no, String mem_id, int bo_no, String com_content, String com_createdAt,
 			String com_updatedAt, int com_status, String com_reComid) {
 		super();
 		this.com_no = com_no;
