@@ -24,30 +24,6 @@
                             <div>
                                 <input type="button" value="작성" onclick = "commentSubmit()">
                             </div>
-                            <script type="text/javascript">
-                            
-                            function commentSubmit() {
-                            var url = "${pageContext.request.contextPath}/admin/comment/adminCommentAdd";
-                            var paramData = {
-                                  "mem_id" : '${member.mem_id}',
-                                  "bo_no" : ${freeBoard.bo_no} ,
-                                  "com_content" : $('#content').val()
-                            }; // 추가데이터
-                            
-                            $.ajax({
-                               type: "POST",
-                               url: url,
-                               data : paramData,
-                               dataType : 'json',
-                               success:function(map){ // result<=>data <=> log
-                            	   alert("댓글 등록이 완료됐습니다.");
-                               },
-                               error : function(){
-                                  alert("에러가 발생햇습니다.");
-                               }
-                            });
-                            }
-                            </script>
                         </td>
                     </tr>
                 </table>
@@ -80,6 +56,29 @@
                         </c:forEach>
 					
 					<script type="text/javascript">
+					
+					function commentSubmit() {
+                        var url = "${pageContext.request.contextPath}/admin/comment/adminCommentAdd";
+                        var paramData = {
+                              "mem_id" : '${member.mem_id}',
+                              "bo_no" : ${freeBoard.bo_no} ,
+                              "com_content" : $('#content').val()
+                        }; // 추가데이터
+                        
+                        $.ajax({
+                           type: "POST",
+                           url: url,
+                           data : paramData,
+                           dataType : 'json',
+                           success:function(map){ // result<=>data <=> log
+                        	   alert("댓글 등록이 완료됐습니다.");
+                           },
+                           error : function(){
+                              alert("에러가 발생햇습니다.");
+                           }
+                        });
+                        }
+					
 					function adminCommentDelete(comNo) {
 					    var url = "${pageContext.request.contextPath}/admin/comment/adminCommentDelete";
 					    var paramData = {

@@ -16,6 +16,9 @@
 	<section class="content">
       <div class="container">
         <div class="row">
+        <div class="mb-3">
+                <h5 class="card-title text-center" style="font-size: 2.5rem;">공지사항 <span class="text-muted fw-normal ms-2"></span></h5>
+            </div>
 	<table class="table table-hover">
 				<tr>
 					<th>번호</th><th>제목</th><th>작성자ID</th><th>생성일</th>

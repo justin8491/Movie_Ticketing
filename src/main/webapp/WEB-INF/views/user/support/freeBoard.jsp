@@ -96,14 +96,12 @@ a {
         
        	    
 <section class="content">
-<div class="container">
-    <div class="row align-items-center">
-        <div class="col-md-6">
-            <div class="mb-3">
+      <div class="container">
+        <div class="row">
+        <div class="mb-3">
                 <h5 class="card-title text-center" style="font-size: 2.5rem;">자유게시판 <span class="text-muted fw-normal ms-2"></span></h5>
             </div>
             <div style=" text-align: right; font-size: 1.0rem" ><a href="freeBoardWrite">작성</a></div>
-        </div>
         <div class="col-md-6">
             <div class="d-flex flex-wrap align-items-center justify-content-end gap-2 mb-3">
             </div>
