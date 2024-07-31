@@ -38,23 +38,23 @@ public class AdminController {
     }
 
     @PostMapping(value ="login")
-    public @ResponseBody Map<String,Object> adminLogin(AdminDto admin, HttpSession session, RedirectAttributes redirectAttributes){
-        Map<String, Object> map = new HashMap<String, Object>();
-
+    public @ResponseBody ModelAndView adminLogin(AdminDto admin, HttpSession session, RedirectAttributes redirectAttributes){
+//        Map<String, Object> map = new HashMap<String, Object>();
+        ModelAndView mav = new ModelAndView();
         try {
             admin = adminService.login(admin);
             if(admin != null){
-                redirectAttributes.addFlashAttribute("loginMessage", "관리자 로그인 성공");
                 session.setAttribute("admin", admin);
                 session.setAttribute("isLogin", true);
                 session.setAttribute("type", "admin");
-                map.put("location", "/admin");
+                mav.setViewName("/homeAdmin_beta");
+//                map.put("location", "/admin");
             }
         } catch (NullPointerException e){
-            redirectAttributes.addFlashAttribute("loginMessage", "관리자 로그인 실패");
-            map.put("location", "/admin/loginForm");
+            mav.setViewName("/admin/login");
+//            map.put("location", "/admin/loginForm");
         }
-        return map;
+        return mav;
     }
 
     @GetMapping(value = "logout")
