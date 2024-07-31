@@ -34,7 +34,24 @@ public class MovieServiceImpl implements MovieService{
 	}
 
 	@Override
-	public MovieLikeDto insertOrUpdateMovieLike(MovieLikeDto ml) {
-		return dao.insertOrUpdateMovieLike(ml);
+	public boolean checkMovieLike(MovieLikeDto ml) {
+		return dao.checkMovieLike(ml);
 	}
+
+	@Override
+	public int insertMovieLike(MovieLikeDto ml) {
+		return dao.insertMovieLike(ml);
+	}
+
+	@Override
+	public int updateMovieLike(MovieLikeDto ml) {
+		return dao.updateMovieLike(ml);
+	}
+
+	@Override
+	public MovieLikeDto MovieLikeStatus(MovieLikeDto ml) {
+		return dao.MovieLikeStatus(ml);
+	}
+
+
 }

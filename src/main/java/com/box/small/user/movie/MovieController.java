@@ -1,6 +1,7 @@
 package com.box.small.user.movie;
 
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -13,6 +14,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -55,17 +58,23 @@ public class MovieController {
         logger.info("Movie_No : " + mo_no);
 
         try {
+            // 로그인 상태 확인
             boolean isLogin = (boolean) session.getAttribute("isLogin");
-
-            if (isLogin == true) {
+            if (isLogin == true) { //로그인 이라면
                 MemberDto member = (MemberDto) session.getAttribute("member");
-                logger.info("Member_id : " + member.getMem_id());
-                // 영화 좋아요
+                // 아이디 값이 존재 한다면
                 ml.setMo_no(mo_no);
                 ml.setMem_id(member.getMem_id());
-                System.out.println(ml);
-//                ml = service.insertOrUpdateMovieLike(ml);
+                boolean exists = service.checkMovieLike(ml);
+                if (!exists) {// 레코드가 없으면
+                    service.insertMovieLike(ml);
+                } else {
+//                  service.updateMovieLike(ml);
+                }
+                // 영화 좋아요
+                ml = service.MovieLikeStatus(ml);
                 mav.addObject("ml_status", ml.getMl_status());
+                logger.info("MovieLike > ml_status : " + ml.getMl_status());
 
                 // 리뷰리스트
                 mav.addObject("reviewList", reviewList);
@@ -75,8 +84,6 @@ public class MovieController {
                 mav.addObject("movie", movie);
                 mav.setViewName("/user/movie/detailMovie");
             }
-
-
         } catch (NullPointerException e) {
             logger.info("비회원 상태");
             // 리뷰리스트
@@ -88,6 +95,32 @@ public class MovieController {
         }
 
         return mav;
+    }
+
+    @PostMapping(value = "/user/movie/updateMovieLike")
+    public Map<String, Object> updateMovieLike(@RequestParam("mo_no") int mo_no, HttpSession session, MovieLikeDto ml) {
+        Map<String, Object> map = new HashMap<>();
+        logger.info("영화 좋아요 업데이트");
+
+        // 세션에서 로그인 상태 확인
+        Boolean isLogin = (Boolean) session.getAttribute("isLogin");
+        if (isLogin == null || !isLogin) {
+            logger.warn("User is not logged in.");
+            return map; // 로그인하지 않은 경우 빈 맵 반환
+        }
+
+        MemberDto member = (MemberDto) session.getAttribute("member");
+        logger.info("Member id : " + member.getMem_id());
+        logger.info("Movie No : " + mo_no);
+
+        ml.setMem_id(member.getMem_id());
+        ml.setMo_no(mo_no);
+
+        service.updateMovieLike(ml);
+        map.put("location", "/user/movie/detailMovie?mo_no=" + ml.getMo_no());
+
+
+        return map;
     }
 
 }

@@ -14,5 +14,11 @@ public interface MovieService {
 	
 	List<CategoryDto> allCategory();
 
-	MovieLikeDto insertOrUpdateMovieLike(MovieLikeDto ml);
+	boolean checkMovieLike(MovieLikeDto ml);
+
+	int insertMovieLike(MovieLikeDto ml);
+
+	int updateMovieLike(MovieLikeDto ml);
+
+	MovieLikeDto MovieLikeStatus(MovieLikeDto ml);
 }
