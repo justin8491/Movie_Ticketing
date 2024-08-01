@@ -168,9 +168,8 @@
                   <c:forEach var="item" items="${reviewList}">
                     <div class="review-item" id="review-${item.rev_no}">
                       <!-- 사용자 아이디 주석 -->
-                      <!-- <span>${item.mem_id}</span> -->
                       <!-- 영화 제목 표시 할 방법 찾기 -->
-                      <span>${item.mo_name}</span>
+                      <a href="${contextPath}/user/movie/detailMovie?mo_no=${item.mo_no}">${item.mo_name}</a>
                       <span class="review-content" id="review-content-${review.rev_no}"
                         >${item.rev_content}</span
                       >

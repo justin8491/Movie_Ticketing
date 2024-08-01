@@ -7,7 +7,7 @@
     <!-- 모든 리뷰 조회 -->
 
     <select id="findReview" resultType="com.box.small.user.review.ReviewMNDto" parameterType="com.box.small.user.member.MemberDto">
-        SELECT m.mo_name, r.mem_id ,r.rev_no, r.rev_content, r.rev_rating, r.rev_createdAt
+        SELECT m.mo_no, m.mo_name, r.mem_id ,r.rev_no, r.rev_content, r.rev_rating, r.rev_createdAt
         FROM Review r
         JOIN Movie m ON r.mo_no = m.mo_no
         WHERE r.mem_id = '${mem_id}';

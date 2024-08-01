@@ -25,3 +25,34 @@
 .starUpdate.selectedUpdate {
     color: gold; /* 선택된 별 색상 */
 }
+
+#reviewForm {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#reviewForm > div:first-child{
+    display: flex;
+    width: 82%;
+}
+
+#reviewForm h3 {
+    align-content: center;
+    margin-right: 1rem;
+    margin-left: 1rem;
+}
+
+#reviewForm > div:last-child{
+    display: flex;
+    width: 18%;
+}
+
+#rev_content {
+    width: calc(100% - 70px);
+}
+
+.review-item-box{
+    width: 1080px;
+    margin: 0 auto;
+}

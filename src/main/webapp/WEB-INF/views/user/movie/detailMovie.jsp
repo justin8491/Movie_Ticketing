@@ -67,33 +67,37 @@
                                 </ul>
                             </div>
                     </div> <!-- row -->
+                    <h2 style="font-size: 2rem;">리뷰</h2>
+                    <hr>
                     <!-- 이쪽에 줄거리 써놓으면 좋을것 같음 -->
+                    <c:if test="${member != null && isLogin == true}">
+                        <!-- <div class="entry-content"> -->
+                            <!-- 리뷰 작성 -->
 
-                    <div class="entry-content">
-                        <!-- 리뷰 작성 -->
-                        <h2 style="font-size: 2rem;">리뷰</h2>
-                        <hr>
-                        <form id="reviewForm">
-                            <div>
-                                <h3>${member.mem_id}</h3>
-                                <input type="hidden" id="mem_id" name="mem_id" value="${member.mem_id}" />
-                                <input type="hidden" id="mo_no" name="mo_no" value="${movie.mo_no}" />
-                                <textarea id="rev_content" name="rev_content"></textarea>
-                            </div>
-                            <!-- 별점 추가 -->
-                            <div>
-                                <div id="star-rating">
-                                    <span class="star" data-value="1">&#9733;</span>
-                                    <span class="star" data-value="2">&#9733;</span>
-                                    <span class="star" data-value="3">&#9733;</span>
-                                    <span class="star" data-value="4">&#9733;</span>
-                                    <span class="star" data-value="5">&#9733;</span>
+
+                            <form id="reviewForm">
+                                <div>
+                                    <h3>${member.mem_id}</h3>
+                                    <input type="hidden" id="mem_id" name="mem_id" value="${member.mem_id}" />
+                                    <input type="hidden" id="mo_no" name="mo_no" value="${movie.mo_no}" />
+                                    <textarea id="rev_content" name="rev_content"></textarea>
                                 </div>
-                                <input type="hidden" id="reviewRating" name="rev_rating" value="0" />
-                                <input type="submit" value="작성">
-                           </div>
-                        </form>
-                        <hr>
+                                <!-- 별점 추가 -->
+                                <div>
+                                    <div id="star-rating">
+                                        <span class="star" data-value="1">&#9733;</span>
+                                        <span class="star" data-value="2">&#9733;</span>
+                                        <span class="star" data-value="3">&#9733;</span>
+                                        <span class="star" data-value="4">&#9733;</span>
+                                        <span class="star" data-value="5">&#9733;</span>
+                                    </div>
+                                    <input type="hidden" id="reviewRating" name="rev_rating" value="0" />
+                                    <input type="submit" value="작성">
+                                </div>
+                            </form>
+                            <hr>
+                    </c:if>
+
 
                         <!-- 리뷰 확인 -->
                         <c:forEach var="item" items="${reviewList}">
@@ -127,7 +131,8 @@
                                     </form>
                                     </div>
                                     <br>
-                               </div>
+
+                            </div>
                         </c:forEach>
                       </div><!-- 엔트리콘텐츠 -->
                     </div><!-- .content -->
