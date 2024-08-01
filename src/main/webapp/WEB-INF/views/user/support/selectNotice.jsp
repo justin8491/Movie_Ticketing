@@ -12,28 +12,28 @@
  <header id="header">
         <%@ include file = "/resources/include/header_beta.jsp"%>
    </header>
-	<!-- //메인 콘텐츠-->
-	<section class="content">
+   <!-- //메인 콘텐츠-->
+   <section class="content">
       <div class="container">
         <div class="row">
-	<table class="table table-hover">
-				<tr>
-					<th>번호</th><th>제목</th><th>작성자ID</th><th>생성일</th>
-				</tr>
-			
-				<tr>
-					<td>${noticelist.bo_no}</td>
-					<td>${noticelist.bo_title}</td>
-					<td>${noticelist.bo_writerId}</td>
-					<td>${noticelist.bo_createAt}</td>
-				</tr>
-				<tr>
-				<th>내용:</th>
-					<td colspan = "4">${noticelist.bo_content}</td>
-				</tr>
-			
-			</table>
-			</section>
+        <div class="mb-3">
+                <h5 class="card-title text-center" style="font-size: 2.5rem;">공지사항 <span class="text-muted fw-normal ms-2"></span></h5>
+            </div>
+   <table class="table table-hover">
+            <tr>
+               <th>번호</th><th>제목</th><th>작성자ID</th><th>생성일</th>
+               <td>${noticelist.bo_no}</td>
+               <td>${noticelist.bo_title}</td>
+               <td>${noticelist.bo_writerId}</td>
+               <td>${noticelist.bo_createAt}</td>
+            </tr>
+            <tr>
+            <th>내용:</th>
+               <td colspan = "4">${noticelist.bo_content}</td>
+            </tr>
+         
+         </table>
+         </section>
     <!-- //footer -->
     <footer>
         <%@ include file = "/resources/include/footer_beta.jsp"%>

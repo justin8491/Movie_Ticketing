@@ -13,16 +13,17 @@
         <%@ include file = "/resources/include/header_beta.jsp"%>
    </header>
     <!-- //메인 콘텐츠-->
+    <!--  -->
     <section class="content">
       <div class="container mt-5">
-                <h2>회원정보 상세보기</h2>
+                <h2>회원정보 상세보기🧑‍💼</h2>
                 <div class="memberInfo border">
                   <form class="float_form row">
                     <div class="form-group row float">
                       <div class="box">
-                        <label for="mem_id" class="col-sm-2 col-form-label"
-                          >아이디</label
-                        >
+                        <label for="mem_id" class="col-sm-2 col-form-label ">
+                            아이디
+                        </label>
                         <div class="col-sm-10">
                           <input
                             type="text"
@@ -157,12 +158,12 @@
                 </div>
               </div>
               <div class="container mt-5">
-                <h2>예약 내역</h2>
+                <h2>예약 내역🎬</h2>
                 <div class="reservationInfo border heihgt"></div>
               </div>
               <div class="container diviContainer">
                 <div class="container rem_1">
-                  <h2>나의 리뷰</h2>
+                  <h2>나의 리뷰💬</h2>
                   <div class="reviewInfo border heihgt">
                   <c:forEach var="item" items="${reviewList}">
                     <div class="review-item" id="review-${item.rev_no}">
@@ -188,8 +189,18 @@
                   </div>
                 </div>
                 <div class="container rem_2">
-                  <h2>나의 글</h2>
-                  <div class="boardInfo border heihgt"></div>
+                  <h2>나의 글🖋️</h2>
+                  <div class="boardInfo border heihgt">
+                  <c:forEach var="inquiry" items="${myBoard}">
+               <c:if test="${member.mem_id == inquiry.bo_writerId}">
+                     <tr><a href="support/myBoard">
+                     <td>${inquiry.bo_no}</td>
+                     <td>${inquiry.bo_title}</td>
+                     <td>${inquiry.bo_createAt}</td></a>
+                  </tr><br>
+               </c:if>
+            </c:forEach>
+            </div>
                 </div>
               </div>
     </section>
