@@ -88,9 +88,9 @@ public class SupportDAOImpl implements SupportDAO{
    }
 
    @Override
-   public List<SupportDto> myBoard() {
+   public List<SupportDto> myBoard(String bo_writerId) {
       // TODO Auto-generated method stub
-      return sqlSession.selectList(nameSpace+".myBoard");
+      return sqlSession.selectList(nameSpace+".myBoard" , bo_writerId);
    }
 
    @Override

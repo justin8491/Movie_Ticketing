@@ -44,5 +44,5 @@ public interface SupportDAO {
    int freeBoardDelete(SupportDto sp);
    
 //   내가 쓴 글 조회
-   List<SupportDto> myBoard();
+   List<SupportDto> myBoard(String bo_writerId);
 }

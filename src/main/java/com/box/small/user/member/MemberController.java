@@ -2,6 +2,8 @@ package com.box.small.user.member;
 
 
 import com.box.small.user.review.ReviewService;
+import com.box.small.user.support.SupportService;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +29,8 @@ public class MemberController {
     @Autowired
     ReviewService reviewService;
 
-
+    @Autowired
+    SupportService supportService;
 
     @GetMapping(value = "loginForm")
     public ModelAndView loginForm() {
@@ -100,6 +103,7 @@ public class MemberController {
         logger.info("회원상세 폼");
         mav.addObject("reviewList", reviewService.findReview(member));
         mav.addObject("member", memberService.detailMember(member));
+        mav.addObject("myBoard", supportService.myBoard(member.getMem_id()));
         mav.setViewName("user/member/detailMember");
         return mav;
     }

@@ -84,9 +84,9 @@ public class SupportServiceImpl implements SupportService{
    }
 
    @Override
-   public List<SupportDto> myBoard() {
+   public List<SupportDto> myBoard(String bo_writerId) {
       // TODO Auto-generated method stub
-      return dao.myBoard();
+      return dao.myBoard(bo_writerId);
    }
 
    @Override
