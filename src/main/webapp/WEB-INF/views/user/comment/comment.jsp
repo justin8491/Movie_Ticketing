@@ -1,13 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-</head>
-<body>
 <div class="container">
     <form id="commentAdd" name="commentAdd" method="post">
     <br><br>
@@ -56,13 +46,7 @@
         <input type="hidden" id="mem_id" name="mem_id" value="${member.mem_id}" />
         <input type="hidden" id="bo_no" name="bo_no" value="${freeBoard.bo_no}" />        
     </form>
-</div>
-<div class="container">
-    <form id="commentList" name="commentList" method="get">
-        <div id="commentList">
-        </div>
-    </form>
-</div>            
+</div>          
 
     		<br>
                   <c:forEach var="item" items="${commentList}">
@@ -145,6 +129,3 @@
                 };
                
                </script>
-               
-</body>
-</html>
