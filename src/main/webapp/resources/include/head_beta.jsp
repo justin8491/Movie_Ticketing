@@ -23,14 +23,12 @@
 	<!-- Bootstrap CSS -->
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
 
+	<!-- Loading main css file -->
+    <link rel="stylesheet" href="${path}/detailMovie/style.css">
 
-	
-	
     <!-- css -->
     <link rel="stylesheet" href="${path}/assets/css/reset02.css" />
     <link rel="stylesheet" href="${path}/assets/css/style02.css" />
-
-
 
     <!-- 페이스북 메타 태그 -->
     <meta property="og:title" content="메가박스 사이트 만들기" />
@@ -44,6 +42,7 @@
     />
     <meta
       property="og:description"
+      content="메가박스 사이트 따라하면서 배우는 튜토리얼입니다."
     />
 
     <!-- 트위터 메타 태그 -->
@@ -68,9 +67,6 @@
       rel="stylesheet"
     />
 
-    <!-- Loading main css file -->
-    <link rel="stylesheet" href="${path}/detailMovie/style.css">
-
     <!-- HTLM5shiv ie6~8 -->
     <!--[if lt IE 9]>
       <script src="${path}/assets/js/html5shiv.min.js"></script>
@@ -80,10 +76,14 @@
         );
       </script>
     <![endif]-->
-    
 
+    <!-- 영화 템플릿 -->
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
+		<!-- Loading third party fonts -->
+		<link href="http://fonts.googleapis.com/css?family=Roboto:300,400,700|" rel="stylesheet" type="text/css">
+		<link href="${path}/detailMovie/fonts/font-awesome.min.css" rel="stylesheet" type="text/css">
 
-		<!--[if lt IE 9]>
+		<!—[if lt IE 9]>
 		<script src="js/ie-support/html5.js"></script>
 		<script src="js/ie-support/respond.js"></script>
-		<![endif]-->
+		<![endif]—>
