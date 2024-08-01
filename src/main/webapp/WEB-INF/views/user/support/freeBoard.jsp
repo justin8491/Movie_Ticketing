@@ -18,6 +18,7 @@
         <div class="row">
         <div class="mb-3">
                 <h5 class="card-title text-center" style="font-size: 2.5rem;">자유게시판 <span class="text-muted fw-normal ms-2"></span></h5>
+                <a href = "/user/support/freeBoardWrite" style = "font-size : 1.5rem; text-align: right;" >작성</a>
             <table class="table table-hover">
             <tr>
                <th class="text-number">번호</th><th class="text-center">제목</th><th class="text-end">작성자ID</th><th class="text-end">생성일</th>

@@ -322,3 +322,14 @@ footer {
 .reviewInfo {
     margin-bottom: 10rem;
 }
+.text-end{
+   text-align: center !important;
+   width: 150px;
+}
+.text-number{
+   text-align: center !important;
+   width: 50px;
+}
+.text-center{
+   text-align: center !important
+}
