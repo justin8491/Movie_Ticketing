@@ -19,17 +19,18 @@
       content="메가박스, 유투브, 영화, 최신영화, 영화관, CGV, 롯데시네마, 웹스토리보이, 웹스, 사이트 만들기, 따라하기"
     />
     <title>SmallBox</title>
-    
+
 	<!-- Bootstrap CSS -->
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
 
-	<!-- Loading main css file -->
-    <link rel="stylesheet" href="${path}/detailMovie/style.css">
+
 	
 	
     <!-- css -->
     <link rel="stylesheet" href="${path}/assets/css/reset02.css" />
     <link rel="stylesheet" href="${path}/assets/css/style02.css" />
+
+
 
     <!-- 페이스북 메타 태그 -->
     <meta property="og:title" content="메가박스 사이트 만들기" />
@@ -66,6 +67,9 @@
       href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700,900&amp;subset=korean"
       rel="stylesheet"
     />
+
+    <!-- Loading main css file -->
+    <link rel="stylesheet" href="${path}/detailMovie/style.css">
 
     <!-- HTLM5shiv ie6~8 -->
     <!--[if lt IE 9]>
