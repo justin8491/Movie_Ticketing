@@ -64,7 +64,7 @@
     </form>
 </div>            
 
-    <br>
+    		<br>
                   <c:forEach var="item" items="${commentList}">
                             <div class="comment-item" id="comment-${item.com_no}">
                                 <span>${item.mem_id}</span>
@@ -82,7 +82,6 @@
                                 </form>
                                 </div>
                                 <br>
-                            </div>
                         </c:forEach>
                
                <script type="text/javascript">

@@ -28,6 +28,12 @@ public class ReviewMNDto {
 	public void setMo_name(String mo_name) {
 		this.mo_name = mo_name;
 	}
+	public int getMo_no() {
+		return mo_no;
+	}
+	public void setMo_no(int mo_no) {
+		this.mo_no = mo_no;
+	}
 	public String getMem_id() {
 		return mem_id;
 	}
@@ -58,27 +64,28 @@ public class ReviewMNDto {
 	public void setRev_createdAt(Timestamp rev_createdAt) {
 		this.rev_createdAt = rev_createdAt;
 	}
-	public ReviewMNDto(String mo_name, String mem_id, int rev_no, String rev_content, int rev_rating,
+	public ReviewMNDto() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public ReviewMNDto(String mo_name, int mo_no, String mem_id, int rev_no, String rev_content, int rev_rating,
 			Timestamp rev_createdAt) {
 		super();
 		this.mo_name = mo_name;
+		this.mo_no = mo_no;
 		this.mem_id = mem_id;
 		this.rev_no = rev_no;
 		this.rev_content = rev_content;
 		this.rev_rating = rev_rating;
 		this.rev_createdAt = rev_createdAt;
 	}
-	public ReviewMNDto() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
 	@Override
 	public String toString() {
-		return "ReviewMNDto [mo_name=" + mo_name + ", mem_id=" + mem_id + ", rev_no=" + rev_no + ", rev_content="
-				+ rev_content + ", rev_rating=" + rev_rating + ", rev_createdAt=" + rev_createdAt + "]";
+		return "ReviewMNDto [mo_name=" + mo_name + ", mo_no=" + mo_no + ", mem_id=" + mem_id + ", rev_no=" + rev_no
+				+ ", rev_content=" + rev_content + ", rev_rating=" + rev_rating + ", rev_createdAt=" + rev_createdAt
+				+ "]";
 	}
 
-    // 생성자, 게터, 세터
     
-    
+	
 }

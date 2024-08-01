@@ -22,7 +22,6 @@
                 <li><a href="${contextPath}/user/theater/theaterList">영화관</a></li>
                 <li><a href="${contextPath}/user/schedule/scheduleList">상영스케줄</a></li>
                 <li><a href="#">예매하기</a></li>
-                <li><a href="${contextPath}/user/support/support">고객센터</a></li>
                 <c:if test="${member != null && isLogin == true}">
                   <li>
                     <a href="${contextPath}/user/detailMember"
