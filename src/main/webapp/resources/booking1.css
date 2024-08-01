@@ -159,3 +159,53 @@ h2.tit{padding:0 0 15px 0;font-size:1.8666em;font-weight:400;letter-spacing:-1px
 .movie-grade.small.만15세이상관람가{background-image:url(https://img.megabox.co.kr/static/pc/images/common/txt/txt-age-small-15.png)}
 .movie-grade.small.만19세이상관람가{background-image:url(https://img.megabox.co.kr/static/pc/images/common/txt/txt-age-small-19.png)}
 
+
+
+
+
+
+
+.reserve-title {
+    border-bottom: 1px solid #dddddd;
+    background-color: #444444;
+    text-align: center;
+    color: #dddddd;
+    padding: 5px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.reserve-date {
+    padding-top: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 430px;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+/*
+.saturday {
+    color: #31597E;
+    font-weight: bold;
+}
+
+.sunday {
+    color: #AF2D2D;
+    font-weight: bold;
+}
+.movie-date-wrapper-active>* {
+    color: white;
+  
+}
+*/
+
+.movie-date-wrapper-active.movie-date-wrapper-active {
+   background-color:balck;
+    color: red;
+    font-weight: bold;
+    
+}
+
+
+

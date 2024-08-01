@@ -3,4 +3,30 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.box.small.reservationMapper">
+
+<select id="insertReservation" resultType="com.box.small.user.reservation.ReservationDto">
+  INSERT INTO reservation (mem_id, sch_no, ts_no, mo_no, pay_no, res_status)
+    <foreach collection="ts_list" item="ts_no" index="index" open="VALUES " separator=", " close="">
+        (#{mem_id}, #{sch_no}, #{ts_no}, #{mo_no}, #{pay_no}, '01')
+    </foreach>
+</select>
+
+
+<!-- 예매 리스트 출력 -->
+<select id="reservationList" resultType="com.box.small.user.reservation.ReservationDto">
+select * from Reservation
+where mem_id = #{mem_id} and res_status = 1
+</select>
+
+<!-- 예매 취소 -->
+<select id="cancelReservation">
+	update reservation set res_status = 0 
+	where res_no = #{res_no};
+</select>
+
+<!-- 정보조회 -->
+<select id="selectReservation" resultType="com.box.small.user.reservation.ReservationDto">
+select* from Reservation
+where res_no = #{res_no};
+</select>
 </mapper>

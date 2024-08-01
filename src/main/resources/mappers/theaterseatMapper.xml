@@ -3,4 +3,35 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.box.small.theaterseatMapper">
+
+
+<select id="theaterseatList" resultType="com.box.small.user.theaterseat.TheaterseatDto">
+select * from theaterseat 
+where sc_no = #{sc_no};
+</select>
+
+<select id="selectSeat" resultType="com.box.small.user.theaterseat.TheaterseatDto">
+select * from theaterseat 
+where ts_no = #{ts_no};
+</select>
+
+<select id="seatListAll" resultType="com.box.small.user.theaterseat.TheaterseatDto" >
+select * from theaterseat 
+</select>
+
+<update id="reservationSeat">
+   UPDATE theaterseat
+   SET ts_reservationStatus = 1
+   WHERE ts_no IN
+   <foreach item="id" collection="ts_list" open="(" separator="," close=")">
+       #{id}
+   </foreach>
+   AND sc_no = #{sc_no}
+</update>
+
+<select id="cancelSeat" >
+	update theaterseat
+   SET ts_reservationStatus = 0
+   where ts_no = #{ts_no}
+</select>
 </mapper>
