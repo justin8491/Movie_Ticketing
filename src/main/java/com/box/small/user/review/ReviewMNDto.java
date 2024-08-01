@@ -16,6 +16,7 @@ import java.sql.Timestamp;
 public class ReviewMNDto {
 
     private String mo_name;
+    private int mo_no;
     private String mem_id;
     private int rev_no;
     private String rev_content;
