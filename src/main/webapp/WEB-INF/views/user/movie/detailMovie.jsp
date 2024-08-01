@@ -6,13 +6,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <%@ include file="/resources/include/head_beta.jsp"%>
     <link rel="stylesheet" href="/resources/assets/css/detailMovie.css" />
-        <!-- 영화 템플릿 -->
-    	<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
-		<!-- Loading third party fonts -->
-		<link href="http://fonts.googleapis.com/css?family=Roboto:300,400,700|" rel="stylesheet" type="text/css">
-		<link href="${path}/detailMovie/fonts/font-awesome.min.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <header id="header">
