@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.box.small.mappers.adminMapper">
+    <select id="login" parameterType="com.box.small.admin.admin.AdminDto" resultType="com.box.small.admin.admin.AdminDto">
+        select * from admin
+        where a_id = #{a_id} and a_password = #{a_password}
+    </select>
+
+    <select id="selectAllMember" resultType="com.box.small.user.member.MemberDto">
+        select * from member
+    </select>
+</mapper>

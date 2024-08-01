@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.box.small.theaterMapper">
+
+	<!-- 영화관 전체 조회 -->
+	<select id="selectAllTheater" resultType = "com.box.small.user.theater.TheaterDto">
+		select * from theater
+	</select>
+
+	<!-- 영화관 선택 조회 -->
+	<select id="selectTheater" resultType = "com.box.small.user.theater.TheaterDto">
+		select * from theater where th_no = #{th_no}
+	</select>
+	
+	<!-- 상영중인 영화관 전체 조회 -->
+	<select id="selectAllTheaterLive" resultType = "com.box.small.user.theater.TheaterDto">
+		select * from theater where th_status = 1
+	</select>
+	
+</mapper>

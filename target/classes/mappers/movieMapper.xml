@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	<mapper namespace="com.box.small.movieMapper">
+	
+	<!-- 영화 전체 조회 -->
+	<select id="selectAllMovie"	resultType = "com.box.small.user.movie.MovieDto">	
+		select * from movie
+	</select>
+	
+	<!-- 상영중인 영화 전체 조회 -->
+	<select id="selectAllMovieLive"	resultType = "com.box.small.user.movie.MovieDto">	
+		select * from movie where mo_status=1
+	</select>
+	
+	<!-- 상영예정인 영화 전체 조회 -->
+	<select id="selectAllMovieFuture"	resultType = "com.box.small.user.movie.MovieDto">	
+		select * from movie where mo_status=2
+	</select>
+	
+	<!-- 영화 선택 조회 -->
+	<select id="selectMovie" resultType = "com.box.small.user.movie.MovieDto">
+		select * from movie where mo_no = #{mo_no} 
+	</select>
+	
+	<!-- 영화 선택 조회해서 나온 카테고리 넘버로 카테고리 조회 -->
+	<select id="selectCategory" resultType="String">
+		select cat_name from category where cat_no = #{cat_no}
+	</select>
+	
+	<!-- 영화 카테고리 전체조회 -->
+	<select id="selectAllCategory" resultType = "com.box.small.user.movie.CategoryDto">
+		select * from category where cat_no>4;
+	</select>
+	
+	<!-- 카테고리로 영화조회 -->
+	<select id="selectMovieCategory" resultType = "com.box.small.user.movie.MovieDto">
+		select*from movie where cat_no = #{cat_no} and mo_status=1
+	</select>
+	
+
+	<!-- 영화 좋아요 확인 -->
+	<select id="checkMovieLike" parameterType="com.box.small.user.movie.MovieLikeDto" resultType="boolean">
+		select count(*) > 0
+		from MovieLike
+		where mem_id = #{mem_id} and mo_no = #{mo_no}
+	</select>
+	<!-- 좋아요 등록 쿼리 -->
+	<insert id="insertMovieLike" parameterType="com.box.small.user.movie.MovieLikeDto">
+		insert into MovieLike(mo_no, mem_id, ml_status)
+		value(#{mo_no}, #{mem_id}, #{ml_status})
+	</insert>
+
+	<!-- 좋아요 상태 변경 쿼리 -->
+	<update id="updateMovieLike" parameterType="com.box.small.user.movie.MovieLikeDto">
+		UPDATE MovieLike
+		SET ml_status = CASE
+		WHEN ml_status = 1 THEN 0
+		WHEN ml_status = 0 THEN 1
+		END
+		WHERE mem_id = #{mem_id} and mo_no = #{mo_no}
+	</update>
+
+	<!-- 영화 좋아요 상태 확인 -->
+	<select id="MovieLikeStatus" parameterType="com.box.small.user.movie.MovieLikeDto" resultType="com.box.small.user.movie.MovieLikeDto">
+		select *
+		from MovieLike
+		where mem_id = #{mem_id} and mo_no = #{mo_no}
+	</select>
+</mapper>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.box.small.mappers.reviewMapper">
+
+    <!-- 모든 리뷰 조회 -->
+
+    <select id="findReview" resultType="com.box.small.user.review.ReviewMNDto" parameterType="com.box.small.user.member.MemberDto">
+        SELECT m.mo_name, r.mem_id ,r.rev_no, r.rev_content, r.rev_rating, r.rev_createdAt
+        FROM Review r
+        JOIN Movie m ON r.mo_no = m.mo_no
+        WHERE r.mem_id = '${mem_id}';
+    </select>
+
+    <select id="reviewAll" resultType="com.box.small.user.review.ReviewDto" parameterType="com.box.small.user.movie.MovieDto">
+        SELECT * FROM review where mo_no = ${mo_no} and rev_status = 1
+    </select>
+
+    <!-- 리뷰 추가 -->
+    <insert id="createReview" parameterType="com.box.small.user.review.ReviewDto">
+        INSERT INTO review (rev_content, rev_rating, rev_status, mo_no, mem_id)
+        VALUES (#{rev_content}, #{rev_rating}, 1, #{mo_no}, #{mem_id})
+    </insert>
+
+    <!-- 리뷰 수정 -->
+    <update id="updateReview" parameterType="com.box.small.user.review.ReviewDto">
+        UPDATE review
+        SET rev_content = #{rev_content},
+        rev_rating = #{rev_rating}
+        WHERE rev_no = #{rev_no}
+    </update>
+
+    <!-- 리뷰 삭제 -->
+    <delete id="deleteReview" parameterType="int">
+        UPDATE review
+        SET rev_status = 0
+        WHERE rev_no = #{rev_no}
+    </delete>
+</mapper>

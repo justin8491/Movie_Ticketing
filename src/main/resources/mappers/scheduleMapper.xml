@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.box.small.scheduleMapper">
+	
+	<!-- 영화관 번호로 상영관조회 -->
+	<select id="selectScreenTh_no" resultType = "com.box.small.user.schedule.ScreenDto">
+		select * from screen where th_no = #{th_no}
+	</select>
+	
+	<!-- 상영관번호로 상영관 조회 -->
+	<select id="selectScreen" resultType = "com.box.small.user.schedule.ScreenDto">
+		select * from screen where sc_no = #{sc_no}
+	</select>
+	
+	<!-- 영화관조회 -->
+	<select id="selectTheater" resultType = "com.box.small.user.theater.TheaterDto">
+		select*from theater where th_no = #{th_no}
+	</select>
+	
+	<!-- 상영관 전체 조회 -->
+	<select id="selectAllScreen" resultType = "com.box.small.user.schedule.ScreenDto">
+		select * from screen
+	</select>
+	
+	<!-- 영화관조회 -->
+	<select id="selectAllTheater" resultType = "com.box.small.user.theater.TheaterDto">
+		select*from theater
+	</select>
+	
+	<!-- 영화, 상영관, 날짜로 일정조회 -->
+	<select id="selectScreenSchedule" resultType = "com.box.small.user.schedule.ScheduleDto">
+		select * from schedule where sc_no = #{sc_no} and sch_date = #{sch_date} and mo_no = #{mo_no}
+	</select>
+	
+	<!-- 영화일정전체 조회 -->
+	<select id="selectAllSchedule" resultType = "com.box.small.user.schedule.ScheduleDto">
+		select * from schedule
+	</select>
+	
+	<!-- 영화일정 선택 조회 -->
+	<select id="selectSchedule" resultType = "com.box.small.user.schedule.ScheduleDto">
+		select * from schedule where sch_no = #{sch_no}
+	</select>
+	
+	<!-- 영화별 영화일정 조회-->
+	<select id="selectScheduleMovie" resultType = "com.box.small.user.schedule.ScheduleDto">
+		select * from schedule where mo_no = #{mo_no}
+	</select>
+	
+	<!-- 날짜별 영화일정 조회-->
+	<select id="selectScheduleDay" resultType = "com.box.small.user.schedule.ScheduleDto">
+		select * from schedule where sch_date = #{sch_date}
+	</select>
+	
+	<!-- 시간으로 영화일정 조회 -->
+	<select id="selectScheduleTime" resultType = "com.box.small.user.schedule.ScheduleDto">
+		select * from schedule where sch_startTime = #{sch_startTime}
+	</select>
+	
+</mapper>
