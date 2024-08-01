@@ -167,7 +167,14 @@
                                           </h3>
                                           <div class="infor_btn">
                                              <a href="${contextPath}/user/movie/detailMovie?mo_no=${movie.mo_no}">상세정보</a>
-                                             <a href="#">예매하기</a>
+                                            	<c:choose>
+								                <c:when test="${member == null}">
+								            		<a href="${contextPath}/user/loginForm">예매하기</a>
+								                </c:when>
+								                <c:otherwise>
+								              		<a href="${contextPath}/user/reservation/reservation">예매하기</a>
+								                </c:otherwise>
+							                </c:choose>
                                           </div>
                                        </div>
                                     </div>

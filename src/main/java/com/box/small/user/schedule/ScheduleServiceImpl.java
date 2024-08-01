@@ -15,17 +15,17 @@ public class ScheduleServiceImpl implements ScheduleService{
 
 
 	@Override
-	public List<ScheduleDto> sellectAllSchedule() throws SQLException {
-		return dao.sellectAllSchedule();
+	public List<ScheduleDto> selectAllSchedule() throws SQLException {
+		return dao.selectAllSchedule();
 	}
 
 	@Override
-	public ScheduleDto sellectSchedule(int sch_no) throws SQLException {
-		return dao.sellectSchedule(sch_no);
+	public ScheduleDto selectSchedule(int sch_no) throws SQLException {
+		return dao.selectSchedule(sch_no);
 	}
 
 	@Override
-	public ScheduleDto selectScreenSchedule(Map<String, Object> map) {
+	public List<ScheduleDto> selectScreenSchedule(Map<String, Object> map) {
 		
 		return dao.selectScreenSchedule(map);
 	}
@@ -37,12 +37,12 @@ public class ScheduleServiceImpl implements ScheduleService{
 	}
 
 	@Override
-	public List<ScreenDto> sellectAllScreen() {
-		return dao.sellectAllScreen();
+	public List<ScreenDto> selectAllScreen() {
+		return dao.selectAllScreen();
 	}
 
 	@Override
-	public ScreenDto selectScreenTh_no(int th_no) {
+	public List<ScreenDto> selectScreenTh_no(int th_no) {
 		return dao.selectScreenTh_no(th_no);
 	}
 

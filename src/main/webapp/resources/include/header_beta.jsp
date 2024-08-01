@@ -21,7 +21,16 @@
                 <li><a href="${contextPath}/user/movie/movieList">영화</a></li>
                 <li><a href="${contextPath}/user/theater/theaterList">영화관</a></li>
                 <li><a href="${contextPath}/user/schedule/scheduleList">상영스케줄</a></li>
-                <li><a href="#">예매하기</a></li>
+                <li>
+	               	<c:choose>
+		                <c:when test="${member == null}">
+		            		<a href="${contextPath}/user/loginForm">예매하기</a>
+		                </c:when>
+		                <c:otherwise>
+		              		<a href="${contextPath}/user/reservation/reservation">예매하기</a>
+		                </c:otherwise>
+	                </c:choose>
+                </li>
                 <c:if test="${member != null && isLogin == true}">
                   <li>
                     <a href="${contextPath}/user/detailMember"

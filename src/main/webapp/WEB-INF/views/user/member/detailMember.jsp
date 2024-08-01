@@ -7,23 +7,50 @@
 <html lang="ko">
   <head>
         <%@ include file = "/resources/include/head_beta.jsp"%>
+<script type="text/javascript"> 
+  function cancel(res_no,pay_no) {
+	var url ="/test"
+	var params ={
+			"res_no" : res_no,
+			"pay_no" : pay_no
+	};
+	
+	$.ajax({
+	  	type: "POST",
+	    url: url,
+	    data: JSON.stringify(params),
+	    contentType: "application/json",
+	    dataType: "json",
+	    success: function(result) {
+                window.alert('예약이 취소되었습니다.');
+                location.reload();
+        },         
+        error: function() {
+                window.alert('취소에 실패했습니다.');
+        }
+});
+	
+}
+</script>
+  
+  
+  
   </head>
   <body>
    <header id="header">
         <%@ include file = "/resources/include/header_beta.jsp"%>
    </header>
     <!-- //메인 콘텐츠-->
-    <!--  -->
     <section class="content">
       <div class="container mt-5">
-                <h2>회원정보 상세보기🧑‍💼</h2>
+                <h2>회원정보 상세보기</h2>
                 <div class="memberInfo border">
                   <form class="float_form row">
                     <div class="form-group row float">
                       <div class="box">
-                        <label for="mem_id" class="col-sm-2 col-form-label ">
-                            아이디
-                        </label>
+                        <label for="mem_id" class="col-sm-2 col-form-label"
+                          >아이디</label
+                        >
                         <div class="col-sm-10">
                           <input
                             type="text"
@@ -158,18 +185,65 @@
                 </div>
               </div>
               <div class="container mt-5">
-                <h2>예약 내역🎬</h2>
-                <div class="reservationInfo border heihgt"></div>
+                <h2>예약 내역</h2>
+                <div class="reservationInfo border heihgt">
+	                <table>
+						<tr>
+							<th>예매번호</th>
+							<th>영화제목</th>
+							<th>상영일자</th>
+							<th>영화관</th>
+							<th>상영관</th>
+							<th>좌석</th>
+							<th>예매취소</th>
+							</tr>
+						<c:forEach var = "reservation" items = "${dataList[0].reservationList}">
+							<tr>
+								<td>${reservation.res_no}</td>
+							
+								<c:forEach var ="movie" items = "${dataList[0].movieList}">			
+									<c:if test="${movie.mo_no == reservation.mo_no }">
+									<td>	${movie.mo_name}</td>
+									</c:if>
+								</c:forEach>
+								<c:forEach var="schedeule" items="${dataList[0].schedeuleList}">
+									<c:if test="${schedeule.sch_no == reservation.sch_no }">
+										<td>${schedeule.sch_startTime }</td>				
+										<c:forEach var="screen" items="${dataList[0].screenList }">
+											<c:if test="${screen.sc_no == schedeule.sc_no }">
+												<c:forEach var="theater" items="${dataList[0].theaterList }">
+													<c:if test="${theater.th_no == screen.th_no }">
+													<td>	${theater.th_name }</td>
+													</c:if>
+												</c:forEach>
+												<td>${screen.sc_name }</td>
+											</c:if>					
+										</c:forEach>
+									</c:if>
+								</c:forEach>
+								<c:forEach var="seat" items ="${ dataList[0].theaterseatList}">
+									<c:if test ="${reservation.ts_no == seat.ts_no }">
+										<td>${seat.ts_id}</td>	
+									</c:if>	
+								</c:forEach>
+								
+							
+								<td><button onclick="cancel(${reservation.res_no },${reservation.pay_no })">예매취소</button></td>		
+							</tr>		
+						</c:forEach>
+					</table>
+                </div>
               </div>
               <div class="container diviContainer">
                 <div class="container rem_1">
-                  <h2>나의 리뷰💬</h2>
+                  <h2>나의 리뷰</h2>
                   <div class="reviewInfo border heihgt">
                   <c:forEach var="item" items="${reviewList}">
                     <div class="review-item" id="review-${item.rev_no}">
                       <!-- 사용자 아이디 주석 -->
+                      <!-- <span>${item.mem_id}</span> -->
                       <!-- 영화 제목 표시 할 방법 찾기 -->
-                      <a href="${contextPath}/user/movie/detailMovie?mo_no=${item.mo_no}">${item.mo_name}</a>
+                      <span>${item.mo_name}</span>
                       <span class="review-content" id="review-content-${review.rev_no}"
                         >${item.rev_content}</span
                       >
@@ -188,18 +262,8 @@
                   </div>
                 </div>
                 <div class="container rem_2">
-                  <h2>나의 글🖋️</h2>
-                  <div class="boardInfo border heihgt">
-                  <c:forEach var="inquiry" items="${myBoard}">
-               <c:if test="${member.mem_id == inquiry.bo_writerId}">
-                     <tr><a href="support/myBoard">
-                     <td>${inquiry.bo_no}</td>
-                     <td>${inquiry.bo_title}</td>
-                     <td>${inquiry.bo_createAt}</td></a>
-                  </tr><br>
-               </c:if>
-            </c:forEach>
-            </div>
+                  <h2>나의 글</h2>
+                  <div class="boardInfo border heihgt"></div>
                 </div>
               </div>
     </section>

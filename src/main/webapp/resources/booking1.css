@@ -1,0 +1,211 @@
+@charset "UTF-8";
+
+
+.quick-reserve-area{border:1px solid #d8d9db;}
+.quick-reserve-area:after,.quick-reserve-area:before{content:'';display:block}
+.quick-reserve-area:after{clear:both}
+.quick-reserve-area p{margin:0;padding:0}
+.quick-reserve-area button{margin:0;padding:0;border:0;letter-spacing:-1px;background-color:transparent}
+
+h2.tit{padding:0 0 15px 0;font-size:1.8666em;font-weight:400;letter-spacing:-1px;line-height:1.1;color:#222}
+
+.quick-reserve-area .tit{overflow:hidden;display:block;width:100%;height:38px;margin:0;padding:0;color:#222;font-size:1.2em;line-height:38px}
+.quick-reserve-area .tit-area{overflow:hidden;height:38px}
+.quick-reserve-area .tit-area .tit{float:left;width:auto}
+.quick-reserve-area .tit-area .ico-theater-chk{display:block;float:right;margin-top:15px;font-size:0;line-height:0}
+.quick-reserve-area .tit-area .right{float:right;padding:10px 20px 0 0}
+
+.quick-reserve-area .list-area{position:relative;width:100%;margin:0;padding:40px 0 0 0}
+.quick-reserve-area .list-area .btn-tab{display:block;position:absolute;left:0;top:0;z-index:2;height:30px;font-size:.9333em;color:#222;border:1px solid #d9d8dd;border-bottom:1px solid #666;background-color:#fff}
+.quick-reserve-area .list-area .btn-tab.on{border-color:#666;border-bottom:0}
+.quick-reserve-area .list-area .list{display:block;width:100%;height:320px;margin-top:10px}
+.quick-reserve-area .list-area .list .scroll{overflow:hidden;display:block;width:100%;height:100%}
+.quick-reserve-area .list-area .list .scroll ul li button{display:block;position:relative;width:100%;min-height:28px;padding:3px 30px 3px 30px;text-align:left;font-size:13px;background-color:transparent;letter-spacing:0}
+.quick-reserve-area .list-area .list .scroll ul li button span{display:inline-block;margin:0 2px 0 0;vertical-align:middle}
+.quick-reserve-area .list-area .list .scroll ul li button span.txt{display:inline}
+.quick-reserve-area .list-area .list .scroll ul li button span.movie-grade{position:absolute;left:5px;top:3px}
+.quick-reserve-area .list-area .list .scroll ul li button i{position:absolute;right:5px;top:10px;display:block;margin:0 2px 0 0}
+.quick-reserve-area .list-area .list .scroll ul li button.on{color:#fff;font-weight:400;background-color:#666}
+.quick-reserve-area .list-area .list .scroll ul li button.disabled{color:#666;opacity:.5;cursor:default}
+.quick-reserve-area .list-area .list .scroll ul li button.disabled.on{color:#fff}
+.quick-reserve-area .list-area .list .scroll ul li button[disabled]{color:#666;opacity:.5;cursor:default}
+.quick-reserve-area .list-area .list .scroll ul li button.on[disabled]{color:#fff}
+
+.quick-reserve-area .list-area .all-list .btn-tab{border-right:0}
+.quick-reserve-area .list-area .all-list .btn-tab.on{border-right:1px solid #555}
+
+.quick-reserve-area .list-area .other-list .btn-tab{border-left:0}
+.quick-reserve-area .list-area .other-list .btn-tab.on{border-left:1px solid #555}
+.quick-reserve-area .list-area .other-list .list{display:none}
+
+.quick-reserve-area .view-area{width:100%;padding:0}
+.quick-reserve-area .view-area .choice-all{overflow:hidden;width:100%;height:90px;margin:10px 0 0 0;padding:25px 0 0 0;font-size:.9333em;line-height:1.3;text-align:center;border:1px solid #ebebeb;background-color:#fff}
+.quick-reserve-area .view-area .choice-all .iconset{display:block;margin:0 auto}
+.quick-reserve-area .view-area .choice-all strong{display:block;padding:0;font-weight:400}
+.quick-reserve-area .view-area .choice-all span{display:block;padding:0}
+.quick-reserve-area .view-area .choice-list{overflow:hidden;margin:10px 0 0 0}
+.quick-reserve-area .view-area .choice-list .bg{overflow:hidden;float:left;width:63px;height:90px;background:url(https://img.megabox.co.kr/static/pc/images/reserve/bg-empty-cell.png) no-repeat center}
+.quick-reserve-area .view-area .choice-list .bg+.bg{margin-left:20px}
+.quick-reserve-area .view-area .choice-list .bg .wrap{position:relative;width:100%;height:100%}
+.quick-reserve-area .view-area .choice-list .bg .wrap .img{width:100%;height:100%;font-size:0;line-height:0}
+.quick-reserve-area .view-area .choice-list .bg .wrap .img img{width:100%;height:100%}
+.quick-reserve-area .view-area .choice-list .bg .wrap .del{display:block;position:absolute;right:0;top:0;z-index:2;width:20px;height:20px;font-size:0;line-height:0;background:url(https://img.megabox.co.kr/static/pc/images/reserve/btn-choice-dell.png) no-repeat 0 0}
+
+.quick-reserve-area .movie-choice{position:relative;float:left;width:270px;height:530px;padding:0 20px 17px 20px;border-right:1px solid #d8d9db}
+.quick-reserve-area .movie-choice .list-area .btn-tab{width:115px}
+.quick-reserve-area .movie-choice .list-area .other-list .btn-tab{left:115px}
+
+.quick-reserve-area .theater-choice{float:left;width:200px;height:530px;padding:0 20px 20px 20px;border-right:1px solid #d8d9db}
+.quick-reserve-area .theater-choice .list-area{position:relative}
+.quick-reserve-area .theater-choice .list-area .btn-tab{width:115px}
+.quick-reserve-area .theater-choice .list-area .other-list .btn-tab{left:155px}
+.quick-reserve-area .theater-choice .list .scroll ul{position:relative;height:100%}
+.quick-reserve-area .theater-choice .list .scroll ul li .btn{overflow:visible;position:relative;width:50%;padding:5px;}
+.quick-reserve-area .theater-choice .list .scroll ul li .btn:after{display:none}
+.quick-reserve-area .theater-choice .list .scroll ul li .btn.on{color:#444;background-color:#ebebeb}
+.quick-reserve-area .theater-choice .list .scroll ul li .btn.on:after{content:'';display:block;position:absolute;right:-6px;top:50%;z-index:2;width:6px;height:11px;margin:-6px 0 0 0;background:url(https://img.megabox.co.kr/static/pc/images/reserve/bg-arr-theater-choice.png) no-repeat 0 0}
+.quick-reserve-area .theater-choice .list .scroll ul li .btn.has-issue:before{content:'';display:block;position:absolute;left:3px;top:9px;z-index:2;width:5px;height:5px;margin:0;border-radius:2px;background-color:#329eb1}
+.quick-reserve-area .theater-choice .list .scroll ul li .depth{display:none;position:absolute;left:50%;top:0;width:50%;height:320px;padding:0}
+.quick-reserve-area .theater-choice .list .scroll ul li .depth.favorite{padding:0 0 140px 0}
+.quick-reserve-area .theater-choice .list .scroll ul li .depth.on{display:block}
+.quick-reserve-area .theater-choice .list .scroll ul li .depth .detail-list{width:100%;height:100%;margin:0}
+.quick-reserve-area .theater-choice .list .scroll ul li .depth .detail-list ul:after{display:none}
+.quick-reserve-area .theater-choice .list .scroll ul li .depth .detail-list ul li button{padding-left:13px;padding-right:0}
+.quick-reserve-area .theater-choice .list .scroll ul li .depth .detail-list ul li button.on{color:#fff;background-color:#666}
+.quick-reserve-area .theater-choice .list .scroll ul li .depth .detail-list ul li button i{margin:-2px 0 0 2px}
+.quick-reserve-area .theater-choice .list .scroll ul li .depth .no-favorite{width:100%;height:100%;padding:0;text-align:center;background-color:#fff}
+.quick-reserve-area .theater-choice .list .scroll ul li .depth .no-favorite .wrap{position:relative;height:100%;padding-top:95px;font-size:.9333em}
+.quick-reserve-area .theater-choice .list .scroll ul li .depth .no-favorite .txt{display:block;position:relative;margin:0 auto;padding:13px 0;letter-spacing:-1px}
+.quick-reserve-area .theater-choice .list .scroll ul li .depth .no-favorite .setting{display:block;text-align:center}
+.quick-reserve-area .theater-choice .list .scroll ul li .depth .no-favorite .setting a{display:inline-block;color:#037b94;text-align:center}
+.quick-reserve-area .theater-choice .list .scroll ul li .depth .no-favorite .setting a .iconset{display:inline-block;margin-left:4px}
+.quick-reserve-area .theater-choice .view-area .choice-all span{padding:0}
+.quick-reserve-area .theater-choice .ico-theater-renewal{position:absolute;left:3px;top:9px;z-index:2;width:5px;height:5px;margin:0;border-radius:2px;background-color:#503396;background-image:none}
+.quick-reserve-area .theater-choice .ico-theater-new{position:absolute;left:3px;top:9px;z-index:2;width:5px;height:5px;margin:0;border-radius:2px;background-color:#329eb1;background-image:none}
+.quick-reserve-area .theater-choice .ico-theater-open{position:absolute;left:3px;top:9px;z-index:2;width:5px;height:5px;margin:0;border-radius:2px;background-color:#e81002;background-image:none}
+.quick-reserve-area .theater-choice .view-area .choice-list{overflow:hidden;margin:0 0 0 -18px;padding:10px 0 0 0}
+.quick-reserve-area .theater-choice .view-area .choice-list .bg{overflow:visible;display:table;table-layout:fixed;float:left;width:90px;height:90px;margin:0 0 0 18px;background:url(https://img.megabox.co.kr/static/pc/images/reserve/bg-empty-cell-circle.png) no-repeat center}
+.quick-reserve-area .theater-choice .view-area .choice-list .bg .wrap{display:table-cell;position:relative;width:90px;height:90px;border-radius:90px;vertical-align:middle;text-align:center;background-color:#ebebeb}
+.quick-reserve-area .theater-choice .view-area .choice-list .bg .wrap .txt{display:inline-block;padding:0 10px;color:#222;font-size:.8667em;letter-spacing:0}
+.quick-reserve-area .theater-choice .view-area .choice-list .bg .wrap .del{display:block;position:absolute;right:0;top:0;z-index:2;width:24px;height:24px;font-size:0;line-height:0;background:url(https://img.megabox.co.kr/static/pc/images/reserve/btn-choice-dell-circle.png) no-repeat 0 0}
+
+.quick-reserve-area .time-choice{float:left;width:calc(100% - 720px);height:530px;padding:0}
+.quick-reserve-area .time-choice .tit{padding-left:20px}
+.quick-reserve-area .time-choice .tit-area .legend{font-size:.8em;font-weight:400}
+.quick-reserve-area .time-choice .tit-area .legend .iconset{margin-left:5px}
+
+.hour-schedule{overflow:hidden;position:relative;width:100%;height:30px;padding:0}
+.hour-schedule:before{content:'';display:block;position:absolute;top:0;left:0;width:100%;height:1px;background-color:#f2f4f5}
+.hour-schedule:after{content:'';display:block;position:absolute;bottom:0;left:0;width:100%;height:1px;background-color:#f2f4f5}
+.hour-schedule .btn-prev-time{overflow:hidden;display:block;position:absolute;left:20px;top:1px;width:44px;height:28px;text-indent:-9999px;background:url(https://img.megabox.co.kr/static/pc/images/common/btn/btn-prev-time.png) no-repeat center}
+.hour-schedule .btn-next-time{overflow:hidden;display:block;position:absolute;right:20px;top:1px;width:44px;height:28px;text-indent:-9999px;background:url(https://img.megabox.co.kr/static/pc/images/common/btn/btn-next-time.png) no-repeat center}
+.hour-schedule .wrap{overflow:hidden;position:relative;z-index:2;width:350px;height:30px;margin:0 auto;background-color:transparent}
+.hour-schedule .wrap .view{position:relative;width:1050px;height:30px}
+.hour-schedule .wrap .view:after,.hour-schedule .wrap .view:before{content:'';display:table}
+.hour-schedule .wrap .view:after{clear:both}
+.hour-schedule .wrap .view .hour{display:block;float:left;width:35px;height:30px;color:#444;font-size:1.1333em;font-family:Roboto,Dotum,'돋움',sans-serif!important;font-weight:400!important}
+.hour-schedule .wrap .view .hour.on{background-color:#555;color:#fff}
+
+.quick-reserve-area .movie-schedule-area{overflow:hidden;margin-top:10px;height:430px;background-color:#fff}
+.quick-reserve-area .movie-schedule-area .no-result{height:100%;padding:150px 0 0 0;text-align:center}
+.quick-reserve-area .movie-schedule-area .no-result i{display:block;margin:0 auto}
+.quick-reserve-area .movie-schedule-area .no-result .txt{margin-top:10px}
+.quick-reserve-area .movie-schedule-area .result{height:100%;padding:0;text-align:center}
+.quick-reserve-area .movie-schedule-area .result .scroll{height:100%}
+.quick-reserve-area .movie-schedule-area .result .scroll ul{height:100%}
+.quick-reserve-area .movie-schedule-area .result .scroll ul li{border-top:1px solid #ebebeb}
+.quick-reserve-area .movie-schedule-area .result .scroll ul li:first-child{border-top:0}
+.quick-reserve-area .movie-schedule-area .result .scroll ul li .btn{overflow:hidden;display:table;table-layout:fixed;width:100%;padding:0}
+.quick-reserve-area .movie-schedule-area .result .scroll ul li .btn .legend{display:table-cell;width:30px;height:66px;padding:10px 0 0 0;vertical-align:top}
+.quick-reserve-area .movie-schedule-area .result .scroll ul li .btn .legend .iconset{display:block;margin:0 auto}
+.quick-reserve-area .movie-schedule-area .result .scroll ul li .btn .legend .iconset+.iconset{margin-top:4px}
+.quick-reserve-area .movie-schedule-area .result .scroll ul li .btn .time{display:table-cell;width:60px;padding:10px 0;text-align:left;vertical-align:top;font-family:Roboto,Dotum,'돋움',sans-serif!important;font-weight:300}
+.quick-reserve-area .movie-schedule-area .result .scroll ul li .btn .time strong{display:block;font-size:1.2em;font-weight:700}
+.quick-reserve-area .movie-schedule-area .result .scroll ul li .btn .time em{display:block;padding:3px 0 0 0;font-size:.8667em;font-weight:300}
+.quick-reserve-area .movie-schedule-area .result .scroll ul li .btn .title{display:table-cell;width:275px;padding:10px 0;text-align:left}
+.quick-reserve-area .movie-schedule-area .result .scroll ul li .btn .title strong{display:block;font-weight:400;padding:0 5px 0 0;line-height:1.3}
+.quick-reserve-area .movie-schedule-area .result .scroll ul li .btn .title em{display:block;padding-top:7px;font-size:.8em}
+.quick-reserve-area .movie-schedule-area .result .scroll ul li .btn .info{display:table-cell;width:110px;padding:0 5px 0 0;font-size:.8em;vertical-align:middle;text-align:right}
+.quick-reserve-area .movie-schedule-area .result .scroll ul li .btn .info .theater{overflow:hidden;display:block;padding:0;line-height:1.5}
+.quick-reserve-area .movie-schedule-area .result .scroll ul li .btn .info .seat{overflow:hidden;display:inline-block;width:60px;height:20px;padding:0;letter-spacing:0;text-align:center;border:1px solid #f2f4f5}
+.quick-reserve-area .movie-schedule-area .result .scroll ul li .btn .info .seat .now{display:inline-block;color:#01738b;line-height:20px;vertical-align:middle}
+.quick-reserve-area .movie-schedule-area .result .scroll ul li .btn .info .seat .all{display:inline-block;color:#666;line-height:20px;vertical-align:middle}
+.quick-reserve-area .movie-schedule-area .result .scroll ul li .btn .info .seat span{display:inline-block;margin-top:4px;padding:0;font-size:.6em;color:#666;line-height:1.1;vertical-align:top}
+.quick-reserve-area .movie-schedule-area .result .scroll ul li .btn .info .seat.soldout{color:#e81003;line-height:18px}
+.quick-reserve-area .movie-schedule-area .result .scroll ul li .btn:hover{background-color:#ebebeb}
+.quick-reserve-area .movie-schedule-area .result .scroll ul li .btn:hover .seat{border-color:#d8d9db}
+.quick-reserve-area .movie-schedule-area .result .scroll ul li.morning .btn:before{display:block;background:url(https://img.megabox.co.kr/static/pc/images/common/ico/ico-time-morning.png) no-repeat 0 0}
+.quick-reserve-area .movie-schedule-area .result .scroll ul li.brunch .btn:before{display:block;background:url(https://img.megabox.co.kr/static/pc/images/common/ico/ico-time-brunch.png) no-repeat 0 0}
+.quick-reserve-area .movie-schedule-area .result .scroll ul li.night .btn:before{display:block;background:url(https://img.megabox.co.kr/static/pc/images/common/ico/ico-time-night.png) no-repeat 0 0}
+
+
+
+
+.quick-reserve-area .date-choice{position:relative;float:left;width:120px;height:529px;padding:0 20px 17px 20px;border-right:1px solid #d8d9db}
+.quick-reserve-area .date-choice .list-area .btn-tab{width:115px}
+.quick-reserve-area .date-choice .list-area .other-list .btn-tab{left:115px}
+.quick-reserve-area .date-choice button{display:block;position:relative;width:100%;min-height:28px;padding:10px 10px 10px 10px;text-align:center;font-size:15px;background-color:transparent;letter-spacing:0 }
+
+
+.movie-grade{overflow:hidden;display:inline-block;width:23px;height:23px;margin:0;padding:0;text-indent:-9999px;background-position:center;background-repeat:no-repeat}
+.movie-grade.age-all{background-image:url(https://img.megabox.co.kr/static/pc/images/common/txt/txt-age-all.png)}
+.movie-grade.age-12{background-image:url(https://img.megabox.co.kr/static/pc/images/common/txt/txt-age-12.png)}
+.movie-grade.age-15{background-image:url(https://img.megabox.co.kr/static/pc/images/common/txt/txt-age-15.png)}
+.movie-grade.age-19{background-image:url(https://img.megabox.co.kr/static/pc/images/common/txt/txt-age-19.png)}
+
+.movie-grade.small{width:20px;height:20px}
+.movie-grade.small.전체관람가{background-image:url(https://img.megabox.co.kr/static/pc/images/common/txt/txt-age-small-all.png)}
+.movie-grade.small.만12세이상관람가{background-image:url(https://img.megabox.co.kr/static/pc/images/common/txt/txt-age-small-12.png)}
+.movie-grade.small.만15세이상관람가{background-image:url(https://img.megabox.co.kr/static/pc/images/common/txt/txt-age-small-15.png)}
+.movie-grade.small.만19세이상관람가{background-image:url(https://img.megabox.co.kr/static/pc/images/common/txt/txt-age-small-19.png)}
+
+
+
+
+
+
+
+.reserve-title {
+    border-bottom: 1px solid #dddddd;
+    background-color: #444444;
+    text-align: center;
+    color: #dddddd;
+    padding: 5px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.reserve-date {
+    padding-top: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 430px;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+/*
+.saturday {
+    color: #31597E;
+    font-weight: bold;
+}
+
+.sunday {
+    color: #AF2D2D;
+    font-weight: bold;
+}
+.movie-date-wrapper-active>* {
+    color: white;
+  
+}
+*/
+
+.movie-date-wrapper-active.movie-date-wrapper-active {
+   background-color:balck;
+    color: red;
+    font-weight: bold;
+    
+}
+
+
+

@@ -45,9 +45,9 @@ public class AdminScheduleController {
 		
 		ModelAndView mav = new ModelAndView();
 		
-		List<ScheduleDto>scheduleList = service.sellectAllSchedule();
+		List<ScheduleDto>scheduleList = service.selectAllSchedule();
 		List<MovieDto>movieList = mService.selectAllMovie();
-		List<ScreenDto>screenList = service.sellectAllScreen();
+		List<ScreenDto>screenList = service.selectAllScreen();
 		List<TheaterDto>theaterList = tService.selectAllTheater();
 		
 		List<ScheduleDataListDto> scheduleDataList = new ArrayList<>();
@@ -98,7 +98,7 @@ public class AdminScheduleController {
 		
 		ModelAndView mav = new ModelAndView();
 		
-		ScheduleDto schedule = service.sellectSchedule(sch_no);
+		ScheduleDto schedule = service.selectSchedule(sch_no);
 		
 		MovieDto movie = mService.selectMovie(schedule.getMo_no());
 		

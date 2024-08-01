@@ -16,19 +16,19 @@ public class ScheduleDAOImpl implements ScheduleDAO{
 	private SqlSession sqlSession;
 
 	@Override
-	public List<ScheduleDto> sellectAllSchedule() throws SQLException {
+	public List<ScheduleDto> selectAllSchedule() throws SQLException {
 		return sqlSession.selectList(namespace+".selectAllSchedule");
 	}
 
 	@Override
-	public ScheduleDto sellectSchedule(int sch_no) throws SQLException {
+	public ScheduleDto selectSchedule(int sch_no) throws SQLException {
 		return sqlSession.selectOne(namespace+".selectSchedule", sch_no);
 	}
 
 	@Override
-	public ScheduleDto selectScreenSchedule(Map<String, Object> map) {
+	public List<ScheduleDto> selectScreenSchedule(Map<String, Object> map) {
 		// TODO Auto-generated method stub
-		return sqlSession.selectOne(namespace+".selectScreenSchedule", map);
+		return sqlSession.selectList(namespace+".selectScreenSchedule", map);
 	}
 
 	@Override
@@ -37,13 +37,13 @@ public class ScheduleDAOImpl implements ScheduleDAO{
 	}
 
 	@Override
-	public List<ScreenDto> sellectAllScreen() {
+	public List<ScreenDto> selectAllScreen() {
 		return sqlSession .selectList(namespace+".selectAllScreen");
 	}
 
 	@Override
-	public ScreenDto selectScreenTh_no(int th_no) {
-		return sqlSession .selectOne(namespace+".selectScreenTh_no", th_no);
+	public List<ScreenDto> selectScreenTh_no(int th_no) {
+		return sqlSession .selectList(namespace+".selectScreenTh_no", th_no);
 	}
 
 

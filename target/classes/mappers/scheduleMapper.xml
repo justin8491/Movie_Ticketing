@@ -31,7 +31,10 @@
 	
 	<!-- 영화, 상영관, 날짜로 일정조회 -->
 	<select id="selectScreenSchedule" resultType = "com.box.small.user.schedule.ScheduleDto">
-		select * from schedule where sc_no = #{sc_no} and sch_date = #{sch_date} and mo_no = #{mo_no}
+		select * from schedule where sch_date = #{sch_date} and mo_no = #{mo_no} and sc_no in
+		 <foreach item="item" collection="screenList" open="(" separator="," close=")">
+        #{item.sc_no}
+    </foreach>
 	</select>
 	
 	<!-- 영화일정전체 조회 -->

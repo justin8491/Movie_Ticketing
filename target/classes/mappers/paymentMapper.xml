@@ -2,5 +2,35 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.box.small.paymentMapper">
-</mapper>
+	<mapper namespace="com.box.small.paymentMapper">
+	
+
+	
+	
+	<!--  특정 카드 정보 호출 -->
+	<select id="selectCardList" resultType="com.box.small.user.payment.CardDto">
+		select * from card
+		where ca_id = #{ca_id} and ca_cardCompany = #{ca_cardCompany} and mem_id=#{mem_id}
+	</select>
+	
+	<!-- 결제 데이터 삽입 -->
+	<select id="insertPayment" resultType="com.box.small.user.payment.PaymentDto">
+	INSERT INTO payment (ca_id, pay_date, pay_status, pay_amount)
+	VALUES (#{ca_id}, #{pay_date}, 1, #{pay_amount});
+	</select>
+	
+	
+	<!-- 결제한 데이터로 결제번호 검색 -->
+	<select id="selectPayment" resultType="com.box.small.user.payment.PaymentDto">
+		select * from payment 
+		where ca_id = #{ca_id} and pay_date = #{pay_date} and pay_status = 1 and pay_amount = #{pay_amount}
+	</select>
+	
+	
+	
+	<!--  결제 취소 잠시 대기 위에걸 긁어와도 되는지 확인 중-->
+	<select id="canclePayment" resultType="com.box.small.user.payment.PaymentDto">
+		update payment set pay_status = 0 where pay_no = #{pay_no}
+	</select>
+	
+	</mapper>
