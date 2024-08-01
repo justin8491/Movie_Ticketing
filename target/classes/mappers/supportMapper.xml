@@ -3,77 +3,83 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.box.small.supportMapper">
-	<!-- 자주 묻는 질문 리스트 보여주기 -->
-	<select id="faq" resultType="com.box.small.user.support.SupportDto">
-		select * from board
-		where cat_no = 2 and bo_status=1
-	</select>
-	<!-- 자주 묻는 질문 상세 페이지 -->
-	<select id="selectFaq" parameterType="int" resultType="com.box.small.user.support.SupportDto">
-		select * from board
-		where bo_no=#{bo_no}
-	</select>
-   	<!-- 공지사항 리스트 보여주기 -->
-   	<select id="notice" resultType="com.box.small.user.support.SupportDto">
-   		select * from board
-   		where cat_no = 1 and bo_status=1
-   	</select>
-   	<!-- 공지사항 상세 페이지 -->
-   	<select id="selectNotice" parameterType="int" resultType="com.box.small.user.support.SupportDto">
-   		select * from board
-   		where bo_no=#{bo_no}
-   	</select>
-   	<!-- 1대1 문의 페이지 작성 -->
-   	<select id="inquiryWrite" parameterType="com.box.small.user.support.SupportDto">
-   		insert into board(cat_no, bo_writerId, bo_title, bo_content, bo_createAt, bo_status)
-   		value(4, #{bo_writerId}, #{bo_title}, #{bo_content}, now() , 1)
-   	</select>
-   	<!-- 1대1 문의 리스트 보여주기 -->
-   	<select id="inquiryView" resultType="com.box.small.user.support.SupportDto">
-   		select * from board
-   		where cat_no= 4 and bo_status=1
-   	</select>
-   	<!-- 1대1 문의 삭제 -->
-   	<select id="inquiryDelete" parameterType="int">
-   		update board
-   		set bo_status = 0
-   		where bo_no=#{bo_no}
-   	</select>
-   	<!-- 자유게시판 작성 -->
-   	<select id="freeBoardWrite" parameterType="com.box.small.user.support.SupportDto">
-   		insert into board(cat_no, bo_writerId, bo_title, bo_content, bo_createAt, bo_status)
-   		value(3, #{bo_writerId}, #{bo_title}, #{bo_content}, now() , 1)
-   	</select>
-   	<!-- 자유게시판 상세 페이지 -->
-   	<select id="selectFreeBoardWrite" parameterType="int" resultType="com.box.small.user.support.SupportDto">
-   		select * from board
-   		where bo_no=#{bo_no}
-   	</select>
-   	<!-- 자유게시판 리스트 보여주기 -->
-   	<select id="freeBoard" resultType="com.box.small.user.support.SupportDto">
-   		select * from board
-   		where cat_no= 3 and bo_status=1
-   	</select>
-   	<!-- 자유게시판 삭제 -->
-   	<select id="freeBoardDelete" parameterType="int">
-   		update board
-   		set bo_status = 0
-   		where bo_no=#{bo_no}
-   	</select>
+   <!-- 자주 묻는 질문 리스트 보여주기 -->
+   <select id="faq" resultType="com.box.small.user.support.SupportDto">
+      select * from board
+      where cat_no = 2 and bo_status=1
+   </select>
+   <!-- 자주 묻는 질문 상세 페이지 -->
+   <select id="selectFaq" parameterType="int" resultType="com.box.small.user.support.SupportDto">
+      select * from board
+      where bo_no=#{bo_no}
+   </select>
+      <!-- 공지사항 리스트 보여주기 -->
+      <select id="notice" resultType="com.box.small.user.support.SupportDto">
+         select * from board
+         where cat_no = 1 and bo_status=1
+      </select>
+      <!-- 공지사항 상위 4개 리스트 보여주기 -->
+      <select id="noticeTop4List" resultType="com.box.small.user.support.SupportDto">
+         select * from board
+         where cat_no = 1 and bo_status=1
+        limit 4
+      </select>
+      <!-- 공지사항 상세 페이지 -->
+      <select id="selectNotice" parameterType="int" resultType="com.box.small.user.support.SupportDto">
+         select * from board
+         where bo_no=#{bo_no}
+      </select>
+      <!-- 1대1 문의 페이지 작성 -->
+      <select id="inquiryWrite" parameterType="com.box.small.user.support.SupportDto">
+         insert into board(cat_no, bo_writerId, bo_title, bo_content, bo_createAt, bo_status)
+         value(4, #{bo_writerId}, #{bo_title}, #{bo_content}, now() , 1)
+      </select>
+      <!-- 1대1 문의 리스트 보여주기 -->
+      <select id="inquiryView" resultType="com.box.small.user.support.SupportDto">
+         select * from board
+         where cat_no= 4 and bo_status=1
+      </select>
+      <!-- 1대1 문의 삭제 -->
+      <select id="inquiryDelete" parameterType="int">
+         update board
+         set bo_status = 0
+         where bo_no=#{bo_no}
+      </select>
+      <!-- 자유게시판 작성 -->
+      <select id="freeBoardWrite" parameterType="com.box.small.user.support.SupportDto">
+         insert into board(cat_no, bo_writerId, bo_title, bo_content, bo_createAt, bo_status)
+         value(3, #{bo_writerId}, #{bo_title}, #{bo_content}, now() , 1)
+      </select>
+      <!-- 자유게시판 상세 페이지 -->
+      <select id="selectFreeBoardWrite" parameterType="int" resultType="com.box.small.user.support.SupportDto">
+         select * from board
+         where bo_no=#{bo_no}
+      </select>
+      <!-- 자유게시판 리스트 보여주기 -->
+      <select id="freeBoard" resultType="com.box.small.user.support.SupportDto">
+         select * from board
+         where cat_no= 3 and bo_status=1
+      </select>
+      <!-- 자유게시판 삭제 -->
+      <select id="freeBoardDelete" parameterType="int">
+         update board
+         set bo_status = 0
+         where bo_no=#{bo_no}
+      </select>
    <!-- 자유게시판 수정 -->
     <select id="freeBoardUpdate" parameterType="com.box.small.user.support.SupportDto">
-   		update board
-   		set bo_writerId = #{bo_writerId}, bo_title = #{bo_title}, bo_content = #{bo_content}
-   		where bo_no=#{bo_no}
+         update board
+         set bo_writerId = #{bo_writerId}, bo_title = #{bo_title}, bo_content = #{bo_content}
+         where bo_no=#{bo_no}
     </select>
     <!-- 자신이 쓴 글 조회 -->
     <select id="myBoard">
-    	select * from board 
-    	where bo_writerId = #{bo_writerId} and bo_status=1
+       select * from board 
+       where bo_writerId = #{bo_writerId} and bo_status=1
     </select>
-   	
-   	
-   	
-   	
-   	
+      
+      
+      
+      
+      
 </mapper>

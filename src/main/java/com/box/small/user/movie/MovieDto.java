@@ -14,48 +14,6 @@ public class MovieDto {
 	private String mo_mainActor;
 	private String mo_rating;
 	private String mo_photo;
-	@Override
-	public String toString() {
-		return "Movie [mo_no=" + mo_no + ", cat_no=" + cat_no + ", mo_name=" + mo_name + ", mo_releaseDate="
-				+ mo_releaseDate + ", mo_endDate=" + mo_endDate + ", mo_runningTime=" + mo_runningTime + ", mo_plot="
-				+ mo_plot + ", mo_status=" + mo_status + ", mo_director=" + mo_director + ", mo_mainActor="
-				+ mo_mainActor + ", mo_rating=" + mo_rating + ", mo_photo=" + mo_photo + "]";
-	}
-	public MovieDto(int mo_no, int cat_no, String mo_name, String mo_releaseDate, String mo_endDate, int mo_runningTime,
-			String mo_plot, String mo_status, String mo_director, String mo_mainActor, String mo_rating,
-			String mo_photo) {
-		super();
-		this.mo_no = mo_no;
-		this.cat_no = cat_no;
-		this.mo_name = mo_name;
-		this.mo_releaseDate = mo_releaseDate;
-		this.mo_endDate = mo_endDate;
-		this.mo_runningTime = mo_runningTime;
-		this.mo_plot = mo_plot;
-		this.mo_status = mo_status;
-		this.mo_director = mo_director;
-		this.mo_mainActor = mo_mainActor;
-		this.mo_rating = mo_rating;
-		this.mo_photo = mo_photo;
-	}
-	
-	public MovieDto(int mo_no, int cat_no, String mo_name, String mo_releaseDate, int mo_runningTime, String mo_status,
-			String mo_director, String mo_mainActor, String mo_rating, String mo_photo) {
-		super();
-		this.mo_no = mo_no;
-		this.cat_no = cat_no;
-		this.mo_name = mo_name;
-		this.mo_releaseDate = mo_releaseDate;
-		this.mo_runningTime = mo_runningTime;
-		this.mo_status = mo_status;
-		this.mo_director = mo_director;
-		this.mo_mainActor = mo_mainActor;
-		this.mo_rating = mo_rating;
-		this.mo_photo = mo_photo;
-	}
-	public MovieDto() {
-		super();
-	}
 	public int getMo_no() {
 		return mo_no;
 	}
@@ -84,7 +42,7 @@ public class MovieDto {
 		return mo_endDate;
 	}
 	public void setMo_endDate(String mo_endDate) {
-		  this.mo_endDate = (mo_endDate != null && mo_endDate.isEmpty()) ? null : mo_endDate;
+		this.mo_endDate = mo_endDate;
 	}
 	public int getMo_runningTime() {
 		return mo_runningTime;
@@ -128,5 +86,35 @@ public class MovieDto {
 	public void setMo_photo(String mo_photo) {
 		this.mo_photo = mo_photo;
 	}
+	public MovieDto(int mo_no, int cat_no, String mo_name, String mo_releaseDate, String mo_endDate, int mo_runningTime,
+			String mo_plot, String mo_status, String mo_director, String mo_mainActor, String mo_rating,
+			String mo_photo) {
+		super();
+		this.mo_no = mo_no;
+		this.cat_no = cat_no;
+		this.mo_name = mo_name;
+		this.mo_releaseDate = mo_releaseDate;
+		this.mo_endDate = mo_endDate;
+		this.mo_runningTime = mo_runningTime;
+		this.mo_plot = mo_plot;
+		this.mo_status = mo_status;
+		this.mo_director = mo_director;
+		this.mo_mainActor = mo_mainActor;
+		this.mo_rating = mo_rating;
+		this.mo_photo = mo_photo;
+	}
+	public MovieDto() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	@Override
+	public String toString() {
+		return "MovieDto [mo_no=" + mo_no + ", cat_no=" + cat_no + ", mo_name=" + mo_name + ", mo_releaseDate="
+				+ mo_releaseDate + ", mo_endDate=" + mo_endDate + ", mo_runningTime=" + mo_runningTime + ", mo_plot="
+				+ mo_plot + ", mo_status=" + mo_status + ", mo_director=" + mo_director + ", mo_mainActor="
+				+ mo_mainActor + ", mo_rating=" + mo_rating + ", mo_photo=" + mo_photo + "]";
+	}
+	
+	
 	
 }

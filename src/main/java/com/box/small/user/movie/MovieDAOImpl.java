@@ -47,4 +47,25 @@ public class MovieDAOImpl implements MovieDAO{
 		return sqlSession.selectList(namespace+".selectMovieCategory", cat_no);
 	}
 
+    @Override
+    public boolean checkMovieLike(MovieLikeDto ml) {
+        return sqlSession.selectOne(namespace + ".checkMovieLike", ml);
+    }
+
+    @Override
+    public int insertMovieLike(MovieLikeDto ml) {
+        return sqlSession.insert(namespace + ".insertMovieLike", ml);
+    }
+
+    @Override
+    public int updateMovieLike(MovieLikeDto ml) {
+        return sqlSession.update(namespace + ".updateMovieLike", ml);
+    }
+
+    @Override
+    public MovieLikeDto MovieLikeStatus(MovieLikeDto ml) {
+        return sqlSession.selectOne(namespace + ".MovieLikeStatus", ml);
+    }
+
+
 }

@@ -1,6 +1,7 @@
 package com.box.small.admin.admin;
 
 
+import com.box.small.user.member.MemberDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,5 +19,10 @@ public class AdminServiceImpl implements AdminService {
     @Override
     public AdminDto login(AdminDto admin) {
         return dao.login(admin);
+    }
+
+    @Override
+    public List<MemberDto> selectAllMember() {
+        return dao.selectAllMember();
     }
 }

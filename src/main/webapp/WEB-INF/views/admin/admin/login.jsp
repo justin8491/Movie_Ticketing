@@ -43,7 +43,6 @@
 
    <script>
 $(document).ready(function () {
-  $("#searchModal").modal("show");
 
   $("#adminLoginForm").submit(function (event) {
     // 회원가입 폼 제출 시 추가적인 검증을 여기에 작성할 수 있습니다.
@@ -63,10 +62,12 @@ $(document).ready(function () {
       success: function (response) {
         alert("관리자 로그인 완료되었습니다!");
         // 필요 시 페이지를 리다이렉트하거나 다른 작업을 수행할 수 있습니다.
-        location.href = response.location;
+        location.href = "/admin";
+		console.dir(response);
       },
       error: function (xhr, status, error) {
         console.error("AJAX Error: " + error);
+        console.error('Response Text:', xhr.responseText);
       },
     });
   });
