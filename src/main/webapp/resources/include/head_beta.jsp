@@ -19,14 +19,13 @@
       content="메가박스, 유투브, 영화, 최신영화, 영화관, CGV, 롯데시네마, 웹스토리보이, 웹스, 사이트 만들기, 따라하기"
     />
     <title>SmallBox</title>
-    
+
 	<!-- Bootstrap CSS -->
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
 
 	<!-- Loading main css file -->
     <link rel="stylesheet" href="${path}/detailMovie/style.css">
-	
-	
+
     <!-- css -->
     <link rel="stylesheet" href="${path}/assets/css/reset02.css" />
     <link rel="stylesheet" href="${path}/assets/css/style02.css" />
@@ -43,6 +42,7 @@
     />
     <meta
       property="og:description"
+      content="메가박스 사이트 따라하면서 배우는 튜토리얼입니다."
     />
 
     <!-- 트위터 메타 태그 -->
@@ -76,10 +76,14 @@
         );
       </script>
     <![endif]-->
-    
 
+    <!-- 영화 템플릿 -->
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
+		<!-- Loading third party fonts -->
+		<link href="http://fonts.googleapis.com/css?family=Roboto:300,400,700|" rel="stylesheet" type="text/css">
+		<link href="${path}/detailMovie/fonts/font-awesome.min.css" rel="stylesheet" type="text/css">
 
-		<!--[if lt IE 9]>
+		<!—[if lt IE 9]>
 		<script src="js/ie-support/html5.js"></script>
 		<script src="js/ie-support/respond.js"></script>
-		<![endif]-->
+		<![endif]—>
