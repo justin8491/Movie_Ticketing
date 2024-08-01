@@ -82,8 +82,3 @@
 		<!-- Loading third party fonts -->
 		<link href="http://fonts.googleapis.com/css?family=Roboto:300,400,700|" rel="stylesheet" type="text/css">
 		<link href="${path}/detailMovie/fonts/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-		<!—[if lt IE 9]>
-		<script src="js/ie-support/html5.js"></script>
-		<script src="js/ie-support/respond.js"></script>
-		<![endif]—>

@@ -6,16 +6,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<<<<<<< HEAD
-    <%@ include file="/resources/include/head_beta.jsp"%>
     <link rel="stylesheet" href="/resources/assets/css/detailMovie.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-=======
-
-    <link rel="stylesheet" href="/resources/assets/css/detailMovie.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <%@ include file="/resources/include/head_beta.jsp"%>
->>>>>>> 5be71c34278d8a1d4f8330d8ea4ca5e8738bcd81
 </head>
 <body>
 <header id="header">
@@ -54,8 +47,7 @@
                                 </h2>
                                 <div class="movie-summary">
                                     <p>${movie.mo_plot}</p>
-                                    <br>
-                                    <br>
+
                                 </div>
                                 <ul class="movie-meta">
                                     <li><strong>Rating:</strong>
@@ -65,7 +57,7 @@
                                             </span>
                                         </div>
                                     </li>
-
+                                    
                                     <li><strong>러닝타임 : </strong> ${movie.mo_runningTime}분</li>
                                     <li><strong>상영일 : </strong> ${movie.mo_releaseDate}</li>
                                     <li><strong>연령제한 : </strong> ${movie.mo_rating}</li>
@@ -136,19 +128,18 @@
                                     </div>
                                     <br>
                                </div>
-                            </div>
                         </c:forEach>
-                    </div>
-                </div>
-            </div>
-        </div> <!— .container —>
+                      </div><!-- 엔트리콘텐츠 -->
+                    </div><!-- .content -->
+                 </div><!-- .page -->
+        </div> <!-- .container -->
     </main>
 </div>
 
 <footer>
     <%@ include file="/resources/include/footer_beta.jsp"%>
 </footer>
-<!— 플러그인 —>
+<!-- 플러그인 -->
 <%@ include file="/resources/include/plugin_cdn.jsp"%>
 
 <script src="${path}/detailMovie/js/detailMovie_review.js"></script>
