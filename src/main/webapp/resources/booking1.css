@@ -89,7 +89,7 @@ h2.tit{padding:0 0 15px 0;font-size:1.8666em;font-weight:400;letter-spacing:-1px
 .quick-reserve-area .theater-choice .view-area .choice-list .bg .wrap .txt{display:inline-block;padding:0 10px;color:#222;font-size:.8667em;letter-spacing:0}
 .quick-reserve-area .theater-choice .view-area .choice-list .bg .wrap .del{display:block;position:absolute;right:0;top:0;z-index:2;width:24px;height:24px;font-size:0;line-height:0;background:url(https://img.megabox.co.kr/static/pc/images/reserve/btn-choice-dell-circle.png) no-repeat 0 0}
 
-.quick-reserve-area .time-choice{float:left;width:calc(100% - 720px);height:530px;padding:0}
+.quick-reserve-area .time-choice{float:left;width:calc(100% - 590px);height:530px;padding:0}
 .quick-reserve-area .time-choice .tit{padding-left:20px}
 .quick-reserve-area .time-choice .tit-area .legend{font-size:.8em;font-weight:400}
 .quick-reserve-area .time-choice .tit-area .legend .iconset{margin-left:5px}

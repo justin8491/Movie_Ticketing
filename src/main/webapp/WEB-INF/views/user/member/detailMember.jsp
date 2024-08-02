@@ -191,51 +191,50 @@
               <div class="container mt-5">
                 <h2>예약 내역</h2>
                 <div class="reservationInfo border heihgt">
-	                <table>
-						<tr>
-							<th>예매번호</th>
-							<th>영화제목</th>
-							<th>상영일자</th>
-							<th>영화관</th>
-							<th>상영관</th>
-							<th>좌석</th>
-							<th>예매취소</th>
-							</tr>
-						<c:forEach var = "reservation" items = "${dataList[0].reservationList}">
-							<tr>
-								<td>${reservation.res_no}</td>
-							
-								<c:forEach var ="movie" items = "${dataList[0].movieList}">			
-									<c:if test="${movie.mo_no == reservation.mo_no }">
-									<td>	${movie.mo_name}</td>
-									</c:if>
-								</c:forEach>
-								<c:forEach var="schedeule" items="${dataList[0].schedeuleList}">
-									<c:if test="${schedeule.sch_no == reservation.sch_no }">
-										<td>${schedeule.sch_startTime }</td>				
-										<c:forEach var="screen" items="${dataList[0].screenList }">
-											<c:if test="${screen.sc_no == schedeule.sc_no }">
-												<c:forEach var="theater" items="${dataList[0].theaterList }">
-													<c:if test="${theater.th_no == screen.th_no }">
-													<td>	${theater.th_name }</td>
-													</c:if>
-												</c:forEach>
-												<td>${screen.sc_name }</td>
-											</c:if>					
-										</c:forEach>
-									</c:if>
-								</c:forEach>
-								<c:forEach var="seat" items ="${ dataList[0].theaterseatList}">
-									<c:if test ="${reservation.ts_no == seat.ts_no }">
-										<td>${seat.ts_id}</td>	
-									</c:if>	
-								</c:forEach>
-								
-							
-								<td><button onclick="cancel(${reservation.res_no },${reservation.pay_no })">예매취소</button></td>		
-							</tr>		
-						</c:forEach>
-					</table>
+	                <table style="width: 100%; border-collapse: collapse; text-align: center;">
+	                   <tr style="background-color: #f2f2f2;">
+	                       <th style="border: 1px solid #ddd; padding: 8px;">예매번호</th>
+	                       <th style="border: 1px solid #ddd; padding: 8px;">영화제목</th>
+	                       <th style="border: 1px solid #ddd; padding: 8px;">상영일자</th>
+	                       <th style="border: 1px solid #ddd; padding: 8px;">영화관</th>
+	                       <th style="border: 1px solid #ddd; padding: 8px;">상영관</th>
+	                       <th style="border: 1px solid #ddd; padding: 8px;">좌석</th>
+	                       <th style="border: 1px solid #ddd; padding: 8px;">예매취소</th>
+	                   </tr>
+	                   <c:forEach var="reservation" items="${dataList[0].reservationList}">
+	                       <tr>
+	                           <td style="border: 1px solid #ddd; padding: 8px;">${reservation.res_no}</td>
+	                           <c:forEach var="movie" items="${dataList[0].movieList}">
+	                               <c:if test="${movie.mo_no == reservation.mo_no }">
+	                                   <td style="border: 1px solid #ddd; padding: 8px;">${movie.mo_name}</td>
+	                               </c:if>
+	                           </c:forEach>
+	                           <c:forEach var="schedeule" items="${dataList[0].schedeuleList}">
+	                               <c:if test="${schedeule.sch_no == reservation.sch_no }">
+	                                   <td style="border: 1px solid #ddd; padding: 8px;">${schedeule.sch_startTime}</td>
+	                                   <c:forEach var="screen" items="${dataList[0].screenList }">
+	                                       <c:if test="${screen.sc_no == schedeule.sc_no }">
+	                                           <c:forEach var="theater" items="${dataList[0].theaterList }">
+	                                               <c:if test="${theater.th_no == screen.th_no }">
+	                                                   <td style="border: 1px solid #ddd; padding: 8px;">${theater.th_name}</td>
+	                                               </c:if>
+	                                           </c:forEach>
+	                                           <td style="border: 1px solid #ddd; padding: 8px;">${screen.sc_name}</td>
+	                                       </c:if>
+	                                   </c:forEach>
+	                               </c:if>
+	                           </c:forEach>
+	                           <c:forEach var="seat" items="${dataList[0].theaterseatList}">
+	                               <c:if test="${reservation.ts_no == seat.ts_no }">
+	                                   <td style="border: 1px solid #ddd; padding: 8px;">${seat.ts_id}</td>
+	                               </c:if>
+	                           </c:forEach>
+	                           <td style="border: 1px solid #ddd; padding: 8px;">
+	                               <button onclick="cancel(${reservation.res_no}, ${reservation.pay_no})" style="padding: 5px 10px; border: none; background-color: #f44336; color: white; cursor: pointer;">예매취소</button>
+	                           </td>
+	                       </tr>
+	                   </c:forEach>
+	               </table>
                 </div>
               </div>
               <div class="container diviContainer">

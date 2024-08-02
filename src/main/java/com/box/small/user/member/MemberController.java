@@ -25,12 +25,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -74,24 +76,33 @@ public class MemberController {
         return mav;
     }
 
-    @PostMapping("login")
-    public ModelAndView login(MemberDto member, HttpSession session, RedirectAttributes redirectAttributes) {
-        ModelAndView mav = new ModelAndView();
+    @PostMapping(value = "login")
+    public @ResponseBody Map<String, Object> login(@RequestParam("mem_id") String mem_id, @RequestParam("mem_password") String mem_password, HttpSession session) {
+        Map<String,Object> map = new HashMap<>();
+//        ModelAndView mav = new ModelAndView();
         logger.info("로그인 프로세스");
         try {
+            MemberDto member = new MemberDto();
+            member.setMem_id(mem_id);
+            member.setMem_password(mem_password);
             member = memberService.login(member);
             if (member != null) {
-                redirectAttributes.addFlashAttribute("loginMessage", "로그인 성공");
                 session.setAttribute("member", member);
                 session.setAttribute("isLogin", true);
                 session.setAttribute("type", "user");
-                mav.setViewName("redirect:/");
+                map.put("msg","로그인 성공");
+                map.put("location","/");
+            } else {
+                session.setAttribute("isLogin", false);
+                map.put("msg","존재하지 않는 아이디 입니다.");
+                map.put("location", "/user/loginForm");
             }
         } catch (NullPointerException e) {
-            redirectAttributes.addFlashAttribute("loginMessage", "로그인 실패");
-            mav.setViewName("user/member/loginForm");
+            session.setAttribute("isLogin", false);
+            map.put("msg","비밀번호가 틀립니다.");
+            map.put("location", "/user/loginForm");
         }
-        return mav;
+        return map;
     }
 
     @GetMapping(value = "logout")

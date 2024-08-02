@@ -116,6 +116,13 @@ public class MemberDto {
 		this.mem_address = mem_address;
 	}
 
+	
+
+	public MemberDto() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 
 
 	public MemberDto(String mem_id, String mem_password){

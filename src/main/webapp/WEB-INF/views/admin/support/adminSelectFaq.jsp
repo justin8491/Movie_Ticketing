@@ -7,6 +7,11 @@
 <html>
 <head>
 <%@ include file = "/resources/include/head_beta.jsp"%>
+<style>
+.BUTTON {
+    text-align: center;
+}
+</style>
 </head>
 <body>
  <header id="header">
@@ -31,9 +36,15 @@
 				<th>내용:</th>
 					<td colspan = "4">${faqlist.bo_content}</td>
 				</tr>
+				</table>
+				
+			<div class = "BUTTON">
+			<a href = "adminFreeBoardDelete?bo_no=${faqlist.bo_no}" class="btn btn-primary">삭제</a>
+			<a href = "adminFreeBoardUpdate?bo_no=${faqlist.bo_no}" class="btn btn-primary">수정</a>
+			</div>
 			
-			</table>
-			<a href = "adminFreeBoardDelete?bo_no=${faqlist.bo_no}">삭제</a>
+			</div>
+				</div>
 			</section>
     <!-- //footer -->
     <footer>

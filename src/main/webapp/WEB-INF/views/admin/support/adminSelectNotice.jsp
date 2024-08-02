@@ -7,6 +7,11 @@
 <html>
 <head>
 <%@ include file = "/resources/include/head_beta.jsp"%>
+<style>
+.BUTTON {
+    text-align: center;
+}
+</style>
 </head>
 <body>
  <header id="header">
@@ -33,8 +38,14 @@
 				</tr>
 			
 			</table>
-			<a href = "adminFreeBoardDelete?bo_no=${noticelist.bo_no}">삭제</a>
+		
+			<div class = "BUTTON">
+			<a href = "adminFreeBoardDelete?bo_no=${noticelist.bo_no}" class="btn btn-primary">삭제</a>
+			<a href = "adminFreeBoardUpdate?bo_no=${noticelist.bo_no}" class="btn btn-primary">수정</a>
+			</div>
 			
+			</div>
+			</div>
 			</section>
     <!-- //footer -->
     <footer>

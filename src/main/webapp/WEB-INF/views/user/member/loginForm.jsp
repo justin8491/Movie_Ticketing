@@ -14,42 +14,11 @@
    </header>
 
    <div class="container">
-           <!-- 모달 -->
-           <div class="modal" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModal" aria-hidden="true">
-               <div class="modal-dialog modal-dialog-centered" role="document">
-                   <div class="modal-content">
-                       <div class="modal-header">
-                           <h5 class="modal-title" id="searchModal">${msg_title}</h5>
-                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                               <span aria-hidden="true">&times;</span>
-                           </button>
-                       </div>
-                       <div class="modal-body">
-                           <strong>${req}</strong>
-                           <c:if test="${member != null}">
-                               <!-- 다른 내용 추가 가능 -->
-                           </c:if>
-                       </div>
-                       <div class="modal-footer">
-                           <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
-                       </div>
-                   </div>
-               </div>
-           </div>
-       </div>
-
-       <script>
-       $(document).ready(function() {
-           $('#searchModal').modal('show');
-       });
-       </script>
-
-    <!-- //메인 콘텐츠-->
     <!-- //메인 콘텐츠-->
       <div class="container mt-5 user-form login-form">
         <div>
            <h2>로그인</h2>
-           <form action="${contextPath}/user/login" method="post">
+           <form id="userLogin" action="${contextPath}/user/login" method="post">
                 <input type="text" name="mem_id" id="mem_id" placeholder="아이디"><br>
                 <input type="text" name="mem_password" id="mem_password" placeholder="비밀번호"><br>
                 <input type="submit" value="로그인">
@@ -68,5 +37,38 @@
     </footer>
     <!-- 플러그인 -->
         <%@ include file = "/resources/include/plugin_cdn.jsp"%>
+
+    <script>
+      $(document).ready(function () {
+        $("#userLogin").submit(function (event) {
+          // 회원가입 폼 제출 시 추가적인 검증을 여기에 작성할 수 있습니다.
+          event.preventDefault(); // 폼의 기본 제출 동작을 막음
+
+          // 필요한 추가 작업을 수행한 후 폼을 제출할 수 있습니다.
+          // 예를 들어, 아이디 중복 확인 결과에 따라 폼 제출을 막을 수 있습니다.
+          var mem_id = $("#mem_id").val();
+          var mem_password = $("#mem_password").val();
+
+          // AJAX 요청을 통해 서버로 폼 데이터를 전송할 수 있습니다.
+          // 예시 코드:
+          $.ajax({
+            type: "POST",
+            url: "/user/login", // 회원가입 처리 URL
+            data: $("#userLogin").serialize(),
+            success: function (response) {
+              console.dir(response);
+              alert(response.msg);
+              // 필요 시 페이지를 리다이렉트하거나 다른 작업을 수행할 수 있습니다.
+              window.location.href = response.location;
+
+            },
+            error: function (xhr, status, error) {
+              console.error("AJAX Error: " + error);
+              console.error("Response Text:", xhr.responseText);
+            },
+          });
+        });
+      });
+    </script>
   </body>
 </html>
