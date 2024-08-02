@@ -41,8 +41,8 @@
                                   <input type="text" name="mem_phoneNumber" id="mem_phoneNumber" value="" placeholder="전화번호" >
                               </div>
                               <div>
-                                  <label for="mem_accumulatedAmount">누적금액</label>
-                                  <input type="text" name="mem_accumulatedAmount" id="mem_accumulatedAmount" value="" placeholder="누적금액" >
+                                  <label hidden for="mem_accumulatedAmount">누적금액</label>
+                                  <input hidden type="text" name="mem_accumulatedAmount" id="mem_accumulatedAmount" value="0" placeholder="누적금액" >
                               </div>
                               <!--<div>
                                   <label for="mem_status">상태</label>

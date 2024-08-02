@@ -48,14 +48,12 @@ public class MemberController {
         try {
             member = memberService.login(member);
             if (member != null) {
-                redirectAttributes.addFlashAttribute("loginMessage", "로그인 성공");
                 session.setAttribute("member", member);
                 session.setAttribute("isLogin", true);
                 session.setAttribute("type", "user");
                 mav.setViewName("redirect:/");
             }
         } catch (NullPointerException e) {
-            redirectAttributes.addFlashAttribute("loginMessage", "로그인 실패");
             mav.setViewName("user/member/loginForm");
         }
         return mav;
