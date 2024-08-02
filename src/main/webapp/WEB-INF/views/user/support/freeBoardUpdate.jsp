@@ -20,7 +20,7 @@
 	<section class="content">
 			</div>
 			<form action= "freeBoardUpdate?bo_no=${sp.bo_no }" method = "post" >
-		<p>작성자 : <input type = "text" name = "bo_writerId"><br></p>
+		<p><input type="hidden" id="writerId" name="bo_writerId" value = "${member.mem_id}"><br></p>
 		<p>제목 : <input type = "text" name = "bo_title"><br></p>
 		<p>내용 : <input type = "text" name = "bo_content"><br></p>
 		<input type = "submit" value = "확인"> 

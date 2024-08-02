@@ -94,6 +94,11 @@ public class SupportServiceImpl implements SupportService{
       // TODO Auto-generated method stub
       return dao.noticeTop4List();
    }
+
+@Override
+public SupportDto selectInquiry(int bo_no) {
+	return dao.selectInquiry(bo_no);
+}
    
    
 

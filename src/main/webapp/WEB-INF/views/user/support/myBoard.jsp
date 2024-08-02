@@ -21,7 +21,7 @@
             </div>
    <table class="table table-hover">
                   <tr>
-                     <th>번호</th><th>제목</th><th>작성자ID</th><th>생성일</th>
+                     <th>번호</th><th>제목</th><th>작성자ID</th><th>생성일</th><th> 수정 / 삭제</th>
                   </tr>
             <c:forEach var="inquiry" items="${inquiryView}">
                <c:if test="${member.mem_id == inquiry.bo_writerId}">
@@ -29,7 +29,9 @@
                      <th>${inquiry.bo_no}</th>
                      <th>${inquiry.bo_title}</th>
                      <th>${inquiry.bo_writerId}</th>
-                     <th>${inquiry.bo_createAt}</th><td><a href = "freeBoardDelete?bo_no=${inquiry.bo_no}">문의글 삭제</a></td>
+                     <th>${inquiry.bo_createAt}</th>
+                     <td><a href = "freeBoardUpdate?bo_no=${inquiry.bo_no}">문의글 수정</a></td>
+                     <td><a href = "freeBoardDelete?bo_no=${inquiry.bo_no}">문의글 삭제</a></td>
                      
                   </tr>
                   <tr>   
@@ -44,7 +46,9 @@
                      <th>${freeBoard.bo_no}</th>
                      <th>${freeBoard.bo_title}</th>
                      <th>${freeBoard.bo_writerId}</th>
-                     <th>${freeBoard.bo_createAt}</th><td><a href = "freeBoardDelete?bo_no=${freeBoard.bo_no}">자유게시판 삭제</a></td>
+                     <th>${freeBoard.bo_createAt}</th>
+                     <td><a href = "freeBoardUpdate?bo_no=${freeBoard.bo_no}">자유게시판 수정</a></td>
+                     <td><a href = "freeBoardDelete?bo_no=${freeBoard.bo_no}">자유게시판 삭제</a></td>
                   </tr>
                   <tr>   
                      <th>내용:</th>

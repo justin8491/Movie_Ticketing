@@ -106,7 +106,7 @@ public class ReservationController {
         params.put("theaterSeatList", theaterSeatList);
         
         // 좌석알파벳 리스트 생성
-        List<String> alphabetList = Arrays.asList("a", "b", "c", "d", "e","g","h");
+        List<String> alphabetList = Arrays.asList("a", "b", "c");
 		
 		ModelAndView mav = new ModelAndView();		
 		mav.addObject("params", params);

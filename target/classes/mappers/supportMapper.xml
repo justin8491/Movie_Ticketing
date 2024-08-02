@@ -43,6 +43,11 @@
          where cat_no= 4 and bo_status=1
          order by bo_createAt desc
       </select>
+      <!-- 1대1 문의 하나 보여주기 -->
+      <select id="selectInquiry" resultType="com.box.small.user.support.SupportDto">
+         select * from board
+         where cat_no = 4 and bo_no=#{bo_no}
+      </select>
       <!-- 1대1 문의 삭제 -->
       <select id="inquiryDelete" parameterType="int">
          update board

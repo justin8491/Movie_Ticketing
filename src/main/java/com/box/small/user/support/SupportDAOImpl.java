@@ -99,6 +99,11 @@ public class SupportDAOImpl implements SupportDAO{
       return sqlSession.selectList(nameSpace+".noticeTop4List");
    }
 
+@Override
+public SupportDto selectInquiry(int bo_no) {
+	return sqlSession.selectOne(nameSpace+".selectInquiry", bo_no);
+}
+
    
 
 }

@@ -75,30 +75,27 @@ li{
 .seat{
     background-color: #444451;
     width: 15px;
-    height: 12px;
+    height: 15px;
     margin: 3px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+ 
     cursor: pointer;
 }
 
 .availableSeat{
     background-color: #444451;
     width: 15px;
-    height: 12px;
+    height: 15px;
     margin: 3px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+ 
     cursor: default;
 }
 
 .selectedSeatIcon{
     background-color: #6feaf6;
     width: 15px;
-    height: 12px;
+    height: 15px;
     margin: 3px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+   
     cursor: default;
 }
 
@@ -113,20 +110,18 @@ li{
 .selectedSeat{
     background-color: #6feaf6;
     width: 15px;
-    height: 12px;
+    height: 15px;
     margin: 3px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    
     cursor: pointer;
 }
 
 .occupiedSeat{
     background-color: red;
     width: 15px;
-    height: 12px;
+    height: 15px;
     margin: 3px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+  
 }
 
 .row1{
@@ -140,13 +135,16 @@ li{
 }
 
 #count{
-    color: #6feaf6;
+    color: red;
 }
 
 #costs{
-    color: #6feaf6;
+    color: red;
 }
 
+.text {
+    white-space: pre-line; /* 줄 바꿈을 허용합니다 */
+}
 </style>
 
 <script>
@@ -155,13 +153,16 @@ document.addEventListener('DOMContentLoaded', () =>{
 
 const seatContainer = document.querySelector('.seatContainer');
 let count = document.querySelector('#count'); // 인원수
+let costs = document.querySelector('#costs'); // 총 가격
 const form = document.querySelector('form');
+const pricePerSeat = 15000; // 좌석 당 가격
 
 // 선택한 좌석수 텍스트 변경해주기
 
 function countSeatPrice(){
     const selectedSeatCount = document.querySelectorAll('.selectedSeat').length;
     count.textContent = selectedSeatCount;
+    costs.textContent = selectedSeatCount * pricePerSeat;
 }
 
 // 선택좌석 저장
@@ -205,15 +206,15 @@ form.addEventListener('submit', (e) => {
       <ul class="showcase">
           <li>
               <div class="availableSeat"></div>
-              <small class="small">Available Seat</small>
+              <small class="small">예약 가능 좌석</small>
           </li>
           <li>
               <div class="selectedSeatIcon"></div>
-              <small class="small">Selected Seat</small>
+              <small class="small">선택 좌석</small>
           </li>
           <li>
               <div class="occupiedSeat"></div>
-              <small class="small">Occupied Seat</small>
+              <small class="small">예약 완료 좌석</small>
           </li>
       </ul>
       <%
@@ -224,6 +225,7 @@ form.addEventListener('submit', (e) => {
       <div class="seatContainer">
          <c:forEach var="rowChar" items="${alphabetList}">
             <div class="row1">
+                        <span>${rowChar}</span>
                 <c:forEach var="seat" items="${params.theaterSeatList}">
                   <c:if test="${seat.sch_no == sch_no }">
                      <c:if test="${seat.ts_id.startsWith(rowChar)}">
@@ -234,8 +236,12 @@ form.addEventListener('submit', (e) => {
             </div>
          </c:forEach>
        </div>
-       <p class="text">고객님께는 총 <span id="count">0</span>개의 좌석을 선택하셨습니다.</p>
-       <button >결제</button>
+       <div>
+          <p class="text">고객님께는 총 <span id="count">0</span>개의 좌석을 선택하셨습니다.<br>
+          결제금액은 총 <span id="costs">0</span>원 입니다.</p>
+       </div>
+    
+    <button style="float: right; color:white; background-color:#339af0; width:80px;">결제</button>
    <input type="hidden" name="mo_no" id="mo_no" value="<%= request.getParameter("mo_no") %>">
    <input type="hidden" name="th_no" id="th_no" value="<%= request.getParameter("th_no") %>">
    <input type="hidden" name="sc_no" id="sc_no" value="<%= request.getParameter("sc_no") %>" >

@@ -22,7 +22,6 @@
         <div class="col-md-6">
             <div class="d-flex flex-wrap align-items-center justify-content-end gap-2 mb-3">
             </div>
-            <div style=" text-align: right; font-size: 1.0rem" ><a href="freeBoardWrite">작성</a></div>
         </div>
         <div class="col-lg-12">
             <div class="">
@@ -56,8 +55,8 @@
       <div class="container">         
          <c:if test="${member.mem_id!=null and member.mem_id == freeBoard.bo_writerId}">
          <div class="row">
-         <a href = "freeBoardUpdate?bo_no=${freeBoard.bo_no}">수정</a>
-         <a href = "freeBoardDelete?bo_no=${freeBoard.bo_no}">삭제</a>
+         <a href = "freeBoardUpdate?bo_no=${freeBoard.bo_no}" class="btn btn-primary">수정</a>
+         <a href = "freeBoardDelete?bo_no=${freeBoard.bo_no}" class="btn btn-primary">삭제</a>
          </div>
          </c:if>
          </div>

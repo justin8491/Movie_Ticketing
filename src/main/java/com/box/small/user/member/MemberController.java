@@ -11,6 +11,7 @@ import com.box.small.user.review.ReviewService;
 import com.box.small.user.schedule.ScheduleDto;
 import com.box.small.user.schedule.ScheduleService;
 import com.box.small.user.schedule.ScreenDto;
+import com.box.small.user.support.SupportService;
 import com.box.small.user.theater.TheaterDto;
 import com.box.small.user.theater.TheaterService;
 import com.box.small.user.theaterseat.TheaterseatDto;
@@ -49,6 +50,9 @@ public class MemberController {
 
     @Autowired
     ReviewService reviewService;
+    
+    @Autowired
+    SupportService supportService;
     
     @Autowired
 	private MovieService movieService;
@@ -147,7 +151,7 @@ public class MemberController {
         logger.info("회원상세 폼");
         mav.addObject("reviewList", reviewService.findReview(member));
         mav.addObject("member", memberService.detailMember(member));
-        
+        mav.addObject("myBoard", supportService.myBoard(member.getMem_id()));
         System.out.println(member.getMem_id());
         //김도현
     	List<ReservationDto> reservationList = reservationService.reservationList(member.getMem_id());

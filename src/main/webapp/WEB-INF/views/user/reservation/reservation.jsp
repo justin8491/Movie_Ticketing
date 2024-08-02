@@ -68,6 +68,8 @@ document.addEventListener("DOMContentLoaded", function() {
         const spanWeekOfDay = document.createElement("span");
         const spanDay = document.createElement("span");
 
+        button.style.boxShadow = "none";
+        
         button.classList.add("movie-date-wrapper");
         spanWeekOfDay.classList.add("movie-week-of-day");
         spanDay.classList.add("movie-day");
@@ -184,7 +186,7 @@ document.addEventListener("DOMContentLoaded", function() {
                   <p class="tit">영화</p>
                      <div class="list-area">
                         <div class="all-list">
-                           <button type="button" class="btn-tab on" id="movieAll">전체</button>
+                           <button type="button" class="btn-tab on" id="movieAll" style="box-shadow: none;">전체</button>
                            <div class="list">
                               <div class="scroll m-scroll mCustomScrollbar _mCS_1" id="movieList">
                                  <div id="mCSB_1" class="mCustomScrollBox mCS-light mCSB_vertical mCSB_inside" style="max-height: none;" tabindex="0">
@@ -193,7 +195,7 @@ document.addEventListener("DOMContentLoaded", function() {
                                           <c:forEach var = "movie" items="${movieServiceList}">
                                              <li>
                                                 <!-- 영화선택시 페이지를 다시 불러오기 위해 type="button" 삭제 -->
-                                                <button  class="btn" type="button" id="mn_${movie.mo_no }" onclick="mnClk(${movie.mo_no })">
+                                                <button  class="btn" type="button" id="mn_${movie.mo_no }" style="box-shadow: none;" onclick="mnClk(${movie.mo_no })">
                                                 <span class="movie-grade small ${movie.mo_rating}"></span>
                                                 <span class="txt">${movie.mo_name}</span>
                                                 <c:if test="${movie.mo_no==mo_no }">
@@ -217,13 +219,13 @@ document.addEventListener("DOMContentLoaded", function() {
                   </div>
                   <div class="list-area" id="brchTab">
                      <div class="all-list">
-                        <button type="button" class="btn-tab on">전체</button>
+                        <button type="button" class="btn-tab on" style="box-shadow: none;">전체</button>
                         <div class="list">
                            <div class="scroll" id="brchList">
                               <ul>
                                  <c:forEach var = "theater" items="${theaterList}">
                                     <li>
-                                       <button type="button" class="btn" id="region_${theater.th_no}" onclick="regionClk(${theater.th_no});">
+                                       <button type="button" class="btn" id="region_${theater.th_no}" onclick="regionClk(${theater.th_no});" style="box-shadow: none;">
                                           <span class="txt">${theater.th_name}</span>
                                        </button>
                                     </li>
@@ -240,12 +242,13 @@ document.addEventListener("DOMContentLoaded", function() {
                         <p class="tit">날짜</p>
                      </div>                      
                   <div class="reserve-date"></div>                                        
-                  <button type="submit" value="검색">검색버튼</button>
+                  <button type="submit" value="검색" style="box-shadow: none;">검색하기</button>
                   </div>
                <input type="hidden" id="mo_no" name="mo_no"   value="" /> 
                <input type="hidden" id="th_no" name="th_no" value="" />
                <input type="hidden" id="sch_date" name="sch_date" value="" />
             </form>
+            
                <!-- 상영시간 정보 입력 후 진행-->
                <div class="time-choice">
                   <div class="tit-area">
@@ -256,8 +259,8 @@ document.addEventListener("DOMContentLoaded", function() {
                      <c:if test="${empty param.mo_no or empty param.th_no or empty param.sch_date}">      
                         <div class="no-result" id="playScheduleNonList">
                            <i class="iconset ico-movie-time"></i>
-                           <p class="txt">
-                              영화와 극장을 선택하시면<br> 상영시간표를 비교하여 볼 수 있습니다.
+                           <p class="txt" style="text-align: center;">
+                               영화와 극장을 선택하시면<br> 상영시간표를 비교하여 볼 수 있습니다.
                            </p>
                         </div>
                      </c:if>
@@ -265,21 +268,21 @@ document.addEventListener("DOMContentLoaded", function() {
                      <form action="/user/reservation/reservation2" method="post">
                         <c:if test="${not empty param.mo_no and not empty param.th_no and not empty param.sch_date}">                                 
                            <div class="result">
-                              <div class="scroll m-scroll mCustomScrollbar _mCS_16 mCS_no_scrollbar" id="playScheduleList" style="">
-                                 <div id="mCSB_16" class="mCustomScrollBox mCS-light mCSB_vertical mCSB_inside" style="max-height: none;" tabindex="0">
-                                    <div id="mCSB_16_container" class="mCSB_container mCS_no_scrollbar_y" style="position: relative; top: 0; left: 0;" dir="ltr">
-                                       <ul>
-                                          <c:forEach var = "schedule" items="${schduleList}">
-                                             <li>
-                                                <button  class="btn" name="selectedSchedule" value="${schedule.sch_startTime}" onclick="scheduleClk(${schedule.sch_no},${schedule.sc_no});">
-                                                <span class="txt">${schedule.sc_no}관 ${schedule.sch_startTime}</span>
-                                                </button>
-                                             </li>
-                                          </c:forEach>                                             
-                                       </ul>
-                                    </div>
-                                 </div>
-                              </div>
+                               <div class="scroll m-scroll mCustomScrollbar _mCS_16 mCS_no_scrollbar" id="playScheduleList" style="display: flex; align-items: center; justify-content: center;">
+                                   <div style="max-height: none;" tabindex="0">
+                                       <div style="position: relative; top: 0; left: 0;" dir="ltr">
+                                           <ul>
+                                               <c:forEach var="schedule" items="${schduleList}">
+                                                   <li>
+                                                       <button class="btn" name="selectedSchedule" value="${schedule.sch_startTime}" onclick="scheduleClk(${schedule.sch_no},${schedule.sc_no});" style="box-shadow: none; width: 300px; height: 30px; display: flex; align-items: center; justify-content: center;">
+                                                           <span class="txt">${schedule.sc_no}관 ${schedule.sch_startTime}</span>
+                                                       </button>
+                                                   </li>
+                                               </c:forEach>
+                                           </ul>
+                                       </div>
+                                   </div>
+                               </div>
                            </div>
                         </c:if>
                         <input type="hidden" id="sc_no" name="sc_no" value="" /> 
@@ -289,6 +292,7 @@ document.addEventListener("DOMContentLoaded", function() {
                      </form>
                   </div>
                </div>
+               
          </div>
       </div>
    </div>

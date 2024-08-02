@@ -60,7 +60,7 @@ h2.tit{padding:0 0 15px 0;font-size:1.8666em;font-weight:400;letter-spacing:-1px
 .quick-reserve-area .theater-choice .list-area .btn-tab{width:115px}
 .quick-reserve-area .theater-choice .list-area .other-list .btn-tab{left:155px}
 .quick-reserve-area .theater-choice .list .scroll ul{position:relative;height:100%}
-.quick-reserve-area .theater-choice .list .scroll ul li .btn{overflow:visible;position:relative;width:50%;padding:5px;}
+.quick-reserve-area .theater-choice .list .scroll ul li .btn{overflow:visible;position:relative;width:100%;padding:5px;}
 .quick-reserve-area .theater-choice .list .scroll ul li .btn:after{display:none}
 .quick-reserve-area .theater-choice .list .scroll ul li .btn.on{color:#444;background-color:#ebebeb}
 .quick-reserve-area .theater-choice .list .scroll ul li .btn.on:after{content:'';display:block;position:absolute;right:-6px;top:50%;z-index:2;width:6px;height:11px;margin:-6px 0 0 0;background:url(https://img.megabox.co.kr/static/pc/images/reserve/bg-arr-theater-choice.png) no-repeat 0 0}
@@ -107,7 +107,7 @@ h2.tit{padding:0 0 15px 0;font-size:1.8666em;font-weight:400;letter-spacing:-1px
 .hour-schedule .wrap .view .hour.on{background-color:#555;color:#fff}
 
 .quick-reserve-area .movie-schedule-area{overflow:hidden;margin-top:10px;height:430px;background-color:#fff}
-.quick-reserve-area .movie-schedule-area .no-result{height:100%;padding:150px 0 0 0;text-align:center}
+.quick-reserve-area .movie-schedule-area .no-result{height:100%;padding:150px 0 0 0;text-align:center;}
 .quick-reserve-area .movie-schedule-area .no-result i{display:block;margin:0 auto}
 .quick-reserve-area .movie-schedule-area .no-result .txt{margin-top:10px}
 .quick-reserve-area .movie-schedule-area .result{height:100%;padding:0;text-align:center}
@@ -205,6 +205,10 @@ h2.tit{padding:0 0 15px 0;font-size:1.8666em;font-weight:400;letter-spacing:-1px
     color: red;
     font-weight: bold;
     
+}
+
+.movie-date-wrapper:focus {
+    outline: none; /* 포커스 시 테두리 제거 */
 }
 
 

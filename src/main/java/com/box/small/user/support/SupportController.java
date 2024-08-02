@@ -93,7 +93,7 @@ public class SupportController {
       
       service.inquiryWrite(sp);
       
-      mav.setViewName("redirect:/user/support/support");
+      mav.setViewName("redirect:/");
       
       return mav;
    }
@@ -128,6 +128,24 @@ public class SupportController {
       
       return mav;
    }
+   
+   @GetMapping(value = "/user/support/selectInquiry")
+   public ModelAndView selectInquiry(@RequestParam("bo_no") int bo_no ,
+		   HttpServletRequest request) {
+	   logger.info("1대1문의 상세페이지 이동");
+	   ModelAndView mav = new ModelAndView();
+	   
+	   SupportDto inquiry = service.selectInquiry(bo_no);
+	   List<CommentDto> commentList = commentService.commentList(bo_no);
+	   
+	   mav.addObject("inquiry", inquiry);
+	   mav.addObject("commentList", commentList);
+//      logger.info("CommentList: " + commentList);
+	   mav.setViewName("/user/support/selectInquiry");
+	   
+	   return mav;
+   }
+   
    @GetMapping(value = "/user/support/selectNotice")
    public ModelAndView selectNotice(@RequestParam("bo_no") int bo_no) {
       logger.info("공지사항 상세페이지 이동");
@@ -221,7 +239,7 @@ public class SupportController {
       
       service.freeBoardUpdate(sp);
       
-      mav.setViewName("redirect:/#");
+      mav.setViewName("redirect:/");
       
       return mav;
    }

@@ -45,4 +45,7 @@ public interface SupportDAO {
    
 //   내가 쓴 글 조회
    List<SupportDto> myBoard(String bo_writerId);
+   
+// 1대1문의 상세 페이지
+ SupportDto selectInquiry(int bo_no);
 }
