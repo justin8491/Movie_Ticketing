@@ -15,12 +15,12 @@
 
     <select id="selectById" parameterType="com.box.small.user.member.MemberDto" resultType="com.box.small.user.member.MemberDto">
         select * from member
-        where mem_name = #{mem_name} and mem_phoneNumber = #{mem_phoneNumber}
+        where mem_name = #{mem_name} and mem_phoneNumber = #{mem_phoneNumber} LIMIT 1
     </select>
 
     <select id="selectByPwd" parameterType="com.box.small.user.member.MemberDto" resultType="com.box.small.user.member.MemberDto">
         select * from member
-        where mem_id = #{mem_id} and mem_phoneNumber = #{mem_phoneNumber}
+        where mem_id = #{mem_id} and mem_phoneNumber = #{mem_phoneNumber} LIMIT 1
     </select>
 
     <select id="detailMember" parameterType="com.box.small.user.member.MemberDto" resultType="com.box.small.user.member.MemberDto">

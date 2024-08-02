@@ -100,51 +100,65 @@
 
 
                         <!-- 리뷰 확인 -->
-                        <c:forEach var="item" items="${reviewList}">
-                            <div class="review-item" id="review-${item.rev_no}">
-                                <div class="review-item-box">
-                                    <span>${item.mem_id}</span>
-                                    <span class="review-content" id="review-content-${review.rev_no}">${item.rev_content}</span>
-                                    <div class="star-rating" id="review-rating-${review.rev_no}" title="Rated ${item.rev_rating}.00 out of 5">
-                                        <span style="width:${item.rev_rating * 20}%">
-                                            <strong class="rating">${item.rev_rating}.00</strong> out of 5
-                                        </span>
-                                    </div>
-                                    <span>${item.rev_createdAt}</span>
-                                    <c:if test="${member.mem_id == item.mem_id}">
-                                        <button onclick="showEditForm(${item.rev_no})">수정</button>
-                                        <button onclick="deleteReview(${item.rev_no},${movie.mo_no})">삭제</button>
-                                    </c:if>
-                                        <form class="edit-form" id="edit-form-${item.rev_no}" style="display:none;" onsubmit="return false;">
-                                        <input id="mem_id" name="mem_id" value="${member.mem_id}" readOnly/>
-                                        <textarea id="edit-content-${item.rev_no}">${item.rev_content}</textarea>
-                                        <div id="star-ratingUpdate">
-                                            <span class="starUpdate" data-value="1">&#9733;</span>
-                                            <span class="starUpdate" data-value="2">&#9733;</span>
-                                            <span class="starUpdate" data-value="3">&#9733;</span>
-                                            <span class="starUpdate" data-value="4">&#9733;</span>
-                                            <span class="starUpdate" data-value="5">&#9733;</span>
-                                        </div>
-                                        <input type="hidden" id="reviewRatingUpdate" name="rev_rating" value="0" />
-                                        <button type="submit" onclick="updateReview(${item.rev_no});">저장</button>
-                                        <button type="button" onclick="hideEditForm(${item.rev_no});">취소</button>
-                                    </form>
-                                    </div>
-                                    <br>
+                        <table style="width: 100%;">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <c:forEach var="item" items="${reviewList}">
+                                    <tr id="review-${item.rev_no}">
+                                        <td id="review-mem_id-${item.rev_no}">${item.mem_id}</td>
+                                        <td class="review-content" id="review-content-${item.rev_no}">${item.rev_content}</td>
+                                        <td>
+                                            <div class="star-rating" id="review-rating-${item.rev_no}" title="Rated ${item.rev_rating}.00 out of 5">
+                                                <span style="width:${item.rev_rating * 20}%">
+                                                    <strong class="rating">${item.rev_rating}.00</strong> out of 5
+                                                </span>
+                                            </div>
+                                        </td>
+                                        <td style="width: 5rem;" id="review-createdAt-${item.rev_no}">${item.rev_createdAt}</td>
+                                        <td>
+                                            <c:if test="${member.mem_id == item.mem_id}">
+                                                <button id="updateBtn-${item.rev_no}" onclick="showEditForm(${item.rev_no})">수정</button>
+                                                <button id="deleteBtn-${item.rev_no}" onclick="deleteReview(${item.rev_no},${movie.mo_no})">삭제</button>
+                                            </c:if>
+                                            <form class="edit-form" id="edit-form-${item.rev_no}" style="display:none;" onsubmit="return false;">
+                                                <input id="mem_id" name="mem_id" value="${member.mem_id}" readOnly/>
+                                                <textarea id="edit-content-${item.rev_no}">${item.rev_content}</textarea>
+                                                <div id="star-ratingUpdate">
+                                                    <span class="starUpdate" data-value="1">&#9733;</span>
+                                                    <span class="starUpdate" data-value="2">&#9733;</span>
+                                                    <span class="starUpdate" data-value="3">&#9733;</span>
+                                                    <span class="starUpdate" data-value="4">&#9733;</span>
+                                                    <span class="starUpdate" data-value="5">&#9733;</span>
+                                                </div>
+                                                <input type="hidden" id="reviewRatingUpdate" name="rev_rating" value="0" />
+                                                <button type="submit" onclick="updateReview(${item.rev_no});">저장</button>
+                                                <button type="button" onclick="hideEditForm(${item.rev_no});">취소</button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                </c:forEach>
+                            </tbody>
+                        </table>
 
-                            </div>
-                        </c:forEach>
                       </div><!-- 엔트리콘텐츠 -->
                     </div><!-- .content -->
-                 </div><!-- .page -->
-        </div> <!-- .container -->
+                 </div><!— .page —>
+        </div> <!— .container —>
     </main>
 </div>
 
 <footer>
     <%@ include file="/resources/include/footer_beta.jsp"%>
 </footer>
-<!-- 플러그인 -->
+<!— 플러그인 —>
 <%@ include file="/resources/include/plugin_cdn.jsp"%>
 
 <script src="${path}/detailMovie/js/detailMovie_review.js"></script>

@@ -49,6 +49,7 @@ public class ReviewController {
     public @ResponseBody Map<String, Object> updateReview(ReviewDto review) {
         reviewService.updateReview(review);
         Map<String, Object> map = new HashMap<>();
+        System.out.println(review.getMo_no());
         map.put("review", review);
         map.put("location", "/user/movie/detailMovie?mo_no=" + review.getMo_no());
         logger.info("Movie No : " + review.getMo_no());
