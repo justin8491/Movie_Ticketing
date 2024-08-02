@@ -34,57 +34,53 @@ public class AdminController {
 
 
     @GetMapping(value = "loginForm")
-    public ModelAndView adminLoginForm(){
+    public ModelAndView adminLoginForm() {
         ModelAndView mav = new ModelAndView();
 
         mav.setViewName("admin/admin/login");
         return mav;
     }
 
-    @PostMapping(value ="login")
-    public @ResponseBody Map<String, Object> adminLogin(@RequestParam("a_id")String a_id, @RequestParam("a_password")String a_password, HttpSession session, RedirectAttributes redirectAttributes){
-        Map<String, Object> map = new HashMap<String, Object>();
+    @PostMapping(value = "login")
+    public @ResponseBody Map<String, Object> adminLogin(@RequestParam("a_id") String a_id, @RequestParam("a_password") String a_password, HttpSession session, RedirectAttributes redirectAttributes) {
+        Map<String, Object> map = new HashMap<>();
 //        ModelAndView mav = new ModelAndView();
         try {
-        	
-        	System.out.println("a_id = " + a_id);
-        	System.out.println("a_pw = " + a_password);
-        	
-        	AdminDto admin = new AdminDto(a_id, a_password);
-        	
+            AdminDto admin = new AdminDto();
+            admin.setA_id(a_id);
+            admin.setA_password(a_password);
             admin = adminService.login(admin);
-            
-            System.out.println("service admin = " + admin);
-            
-            if(admin != null){
+            if (admin != null) {
                 session.setAttribute("admin", admin);
                 session.setAttribute("isLogin", true);
                 session.setAttribute("type", "admin");
-//                mav.addObject("memberList", memberList);
-//                mav.setViewName("/homeAdmin_beta");
-                map.put("admin", admin);
-                System.out.println(admin);
-                 map.put("location", "/admin");
+//              mav.addObject("memberList", memberList);
+//              mav.setViewName("/homeAdmin_beta");
+                map.put("msg", "로그인 성공");
+                map.put("location", "/admin");
+            } else {
+                session.setAttribute("isLogin", false);
+                map.put("msg", "로그인 실패");
+                map.put("location", "/admin/loginForm");
             }
-        } catch (NullPointerException e){
-//            mav.setViewName("/admin/login");
-//            map.put("location", "/admin/loginForm");
-        	System.out.println("admin = null");
+        } catch (NullPointerException e) {
+            session.setAttribute("isLogin", false);
+            map.put("msg","비밀번호가 틀립니다.");
+            map.put("location", "/admin/loginForm");
         }
 //        return mav;
         return map;
     }
-    
+
     @GetMapping(value = "selectAllMember")
-    public ModelAndView selectAllMember(){
-            ModelAndView mav = new ModelAndView();
+    public ModelAndView selectAllMember() {
+        ModelAndView mav = new ModelAndView();
         List<MemberDto> memberList = adminService.selectAllMember();
-            mav.addObject("memberList",memberList);
-            mav.setViewName("/admin");
-            return mav;
-        }
-    
-    
+        mav.addObject("memberList", memberList);
+        mav.setViewName("/admin");
+        return mav;
+    }
+
 
     @GetMapping(value = "logout")
     public ModelAndView logout(HttpSession session) {
@@ -93,7 +89,6 @@ public class AdminController {
         mav.setViewName("redirect:/");
         return mav;
     }
-
 
 
 }

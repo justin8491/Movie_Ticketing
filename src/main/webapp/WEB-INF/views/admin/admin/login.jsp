@@ -15,15 +15,30 @@
 
     <!-- //메인 콘텐츠-->
     <!-- //메인 콘텐츠-->
+    <section>
       <div class="container mt-5 user-form login-form">
         <div>
-           <h2>관리자 로그인</h2>
-           <form id="adminLoginForm" action="${contextPath}/admin/login" method="post">
-                <input type="text" name="a_id" id="a_id" placeholder="아이디"><br>
-                <input type="text" name="a_password" id="a_password" placeholder="비밀번호"><br>
-                <input type="submit" value="로그인">
-           </form>
-           <!--
+          <h2>관리자 로그인</h2>
+          <form
+            id="adminLoginForm"
+            action="${contextPath}/admin/login"
+            method="post"
+          >
+            <input
+              type="text"
+              name="a_id"
+              id="a_id"
+              placeholder="아이디"
+            /><br />
+            <input
+              type="password"
+              name="a_password"
+              id="a_password"
+              placeholder="비밀번호"
+            /><br />
+            <input type="submit" value="로그인" />
+          </form>
+          <!--
            <div class="login-btn">
                ${member.mem_id}
                 <a href="${contextPath}/user/createMemberForm">회원가입</a>
@@ -60,10 +75,11 @@ $(document).ready(function () {
       url: "/admin/login", // 회원가입 처리 URL
       data: $("#adminLoginForm").serialize(),
       success: function (response) {
-        alert("관리자 로그인 완료되었습니다!");
+        console.dir(response);
+        alert(response.msg);
         // 필요 시 페이지를 리다이렉트하거나 다른 작업을 수행할 수 있습니다.
-        location.href = "/admin";
-		console.dir(response);
+        window.location.href = response.location;
+
       },
       error: function (xhr, status, error) {
         console.error("AJAX Error: " + error);

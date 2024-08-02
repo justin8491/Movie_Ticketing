@@ -1,6 +1,7 @@
 package com.box.small.user.member;
 
 
+import com.box.small.admin.admin.AdminDto;
 import com.box.small.user.review.ReviewService;
 import com.box.small.user.support.SupportService;
 
@@ -8,14 +9,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpSession;
+import java.util.HashMap;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/user/*")
@@ -41,22 +41,33 @@ public class MemberController {
         return mav;
     }
 
-    @PostMapping("login")
-    public ModelAndView login(MemberDto member, HttpSession session, RedirectAttributes redirectAttributes) {
-        ModelAndView mav = new ModelAndView();
+    @PostMapping(value = "login")
+    public @ResponseBody Map<String, Object> login(@RequestParam("mem_id") String mem_id, @RequestParam("mem_password") String mem_password, HttpSession session) {
+        Map<String, Object> map = new HashMap<>();
+//        ModelAndView mav = new ModelAndView();
         logger.info("로그인 프로세스");
         try {
+            MemberDto member = new MemberDto();
+            member.setMem_id(mem_id);
+            member.setMem_password(mem_password);
             member = memberService.login(member);
             if (member != null) {
                 session.setAttribute("member", member);
                 session.setAttribute("isLogin", true);
                 session.setAttribute("type", "user");
-                mav.setViewName("redirect:/");
+                map.put("msg", "로그인 성공");
+                map.put("location", "/");
+            } else {
+                session.setAttribute("isLogin", false);
+                map.put("msg", "존재하지 않는 아이디 입니다.");
+                map.put("location", "/user/loginForm");
             }
         } catch (NullPointerException e) {
-            mav.setViewName("user/member/loginForm");
+            session.setAttribute("isLogin", false);
+            map.put("msg", "비밀번호가 틀립니다.");
+            map.put("location", "/user/loginForm");
         }
-        return mav;
+        return map;
     }
 
     @GetMapping(value = "logout")
@@ -142,39 +153,55 @@ public class MemberController {
     }
 
     @PostMapping(value = "selectById")
-    public ModelAndView selectById(MemberDto member) {
-        ModelAndView mav = new ModelAndView();
+    @ResponseBody
+    public Map<String, Object> selectById(MemberDto member) {
+        Map<String, Object> response = new HashMap<>();
         logger.info(member.getMem_name());
         logger.info(member.getMem_phoneNumber());
         try {
             member = memberService.selectById(member);
-            logger.info("Member ID : " + member.getMem_id());
-            mav.addObject("msg_title", "아이디찾기");
-            mav.addObject("req", member.getMem_id());
-        } catch (NullPointerException e) {
-            logger.error("검색 아이디가 존재하지 않습니다.");
-            mav.addObject("msg_title", "아이디찾기");
-            mav.addObject("req", "검색 아이디가 존재하지 않습니다.");
+
+            if (member == null) {
+                logger.error("검색 아이디가 존재하지 않습니다.");
+                response.put("msg", "검색 아이디가 존재하지 않습니다.");
+                response.put("location", "/user/getByIdOrPwd");
+            } else {
+                logger.info("Member ID : " + member.getMem_id());
+                response.put("msg", "아이디 : " + member.getMem_id());
+                response.put("location", "/user/loginForm");
+            }
+        } catch (Exception e) {
+            logger.error("예외 발생", e);
+            response.put("msg", "오류가 발생했습니다.");
+            response.put("location", "/user/getByIdOrPwd");
         }
-        mav.setViewName("user/member/loginForm");
-        return mav;
+        return response;
     }
 
     @PostMapping(value = "selectByPwd")
-    public ModelAndView selectByPwd(MemberDto member) {
-        ModelAndView mav = new ModelAndView();
+    @ResponseBody
+    public Map<String, Object> selectByPwd(MemberDto member) {
+        Map<String, Object> response = new HashMap<>();
         try {
             member = memberService.selectByPwd(member);
-            logger.info("Member PWD : " + member.getMem_password());
-            mav.addObject("req", member.getMem_password());
-            mav.addObject("msg_title", "비밀번호찾기");
-        } catch (NullPointerException e) {
-            mav.addObject("msg_title", "비밀번호찾기");
-            mav.addObject("req", "아이디 전화번호의 비밀번호가 존재하지 않습니다.");
+
+            if (member == null) {
+                logger.error("아이디 전화번호의 비밀번호가 존재하지 않습니다.");
+                response.put("msg", "아이디 전화번호의 비밀번호가 존재하지 않습니다.");
+                response.put("location", "/user/getByIdOrPwd");
+            } else {
+                logger.info("Member PWD : " + member.getMem_password());
+                response.put("msg", "비밀번호 : " + member.getMem_password());
+                response.put("location", "/user/loginForm");
+            }
+        } catch (Exception e) {
+            logger.error("예외 발생", e);
+            response.put("msg", "오류가 발생했습니다.");
+            response.put("location", "/user/getByIdOrPwd");
         }
-        mav.setViewName("user/member/loginForm");
-        return mav;
+        return response;
     }
+
 }
 
 
