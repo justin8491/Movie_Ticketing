@@ -130,27 +130,8 @@
                         </div>
                       </div>
                     </div>
-                    <div class="form-group row float">
-                      <div class="box">
-                        <label
-                          for="mem_accumulatedAmount"
-                          class="col-sm-2 col-form-label"
-                          >누적금액</label
-                        >
-                        <div class="col-sm-10">
-                          <input
-                            type="text"
-                            class="form-control"
-                            id="mem_accumulatedAmount"
-                            value="${member.mem_accumulatedAmount}"
-                            placeholder="누적금액"
-                            readonly
-                          />
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="form-group row float">
+                    
+                      <div class="form-group row float">
                       <div class="box">
                         <label for="mem_address" class="col-sm-2 col-form-label"
                           >주소</label
@@ -167,6 +148,29 @@
                         </div>
                       </div>
                     </div>
+                    
+                    <div class="form-group row float">
+                      <div class="box">
+                        <label
+                          for="mem_accumulatedAmount"
+                          class="col-sm-2 col-form-label"
+                          ></label
+                        >
+                        <div class="col-sm-10">
+                          <input
+                            type="hidden"
+                            class="form-control"
+                            id="mem_accumulatedAmount"
+                            value="${member.mem_accumulatedAmount}"
+                            placeholder="누적금액"
+                            readonly
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                  
+                    
                     <div class="form-group row float">
                       <div class="box">
                         <div class="offset-sm-2">

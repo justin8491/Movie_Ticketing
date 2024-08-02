@@ -2,5 +2,6 @@
 <<<<<<<=HEAD
 >>>>>>>=master
 eclipse.preferences.version=1
+encoding//src/main/webapp/WEB-INF/views/admin/adminComment/adminComment.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/home.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/user/comment/comment.jsp=UTF-8

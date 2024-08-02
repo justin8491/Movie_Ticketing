@@ -90,11 +90,11 @@ prefix="c" %>
           </div>
           <div class="form-group row">
             <label for="mem_accumulatedAmount" class="col-sm-2 col-form-label"
-              >누적금액</label
+              ></label
             >
             <div class="col-sm-5">
               <input
-                type="text"
+                type="hidden"
                 name="mem_accumulatedAmount"
                 class="form-control"
                 id="mem_accumulatedAmount"

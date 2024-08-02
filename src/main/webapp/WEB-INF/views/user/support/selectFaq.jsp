@@ -21,21 +21,23 @@
             </div>
    <table class="table table-hover">
             <tr>
-               <th>번호</th><th>제목</th><th>작성자ID</th><th>생성일</th>
+               <th class = "text-number" style = "width:75px;">번호</th><th>제목</th><th class = "text-center">작성자ID</th><th class = "text-end">생성일</th>
             </tr>
          
             <tr>
-               <td>${faqlist.bo_no}</td>
+               <td class = "text-number">${faqlist.bo_no}</td>
                <td>${faqlist.bo_title}</td>
-               <td>${faqlist.bo_writerId}</td>
-               <td>${faqlist.bo_createAt}</td>
+               <td class = "text-end">${faqlist.bo_writerId}</td>
+               <td class = "text-end">${faqlist.bo_createAt}</td>
             </tr>
             <tr>
-            <th>내용:</th>
+            <th class = "text-number">내용:</th>
                <td colspan = "4">${faqlist.bo_content}</td>
             </tr>
          
          </table>
+         </div>
+         </div>
          </section>
     <!-- //footer -->
     <footer>

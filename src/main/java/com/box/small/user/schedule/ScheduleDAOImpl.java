@@ -28,6 +28,11 @@ public class ScheduleDAOImpl implements ScheduleDAO{
 	@Override
 	public List<ScheduleDto> selectScreenSchedule(Map<String, Object> map) {
 		// TODO Auto-generated method stub
+		System.out.println("dao적용.");
+		System.out.println("map , mo_no= " + map.get("mo_no"));
+		System.out.println("map , th_no= " + map.get("th_no"));
+		System.out.println("map , sch_date= " + map.get("sch_date"));
+		System.out.println("map , sc_no= " + map.get("sc_no"));
 		return sqlSession.selectList(namespace+".selectScreenSchedule", map);
 	}
 

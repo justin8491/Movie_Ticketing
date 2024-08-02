@@ -26,7 +26,7 @@
                               </div>
                               <div>
                                   <label for="mem_password">비밀번호<span class="red">*</span></label>
-                                  <input type="text" name="mem_password" id="mem_password" value="" placeholder="비밀번호" >
+                                  <input type="password" name="mem_password" id="mem_password" value="" placeholder="비밀번호" >
                               </div>
                               <div>
                                   <label for="mem_name">이름<span class="red">*</span></label>
@@ -41,8 +41,8 @@
                                   <input type="text" name="mem_phoneNumber" id="mem_phoneNumber" value="" placeholder="전화번호" >
                               </div>
                               <div>
-                                  <label for="mem_accumulatedAmount">누적금액</label>
-                                  <input type="text" name="mem_accumulatedAmount" id="mem_accumulatedAmount" value="" placeholder="누적금액" >
+                                  <label for="mem_accumulatedAmount"></label>
+                                  <input type="hidden" name="mem_accumulatedAmount" id="mem_accumulatedAmount" value="0" placeholder="누적금액" >
                               </div>
                               <!--<div>
                                   <label for="mem_status">상태</label>

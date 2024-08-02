@@ -20,7 +20,7 @@
            <h2>관리자 로그인</h2>
            <form id="adminLoginForm" action="${contextPath}/admin/login" method="post">
                 <input type="text" name="a_id" id="a_id" placeholder="아이디"><br>
-                <input type="text" name="a_password" id="a_password" placeholder="비밀번호"><br>
+                <input type="password" name="a_password" id="a_password" placeholder="비밀번호"><br>
                 <input type="submit" value="로그인">
            </form>
            <!--

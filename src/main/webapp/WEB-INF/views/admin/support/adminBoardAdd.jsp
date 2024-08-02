@@ -21,7 +21,7 @@
 			<form action="adminBoardAdd" method="post">
 		
         <label for="writerId"></label><br>
-        <input type="hidden" id="writerId" name="bo_writerId" value = "${member.mem_id}"><br><br>
+        <input type="hidden" id="writerId" name="bo_writerId" value = "${admin.a_id}"><br><br>
         
         <label for="cat_no">카테고리:</label><br>
         <input type="number" id="cat_no" name="cat_no" required><br><br>

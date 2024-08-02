@@ -16,8 +16,8 @@
 #container{
     display: flex;
     flex-direction: column;
-    justify-content: center;	/*세로정렬*/
-    align-items: center;	  /*가로정렬*/ 
+    justify-content: center;   /*세로정렬*/
+    align-items: center;     /*가로정렬*/ 
     height: 800px;
 
 }
@@ -129,7 +129,7 @@ li{
     border-top-right-radius: 10px;
 }
 
-.row{
+.row1{
     display: flex;
     justify-content: center;
 }
@@ -197,59 +197,59 @@ form.addEventListener('submit', (e) => {
     
 <body>
 <header id="header">
-	<%@ include file = "/resources/include/header_beta.jsp"%>
+   <%@ include file = "/resources/include/header_beta.jsp"%>
 </header>
-	
+   
 <div id="container">
-	<form action="/user/payment/payment" method="get">
-		<ul class="showcase">
-		    <li>
-		        <div class="availableSeat"></div>
-		        <small class="small">Available Seat</small>
-		    </li>
-		    <li>
-		        <div class="selectedSeatIcon"></div>
-		        <small class="small">Selected Seat</small>
-		    </li>
-		    <li>
-		        <div class="occupiedSeat"></div>
-		        <small class="small">Occupied Seat</small>
-		    </li>
-		</ul>
-		<%
-		String sch_no = request.getParameter("sch_no");
-		pageContext.setAttribute("sch_no", sch_no);
-		%>
-		
-		<div class="seatContainer">
-		   <c:forEach var="rowChar" items="${alphabetList}">
-				<div class="row">
-				    <c:forEach var="seat" items="${params.theaterSeatList}">
-						<c:if test="${seat.sch_no == sch_no }">
-							<c:if test="${seat.ts_id.startsWith(rowChar)}">
-								<span class="${seat.ts_reservationStatus == 0 ? 'seat' : 'occupiedSeat'}" name="${seat.ts_no}" ></span>
-							</c:if>
-						</c:if>
-					</c:forEach>
-				</div>
-			</c:forEach>
-	    </div>
-	    <p class="text">You have selected <span id="count">0</span> seats for a price of $ <span id="costs">0</span></p>
-	 	<button >결제test</button>
-	<input type="hidden" name="mo_no" id="mo_no" value="<%= request.getParameter("mo_no") %>">
-	<input type="hidden" name="th_no" id="th_no" value="<%= request.getParameter("th_no") %>">
-	<input type="hidden" name="sc_no" id="sc_no" value="<%= request.getParameter("sc_no") %>" >
-	<input type="hidden" name="sch_date" id="sch_date" value="<%= request.getParameter("sch_date") %>"> 
-	<input type="hidden" name="sch_no" id="sch_no" value="<%= request.getParameter("sch_no") %>">
-	<input type="hidden" name="mem_id" id ="mem_id" value="${member.mem_id }">
-	<input type="hidden" name="ts_no" id="ts_no" value="">
- 	</form>
+   <form action="/user/payment/payment" method="get">
+      <ul class="showcase">
+          <li>
+              <div class="availableSeat"></div>
+              <small class="small">Available Seat</small>
+          </li>
+          <li>
+              <div class="selectedSeatIcon"></div>
+              <small class="small">Selected Seat</small>
+          </li>
+          <li>
+              <div class="occupiedSeat"></div>
+              <small class="small">Occupied Seat</small>
+          </li>
+      </ul>
+      <%
+      String sch_no = request.getParameter("sch_no");
+      pageContext.setAttribute("sch_no", sch_no);
+      %>
+      
+      <div class="seatContainer">
+         <c:forEach var="rowChar" items="${alphabetList}">
+            <div class="row1">
+                <c:forEach var="seat" items="${params.theaterSeatList}">
+                  <c:if test="${seat.sch_no == sch_no }">
+                     <c:if test="${seat.ts_id.startsWith(rowChar)}">
+                        <span class="${seat.ts_reservationStatus == 0 ? 'seat' : 'occupiedSeat'}" name="${seat.ts_no}" ></span>
+                     </c:if>
+                  </c:if>
+               </c:forEach>
+            </div>
+         </c:forEach>
+       </div>
+       <p class="text">고객님께는 총 <span id="count">0</span>개의 좌석을 선택하셨습니다.</p>
+       <button >결제</button>
+   <input type="hidden" name="mo_no" id="mo_no" value="<%= request.getParameter("mo_no") %>">
+   <input type="hidden" name="th_no" id="th_no" value="<%= request.getParameter("th_no") %>">
+   <input type="hidden" name="sc_no" id="sc_no" value="<%= request.getParameter("sc_no") %>" >
+   <input type="hidden" name="sch_date" id="sch_date" value="<%= request.getParameter("sch_date") %>"> 
+   <input type="hidden" name="sch_no" id="sch_no" value="<%= request.getParameter("sch_no") %>">
+   <input type="hidden" name="mem_id" id ="mem_id" value="${member.mem_id }">
+   <input type="hidden" name="ts_no" id="ts_no" value="">
+    </form>
 </div>
 
-	
+   
 <!-- //footer -->
 <footer>
-	<%@ include file = "/resources/include/footer_beta.jsp"%>
+   <%@ include file = "/resources/include/footer_beta.jsp"%>
 </footer>
 <!-- 플러그인 -->
 <%@ include file = "/resources/include/plugin_cdn.jsp"%>

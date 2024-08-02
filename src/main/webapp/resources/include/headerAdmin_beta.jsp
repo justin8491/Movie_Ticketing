@@ -21,7 +21,7 @@
                     <li><a href="${contextPath}/admin/theater/adminTheater">영화관</a></li>
                     <li><a href="${contextPath}/admin/schedule/adminSchedule">상영스케줄</a></li>
                     <li><a href="${contextPath}/admin/reservation/adminReservation">예매취소</a></li>
-                    <li><a href="${contextPath}/admin/support/support">고객센터</a></li>
+                    <li><a href="${contextPath}/admin/support/adminSupport">고객센터</a></li>
                     <c:if test="${admin != null && isLogin == true}">
                         <li><a href="/admin">관리자</a></li>
                         <li><a href="${contextPath}/admin/logout">로그아웃</a></li>
