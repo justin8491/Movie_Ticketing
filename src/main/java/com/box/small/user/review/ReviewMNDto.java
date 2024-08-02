@@ -11,8 +11,6 @@ import java.sql.Timestamp;
 
 @Getter
 @Setter
-@AllArgsConstructor
-@NoArgsConstructor
 public class ReviewMNDto {
 
     private String mo_name;
