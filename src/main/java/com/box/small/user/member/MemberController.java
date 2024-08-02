@@ -1,21 +1,44 @@
 package com.box.small.user.member;
 
 
-import com.box.small.admin.admin.AdminDto;
+import com.box.small.user.movie.MovieDto;
+import com.box.small.user.movie.MovieService;
+import com.box.small.user.payment.PaymentService;
+import com.box.small.user.reservation.ReservationDataListDto;
+import com.box.small.user.reservation.ReservationDto;
+import com.box.small.user.reservation.ReservationService;
 import com.box.small.user.review.ReviewService;
+import com.box.small.user.schedule.ScheduleDto;
+import com.box.small.user.schedule.ScheduleService;
+import com.box.small.user.schedule.ScreenDto;
 import com.box.small.user.support.SupportService;
+import com.box.small.user.theater.TheaterDto;
+import com.box.small.user.theater.TheaterService;
+import com.box.small.user.theaterseat.TheaterseatDto;
+import com.box.small.user.theaterseat.TheaterseatService;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import javax.servlet.http.HttpSession;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+
+import javax.servlet.http.HttpSession;
+
 
 @Controller
 @RequestMapping("/user/*")
@@ -31,7 +54,22 @@ public class MemberController {
 
     @Autowired
     SupportService supportService;
-
+    
+    @Autowired
+    private MovieService movieService;
+    @Autowired
+    private TheaterService theaterService;
+    @Autowired
+    private TheaterseatService theartseatService;
+    @Autowired
+    private ScheduleService scheduleService;
+   
+    //test용
+    @Autowired
+    private ReservationService reservationService;
+    @Autowired
+    private PaymentService payService;
+    
     @GetMapping(value = "loginForm")
     public ModelAndView loginForm() {
         ModelAndView mav = new ModelAndView();
@@ -106,13 +144,25 @@ public class MemberController {
     }
 
     @GetMapping(value = "detailMember")
-    public ModelAndView detailMember(MemberDto member, HttpSession session) {
+    public ModelAndView detailMember(MemberDto member, HttpSession session) throws SQLException {
         ModelAndView mav = new ModelAndView();
         member = (MemberDto) session.getAttribute("member");
         logger.info("회원상세 폼");
         mav.addObject("reviewList", reviewService.findReview(member));
         mav.addObject("member", memberService.detailMember(member));
         mav.addObject("myBoard", supportService.myBoard(member.getMem_id()));
+        List<ReservationDto> reservationList = reservationService.reservationList(member.getMem_id());
+        System.out.println(reservationList);
+       List<MovieDto> movieList = movieService.selectAllMovie();
+       List<ScheduleDto> schedeuleList = scheduleService.selectAllSchedule();
+       List<TheaterDto> theaterList = theaterService.selectAllTheater();
+       List<ScreenDto> screenList = scheduleService.selectAllScreen();
+       List<TheaterseatDto> theaterseatList = theartseatService.seatListAll();
+       List<ReservationDataListDto> dataList = new ArrayList<>();
+       dataList.add(new ReservationDataListDto(reservationList,movieList,schedeuleList,theaterList,screenList,theaterseatList));
+       
+       mav.addObject("dataList", dataList);
+        
         mav.setViewName("user/member/detailMember");
         return mav;
     }
@@ -202,6 +252,35 @@ public class MemberController {
         return response;
     }
 
+    @ResponseBody
+    @PostMapping(value="detailMember", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public List<ReservationDataListDto> cancelReservation(@RequestBody Map<String, Object> params, HttpSession session) throws SQLException {
+         
+        ModelAndView mav = new ModelAndView();
+        MemberDto member = (MemberDto) session.getAttribute("member");
+         logger.info("회원상세 폼");
+         mav.addObject("reviewList", reviewService.findReview(member));
+         mav.addObject("member", memberService.detailMember(member));
+        
+        reservationService.cancelReservation(params);
+       ReservationDto reservationDto =  reservationService.selectReservation(params);
+       payService.canclePayment(params);   
+       int ts_no = reservationDto.getTs_no();
+       params.put("ts_no", ts_no);
+       theartseatService.cancelSeat(params);
+       
+       String mem_id = "test"; 
+       List<ReservationDto> reservationList = reservationService.reservationList(mem_id);
+       List<MovieDto> movieList = movieService.selectAllMovie();
+       List<ScheduleDto> schedeuleList = scheduleService.selectAllSchedule();
+       List<TheaterDto> theaterList = theaterService.selectAllTheater();
+       List<TheaterseatDto> theaterseatList = theartseatService.seatListAll();
+       List<ReservationDataListDto> dataList = new ArrayList<>();
+       List<ScreenDto> screenList = scheduleService.selectAllScreen();
+       dataList.add(new ReservationDataListDto(reservationList,movieList,schedeuleList,theaterList,screenList,theaterseatList));
+       return dataList;
+    }
+    
 }
 
 
