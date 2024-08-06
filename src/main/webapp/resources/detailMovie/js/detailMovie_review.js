@@ -73,32 +73,46 @@ $(document).ready(function() {
     // 리뷰 수정 기능 추가
     window.showEditForm = function(reviewId) {
         $('#edit-form-' + reviewId).show(); // 해당 리뷰의 수정 폼 표시
+
         $('#review-' + reviewId + ' .review-content').hide(); // 기존 리뷰 내용 숨김
+        $('#review-mem_id-' + reviewId).hide();
+        $('#review-rating-' + reviewId).hide();
+        $('#review-createdAt-' + reviewId).hide();
+        $('#updateBtn-' + reviewId).hide();
+        $('#deleteBtn-' + reviewId).hide();
     };
 
     window.hideEditForm = function(reviewId) {
         $('#edit-form-' + reviewId).hide(); // 해당 리뷰의 수정 폼 숨김
         $('#review-' + reviewId + ' .review-content').show(); // 기존 리뷰 내용 표시
+        $('#review-mem_id-' + reviewId).show();
+        $('#review-rating-' + reviewId).show();
+        $('#review-createdAt-' + reviewId).show();
+        $('#updateBtn-' + reviewId).show();
+        $('#deleteBtn-' + reviewId).show();
     };
 
     window.updateReview = function(reviewId) {
         var editedContent = $('#edit-content-' + reviewId).val();
         var reviewRatingUpdate = $('#reviewRatingUpdate').val();
+        var mo_no = $('#mo_no').val();
 
         if (reviewRatingUpdate != 0) {
             $.ajax({
                 type: 'POST',
                 url: '/user/movie/updateReview', // 리뷰 수정 처리 URL
                 data: {
+                    mo_no: mo_no,
                     rev_no: reviewId,
                     rev_content: editedContent,
                     rev_rating: reviewRatingUpdate // 수정된 부분
                 },
                 success: function(response) {
                     alert('리뷰 수정이 완료되었습니다!');
+                    window.location = response.location;
                     // DOM 업데이트
-                    $('#review-content-' + reviewId).text(editedContent); // 수정된 내용 반영
-                    $('#review-rating-' + reviewId).text(reviewRatingUpdate); // 수정된 평점 반영
+                    //$('#review-content-' + reviewId).text(editedContent); // 수정된 내용 반영
+                    //$('#review-rating-' + reviewId).text(reviewRatingUpdate); // 수정된 평점 반영
 
                 // 필요 시 추가적인 UI 업데이트
                 // 예: 수정한 리뷰가 있는 영역을 강조
