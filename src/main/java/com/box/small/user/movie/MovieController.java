@@ -41,6 +41,7 @@ public class MovieController {
 		mav.setViewName("/user/movie/movieList");
 		return mav;
 	}
+	
     @GetMapping(value = "/user/movie/detailMovie")
     public ModelAndView selectMovie(@RequestParam("mo_no") int mo_no, HttpSession session, MovieLikeDto ml) throws SQLException {
 
